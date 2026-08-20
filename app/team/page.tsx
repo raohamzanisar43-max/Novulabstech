@@ -4,9 +4,9 @@ import TeamGridSection from '@/components/sections/team/TeamGridSection';
 import TeamCta from '@/components/sections/team/TeamCta';
 
 export const metadata: Metadata = {
-  title: 'Our Engineering Team – Senior Architects & Compliance Experts | NovuLabs',
+  title: 'Engineering & Compliance Team',
   description:
-    'Meet the NovuLabs engineering team: senior architects, fintech compliance engineers, healthcare IT specialists, and AML/CFT experts. Every team member is an active practitioner — no sales reps.',
+    'The architects and compliance engineers who do the work, with the credentials to check. Every person listed is an active practitioner, not a sales rep.',
   keywords: [
     'NovuLabs team',
     'software engineers Pakistan',
@@ -22,13 +22,13 @@ export const metadata: Metadata = {
     title: 'Engineering Team – NovuLabs',
     description: 'Senior architects, fintech engineers and AML/CFT compliance experts at NovuLabs.',
     url: 'https://www.novulabs.net/team',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'NovuLabs Team' }],
+    images: [{ url: '/hero/team.jpg', width: 1920, height: 1080, alt: 'NovuLabs Team' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Engineering Team | NovuLabs',
     description: 'Senior architects, fintech, AML, and healthcare IT engineers at NovuLabs.',
-    images: ['/og-image.png'],
+    images: ['/hero/team.jpg'],
   },
 };
 

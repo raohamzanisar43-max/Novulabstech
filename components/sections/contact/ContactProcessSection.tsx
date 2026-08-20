@@ -14,28 +14,28 @@ const ContactProcessSection: React.FC = () => {
           <div className="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
             <div className="wcard text-center">
               <div style={{ width: '46px', height: '46px', borderRadius: '50%', background: 'var(--g-main)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--fh)', fontWeight: '800', color: '#1A1208', margin: '0 auto 16px', boxShadow: 'var(--sh-glow)' }}>1</div>
-              <h5 className="ctitle">You Reach Out</h5>
+              <h3 className="ctitle">You Reach Out</h3>
               <p className="ctext">Fill in the form. The more context you share, the more specific our advice will be.</p>
             </div>
           </div>
           <div className="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="70">
             <div className="wcard text-center">
               <div style={{ width: '46px', height: '46px', borderRadius: '50%', background: 'linear-gradient(135deg,#0ea5a0,#0c8a86)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--fh)', fontWeight: '800', color: '#fff', margin: '0 auto 16px', boxShadow: '0 6px 20px rgba(14,165,160,.3)' }}>2</div>
-              <h5 className="ctitle">We Review</h5>
+              <h3 className="ctitle">We Review</h3>
               <p className="ctext">Our architects review your needs and assign the right specialist within 4 business hours.</p>
             </div>
           </div>
           <div className="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="140">
             <div className="wcard text-center">
               <div style={{ width: '46px', height: '46px', borderRadius: '50%', background: 'linear-gradient(135deg,#7c3aed,#6d28d9)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--fh)', fontWeight: '800', color: '#fff', margin: '0 auto 16px', boxShadow: '0 6px 20px rgba(124,58,237,.3)' }}>3</div>
-              <h5 className="ctitle">45-Minute Call</h5>
+              <h3 className="ctitle">45-Minute Call</h3>
               <p className="ctext">Discovery call with a senior architect to explore requirements and goals — zero commitment.</p>
             </div>
           </div>
           <div className="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="210">
             <div className="wcard text-center">
               <div style={{ width: '46px', height: '46px', borderRadius: '50%', background: 'linear-gradient(135deg,#ea580c,#c2410c)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--fh)', fontWeight: '800', color: '#fff', margin: '0 auto 16px', boxShadow: '0 6px 20px rgba(234,88,12,.3)' }}>4</div>
-              <h5 className="ctitle">Custom Proposal</h5>
+              <h3 className="ctitle">Custom Proposal</h3>
               <p className="ctext">A detailed technical proposal with architecture, timeline, and investment within 5 business days.</p>
             </div>
           </div>

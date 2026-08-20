@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { servicePages } from '@/content/servicePages';
 
 const Footer: React.FC = () => {
   const [subscribed, setSubscribed] = useState(false);
@@ -51,30 +52,34 @@ const Footer: React.FC = () => {
                 A premier international enterprise software house headquartered in Islamabad. Engineering mission-critical platforms across 40+ countries since 2026.
               </p>
               <div className="ft-contact-items">
-                <a href="mailto:Info@novulabs.net" className="ft-contact-item">
-                  <i className="bi bi-envelope-fill"></i>Info@novulabs.net
+                <a href="mailto:info@novulabs.net" className="ft-contact-item">
+                  <i className="bi bi-envelope-fill"></i>info@novulabs.net
                 </a>
                 <span className="ft-contact-item">
                   <i className="bi bi-geo-alt-fill"></i>Islamabad, Pakistan
                 </span>
               </div>
               <div className="ft-socs">
-                <a href="https://www.linkedin.com/company/novu-labs/?viewAsMember=true" target="_blank" rel="noopener noreferrer" className="fsoc" title="LinkedIn"><i className="bi bi-linkedin"></i></a>
+                <a href="https://www.linkedin.com/company/novu-labs/" target="_blank" rel="noopener noreferrer" className="fsoc" title="LinkedIn"><i className="bi bi-linkedin"></i></a>
                 <a href="https://www.facebook.com/profile.php?id=61592003789179" target="_blank" rel="noopener noreferrer" className="fsoc" title="Facebook"><i className="bi bi-facebook"></i></a>
-                <a href="https://www.instagram.com/novu_labs?igsh=ZXZsYmF0dnFubHJn" target="_blank" rel="noopener noreferrer" className="fsoc" title="Instagram"><i className="bi bi-instagram"></i></a>
+                <a href="https://www.instagram.com/novu_labs" target="_blank" rel="noopener noreferrer" className="fsoc" title="Instagram"><i className="bi bi-instagram"></i></a>
               </div>
             </div>
 
             <div className="col-6 col-lg-3">
               <div className="ft-head">Services</div>
               <ul className="ft-links">
-                <li><Link href="/services#web"><i className="bi bi-chevron-right"></i>Web Development</Link></li>
-                <li><Link href="/services#enterprise"><i className="bi bi-chevron-right"></i>Enterprise Software</Link></li>
-                <li><Link href="/services#fintech"><i className="bi bi-chevron-right"></i>Financial Software</Link></li>
-                <li><Link href="/services#mobile"><i className="bi bi-chevron-right"></i>Mobile Apps</Link></li>
-                <li><Link href="/services#healthcare"><i className="bi bi-chevron-right"></i>Healthcare IT</Link></li>
-                <li><Link href="/services#compliance"><i className="bi bi-chevron-right"></i>AML &amp; Compliance</Link></li>
-                <li><Link href="/services#cloud"><i className="bi bi-chevron-right"></i>Cloud &amp; AI</Link></li>
+                {/* Previously seven /services#anchor fragments. Fragments pass
+                    no independent link equity — the footer looked like it linked
+                    to seven places and linked to one. */}
+                {servicePages.map((s) => (
+                  <li key={s.slug}>
+                    <Link href={`/services/${s.slug}`}>
+                      <i className="bi bi-chevron-right"></i>
+                      {s.navLabel}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
 
@@ -82,11 +87,12 @@ const Footer: React.FC = () => {
               <div className="ft-head">Company</div>
               <ul className="ft-links">
                 <li><Link href="/about"><i className="bi bi-chevron-right"></i>About NovuLabs</Link></li>
-                <li><Link href="/portfolio"><i className="bi bi-chevron-right"></i>Portfolio</Link></li>
+                <li><Link href="/portfolio"><i className="bi bi-chevron-right"></i>Case Studies</Link></li>
                 <li><Link href="/industries"><i className="bi bi-chevron-right"></i>Industries</Link></li>
                 <li><Link href="/solutions"><i className="bi bi-chevron-right"></i>Solutions</Link></li>
                 <li><Link href="/contact"><i className="bi bi-chevron-right"></i>Contact Us</Link></li>
-                <li><Link href="/contact#contact-process"><i className="bi bi-chevron-right"></i>How We Work</Link></li>
+                <li><Link href="/blog"><i className="bi bi-chevron-right"></i>Insights</Link></li>
+                <li><Link href="/team"><i className="bi bi-chevron-right"></i>Our Team</Link></li>
               </ul>
             </div>
 
@@ -119,11 +125,13 @@ const Footer: React.FC = () => {
           </div>
           <div className="ft-bot">
             <div className="ft-copy">© 2026 NovuLabs Technology Pvt Ltd. All rights reserved.</div>
+            {/* These four were all href="#" on every page — 4 dead links x
+                every route. /privacy and /privacy-policy both 404'd. */}
             <div className="ft-legal">
-              <a href="#">Privacy Policy</a>
-              <a href="#">Terms of Service</a>
-              <a href="#">Cookie Policy</a>
-              <a href="#">Sitemap</a>
+              <Link href="/legal/privacy-policy">Privacy Policy</Link>
+              <Link href="/legal/terms-of-service">Terms of Service</Link>
+              <Link href="/legal/cookie-policy">Cookie Policy</Link>
+              <Link href="/site-map">Sitemap</Link>
             </div>
           </div>
         </div>

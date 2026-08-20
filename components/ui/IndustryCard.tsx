@@ -15,7 +15,7 @@ const IndustryCard: React.FC<IndustryCardProps> = ({ item, index }) => {
           <i className={`bi ${item.icon}`}></i>
         </div>
         <div>
-          <h5>{item.title}</h5>
+          <h3 className="industry-card-title">{item.title}</h3>
           <p>{item.desc}</p>
         </div>
       </Button>

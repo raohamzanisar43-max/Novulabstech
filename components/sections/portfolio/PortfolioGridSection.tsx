@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { portfolioProjects } from '@/content/siteData';
+import { caseStudies } from '@/content/caseStudies';
 import PortfolioCard from '@/components/ui/PortfolioCard';
 
 interface FilterItem {
@@ -21,9 +21,8 @@ const PortfolioGridSection: React.FC = () => {
     { id: 'mobile', label: 'Mobile' }
   ];
 
-  const filteredProjects = filter === 'all' 
-    ? portfolioProjects 
-    : portfolioProjects.filter(p => p.cat === filter);
+  const filteredProjects =
+    filter === 'all' ? caseStudies : caseStudies.filter((p) => p.category === filter);
 
   return (
     <section className="sec bg-g" id="portfolio-grid">
@@ -43,7 +42,7 @@ const PortfolioGridSection: React.FC = () => {
         {/* Grid */}
         <div className="pgrid">
           {filteredProjects.map((project, i) => (
-            <PortfolioCard key={i} project={project} index={i} />
+            <PortfolioCard key={project.slug} project={project} index={i} />
           ))}
         </div>
       </div>

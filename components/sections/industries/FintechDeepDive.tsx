@@ -11,7 +11,7 @@ const FintechDeepDive: React.FC = () => {
             <span className="stag">Industry 01</span>
             <h2 className="stitle mt-3">Banking &amp; <span className="gtxt">Fintech</span></h2>
             <p className="mb-3">NovuLabs is the trusted technology partner for Tier-1 banks, microfinance institutions, digital banks, and fintech startups across Pakistan, UAE, and the wider MENA region.</p>
-            <p className="mb-4">Our fintech teams have the deepest AML/CFT compliance expertise in the region — with live deployments processing billions in transactions under FMU Pakistan, SBP, and international FATF frameworks.</p>
+            <p className="mb-4" dangerouslySetInnerHTML={{ __html: 'AML/CFT is our deepest specialisation: goAML XML integration, STR/CTR reporting automation, sanctions and PEP screening, and transaction monitoring built for SBP-regulated institutions under FMU and FATF frameworks. <a href="/services/aml-cft-compliance-software">See how we build it</a>.' }} />
             <div className="row g-3 mb-4">
               <div className="col-6">
                 <GlowCard className="gcard p-3">

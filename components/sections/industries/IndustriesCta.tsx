@@ -9,7 +9,7 @@ const IndustriesCta: React.FC = () => {
           <div className="row align-items-center g-5">
             <div className="col-lg-7">
               <span className="stag">Your Industry</span>
-              <h2 className="stitle mt-3">Don't see your sector listed?<br /><span className="gtxt">We have probably worked in it.</span></h2>
+              <p className="stitle mt-3">Don't see your sector listed?<br /><span className="gtxt">We have probably worked in it.</span></p>
               <p className="ssub mt-4 mb-0">We've built software for industries not on this page — logistics companies, insurance platforms, telecom operators, energy firms. If your organization has a real software problem that needs solving, we'd like to hear about it. One call, no strings.</p>
               <div className="cta-trust-row">
                 <div className="cta-trust-item"><i className="bi bi-buildings"></i>We adapt to sector-specific regulations and workflows</div>

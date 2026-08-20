@@ -9,7 +9,7 @@ const AboutCta: React.FC = () => {
           <div className="row align-items-center g-5">
             <div className="col-lg-7">
               <span className="stag">Work With Us</span>
-              <h2 className="stitle mt-3">Good software starts with<br /><span className="gtxt">understanding the problem.</span></h2>
+              <p className="stitle mt-3">Good software starts with<br /><span className="gtxt">understanding the problem.</span></p>
               <p className="ssub mt-4 mb-0">We spend our first call listening — to what you're trying to build, what's gone wrong before, and what success actually looks like for your organization. The advice we give you is based on that, not a standard playbook.</p>
               <div className="cta-trust-row">
                 <div className="cta-trust-item"><i className="bi bi-person-check"></i>Senior engineer on the call — not a pre-sales team</div>
@@ -23,7 +23,7 @@ const AboutCta: React.FC = () => {
                 <Button href="/contact" variant="grad" className="w-100 justify-content-center mb-3">
                   <i className="bi bi-calendar-check me-1"></i>Book a Free Call
                 </Button>
-                <Button href="mailto:Info@novulabs.net" variant="glass" className="w-100 justify-content-center">
+                <Button href="mailto:info@novulabs.net" variant="glass" className="w-100 justify-content-center">
                   <i className="bi bi-envelope me-1"></i>Email Us Directly
                 </Button>
                 <p className="cta-card-note">No demos, no pitch scripts. Just a straight conversation about your project and whether we're the right fit.</p>

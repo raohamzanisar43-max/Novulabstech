@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import JsonLd from '@/components/seo/JsonLd';
+import { webPageSchema } from '@/lib/schema';
 import HeroSection from '@/components/sections/home/HeroSection';
 import AboutSection from '@/components/sections/home/AboutSection';
 import ServicesSection from '@/components/sections/home/ServicesSection';
@@ -8,12 +10,13 @@ import TechStackSection from '@/components/sections/home/TechStackSection';
 import PortfolioPreviewSection from '@/components/sections/home/PortfolioPreviewSection';
 import ProcessSection from '@/components/sections/home/ProcessSection';
 import FaqSection from '@/components/sections/home/FaqSection';
+import InsightsSection from '@/components/sections/home/InsightsSection';
 import CtaSection from '@/components/sections/home/CtaSection';
 
 export const metadata: Metadata = {
-  title: 'NovuLabs – Enterprise Software House | Fintech, AML & Healthcare IT',
+  title: { absolute: 'NovuLabs — AML, Fintech & Healthcare Software House' },
   description:
-    'NovuLabs engineers mission-critical enterprise software for fintech institutions, healthcare networks, AML/CFT compliance, and government agencies. 200+ projects in 40+ countries. Based in Islamabad, Pakistan.',
+    'Enterprise software house in Islamabad building AML/CFT compliance systems for SBP-regulated banks, HIPAA healthcare platforms and PCI-DSS payments.',
   keywords: [
     'enterprise software house Pakistan',
     'AML software Pakistan',
@@ -31,25 +34,24 @@ export const metadata: Metadata = {
     title: 'NovuLabs – Enterprise Software House',
     description: 'Mission-critical fintech, AML compliance, healthcare, and government software. 200+ projects. 40+ countries.',
     url: 'https://www.novulabs.net',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'NovuLabs' }],
+    images: [{ url: '/og/enterprise-software-development.jpg', width: 1200, height: 630, alt: 'NovuLabs' }],
   },
 };
 
-const homeSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'WebPage',
-  name: 'NovuLabs – Enterprise Software House',
-  url: 'https://www.novulabs.net',
-  description: 'Mission-critical enterprise software for fintech, healthcare, AML compliance, and government sectors.',
-  specialty: ['Fintech Software', 'AML Compliance', 'Healthcare IT', 'Government Software'],
-};
 
 export default function Home() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(homeSchema) }}
+      {/* The homepage WebPage node links back to the sitewide
+          ProfessionalService entity by @id. FAQPage schema for the homepage FAQ
+          is emitted by FaqSection, alongside the visible Q&A it describes. */}
+      <JsonLd
+        data={webPageSchema({
+          name: 'NovuLabs — AML, Fintech & Healthcare Software House',
+          description:
+            'Enterprise software house in Islamabad building AML/CFT compliance systems, HIPAA healthcare platforms and PCI-DSS payment infrastructure.',
+          path: '/',
+        })}
       />
       <HeroSection />
       <AboutSection />
@@ -61,6 +63,7 @@ export default function Home() {
       <TechStackSection />
       <PortfolioPreviewSection />
       <ProcessSection />
+      <InsightsSection />
       <FaqSection />
       <CtaSection />
     </>

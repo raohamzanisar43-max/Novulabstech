@@ -1,12 +1,16 @@
 import type { Metadata } from 'next';
+import JsonLd from '@/components/seo/JsonLd';
+import { caseStudies } from '@/content/caseStudies';
+import { webPageSchema } from '@/lib/schema';
+import { canonical } from '@/lib/seo';
 import PortfolioHero from '@/components/sections/portfolio/PortfolioHero';
 import PortfolioGridSection from '@/components/sections/portfolio/PortfolioGridSection';
 import PortfolioCta from '@/components/sections/portfolio/PortfolioCta';
 
 export const metadata: Metadata = {
-  title: 'Portfolio – 200+ Enterprise Software Projects | NovuLabs Case Studies',
+  title: 'Case Studies — Enterprise Software Projects',
   description:
-    'Explore NovuLabs delivered projects: AML/CFT compliance engines for Tier-1 banks, HIPAA EHR for hospitals, GOAML integrations, national identity portals, payment switches, and enterprise ERP/CRM systems. 200+ projects across 40+ countries.',
+    'Detailed engineering case studies: goAML-integrated AML suites, HIPAA EHR rollouts, Mastercard/Visa payment switches and national identity portals.',
   keywords: [
     'enterprise software portfolio Pakistan',
     'AML compliance software case study',
@@ -24,35 +28,42 @@ export const metadata: Metadata = {
     title: 'Portfolio – Enterprise Software Projects | NovuLabs',
     description: 'AML engines, HIPAA EHR, payment switches, government portals and 200+ enterprise projects.',
     url: 'https://www.novulabs.net/portfolio',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'NovuLabs Portfolio' }],
+    images: [{ url: '/hero/portfolio.jpg', width: 1920, height: 1080, alt: 'NovuLabs Portfolio' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Portfolio – 200+ Enterprise Projects | NovuLabs',
     description: 'AML compliance, healthcare, payments, and government software. Explore our work.',
-    images: ['/og-image.png'],
+    images: ['/hero/portfolio.jpg'],
   },
 };
 
-const portfolioSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'CollectionPage',
-  name: 'NovuLabs Portfolio – Enterprise Software Projects',
-  url: 'https://www.novulabs.net/portfolio',
-  description: '200+ enterprise software projects delivered across fintech, healthcare, government, and corporate sectors.',
-  breadcrumb: {
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.novulabs.net' },
-      { '@type': 'ListItem', position: 2, name: 'Portfolio', item: 'https://www.novulabs.net/portfolio' },
-    ],
-  },
-};
 
 export default function PortfolioPage() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(portfolioSchema) }} />
+      <JsonLd
+        data={[
+          webPageSchema({
+            name: 'Enterprise Software Case Studies',
+            description:
+              'Detailed engineering case studies across AML/CFT compliance, payments, healthcare and government.',
+            path: '/portfolio',
+            type: 'CollectionPage',
+          }),
+          {
+            '@context': 'https://schema.org',
+            '@type': 'ItemList',
+            '@id': `${canonical('/portfolio')}#list`,
+            itemListElement: caseStudies.map((c, i) => ({
+              '@type': 'ListItem',
+              position: i + 1,
+              name: c.title,
+              url: canonical(`/portfolio/${c.slug}`),
+            })),
+          },
+        ]}
+      />
       <PortfolioHero />
       <div className="divider"></div>
       <PortfolioGridSection />

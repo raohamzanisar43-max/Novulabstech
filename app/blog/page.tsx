@@ -1,11 +1,15 @@
 import type { Metadata } from 'next';
+import JsonLd from '@/components/seo/JsonLd';
+import { blogPosts } from '@/content/blogPosts';
+import { webPageSchema, ORG_ID } from '@/lib/schema';
+import { canonical } from '@/lib/seo';
 import BlogHero from '@/components/sections/blog/BlogHero';
 import BlogGrid from '@/components/sections/blog/BlogGrid';
 
 export const metadata: Metadata = {
-  title: 'Insights & Technical Articles – Enterprise Software, AML & Healthcare IT | NovuLabs',
+  title: 'Insights: AML, Fintech & Healthcare IT',
   description:
-    'Expert articles and deep technical guides on AML/CFT compliance, HIPAA healthcare software, enterprise ERP architecture, cloud scalability, payment systems, and regulated industry technology from NovuLabs engineers.',
+    'Technical guides on goAML integration, STR/CTR reporting, FMU and SBP requirements, HL7 FHIR interoperability and enterprise architecture decisions.',
   keywords: [
     'enterprise software articles',
     'AML compliance blog Pakistan',
@@ -23,33 +27,49 @@ export const metadata: Metadata = {
     title: 'Insights & Technical Articles | NovuLabs',
     description: 'Deep technical articles on AML compliance, HIPAA healthcare IT, enterprise architecture, and fintech from NovuLabs engineers.',
     url: 'https://www.novulabs.net/blog',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'NovuLabs Insights' }],
+    images: [{ url: '/hero/blog.jpg', width: 1920, height: 1080, alt: 'NovuLabs Insights' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Insights & Technical Articles | NovuLabs',
     description: 'AML compliance, HIPAA, fintech, and enterprise architecture guides from our engineering team.',
-    images: ['/og-image.png'],
+    images: ['/hero/blog.jpg'],
   },
 };
 
-const blogSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Blog',
-  name: 'NovuLabs Insights',
-  url: 'https://www.novulabs.net/blog',
-  description: 'Technical articles and regulatory insights on enterprise software, AML/CFT, healthcare IT, fintech, and cloud architecture.',
-  publisher: {
-    '@type': 'Organization',
-    name: 'NovuLabs Technology',
-    logo: { '@type': 'ImageObject', url: 'https://www.novulabs.net/logo.png' },
-  },
-};
 
 export default function BlogPage() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }} />
+      <JsonLd
+        data={[
+          webPageSchema({
+            name: 'NovuLabs Insights',
+            description:
+              'Technical guides on goAML integration, STR/CTR reporting, HL7 FHIR interoperability and enterprise architecture.',
+            path: '/blog',
+            type: 'CollectionPage',
+          }),
+          {
+            '@context': 'https://schema.org',
+            '@type': 'Blog',
+            '@id': `${canonical('/blog')}#blog`,
+            name: 'NovuLabs Insights',
+            url: canonical('/blog'),
+            publisher: { '@id': ORG_ID },
+            inLanguage: 'en',
+            blogPost: blogPosts.map((p) => ({
+              '@type': 'BlogPosting',
+              '@id': `${canonical(`/blog/${p.slug}`)}#article`,
+              headline: p.title,
+              url: canonical(`/blog/${p.slug}`),
+              datePublished: p.publishedISO,
+              dateModified: p.modifiedISO,
+              author: { '@type': 'Person', name: p.author, url: canonical(`/team/${p.authorSlug}`) },
+            })),
+          },
+        ]}
+      />
       <BlogHero />
       <div className="divider"></div>
       <BlogGrid />

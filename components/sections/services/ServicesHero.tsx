@@ -1,24 +1,20 @@
 import React from 'react';
-import Link from 'next/link';
+import Breadcrumbs from '@/components/ui/Breadcrumbs';
+import Image from 'next/image';
 
 const ServicesHero: React.FC = () => {
   return (
     <section className="phero">
-      <div className="phero-bg">
-        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=1400&q=80" alt="NovuLabs services" />
+      <div className="phero-bg" data-parallax="38">
+        <Image src="/hero/services.jpg" alt="" fill priority sizes="100vw" style={{ objectFit: 'cover' }} />
       </div>
       <div className="phero-ov"></div>
-      <div className="phero-grid"></div>
+      <div className="phero-grid" data-parallax="14"></div>
       <div className="container phero-inner">
-        <nav aria-label="breadcrumb" className="mb-4">
-          <ol className="breadcrumb">
-            <li className="breadcrumb-item"><Link href="/">Home</Link></li>
-            <li className="breadcrumb-item active" aria-current="page">Services</li>
-          </ol>
-        </nav>
+        <Breadcrumbs className="mb-4" items={[{ name: 'Services' }]} />
         <span className="stag">What We Build</span>
-        <h1 className="hero-title mt-3">22 Enterprise-Grade <span className="gtxt">Services</span></h1>
-        <p className="hero-sub">Consult our architects about any of these service areas — we'll recommend the right architecture, timeline, and approach for your specific situation.</p>
+        <h1 className="hero-title mt-3">Enterprise Software Development <span className="gtxt">Services</span></h1>
+        <p className="hero-sub">Seven engineering tracks, each with its own page. Pick the one that matches your problem and read the detail before you talk to anyone.</p>
       </div>
     </section>
   );

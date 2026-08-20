@@ -1,4 +1,8 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
+import { servicePages } from '@/content/servicePages';
+import JsonLd from '@/components/seo/JsonLd';
+import { serviceSchema, webPageSchema } from '@/lib/schema';
 import HashScrollHandler from '@/components/ui/HashScrollHandler';
 import ServicesHero from '@/components/sections/services/ServicesHero';
 import WebServiceSection from '@/components/sections/services/WebServiceSection';
@@ -11,9 +15,9 @@ import CloudServiceSection from '@/components/sections/services/CloudServiceSect
 import ServicesCta from '@/components/sections/services/ServicesCta';
 
 export const metadata: Metadata = {
-  title: 'Enterprise Software Development Services – Fintech, Healthcare, AML & Cloud',
+  title: 'Enterprise Software Development Services',
   description:
-    'Full-stack enterprise software development: custom web apps, fintech platforms, AML/CFT compliance engines, HIPAA healthcare systems, mobile apps, ERP/CRM, and cloud & AI solutions. PCI-DSS, HIPAA, ISO 27001 certified.',
+    'Seven enterprise engineering services: AML/CFT compliance, fintech, healthcare IT, enterprise systems, mobile, cloud & AI, and web. Pick your track.',
   keywords: [
     'enterprise software development services',
     'fintech software development Pakistan',
@@ -32,54 +36,86 @@ export const metadata: Metadata = {
     description:
       'Custom fintech, AML compliance, healthcare, mobile, ERP/CRM, and cloud software development for global enterprises.',
     url: 'https://www.novulabs.net/services',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'NovuLabs Services' }],
+    images: [{ url: '/hero/services.jpg', width: 1920, height: 1080, alt: 'NovuLabs Services' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Enterprise Software Development Services – NovuLabs',
-    description: 'Fintech, AML, healthcare, mobile and cloud enterprise software. PCI-DSS, HIPAA, ISO 27001 certified.',
-    images: ['/og-image.png'],
+    description: 'Fintech, AML/CFT, healthcare, mobile and cloud engineering built to PCI-DSS, HIPAA and ISO 27001 standards.',
+    images: ['/hero/services.jpg'],
   },
 };
 
-const servicesSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Service',
-  provider: { '@type': 'Organization', name: 'NovuLabs Technology' },
-  serviceType: 'Enterprise Software Development',
-  areaServed: ['PK', 'AE', 'GB', 'US'],
-  hasOfferCatalog: {
-    '@type': 'OfferCatalog',
-    name: 'Enterprise Software Services',
-    itemListElement: [
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Web & Enterprise App Development' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Fintech Software Development' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'AML/CFT Compliance Systems' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'HIPAA Healthcare IT Software' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Mobile App Development' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Cloud & AI Solutions' } },
-    ],
-  },
-  breadcrumb: {
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.novulabs.net' },
-      { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://www.novulabs.net/services' },
-    ],
-  },
-};
-
+/**
+ * Services hub.
+ *
+ * This page keeps its long-form sections (they are useful context and they
+ * rank for the broad "enterprise software development services" head term) but
+ * its job has changed: it is now a hub that routes intent to the seven
+ * dedicated service pages, rather than trying to be all seven at once.
+ */
 export default function ServicesPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesSchema) }}
+      <JsonLd
+        data={[
+          webPageSchema({
+            name: 'Enterprise Software Development Services',
+            description:
+              'Seven engineering tracks: AML/CFT compliance, fintech, healthcare IT, enterprise systems, mobile, cloud & AI, and web.',
+            path: '/services',
+            type: 'CollectionPage',
+          }),
+          serviceSchema({
+            name: 'Enterprise software development',
+            description:
+              'Custom engineering for regulated industries across seven service tracks.',
+            path: '/services',
+            serviceType: 'Enterprise software development',
+            offers: servicePages.map((sp) => sp.h1),
+          }),
+        ]}
       />
-      {/* Tiny client island for hash-anchor scrolling; page stays Server Component */}
+      {/* Tiny client island for hash-anchor scrolling; page stays a Server Component */}
       <HashScrollHandler />
       <ServicesHero />
       <div className="divider"></div>
+
+      {/* Hub grid — every service now has its own indexable URL. This block is
+          the internal-linking backbone of the whole commercial cluster. */}
+      <section className="sec bg-w" id="service-index">
+        <div className="container">
+          <div className="row justify-content-center text-center mb-5">
+            <div className="col-lg-8" data-aos="fade-up">
+              <span className="stag">Seven engineering tracks</span>
+              <h2 className="stitle mt-3">
+                Pick the <span className="gtxt">track</span> that matches your problem
+              </h2>
+              <p className="ssub mx-auto">
+                Each track has its own page with the detail, the constraints we design within, and the
+                questions clients actually ask.
+              </p>
+            </div>
+          </div>
+          <div className="row g-4">
+            {servicePages.map((sp, i) => (
+              <div className="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay={(i % 3) * 60} key={sp.slug}>
+                <div className="gcard h-100">
+                  <div className="gcard-body">
+                    <div className="sico i-t"><i className={`bi ${sp.icon}`}></i></div>
+                    <h3 className="ctitle">{sp.navLabel}</h3>
+                    <p className="ctext">{sp.summary}</p>
+                    <Link href={`/services/${sp.slug}`} className="carr">
+                      <i className="bi bi-arrow-right-circle"></i>{sp.navLabel} details
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <WebServiceSection />
       <EnterpriseServiceSection />
       <FintechServiceSection />

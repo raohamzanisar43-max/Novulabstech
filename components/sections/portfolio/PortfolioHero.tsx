@@ -1,24 +1,20 @@
 import React from 'react';
-import Link from 'next/link';
+import Breadcrumbs from '@/components/ui/Breadcrumbs';
+import Image from 'next/image';
 
 const PortfolioHero: React.FC = () => {
   return (
     <section className="phero">
-      <div className="phero-bg">
-        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=1400&q=80" alt="Portfolio" />
+      <div className="phero-bg" data-parallax="38">
+        <Image src="/hero/portfolio.jpg" alt="" fill priority sizes="100vw" style={{ objectFit: 'cover' }} />
       </div>
       <div className="phero-ov"></div>
-      <div className="phero-grid"></div>
+      <div className="phero-grid" data-parallax="14"></div>
       <div className="container phero-inner">
-        <nav aria-label="breadcrumb" className="mb-4">
-          <ol className="breadcrumb">
-            <li className="breadcrumb-item"><Link href="/">Home</Link></li>
-            <li className="breadcrumb-item active" aria-current="page">Portfolio</li>
-          </ol>
-        </nav>
+        <Breadcrumbs className="mb-4" items={[{ name: 'Case Studies' }]} />
         <span className="stag">Our Work</span>
-        <h1 className="hero-title mt-3">200+ Projects. <span className="gtxt">Real Outcomes.</span></h1>
-        <p className="hero-sub">From AML compliance engines to national identity portals — enterprise software built to perform under the most demanding conditions globally.</p>
+        <h1 className="hero-title mt-3">Enterprise Software <span className="gtxt">Case Studies</span></h1>
+        <p className="hero-sub">Nine engagements written up in full: the problem, the constraints we designed within, and what actually changed. Client names are withheld under NDA and described by category.</p>
       </div>
     </section>
   );

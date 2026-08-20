@@ -1,15 +1,18 @@
 import type { Metadata } from 'next';
+import JsonLd from '@/components/seo/JsonLd';
+import { webPageSchema } from '@/lib/schema';
 import IndustriesHero from '@/components/sections/industries/IndustriesHero';
 import FintechDeepDive from '@/components/sections/industries/FintechDeepDive';
 import HealthcareDeepDive from '@/components/sections/industries/HealthcareDeepDive';
 import GovernmentDeepDive from '@/components/sections/industries/GovernmentDeepDive';
 import MoreSectorsSection from '@/components/sections/industries/MoreSectorsSection';
+import RegulatedDeliverySection from '@/components/sections/industries/RegulatedDeliverySection';
 import IndustriesCta from '@/components/sections/industries/IndustriesCta';
 
 export const metadata: Metadata = {
-  title: 'Industries Served – Banking, Healthcare, Government & Enterprise IT',
+  title: 'Industries: Banking, Healthcare & Government',
   description:
-    'Domain expertise across banking & fintech (AML/CFT, RAAST, Mastercard), healthcare (HIPAA, HL7 FHIR, EHR), government (NADRA, FBR, e-government), and 6+ more enterprise sectors. Pakistan, UAE, UK, and global.',
+    'Domain depth in banking (AML/CFT, RAAST), healthcare (HIPAA, HL7 FHIR, EHR) and government (NADRA, FBR). Regulated-sector engineering, not generalists.',
   keywords: [
     'fintech software company Pakistan',
     'banking software development',
@@ -29,41 +32,35 @@ export const metadata: Metadata = {
     title: 'Industries – Banking, Healthcare & Government IT | NovuLabs',
     description: 'Software built for critical industries: fintech, healthcare, government, retail, manufacturing and more.',
     url: 'https://www.novulabs.net/industries',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'NovuLabs Industries' }],
+    images: [{ url: '/hero/industries.jpg', width: 1920, height: 1080, alt: 'NovuLabs Industries' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Industries – Banking, Healthcare & Government | NovuLabs',
     description: 'Mission-critical software for banking, healthcare IT, government portals and enterprise sectors globally.',
-    images: ['/og-image.png'],
+    images: ['/hero/industries.jpg'],
   },
 };
 
-const industriesSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'WebPage',
-  name: 'Industries Served by NovuLabs',
-  url: 'https://www.novulabs.net/industries',
-  description: 'Enterprise IT solutions for banking, fintech, healthcare, government, retail, manufacturing, education, and telecom.',
-  breadcrumb: {
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.novulabs.net' },
-      { '@type': 'ListItem', position: 2, name: 'Industries', item: 'https://www.novulabs.net/industries' },
-    ],
-  },
-};
 
 export default function IndustriesPage() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(industriesSchema) }} />
+      <JsonLd
+        data={webPageSchema({
+          name: 'Industries: Banking, Healthcare & Government',
+          description:
+            'Domain depth in banking (AML/CFT, RAAST), healthcare (HIPAA, HL7 FHIR) and government (NADRA, FBR).',
+          path: '/industries',
+        })}
+      />
       <IndustriesHero />
       <div className="divider"></div>
       <FintechDeepDive />
       <HealthcareDeepDive />
       <GovernmentDeepDive />
       <MoreSectorsSection />
+      <RegulatedDeliverySection />
       <IndustriesCta />
     </>
   );

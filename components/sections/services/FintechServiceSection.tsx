@@ -9,10 +9,10 @@ const FintechServiceSection: React.FC = () => {
           <div className="col-lg-6" data-aos="fade-left">
             <span className="stag">Services 03–06</span>
             <h2 className="stitle mt-3">Financial Software <span className="gtxt">Solutions</span></h2>
-            <p className="ssub mb-4">Certified fintech engineering — core banking, Mastercard/Visa integrations, RAAST &amp; 1LINK connectivity, and PCI-DSS certified payment infrastructure.</p>
+            <p className="ssub mb-4">Fintech engineering — core banking, Mastercard/Visa integrations, RAAST &amp; 1LINK connectivity, and payment infrastructure engineered to PCI-DSS requirements.</p>
             <ul className="chk mb-4">
               <li><span className="chk-ico"><i className="bi bi-check"></i></span>Core banking system development</li>
-              <li><span className="chk-ico"><i className="bi bi-check"></i></span>PCI-DSS certified payment gateways</li>
+              <li><span className="chk-ico"><i className="bi bi-check"></i></span>Payment gateways engineered to PCI-DSS</li>
               <li><span className="chk-ico"><i className="bi bi-check"></i></span>Mastercard MDES &amp; Visa VTS tokenization</li>
               <li><span className="chk-ico"><i className="bi bi-check"></i></span>Digital wallets &amp; RAAST/1LINK</li>
             </ul>

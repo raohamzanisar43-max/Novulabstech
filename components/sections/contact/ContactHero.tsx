@@ -1,21 +1,17 @@
 import React from 'react';
-import Link from 'next/link';
+import Breadcrumbs from '@/components/ui/Breadcrumbs';
+import Image from 'next/image';
 
 const ContactHero: React.FC = () => {
   return (
     <section className="phero">
-      <div className="phero-bg">
+      <div className="phero-bg" data-parallax="38">
         <img src="/team-working.jpeg" alt="Contact" />
       </div>
       <div className="phero-ov"></div>
-      <div className="phero-grid"></div>
+      <div className="phero-grid" data-parallax="14"></div>
       <div className="container phero-inner">
-        <nav aria-label="breadcrumb" className="mb-4">
-          <ol className="breadcrumb">
-            <li className="breadcrumb-item"><Link href="/">Home</Link></li>
-            <li className="breadcrumb-item active" aria-current="page">Contact</li>
-          </ol>
-        </nav>
+        <Breadcrumbs className="mb-4" items={[{ name: 'Contact' }]} />
         <span className="stag">Let's Talk</span>
         <h1 className="hero-title mt-3">Book a Free <span className="gtxt">Consultation</span></h1>
         <p className="hero-sub">No demos, no sales scripts. Just a genuine conversation about your project — and honest advice on the right path forward.</p>

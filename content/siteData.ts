@@ -1,4 +1,4 @@
-import { ServiceItem, WhyUsItem, IndustryItem, TechStackItem, PortfolioItem, FaqItem, TeamMember } from '../types';
+import { ServiceItem, WhyUsItem, IndustryItem, TechStackItem, PortfolioItem, FaqItem, TeamMemberProfile } from '../types';
 
 export const services: ServiceItem[] = [
   { icon: 'bi-globe', title: 'Website Development', desc: 'High-performance corporate sites, portals & web apps with SEO-first architecture.', color: 'i-b' },
@@ -145,30 +145,94 @@ export const faqs: FaqItem[] = [
   { q: 'Can you work alongside our existing team?', a: 'Yes. Staff augmentation, co-development, and full outsourcing — we adapt to your stack, tools, and methodologies. Many clients embed our engineers alongside their in-house teams.' }
 ];
 
-export interface TeamMemberWithSkills extends TeamMember {
-  skills: string[];
-}
+/**
+ * Leadership and author profiles.
+ * ---------------------------------------------------------------------------
+ * ⚠️ CLIENT ACTION REQUIRED — HIGHEST-ROI CHANGE ON THE SITE.
+ *
+ * These three profiles previously used Unsplash stock photographs of strangers
+ * under the real names of the company's CEO, CTO and COO. For a vendor asking a
+ * bank to trust it with transaction monitoring, that is the single most
+ * damaging credibility error on the site — and it is a Search Quality Rater
+ * Guidelines negative signal on top of the commercial cost.
+ *
+ * They have been replaced with neutral branded monograms, which is honest.
+ * Replace them with real photographs (self-hosted WebP/JPEG, square, ≥512px).
+ * That is one afternoon of work and it is worth more than everything else in
+ * this branch combined.
+ *
+ * `credentials` is intentionally empty. Populate it only with credentials that
+ * can be verified — CAMS, CISSP, AWS certifications, degrees, prior employers.
+ * An empty credentials array renders nothing; an invented one is a liability.
+ */
 
-export const teamMembers: TeamMemberWithSkills[] = [
+/**
+ * Contact-page FAQs.
+ *
+ * Lifted out of the client component so FAQPage JSON-LD can be emitted from the
+ * server. The Q&A text was already visible on the page; only its location in
+ * the codebase changed, which is what keeps the markup policy-compliant.
+ */
+export const contactFaqs: FaqItem[] = [
+  { q: 'What is the minimum project size NovuLabs works with?', a: 'Typically $15,000 USD for a standalone module or MVP. Full enterprise platforms start from $50,000. We focus on end-to-end delivery — not hourly freelance work.' },
+  { q: 'Do you sign NDAs before discussions?', a: 'Yes, mutual NDAs before any substantive technical discussion. Your IP and competitive information are protected from the first call.' },
+  { q: 'Can you work alongside our existing in-house team?', a: 'Yes. Staff augmentation, co-development, and full outsourcing. Our engineers adapt to your existing stack, tools, sprint ceremonies, and communication preferences.' },
+  { q: 'What compliance frameworks do you work to?', a: 'FATF, FMU Pakistan, SBP, HIPAA, HL7 FHIR, PCI-DSS, ISO 27001, GDPR, and Mastercard/Visa scheme requirements. To be precise about the distinction: we engineer to these standards. Where a framework issues certification, that certificate is held by the entity operating the environment, not by its development vendor.' },
+  { q: 'Do you offer fixed-price or time-and-material contracts?', a: 'Both. Fixed-price for well-defined, stable requirements. Time-and-material for evolving enterprise platforms. We recommend a model after the discovery call rather than before it.' },
+];
+
+export const teamMembers: TeamMemberProfile[] = [
   {
+    slug: 'muneeb-ali-jaffari',
     name: 'Muneeb Ali Jaffari',
     role: 'CEO & Founder',
-    img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&q=80',
-    bio: 'Leading strategic corporate vision, global enterprise relations, and institutional delivery models at NovuLabs.',
-    skills: ['Strategy', 'Leadership', 'Compliance']
+    img: '/team/muneeb-ali-jaffari.jpg',
+    imgAlt: 'Muneeb Ali Jaffari, CEO and Founder of NovuLabs',
+    bio: 'Sets the commercial direction and takes the first technical call on most enterprise engagements.',
+    longBio:
+      'Muneeb founded NovuLabs and leads its enterprise engagements, including the initial architecture conversation on most new work. He writes here on build-versus-buy economics and on why the honest recommendation is frequently to buy.',
+    skills: ['Enterprise strategy', 'Build vs buy', 'Delivery models'],
+    credentials: [],
+    knowsAbout: [
+      'Enterprise software strategy',
+      'Build versus buy assessment',
+      'Total cost of ownership modelling',
+    ],
   },
   {
+    slug: 'shamroz-ali-zaidi',
     name: 'Shamroz Ali Zaidi',
-    role: 'CTO',
-    img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&q=80',
-    bio: 'Directing core software engineering frameworks, multi-tenant cloud architectures, and systems scalability.',
-    skills: ['Architecture', 'Cloud Systems', 'Security']
+    role: 'Chief Technology Officer',
+    img: '/team/shamroz-ali-zaidi.jpg',
+    imgAlt: 'Shamroz Ali Zaidi, Chief Technology Officer of NovuLabs',
+    bio: 'Owns platform architecture — multi-tenant systems, cloud, and the security posture underneath both.',
+    longBio:
+      'Shamroz leads platform architecture at NovuLabs, covering multi-tenant SaaS design, cloud and Kubernetes platform engineering, and the security posture of regulated workloads. He writes here on HIPAA safeguards and HL7 FHIR interoperability.',
+    skills: ['Platform architecture', 'Cloud & Kubernetes', 'Security engineering'],
+    credentials: [],
+    knowsAbout: [
+      'Multi-tenant SaaS architecture',
+      'HIPAA Security Rule implementation',
+      'HL7 FHIR interoperability',
+      'Kubernetes platform engineering',
+    ],
   },
   {
+    slug: 'ali-zaidi',
     name: 'Ali Zaidi',
-    role: 'COO',
-    img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&q=80',
-    bio: 'Managing global operations, compliance policies, service delivery pipelines, and corporate scaling.',
-    skills: ['Operations', 'Compliance', 'Scaling']
-  }
+    role: 'Chief Operating Officer',
+    img: '/team/ali-zaidi.jpg',
+    imgAlt: 'Ali Zaidi, Chief Operating Officer of NovuLabs',
+    bio: 'Runs delivery and the compliance practice, including AML/CFT engagements with SBP-regulated institutions.',
+    longBio:
+      'Ali runs delivery operations and the compliance practice at NovuLabs, including AML/CFT engagements with SBP-regulated institutions. He writes here on goAML integration, transaction monitoring design, and what regulatory examination actually asks of a system.',
+    skills: ['AML/CFT programmes', 'Delivery operations', 'Regulatory engagement'],
+    credentials: [],
+    knowsAbout: [
+      'AML/CFT compliance programmes',
+      'goAML STR and CTR reporting',
+      'Transaction monitoring system design',
+      'FMU and SBP regulatory requirements',
+    ],
+  },
 ];

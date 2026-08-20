@@ -234,35 +234,42 @@ const ContactFormSection: React.FC = () => {
           
           <div className="col-lg-5" data-aos="fade-left">
             <div className="ccontact mb-4">
-              <h5 className="mb-4">Our Global Offices</h5>
+              <h2 className="mb-4" style={{ fontSize: '1.1rem' }}>Our office</h2>
               <div className="cinfo-item">
                 <div className="cico i-b"><i className="bi bi-geo-alt-fill"></i></div>
                 <div>
-                  <h6>🇵🇰 Pakistan (HQ)</h6>
+                  <div className="cinfo-label">🇵🇰 Pakistan (HQ)</div>
                   <p>Islamabad, Pakistan</p>
                 </div>
               </div>
             </div>
             <div className="ccontact mb-4">
-              <h5 className="mb-4">Direct Contacts</h5>
+              <h2 className="mb-4" style={{ fontSize: '1.1rem' }}>Direct contacts</h2>
               <div className="cinfo-item">
                 <div className="cico i-t"><i className="bi bi-envelope-fill"></i></div>
                 <div>
-                  <h6>General Inquiries</h6>
-                  <p><a href="mailto:Info@novulabs.net" style={{ color: 'var(--p1)' }}>Info@novulabs.net</a></p>
+                  <div className="cinfo-label">General Inquiries</div>
+                  <p><a href="mailto:info@novulabs.net" style={{ color: 'var(--p1)' }}>info@novulabs.net</a></p>
                 </div>
               </div>
               <div className="cinfo-item">
                 <div className="cico i-b"><i className="bi bi-envelope-fill"></i></div>
                 <div>
-                  <h6>Enterprise Sales</h6>
-                  <p><a href="mailto:Info@novulabs.net" style={{ color: 'var(--p1)' }}>Info@novulabs.net</a></p>
+                  <div className="cinfo-label">Enterprise Sales</div>
+                  <p><a href="mailto:info@novulabs.net" style={{ color: 'var(--p1)' }}>info@novulabs.net</a></p>
                 </div>
               </div>
+              {/* TODO(client): publish a real Islamabad landline in
+                  international format (+92-51-XXXXXXX) and add it here, to the
+                  footer, and to ORG.telephone in lib/seo.ts. A landline (not a
+                  mobile) materially strengthens Google Business Profile
+                  verification and enterprise credibility. Deliberately not
+                  rendered until a real number exists — an invented one is worse
+                  than none. */}
               <div className="cinfo-item">
                 <div className="cico i-o"><i className="bi bi-clock-fill"></i></div>
                 <div>
-                  <h6>Business Hours (PKT)</h6>
+                  <div className="cinfo-label">Business Hours (PKT)</div>
                   <p>Mon–Fri: 9AM–6PM<br /><small style={{ color: 'var(--p2)' }}>24/7 for enterprise SLA clients</small></p>
                 </div>
               </div>

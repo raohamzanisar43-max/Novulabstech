@@ -53,10 +53,10 @@ const CtaSection: React.FC = () => {
           <div className="row align-items-center g-5">
             <div className="col-lg-7">
               <span className="stag">Ready to Start?</span>
-              <h2 className="stitle mt-3">
+              <p className="stitle mt-3">
                 Tell us what you're building.<br />
                 <span className="gtxt">We'll tell you how we can help.</span>
-              </h2>
+              </p>
               <p className="ssub mt-4 mb-0">
                 A 45-minute call with one of our engineers. We'll listen to what you're working on, share what we know from similar projects, and give you honest advice on the right way forward — whether that's working with us or not.
               </p>

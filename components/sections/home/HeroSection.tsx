@@ -19,7 +19,7 @@ const HeroSection: React.FC = () => {
             <div className="hero-inner">
               <div className="hero-badge">
                 <span className="hero-dot"></span>
-                Trusted by 200+ Enterprise Clients Worldwide
+                Architect-led engineering for regulated industries
               </div>
               <h1 className="hero-title">
                 Next-Gen<br />

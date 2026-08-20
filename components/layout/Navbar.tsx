@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import { servicePages } from '@/content/servicePages';
 import { usePathname } from 'next/navigation';
 
 const Navbar: React.FC = () => {
@@ -129,19 +130,29 @@ const Navbar: React.FC = () => {
                 aria-labelledby="servicesDropdown"
                 style={{ display: servicesOpen ? 'block' : 'none' }}
               >
-                <li><Link className="dropdown-item" href="/services#web" onClick={() => setServicesOpen(false)}>Web Development</Link></li>
-                <li><Link className="dropdown-item" href="/services#enterprise" onClick={() => setServicesOpen(false)}>Enterprise Software</Link></li>
-                <li><Link className="dropdown-item" href="/services#fintech" onClick={() => setServicesOpen(false)}>Financial Solutions</Link></li>
-                <li><Link className="dropdown-item" href="/services#mobile" onClick={() => setServicesOpen(false)}>Mobile Apps</Link></li>
-                <li><Link className="dropdown-item" href="/services#healthcare" onClick={() => setServicesOpen(false)}>Healthcare IT</Link></li>
-                <li><Link className="dropdown-item" href="/services#compliance" onClick={() => setServicesOpen(false)}>AML &amp; Compliance</Link></li>
+                {/* These were /services#anchor fragments. A fragment is not a
+                    document — all six resolved to one URL, so the dropdown
+                    looked like six internal links and was really one. They now
+                    point at the dedicated service pages. */}
+                {servicePages.map((s) => (
+                  <li key={s.slug}>
+                    <Link className="dropdown-item" href={`/services/${s.slug}`} onClick={() => setServicesOpen(false)}>
+                      {s.navLabel}
+                    </Link>
+                  </li>
+                ))}
+                <li><hr className="dropdown-divider" /></li>
+                <li><Link className="dropdown-item" href="/services" onClick={() => setServicesOpen(false)}>All services</Link></li>
               </ul>
             </li>
             <li className="nav-item">
               <Link className={`nav-link ${checkActive('/solutions') ? 'active' : ''}`} href="/solutions">Solutions</Link>
             </li>
             <li className="nav-item">
-              <Link className={`nav-link ${checkActive('/portfolio') ? 'active' : ''}`} href="/portfolio">Portfolio</Link>
+              <Link className={`nav-link ${checkActive('/industries') ? 'active' : ''}`} href="/industries">Industries</Link>
+            </li>
+            <li className="nav-item">
+              <Link className={`nav-link ${checkActive('/portfolio') ? 'active' : ''}`} href="/portfolio">Case Studies</Link>
             </li>
             <li className="nav-item">
               <Link className={`nav-link ${checkActive('/team') ? 'active' : ''}`} href="/team">Team</Link>

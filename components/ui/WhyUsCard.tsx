@@ -14,7 +14,7 @@ const WhyUsCard: React.FC<WhyUsCardProps> = ({ item, index }) => {
         <div className={`sico ${item.color} mb-3`}>
           <i className={`bi ${item.icon}`}></i>
         </div>
-        <h4 className="ctitle">{item.title}</h4>
+        <h3 className="ctitle">{item.title}</h3>
         <p className="ctext">{item.desc}</p>
       </div>
     </div>

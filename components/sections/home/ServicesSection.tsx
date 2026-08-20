@@ -10,7 +10,7 @@ const ServicesSection: React.FC = () => {
         <div className="row justify-content-center text-center mb-5">
           <div className="col-lg-7" data-aos="fade-up">
             <span className="stag">What We Build</span>
-            <h2 className="stitle mt-3">22 Enterprise-Grade <span className="gtxt">Services</span></h2>
+            <h2 className="stitle mt-3">What we <span className="gtxt">build</span></h2>
             <p className="ssub mx-auto">From compliant fintech platforms to AI-powered automation — mission-critical software that enterprises depend on.</p>
           </div>
         </div>

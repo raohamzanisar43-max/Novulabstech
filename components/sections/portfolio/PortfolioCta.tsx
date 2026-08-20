@@ -9,7 +9,7 @@ const PortfolioCta: React.FC = () => {
           <div className="row align-items-center g-5">
             <div className="col-lg-7">
               <span className="stag">Working on Something Similar?</span>
-              <h2 className="stitle mt-3">Every project in this portfolio<br />started with <span className="gtxt">one conversation.</span></h2>
+              <p className="stitle mt-3">Every project in this portfolio<br />started with <span className="gtxt">one conversation.</span></p>
               <p className="ssub mt-4 mb-0">Tell us what you're working on. We'll share what we've learned from projects like it — what worked, what didn't, and what we'd do differently now. That context alone is worth the call.</p>
               <div className="cta-trust-row">
                 <div className="cta-trust-item"><i className="bi bi-chat-square-quote"></i>Real technical discussion based on your actual requirements</div>
