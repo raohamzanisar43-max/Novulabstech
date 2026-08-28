@@ -2,10 +2,8 @@
 
 import Image from 'next/image';
 import Button from '@/components/ui/Button';
-import KineticHeading from '@/components/ui/KineticHeading';
 import TiltCard from '@/components/ui/TiltCard';
 
-// TiltCard was previously loaded with next/dynamic + ssr:false, which meant the
 // entire right-hand hero visual — the largest element above the fold, and the
 // LCP candidate on this page — was absent from the server HTML and only
 // appeared after hydration. That delays LCP by the whole JS round trip and
@@ -43,16 +41,9 @@ const HeroSection: React.FC = () => {
                   without it; rankings for "best …" queries come from what the
                   page proves, not from the word appearing in the heading. */}
               <h1 className="hero-title">
-                <KineticHeading text="Enterprise Software House" />
-                {/* Explicit space, not just the <br/>. Text extractors — Google's
-                    included — concatenate across the break, and without this the
-                    H1 reads as "Housein Islamabad", which loses the exact-match
-                    phrase the heading exists to carry. */}
-                {' '}
+                Enterprise Software House{' '}
                 <br />
-                <span className="gtxt">
-                  <KineticHeading text="in Islamabad" delayStep={55} />
-                </span>
+                <span className="gtxt">in Islamabad</span>
               </h1>
               <p className="hero-sub">
                 We engineer mission-critical platforms for fintech institutions, government agencies, healthcare networks, and global enterprises — built for scale, security, and compliance.
@@ -76,11 +67,11 @@ const HeroSection: React.FC = () => {
                   a responsive srcset, so phones stop downloading a 1200px asset
                   to paint it at ~360px. */}
               <Image
-                src="/og/enterprise-software-development.jpg"
-                alt="Enterprise software engineering for regulated industries"
-                width={1200}
-                height={630}
-                priority
+                    src="/hero-office.webp"
+                    alt="NovuLabs office interior"
+                width={1280}
+                height={960}
+                    priority
                 sizes="(max-width: 991px) 100vw, 50vw"
               />
               <div className="hero-img-overlay"></div>
