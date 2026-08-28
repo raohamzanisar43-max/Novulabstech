@@ -1,0 +1,87 @@
+{
+  "base": "https://www.novulabs.net",
+  "passed": 16,
+  "total": 16,
+  "results": [
+    {
+      "check": "apex returns 301/308",
+      "ok": true,
+      "detail": "got 308 -> https://www.novulabs.net/"
+    },
+    {
+      "check": "apex redirects to www",
+      "ok": true,
+      "detail": "https://www.novulabs.net/"
+    },
+    {
+      "check": "sitemap.xml serves 200",
+      "ok": true,
+      "detail": "status 200"
+    },
+    {
+      "check": "sitemap lists URLs",
+      "ok": true,
+      "detail": "39 URLs"
+    },
+    {
+      "check": "every sitemap route returns 200",
+      "ok": true,
+      "detail": "39 routes"
+    },
+    {
+      "check": "robots.txt serves 200",
+      "ok": true,
+      "detail": "status 200"
+    },
+    {
+      "check": "robots.txt does not block the site",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "robots.txt references sitemap",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "llms.txt serves 200",
+      "ok": true,
+      "detail": "status 200"
+    },
+    {
+      "check": "unknown path returns 404",
+      "ok": true,
+      "detail": "got 404"
+    },
+    {
+      "check": "every sampled page has a canonical",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "no page canonicalises elsewhere",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "no shared canonical targets",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "Strict-Transport-Security present",
+      "ok": true,
+      "detail": "max-age=63072000; includeSubDomains; preload"
+    },
+    {
+      "check": "X-Content-Type-Options: nosniff",
+      "ok": true,
+      "detail": "nosniff"
+    },
+    {
+      "check": "Referrer-Policy present",
+      "ok": true,
+      "detail": "origin-when-cross-origin"
+    }
+  ]
+}

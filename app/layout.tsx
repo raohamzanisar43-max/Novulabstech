@@ -45,7 +45,6 @@ import { organizationSchema, websiteSchema, siteNavigationSchema } from '@/lib/s
 // ClientShell is a 'use client' wrapper — holds all ssr:false dynamic imports
 // (next/dynamic with ssr:false is only allowed inside Client Components)
 import ClientShell from '@/components/ui/ClientShell';
-import Preloader from '@/components/ui/Preloader';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 
@@ -184,7 +183,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </a>
 
         {/* Render preloader in initial markup for instant painting, fades out safely after hydration */}
-        <Preloader />
         
         {/* Single client boundary — all other heavy UI lazy-loads live inside ClientShell */}
         <ClientShell />
@@ -199,7 +197,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             user agent to that CDN. Same-origin now, immutably cached, and no
             longer a third-party dependency for the site to function. */}
         <Script src="/vendor/bootstrap.bundle.min.js" strategy="afterInteractive" />
-        <Script src="/vendor/aos.js" strategy="lazyOnload" />
       </body>
     </html>
   );

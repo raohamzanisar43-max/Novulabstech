@@ -181,7 +181,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       <section className="sec bg-g">
         <div className="container">
           <div className="row justify-content-center text-center mb-5">
-            <div className="col-lg-7" data-aos="fade-up">
+            <div className="col-lg-7" data-reveal="up">
               <span className="stag">Questions</span>
               <h2 className="stitle mt-3">
                 {svc.navLabel} <span className="gtxt">FAQs</span>
@@ -251,7 +251,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
           it the highest-weighted heading on every article page. */}
       <section id="cta-banner">
         <div className="container">
-          <div className="cta-inner" data-aos="fade-up">
+          <div className="cta-inner" data-reveal="up">
             <div className="row align-items-center g-5">
               <div className="col-lg-7">
                 <span className="stag">Consult our team</span>

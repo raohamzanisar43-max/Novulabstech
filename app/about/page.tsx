@@ -6,6 +6,8 @@ import MissionSection from '@/components/sections/about/MissionSection';
 import HowWeWorkSection from '@/components/sections/about/HowWeWorkSection';
 import AboutPhotos from '@/components/sections/about/AboutPhotos';
 import AboutCta from '@/components/sections/about/AboutCta';
+import PageFaq from '@/components/sections/shared/PageFaq';
+import { aboutFaqs } from '@/content/pageFaqs';
 
 export const metadata: Metadata = {
   title: 'About Us — Enterprise Software House, Islamabad',
@@ -55,6 +57,7 @@ export default function AboutPage() {
       <MissionSection />
       <HowWeWorkSection />
       <AboutPhotos />
+      <PageFaq items={aboutFaqs} path="/about" />
       <AboutCta />
     </>
   );

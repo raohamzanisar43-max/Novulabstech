@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import TeamHero from '@/components/sections/team/TeamHero';
 import TeamGridSection from '@/components/sections/team/TeamGridSection';
 import TeamCta from '@/components/sections/team/TeamCta';
+import PageFaq from '@/components/sections/shared/PageFaq';
+import { teamFaqs } from '@/content/pageFaqs';
 
 export const metadata: Metadata = {
   title: 'Engineering & Compliance Team',
@@ -39,6 +41,7 @@ export default function TeamPage() {
       <div className="divider"></div>
       <TeamGridSection />
       <TeamCta />
+      <PageFaq items={teamFaqs} path="/team" />
     </>
   );
 }

@@ -7,13 +7,13 @@ const CloudServiceSection: React.FC = () => {
     <section id="cloud" className="sec bg-w">
       <div className="container">
         <div className="row justify-content-center text-center mb-5">
-          <div className="col-lg-7" data-aos="fade-up">
+          <div className="col-lg-7" data-reveal="up">
             <span className="stag">Services 19–22</span>
             <h2 className="stitle mt-3">Cloud, AI &amp; <span className="gtxt">Automation</span></h2>
           </div>
         </div>
         <div className="row g-4">
-          <div className="col-md-6" data-aos="fade-up">
+          <div className="col-md-6" data-reveal="up">
             <GlowCard className="gcard">
               <div className="gcard-body">
                 <div className="sico i-c"><i className="bi bi-plug-fill"></i></div>
@@ -23,7 +23,7 @@ const CloudServiceSection: React.FC = () => {
               </div>
             </GlowCard>
           </div>
-          <div className="col-md-6" data-aos="fade-up" data-aos-delay="60">
+          <div className="col-md-6" data-reveal="up">
             <GlowCard className="gcard">
               <div className="gcard-body">
                 <div className="sico i-b"><i className="bi bi-cloud-fill"></i></div>
@@ -33,7 +33,7 @@ const CloudServiceSection: React.FC = () => {
               </div>
             </GlowCard>
           </div>
-          <div className="col-md-6" data-aos="fade-up">
+          <div className="col-md-6" data-reveal="up">
             <GlowCard className="gcard">
               <div className="gcard-body">
                 <div className="sico i-t"><i className="bi bi-robot"></i></div>
@@ -43,7 +43,7 @@ const CloudServiceSection: React.FC = () => {
               </div>
             </GlowCard>
           </div>
-          <div className="col-md-6" data-aos="fade-up" data-aos-delay="60">
+          <div className="col-md-6" data-reveal="up">
             <GlowCard className="gcard">
               <div className="gcard-body">
                 <div className="sico i-o"><i className="bi bi-layers-fill"></i></div>

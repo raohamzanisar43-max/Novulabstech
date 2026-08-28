@@ -17,7 +17,7 @@ const BlogGrid: React.FC = () => {
     <section className="sec bg-g" id="blog-grid">
       <div className="container">
         {/* Categories filters */}
-        <div className="pfilter justify-content-center mb-5" data-aos="fade-up">
+        <div className="pfilter justify-content-center mb-5" data-reveal="up">
           {categories.map((cat) => (
             <button
               key={cat}
@@ -37,7 +37,7 @@ const BlogGrid: React.FC = () => {
             ))}
           </div>
         ) : (
-          <div className="text-center py-5" data-aos="fade-up">
+          <div className="text-center py-5" data-reveal="up">
             <i className="bi bi-journal-x" style={{ fontSize: '3rem', color: 'var(--tx4)', opacity: 0.5 }}></i>
             <h4 className="mt-3" style={{ color: 'var(--tx2)' }}>No posts found in this category.</h4>
           </div>

@@ -1,0 +1,459 @@
+{
+  "seed": "software house islamabad",
+  "gl": "pk",
+  "hl": "en",
+  "total_keywords": 109,
+  "source": "google-suggest (free, no volume data)",
+  "intents": {
+    "navigational/other": 89,
+    "commercial": 14,
+    "transactional": 2,
+    "informational": 4
+  },
+  "keywords": {
+    "navigational/other": [
+      {
+        "keyword": "famous software houses in islamabad",
+        "suggest_hits": 21
+      },
+      {
+        "keyword": "software house in islamabad jobs",
+        "suggest_hits": 20
+      },
+      {
+        "keyword": "software house in islamabad blue area",
+        "suggest_hits": 9
+      },
+      {
+        "keyword": "software house in islamabad and rawalpindi",
+        "suggest_hits": 8
+      },
+      {
+        "keyword": "software houses in islamabad list",
+        "suggest_hits": 8
+      },
+      {
+        "keyword": "software houses in islamabad pakistan",
+        "suggest_hits": 8
+      },
+      {
+        "keyword": "software house in islamabad",
+        "suggest_hits": 7
+      },
+      {
+        "keyword": "software houses in islamabad i8",
+        "suggest_hits": 7
+      },
+      {
+        "keyword": "software house islamabad jobs for freshers",
+        "suggest_hits": 6
+      },
+      {
+        "keyword": "software house in islamabad for internship",
+        "suggest_hits": 5
+      },
+      {
+        "keyword": "software house jobs in islamabad without experience",
+        "suggest_hits": 4
+      },
+      {
+        "keyword": "software houses in islamabad i 10",
+        "suggest_hits": 4
+      },
+      {
+        "keyword": "software houses in islamabad open now",
+        "suggest_hits": 4
+      },
+      {
+        "keyword": "famous software houses in lahore",
+        "suggest_hits": 3
+      },
+      {
+        "keyword": "software house in bahria town islamabad",
+        "suggest_hits": 3
+      },
+      {
+        "keyword": "software house in ghauri town islamabad",
+        "suggest_hits": 3
+      },
+      {
+        "keyword": "software house in islamabad internship",
+        "suggest_hits": 3
+      },
+      {
+        "keyword": "software house in islamabad internship for freshers",
+        "suggest_hits": 3
+      },
+      {
+        "keyword": "software house islamabad internship",
+        "suggest_hits": 3
+      },
+      {
+        "keyword": "software house near comsats islamabad",
+        "suggest_hits": 3
+      },
+      {
+        "keyword": "software house near e 11 islamabad",
+        "suggest_hits": 3
+      },
+      {
+        "keyword": "software house near marriott hotel islamabad",
+        "suggest_hits": 3
+      },
+      {
+        "keyword": "biggest software house in islamabad",
+        "suggest_hits": 2
+      },
+      {
+        "keyword": "convo software house islamabad",
+        "suggest_hits": 2
+      },
+      {
+        "keyword": "online appointments software house islamabad",
+        "suggest_hits": 2
+      },
+      {
+        "keyword": "software house in bahria enclave islamabad",
+        "suggest_hits": 2
+      },
+      {
+        "keyword": "software house in chak shahzad islamabad",
+        "suggest_hits": 2
+      },
+      {
+        "keyword": "software house in hostel city islamabad",
+        "suggest_hits": 2
+      },
+      {
+        "keyword": "software house in naval anchorage islamabad",
+        "suggest_hits": 2
+      },
+      {
+        "keyword": "software house in soan garden islamabad",
+        "suggest_hits": 2
+      },
+      {
+        "keyword": "software house islamabad jobs",
+        "suggest_hits": 2
+      },
+      {
+        "keyword": "software house islamabad location",
+        "suggest_hits": 2
+      },
+      {
+        "keyword": "software house jobs in islamabad salary",
+        "suggest_hits": 2
+      },
+      {
+        "keyword": "software house jobs in rawalpindi islamabad",
+        "suggest_hits": 2
+      },
+      {
+        "keyword": "software house near i 10 islamabad",
+        "suggest_hits": 2
+      },
+      {
+        "keyword": "software house near islamabad",
+        "suggest_hits": 2
+      },
+      {
+        "keyword": "software houses in rawalpindi islamabad for internship",
+        "suggest_hits": 2
+      },
+      {
+        "keyword": "system limited software house islamabad",
+        "suggest_hits": 2
+      },
+      {
+        "keyword": "abacus software house islamabad",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "affinity software house islamabad",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "ai software house in islamabad",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "aio software house islamabad",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "alhuda software house islamabad",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "contour software house islamabad",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "devsinc software house islamabad",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "eziline software house islamabad",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "folio3 software house islamabad",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "gaming software house in islamabad",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "good software houses in islamabad",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "gulberg software house islamabad",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "islamabad software house name",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "list of software houses in islamabad and rawalpindi",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "mm software house islamabad",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "motive software house islamabad",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "nastp islamabad software house",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "netsol software house islamabad",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "quaid technologies software house in rawalpindi islamabad",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "redis solution software house in islamabad photos",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "software companies in islamabad",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "software companies in islamabad and rawalpindi",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "software companies in islamabad blue area",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "software companies in islamabad for internship",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "software companies islamabad",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "software house gulberg green islamabad",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "software house gulberg islamabad",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "software house in b17 islamabad",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "software house in blue area islamabad",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "software house in d12 islamabad",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "software house in dha 2 islamabad",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "software house in dha islamabad",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "software house in f11 islamabad",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "software house in f7 islamabad",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "software house in f8 islamabad",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "software house in g10 islamabad",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "software house in g11 islamabad",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "software house in g13 islamabad",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "software house in g8 islamabad",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "software house in g9 islamabad",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "software house in islamabad i 8 markaz islamabad",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "software house in nust islamabad",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "software house in pwd islamabad",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "software house islamabad",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "software house rawalpindi islamabad",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "software house salary in pakistan",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "software houses in islamabad e11",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "software houses in islamabad for internship for freshers",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "system software house islamabad",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "techozon software house islamabad",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "vu software house islamabad",
+        "suggest_hits": 1
+      }
+    ],
+    "commercial": [
+      {
+        "keyword": "top 10 software houses in islamabad",
+        "suggest_hits": 11
+      },
+      {
+        "keyword": "best software house in islamabad for internship",
+        "suggest_hits": 3
+      },
+      {
+        "keyword": "top software house islamabad",
+        "suggest_hits": 3
+      },
+      {
+        "keyword": "best software house in rawalpindi islamabad",
+        "suggest_hits": 2
+      },
+      {
+        "keyword": "best software house islamabad",
+        "suggest_hits": 2
+      },
+      {
+        "keyword": "top software companies islamabad",
+        "suggest_hits": 2
+      },
+      {
+        "keyword": "top software houses in islamabad and rawalpindi",
+        "suggest_hits": 2
+      },
+      {
+        "keyword": "best software companies islamabad",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "sar zone best software house in islamabad & automation center",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "top 10 software house in islamabad",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "top 10 software houses in lahore",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "top 10 software houses in pakistan",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "top rated software house in islamabad",
+        "suggest_hits": 1
+      },
+      {
+        "keyword": "top software houses in pakistan islamabad",
+        "suggest_hits": 1
+      }
+    ],
+    "transactional": [
+      {
+        "keyword": "software house in islamabad near me",
+        "suggest_hits": 11
+      },
+      {
+        "keyword": "software company in islamabad rawalpindi",
+        "suggest_hits": 1
+      }
+    ],
+    "informational": [
+      {
+        "keyword": "how many software houses in pakistan",
+        "suggest_hits": 9
+      },
+      {
+        "keyword": "how many software houses in lahore",
+        "suggest_hits": 4
+      },
+      {
+        "keyword": "how to start a software house in pakistan",
+        "suggest_hits": 3
+      },
+      {
+        "keyword": "how many software house in islamabad",
+        "suggest_hits": 1
+      }
+    ]
+  }
+}

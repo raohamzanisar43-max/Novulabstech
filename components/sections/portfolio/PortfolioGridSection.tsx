@@ -28,7 +28,7 @@ const PortfolioGridSection: React.FC = () => {
     <section className="sec bg-g" id="portfolio-grid">
       <div className="container">
         {/* Filter */}
-        <div className="pfilter justify-content-center mb-5" data-aos="fade-up">
+        <div className="pfilter justify-content-center mb-5" data-reveal="up">
           {filters.map((f) => (
             <button 
               key={f.id}

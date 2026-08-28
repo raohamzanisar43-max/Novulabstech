@@ -61,7 +61,7 @@ const PlatformSelectionSection: React.FC = () => {
             </p>
             <p>
               <strong>NovuPay</strong> owns money movement and the ledger behind it. Its
-              defining requirement is not throughput, it is finality: on an instant rail a
+              defining requirement is finality rather than throughput: on an instant rail a
               credit is applied and irrevocable within seconds, so validation moves ahead of
               the transaction and correction stops being a technical option. The engineering
               consequences — idempotency enforced at the database, reconciliation as a first

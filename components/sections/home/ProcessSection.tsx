@@ -5,7 +5,7 @@ const ProcessSection: React.FC = () => {
     <section className="sec bg-w z1" id="process">
       <div className="container">
         <div className="row justify-content-center text-center mb-5">
-          <div className="col-lg-7" data-aos="fade-up">
+          <div className="col-lg-7" data-reveal="up">
             <span className="stag">How We Work</span>
             <h2 className="stitle mt-3">Our Delivery <span className="gtxt">Process</span></h2>
             <p className="ssub mx-auto">A proven six-phase methodology refined across 200+ enterprise deployments.</p>
@@ -15,7 +15,7 @@ const ProcessSection: React.FC = () => {
         <div className="proc-tl">
           <div className="row">
             {/* Step 1 */}
-            <div className="col-md-5" data-aos="fade-right">
+            <div className="col-md-5" data-reveal="right">
               <div className="pstep">
                 <div className="pstep-inner">
                   <div className="pstep-t">
@@ -35,7 +35,7 @@ const ProcessSection: React.FC = () => {
             <div className="col-md-2 d-none d-md-flex align-items-center justify-content-center position-relative">
               <div className="pnum">02</div>
             </div>
-            <div className="col-md-5" data-aos="fade-left">
+            <div className="col-md-5" data-reveal="left">
               <div className="pstep">
                 <div className="pstep-inner">
                   <div className="pstep-t">
@@ -47,7 +47,7 @@ const ProcessSection: React.FC = () => {
             </div>
 
             {/* Step 3 */}
-            <div className="col-md-5" data-aos="fade-right">
+            <div className="col-md-5" data-reveal="right">
               <div className="pstep">
                 <div className="pstep-inner">
                   <div className="pstep-t">
@@ -67,7 +67,7 @@ const ProcessSection: React.FC = () => {
             <div className="col-md-2 d-none d-md-flex align-items-center justify-content-center position-relative">
               <div className="pnum">04</div>
             </div>
-            <div className="col-md-5" data-aos="fade-left">
+            <div className="col-md-5" data-reveal="left">
               <div className="pstep">
                 <div className="pstep-inner">
                   <div className="pstep-t">
@@ -79,7 +79,7 @@ const ProcessSection: React.FC = () => {
             </div>
 
             {/* Step 5 */}
-            <div className="col-md-5" data-aos="fade-right">
+            <div className="col-md-5" data-reveal="right">
               <div className="pstep">
                 <div className="pstep-inner">
                   <div className="pstep-t">
@@ -99,7 +99,7 @@ const ProcessSection: React.FC = () => {
             <div className="col-md-2 d-none d-md-flex align-items-center justify-content-center position-relative">
               <div className="pnum">06</div>
             </div>
-            <div className="col-md-5" data-aos="fade-left">
+            <div className="col-md-5" data-reveal="left">
               <div className="pstep">
                 <div className="pstep-inner">
                   <div className="pstep-t">

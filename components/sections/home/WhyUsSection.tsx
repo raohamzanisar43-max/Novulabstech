@@ -7,7 +7,7 @@ const WhyUsSection: React.FC = () => {
     <section className="sec bg-w z1" id="why">
       <div className="container">
         <div className="row justify-content-center text-center mb-5">
-          <div className="col-lg-7" data-aos="fade-up">
+          <div className="col-lg-7" data-reveal="up">
             <span className="stag">Why NovuLabs</span>
             <h2 className="stitle mt-3">The <span className="gtxt">Competitive Edge</span> You Need</h2>
             <p className="ssub mx-auto">We build competitive advantages for the world's most demanding organizations — not just software.</p>

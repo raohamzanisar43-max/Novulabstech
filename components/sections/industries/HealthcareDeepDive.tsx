@@ -6,7 +6,7 @@ const HealthcareDeepDive: React.FC = () => {
     <section id="healthcare" className="sec bg-g">
       <div className="container">
         <div className="row align-items-center g-5 flex-lg-row-reverse">
-          <div className="col-lg-6" data-aos="fade-left">
+          <div className="col-lg-6" data-reveal="left">
             <span className="stag">Industry 02</span>
             <h2 className="stitle mt-3">Healthcare &amp; <span className="gtxt">MedTech</span></h2>
             <p className="mb-3">Our Healthcare division has deployed HIPAA-compliant EHR systems, telemedicine platforms, and medical billing solutions across 40+ hospitals in Pakistan, UAE, and North America.</p>
@@ -20,9 +20,17 @@ const HealthcareDeepDive: React.FC = () => {
             </ul>
             <Button href="/contact" variant="grad"><i className="bi bi-calendar-check me-1"></i>Consult About Healthcare IT</Button>
           </div>
-          <div className="col-lg-6" data-aos="fade-right">
+          <div className="col-lg-6" data-reveal="right">
             <div className="sec-img">
-              <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=700&q=75" alt="Healthcare MedTech" style={{ height: '400px', width: '100%', objectFit: 'cover' }} />
+              <img
+                src="/og/healthcare-software-development.jpg"
+                alt="HIPAA and HL7 FHIR healthcare platform engineering"
+                width={1200}
+                height={630}
+                loading="lazy"
+                decoding="async"
+                style={{ height: '400px', width: '100%', objectFit: 'cover' }}
+              />
             </div>
           </div>
         </div>

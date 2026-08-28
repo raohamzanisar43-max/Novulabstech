@@ -7,14 +7,14 @@ const ComplianceServiceSection: React.FC = () => {
     <section id="compliance" className="sec bg-g">
       <div className="container">
         <div className="row justify-content-center text-center mb-5">
-          <div className="col-lg-7" data-aos="fade-up">
+          <div className="col-lg-7" data-reveal="up">
             <span className="stag">Services 12–18</span>
             <h2 className="stitle mt-3">AML, CFT &amp; <span className="gtxt">Compliance</span></h2>
             <p className="ssub mx-auto">The deepest regulatory compliance engineering expertise in Pakistan and the MENA region.</p>
           </div>
         </div>
         <div className="row g-4">
-          <div className="col-md-6 col-lg-4" data-aos="fade-up">
+          <div className="col-md-6 col-lg-4" data-reveal="up">
             <GlowCard className="gcard">
               <div className="gcard-body">
                 <div className="sico i-t"><i className="bi bi-shield-lock-fill"></i></div>
@@ -24,7 +24,7 @@ const ComplianceServiceSection: React.FC = () => {
               </div>
             </GlowCard>
           </div>
-          <div className="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="60">
+          <div className="col-md-6 col-lg-4" data-reveal="up">
             <GlowCard className="gcard">
               <div className="gcard-body">
                 <div className="sico i-b"><i className="bi bi-flag-fill"></i></div>
@@ -34,7 +34,7 @@ const ComplianceServiceSection: React.FC = () => {
               </div>
             </GlowCard>
           </div>
-          <div className="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="120">
+          <div className="col-md-6 col-lg-4" data-reveal="up">
             <GlowCard className="gcard">
               <div className="gcard-body">
                 <div className="sico i-p"><i className="bi bi-activity"></i></div>
@@ -44,7 +44,7 @@ const ComplianceServiceSection: React.FC = () => {
               </div>
             </GlowCard>
           </div>
-          <div className="col-md-6 col-lg-4" data-aos="fade-up">
+          <div className="col-md-6 col-lg-4" data-reveal="up">
             <GlowCard className="gcard">
               <div className="gcard-body">
                 <div className="sico i-y"><i className="bi bi-filetype-xml"></i></div>
@@ -54,7 +54,7 @@ const ComplianceServiceSection: React.FC = () => {
               </div>
             </GlowCard>
           </div>
-          <div className="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="60">
+          <div className="col-md-6 col-lg-4" data-reveal="up">
             <GlowCard className="gcard">
               <div className="gcard-body">
                 <div className="sico i-g"><i className="bi bi-buildings-fill"></i></div>
@@ -64,7 +64,7 @@ const ComplianceServiceSection: React.FC = () => {
               </div>
             </GlowCard>
           </div>
-          <div className="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="120">
+          <div className="col-md-6 col-lg-4" data-reveal="up">
             <GlowCard className="gcard">
               <div className="gcard-body">
                 <div className="sico i-v"><i className="bi bi-bank2"></i></div>

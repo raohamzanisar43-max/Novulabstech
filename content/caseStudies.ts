@@ -128,7 +128,7 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: 'Why an immutable event stream rather than mutable state',
         body: [
-          'The decisive constraint in AML work is not detection quality, it is reconstruction. An examiner does not ask what the system believes today; they ask what it knew on the day a decision was taken, and expect the answer to be evidenced rather than asserted.',
+          'The decisive constraint in AML work is reconstruction, ahead of detection quality. An examiner does not ask what the system believes today; they ask what it knew on the day a decision was taken, and expect the answer to be evidenced rather than asserted.',
           'A conventional mutable schema cannot answer that. Once a customer risk rating is updated in place, the rating that actually drove a decision six months ago is gone. Storing an append-only stream of events, with derived state projected from it, means any historical position can be rebuilt exactly — including the configuration that produced it.',
           'The cost is real and worth stating: projections add operational complexity, and engineers unfamiliar with the pattern find the indirection uncomfortable at first. In a regulated context that cost is straightforwardly worth paying, because the alternative is an audit answer of "we cannot reconstruct that".',
         ],
@@ -412,7 +412,7 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: 'Audit logging sized as a primary feature',
         body: [
-          'Under HIPAA the access log is not infrastructure, it is evidence. It has to be append-only, because a log the writing system can amend proves nothing, and it has to be queryable by patient and by time window, because that is the axis an investigation actually uses.',
+          'Under HIPAA the access log counts as evidence, and has to be built to that standard. It has to be append-only, because a log the writing system can amend proves nothing, and it has to be queryable by patient and by time window, because that is the axis an investigation actually uses.',
           'Both properties are cheap at design time and painful to retrofit onto a live system carrying years of history. The retention policy was set as a product decision with clinical and legal input rather than as a database default.',
         ],
       },
@@ -632,7 +632,7 @@ export const caseStudies: CaseStudy[] = [
       'government revenue system',
     ],
     challenge: [
-      'Tax filing traffic is not merely seasonal, it is a spike: a very large share of annual submissions arrive in the final days before a deadline. A system sized for average load is a system that fails on precisely the days it matters.',
+      'Tax filing traffic arrives as a spike rather than a season: a very large share of annual submissions arrive in the final days before a deadline. A system sized for average load is a system that fails on precisely the days it matters.',
       'Assessment was manual and inconsistent between officers, which produced disputes that consumed more staff time than the assessments themselves.',
     ],
     constraints: [

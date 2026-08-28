@@ -1,0 +1,25 @@
+[
+  {
+    "seed": "software house islamabad",
+    "total": 109,
+    "intents": {
+      "navigational/other": 89,
+      "commercial": 14,
+      "transactional": 2,
+      "informational": 4
+    }
+  },
+  {
+    "seed": "core banking software pakistan",
+    "total": 4,
+    "intents": {
+      "navigational/other": 3,
+      "informational": 1
+    }
+  },
+  {
+    "seed": "aml software pakistan",
+    "total": 0,
+    "intents": {}
+  }
+]

@@ -20,7 +20,7 @@ const PortfolioCard: React.FC<PortfolioCardProps> = ({ project, index }) => {
   const href = `/portfolio/${project.slug}`;
 
   return (
-    <div className="col" data-aos="fade-up" data-aos-delay={index * 40}>
+    <div className="col" data-reveal="up">
       <div className="pcard">
         <Link href={href} className="pimg-wrap d-block" aria-hidden="true" tabIndex={-1}>
           <Image

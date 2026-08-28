@@ -1,0 +1,33 @@
+{
+  "seed": "core banking software pakistan",
+  "gl": "pk",
+  "hl": "en",
+  "total_keywords": 4,
+  "source": "google-suggest (free, no volume data)",
+  "intents": {
+    "navigational/other": 3,
+    "informational": 1
+  },
+  "keywords": {
+    "navigational/other": [
+      {
+        "keyword": "core banking systems in pakistan",
+        "suggest_hits": 9
+      },
+      {
+        "keyword": "core banking software list",
+        "suggest_hits": 7
+      },
+      {
+        "keyword": "core banking software companies",
+        "suggest_hits": 5
+      }
+    ],
+    "informational": [
+      {
+        "keyword": "what is core banking software",
+        "suggest_hits": 9
+      }
+    ]
+  }
+}

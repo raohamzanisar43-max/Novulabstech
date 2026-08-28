@@ -76,7 +76,7 @@ const ContactFormSection: React.FC = () => {
     <section className="sec bg-g" id="contact-form-sec">
       <div className="container">
         <div className="row g-5">
-          <div className="col-lg-7" data-aos="fade-right">
+          <div className="col-lg-7" data-reveal="right">
             <div className="ccontact">
               <h3 className="mb-1">Tell Us About Your Project</h3>
               <p style={{ color: 'var(--tx3)', fontSize: '0.86rem', marginBottom: '26px' }}>We respond within 4 business hours. For urgent inquiries, call us directly.</p>
@@ -232,7 +232,7 @@ const ContactFormSection: React.FC = () => {
             </div>
           </div>
           
-          <div className="col-lg-5" data-aos="fade-left">
+          <div className="col-lg-5" data-reveal="left">
             <div className="ccontact mb-4">
               <h2 className="mb-4" style={{ fontSize: '1.1rem' }}>Our office</h2>
               <div className="cinfo-item">

@@ -6,6 +6,8 @@ import { canonical } from '@/lib/seo';
 import PortfolioHero from '@/components/sections/portfolio/PortfolioHero';
 import PortfolioGridSection from '@/components/sections/portfolio/PortfolioGridSection';
 import PortfolioCta from '@/components/sections/portfolio/PortfolioCta';
+import PageFaq from '@/components/sections/shared/PageFaq';
+import { portfolioFaqs } from '@/content/pageFaqs';
 
 export const metadata: Metadata = {
   title: 'Case Studies — Enterprise Software Projects',
@@ -68,6 +70,7 @@ export default function PortfolioPage() {
       <div className="divider"></div>
       <PortfolioGridSection />
       <PortfolioCta />
+      <PageFaq items={portfolioFaqs} path="/portfolio" />
     </>
   );
 }

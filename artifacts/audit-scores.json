@@ -1,0 +1,44 @@
+[
+  {
+    "route": "/",
+    "seo": 80,
+    "aeo": 90,
+    "geo": 80
+  },
+  {
+    "route": "/services",
+    "seo": 90,
+    "aeo": 60,
+    "geo": 70
+  },
+  {
+    "route": "/solutions",
+    "seo": 90,
+    "aeo": 70,
+    "geo": 80
+  },
+  {
+    "route": "/portfolio",
+    "seo": 90,
+    "aeo": 60,
+    "geo": 80
+  },
+  {
+    "route": "/about",
+    "seo": 90,
+    "aeo": 70,
+    "geo": 80
+  },
+  {
+    "route": "/contact",
+    "seo": 100,
+    "aeo": 90,
+    "geo": 70
+  },
+  {
+    "route": "/blog",
+    "seo": 90,
+    "aeo": 70,
+    "geo": 70
+  }
+]

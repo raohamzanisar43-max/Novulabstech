@@ -10,20 +10,27 @@ import TechStackSection from '@/components/sections/home/TechStackSection';
 import PortfolioPreviewSection from '@/components/sections/home/PortfolioPreviewSection';
 import ProcessSection from '@/components/sections/home/ProcessSection';
 import FaqSection from '@/components/sections/home/FaqSection';
+import CaseStudyRail from '@/components/sections/home/CaseStudyRail';
 import InsightsSection from '@/components/sections/home/InsightsSection';
 import CtaSection from '@/components/sections/home/CtaSection';
 
 export const metadata: Metadata = {
-  title: { absolute: 'NovuLabs — AML, Fintech & Healthcare Software House' },
+  // 49 chars. Leads with the head term the H1 now carries, so title, H1 and
+  // description all target one intent instead of three. The previous title led
+  // with the brand, which only helps people already searching for the brand.
+  title: { absolute: 'Software House in Islamabad | NovuLabs' },
   description:
-    'Enterprise software house in Islamabad building AML/CFT compliance systems for SBP-regulated banks, HIPAA healthcare platforms and PCI-DSS payments.',
+    'Enterprise software house in Islamabad building AML/CFT compliance systems for SBP-regulated banks, HIPAA healthcare platforms and PCI-DSS payments. Talk to an architect, not a salesperson.',
   keywords: [
+    'software house in Islamabad',
+    'software house Islamabad',
+    'software company in Islamabad',
     'enterprise software house Pakistan',
     'AML software Pakistan',
-    'fintech development company',
+    'fintech development company Islamabad',
     'healthcare IT software Pakistan',
     'NovuLabs Islamabad',
-    'custom software development',
+    'custom software development Islamabad',
     'government portal software',
     'GOAML compliance software',
     'PCI-DSS payment software',
@@ -63,6 +70,7 @@ export default function Home() {
       <TechStackSection />
       <PortfolioPreviewSection />
       <ProcessSection />
+      <CaseStudyRail />
       <InsightsSection />
       <FaqSection />
       <CtaSection />

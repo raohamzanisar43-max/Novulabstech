@@ -614,7 +614,7 @@ export const servicePages: ServicePage[] = [
         heading: 'Server-render, because half your readers do not run JavaScript',
         body: [
           'This used to be an SEO nicety. It is now a distribution question. GPTBot, ClaudeBot, PerplexityBot and CCBot largely do not execute JavaScript, so a client-rendered application ships them an empty shell — invisible to every major AI assistant regardless of how good the content is.',
-          'We build server-rendered by default and treat "is the content in the raw HTML response?" as a release check, not an assumption. It is one of the few technical decisions with a direct, measurable effect on whether an AI system can cite you at all.',
+          'We build server-rendered by default and treat "is the content in the raw HTML response?" as a release check rather than an assumption. It remains one of the few technical decisions with a direct, measurable effect on whether an AI system can cite you at all.',
         ],
       },
       {

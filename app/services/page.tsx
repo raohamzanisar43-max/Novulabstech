@@ -86,7 +86,7 @@ export default function ServicesPage() {
       <section className="sec bg-w" id="service-index">
         <div className="container">
           <div className="row justify-content-center text-center mb-5">
-            <div className="col-lg-8" data-aos="fade-up">
+            <div className="col-lg-8" data-reveal="up">
               <span className="stag">Seven engineering tracks</span>
               <h2 className="stitle mt-3">
                 Pick the <span className="gtxt">track</span> that matches your problem
@@ -99,7 +99,7 @@ export default function ServicesPage() {
           </div>
           <div className="row g-4">
             {servicePages.map((sp, i) => (
-              <div className="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay={(i % 3) * 60} key={sp.slug}>
+              <div className="col-md-6 col-lg-4" data-reveal="up" key={sp.slug}>
                 <div className="gcard h-100">
                   <div className="gcard-body">
                     <div className="sico i-t"><i className={`bi ${sp.icon}`}></i></div>

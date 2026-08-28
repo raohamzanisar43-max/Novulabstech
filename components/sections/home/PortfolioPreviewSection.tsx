@@ -19,7 +19,7 @@ const PortfolioPreviewSection: React.FC = () => {
     <section className="sec bg-g z1" id="portfolio">
       <div className="container">
         <div className="row justify-content-between align-items-end mb-5">
-          <div className="col-lg-7" data-aos="fade-up">
+          <div className="col-lg-7" data-reveal="up">
             <span className="stag">Our work</span>
             <h2 className="stitle mt-3">Three engagements, <span className="gtxt">in detail</span></h2>
             <p className="ssub mt-3 mb-0">
@@ -27,13 +27,13 @@ const PortfolioPreviewSection: React.FC = () => {
               actually changed. Client names are withheld under NDA and described by category.
             </p>
           </div>
-          <div className="col-auto" data-aos="fade-up">
+          <div className="col-auto" data-reveal="up">
             <Button href="/portfolio" variant="glass">
               All case studies <i className="bi bi-arrow-right ms-1"></i>
             </Button>
           </div>
         </div>
-        <div className="row row-cols-1 row-cols-md-3 g-4">
+        <div className="row row-cols-1 row-cols-md-3 g-4 depth-row">
           {previewProjects.map((project, i) => (
             <PortfolioCard key={project.slug} project={project} index={i} />
           ))}

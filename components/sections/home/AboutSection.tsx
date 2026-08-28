@@ -7,7 +7,7 @@ const AboutSection: React.FC = () => {
     <section className="sec bg-w z1" id="about">
       <div className="container">
         <div className="row align-items-center g-5">
-          <div className="col-lg-5" data-aos="fade-right">
+          <div className="col-lg-5" data-reveal="right">
             <div style={{ position: 'relative' }}>
               <div className="about-img">
                 <img src="/team-working.jpeg" alt="NovuLabs global team collaboration" />
@@ -26,7 +26,7 @@ const AboutSection: React.FC = () => {
               </div>
             </div>
           </div>
-          <div className="col-lg-7" data-aos="fade-left">
+          <div className="col-lg-7" data-reveal="left">
             <span className="stag">Who We Are</span>
             <h2 className="stitle mt-3">Building Digital Infrastructure <span className="gtxt">for Tomorrow</span></h2>
             <p className="ssub mb-4">NovuLabs is a premier international software house headquartered in Islamabad. We engineer enterprise-grade platforms that power financial systems, healthcare networks, and government portals across 40+ countries.</p>

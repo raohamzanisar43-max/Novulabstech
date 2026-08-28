@@ -9,7 +9,7 @@ interface IndustryCardProps {
 
 const IndustryCard: React.FC<IndustryCardProps> = ({ item, index }) => {
   return (
-    <div className="col" data-aos="fade-up" data-aos-delay={index * 20}>
+    <div className="col" data-reveal="up">
       <Button href="/industries" variant="none" className="icard" style={{ textAlign: 'left', display: 'flex', textDecoration: 'none' }}>
         <div className={`iico ${item.color}`}>
           <i className={`bi ${item.icon}`}></i>

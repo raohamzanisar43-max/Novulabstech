@@ -24,14 +24,14 @@ const MoreSectorsSection: React.FC = () => {
     <section className="sec bg-g" id="more-sectors">
       <div className="container">
         <div className="row justify-content-center text-center mb-5">
-          <div className="col-lg-7" data-aos="fade-up">
+          <div className="col-lg-7" data-reveal="up">
             <span className="stag">More Sectors</span>
             <h2 className="stitle mt-3">Other Industries <span className="gtxt">We Serve</span></h2>
           </div>
         </div>
         <div className="row g-4">
           {moreSectors.map((sector, i) => (
-            <div className="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay={i * 60} key={i}>
+            <div className="col-md-6 col-lg-4" data-reveal="up" key={i}>
               <GlowCard className="gcard">
                 <div className="gcard-body">
                   <div className={`sico ${sector.color}`}><i className={`bi ${sector.icon}`}></i></div>

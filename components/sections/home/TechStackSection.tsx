@@ -6,7 +6,7 @@ const TechStackSection: React.FC = () => {
     <section className="sec-sm bg-w z1" id="tech">
       <div className="container">
         <div className="row align-items-center g-5">
-          <div className="col-lg-5" data-aos="fade-right">
+          <div className="col-lg-5" data-reveal="right">
             <span className="stag">Our Stack</span>
             <h2 className="stitle mt-3">Cutting-Edge <span className="gtxt">Technologies</span></h2>
             <p className="ssub mb-4">We use the world's best frameworks and cloud platforms — always the right tool for your requirements.</p>
@@ -31,7 +31,7 @@ const TechStackSection: React.FC = () => {
             </div>
           </div>
 
-          <div className="col-lg-7" data-aos="fade-left">
+          <div className="col-lg-7" data-reveal="left">
             <div className="row row-cols-3 row-cols-md-4 g-3">
               {techStack.map((tech, i) => (
                 <div className="col" key={i}>

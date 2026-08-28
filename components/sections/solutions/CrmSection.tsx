@@ -6,7 +6,7 @@ const CrmSection: React.FC = () => {
     <section id="crm" className="sec bg-g">
       <div className="container">
         <div className="row align-items-center g-5 flex-lg-row-reverse">
-          <div className="col-lg-6" data-aos="fade-left">
+          <div className="col-lg-6" data-reveal="left">
             <span className="stag">Solution 02</span>
             <h2 className="stitle mt-3">NovuCRM<br /><span className="gtxt">AI-Powered Customer Management</span></h2>
             <p className="ssub mb-4">Enterprise CRM with AI-driven lead scoring, revenue forecasting, pipeline automation, and omnichannel engagement across email, SMS, and WhatsApp.</p>
@@ -26,9 +26,17 @@ const CrmSection: React.FC = () => {
             </div>
             <Button href="/contact" variant="grad"><i className="bi bi-calendar-check me-1"></i>Consult About NovuCRM</Button>
           </div>
-          <div className="col-lg-6" data-aos="fade-right">
+          <div className="col-lg-6" data-reveal="right">
             <div className="sec-img">
-              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=700&q=75" alt="CRM System" style={{ height: '380px', width: '100%', objectFit: 'cover' }} />
+              <img
+                src="/portfolio/novucrm-intelligence-suite.jpg"
+                alt="NovuCRM customer intelligence platform"
+                width={1200}
+                height={630}
+                loading="lazy"
+                decoding="async"
+                style={{ height: '380px', width: '100%', objectFit: 'cover' }}
+              />
             </div>
           </div>
         </div>

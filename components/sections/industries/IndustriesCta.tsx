@@ -5,7 +5,7 @@ const IndustriesCta: React.FC = () => {
   return (
     <section id="cta-banner">
       <div className="container">
-        <div className="cta-inner" data-aos="fade-up">
+        <div className="cta-inner" data-reveal="up">
           <div className="row align-items-center g-5">
             <div className="col-lg-7">
               <span className="stag">Your Industry</span>

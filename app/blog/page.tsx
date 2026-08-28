@@ -5,6 +5,8 @@ import { webPageSchema, ORG_ID } from '@/lib/schema';
 import { canonical } from '@/lib/seo';
 import BlogHero from '@/components/sections/blog/BlogHero';
 import BlogGrid from '@/components/sections/blog/BlogGrid';
+import PageFaq from '@/components/sections/shared/PageFaq';
+import { blogFaqs } from '@/content/pageFaqs';
 
 export const metadata: Metadata = {
   title: 'Insights: AML, Fintech & Healthcare IT',
@@ -73,6 +75,7 @@ export default function BlogPage() {
       <BlogHero />
       <div className="divider"></div>
       <BlogGrid />
+      <PageFaq items={blogFaqs} path="/blog" />
     </>
   );
 }

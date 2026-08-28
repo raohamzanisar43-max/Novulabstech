@@ -8,6 +8,8 @@ import PaySection from '@/components/sections/solutions/PaySection';
 import AmlSection from '@/components/sections/solutions/AmlSection';
 import PlatformSelectionSection from '@/components/sections/solutions/PlatformSelectionSection';
 import SolutionsCta from '@/components/sections/solutions/SolutionsCta';
+import PageFaq from '@/components/sections/shared/PageFaq';
+import { solutionsFaqs } from '@/content/pageFaqs';
 
 export const metadata: Metadata = {
   title: 'Enterprise Platforms: ERP, CRM, Pay & AML',
@@ -125,6 +127,7 @@ export default function SolutionsPage() {
       <PaySection />
       <AmlSection />
       <PlatformSelectionSection />
+      <PageFaq items={solutionsFaqs} path="/solutions" />
       <SolutionsCta />
     </>
   );

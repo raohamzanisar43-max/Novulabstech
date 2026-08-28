@@ -15,6 +15,17 @@ const TiltCard: React.FC<TiltCardProps> = ({ children, className = '', style = {
     const card = cardRef.current;
     if (!card) return;
 
+    // Honour the OS motion preference. Checked per-event rather than once at
+    // mount so a mid-session change to the setting takes effect immediately,
+    // and because this component renders on the server where matchMedia does
+    // not exist.
+    if (
+      typeof window !== 'undefined' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    ) {
+      return;
+    }
+
     const rect = card.getBoundingClientRect();
     
     // Calculate rotation angles based on mouse position relative to card center

@@ -11,7 +11,7 @@ interface BlogCardProps {
 
 const BlogCard: React.FC<BlogCardProps> = ({ post, index }) => {
   return (
-    <div className="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay={index * 50}>
+    <div className="col-md-6 col-lg-4" data-reveal="up">
       <div className="pcard h-100" style={{ display: 'flex', flexDirection: 'column' }}>
         <div className="pimg-wrap" style={{ height: '200px' }}>
           <Image

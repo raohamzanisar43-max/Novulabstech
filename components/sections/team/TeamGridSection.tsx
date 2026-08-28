@@ -28,7 +28,7 @@ const TeamGridSection: React.FC = () => {
       <div className="container">
         <div className="row justify-content-center g-4">
           {teamMembers.map((member, i) => (
-            <div className="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay={i * 60} key={member.slug}>
+            <div className="col-md-6 col-lg-4" data-reveal="up" key={member.slug}>
               {/* id anchor so /team/slug from a byline lands on the right person */}
               <GlowCard className="gcard h-100">
                 <div className="gcard-body text-center p-4" id={member.slug}>

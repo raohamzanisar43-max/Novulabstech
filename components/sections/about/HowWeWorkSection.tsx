@@ -54,8 +54,8 @@ const HowWeWorkSection: React.FC = () => {
               A meaningful share of the enquiries we receive describe requirements that an
               existing product already meets. When that is the case we say so, and we say it
               before there is a proposal on the table rather than after. Recommending a custom
-              build against a mature off-the-shelf product that fits is not a service, it is
-              an expensive way to acquire maintenance liability.
+              build against a mature off-the-shelf product that fits just sells you
+              maintenance liability at a premium.
             </p>
             <p>
               The honest test is whether the requirement is genuinely differentiating. Payroll

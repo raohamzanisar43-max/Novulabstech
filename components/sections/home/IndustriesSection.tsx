@@ -7,7 +7,7 @@ const IndustriesSection: React.FC = () => {
     <section className="sec bg-g z1" id="industries">
       <div className="container">
         <div className="row justify-content-center text-center mb-5">
-          <div className="col-lg-7" data-aos="fade-up">
+          <div className="col-lg-7" data-reveal="up">
             <span className="stag">Sectors We Serve</span>
             <h2 className="stitle mt-3">Where our <span className="gtxt">domain depth</span> is</h2>
           </div>

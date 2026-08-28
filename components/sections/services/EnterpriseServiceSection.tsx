@@ -7,14 +7,14 @@ const EnterpriseServiceSection: React.FC = () => {
     <section id="enterprise" className="sec bg-g">
       <div className="container">
         <div className="row justify-content-center text-center mb-5">
-          <div className="col-lg-7" data-aos="fade-up">
+          <div className="col-lg-7" data-reveal="up">
             <span className="stag">Service 02</span>
             <h2 className="stitle mt-3">Enterprise Software <span className="gtxt">Development</span></h2>
             <p className="ssub mx-auto">Custom platforms for complex business problems — multi-tenant SaaS, internal tools, and mission-critical systems engineered for infinite scale.</p>
           </div>
         </div>
         <div className="row g-4">
-          <div className="col-md-6 col-lg-3" data-aos="fade-up">
+          <div className="col-md-6 col-lg-3" data-reveal="up">
             <GlowCard className="gcard">
               <div className="gcard-body">
                 <div className="sico i-b"><i className="bi bi-layers-fill"></i></div>
@@ -24,7 +24,7 @@ const EnterpriseServiceSection: React.FC = () => {
               </div>
             </GlowCard>
           </div>
-          <div className="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="60">
+          <div className="col-md-6 col-lg-3" data-reveal="up">
             <GlowCard className="gcard">
               <div className="gcard-body">
                 <div className="sico i-t"><i className="bi bi-boxes"></i></div>
@@ -34,7 +34,7 @@ const EnterpriseServiceSection: React.FC = () => {
               </div>
             </GlowCard>
           </div>
-          <div className="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="120">
+          <div className="col-md-6 col-lg-3" data-reveal="up">
             <GlowCard className="gcard">
               <div className="gcard-body">
                 <div className="sico i-v"><i className="bi bi-bar-chart-fill"></i></div>
@@ -44,7 +44,7 @@ const EnterpriseServiceSection: React.FC = () => {
               </div>
             </GlowCard>
           </div>
-          <div className="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="180">
+          <div className="col-md-6 col-lg-3" data-reveal="up">
             <GlowCard className="gcard">
               <div className="gcard-body">
                 <div className="sico i-o"><i className="bi bi-arrow-repeat"></i></div>

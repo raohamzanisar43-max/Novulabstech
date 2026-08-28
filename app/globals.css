@@ -10,7 +10,10 @@
 
    Do not move these back to <link rel="stylesheet"> tags. */
 @import 'bootstrap/dist/css/bootstrap.min.css';
-@import 'bootstrap-icons/font/bootstrap-icons.css';
+/* Subset — see app/bootstrap-icons.subset.css. The full stylesheet ships 2,050
+   glyph rules for the 60 icons this site uses, ~96KB of CSS per page for icons
+   that never render. Regenerate with: node scripts/subset-bootstrap-icons.js */
+@import './bootstrap-icons.subset.css';
 
 @import "tailwindcss";
 
@@ -130,32 +133,11 @@ img{max-width:100%;display:block}
 ::-webkit-scrollbar-thumb{background:var(--p1);border-radius:4px}
 
 /* ── Preloader ── */
-#preloader{
-  position:fixed;inset:0;z-index:99999;
-  background:linear-gradient(145deg,#F5F0E8,#EDE6D6);
-  display:flex;align-items:center;justify-content:center;flex-direction:column;gap:18px;
-  transition:opacity .6s ease,visibility .6s ease;
-}
-#preloader.hidden{opacity:0;visibility:hidden;pointer-events:none}
-.pl-logo{font-family:var(--fh);font-size:2.2rem;font-weight:800;background:var(--g-main);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-.03em}
-.pl-bar{width:160px;height:3px;background:rgba(93, 224, 230,.15);border-radius:3px;overflow:hidden}
-.pl-bar::after{content:'';display:block;height:100%;background:var(--g-main);border-radius:3px;animation:plBar 1.4s ease-in-out both}
-@keyframes plBar{from{width:0}to{width:100%}}
-.pl-dots{display:flex;gap:6px}
-.pl-dots span{width:6px;height:6px;border-radius:50%;background:var(--g-main);animation:plDot 1.4s ease infinite}
-.pl-dots span:nth-child(2){animation-delay:.15s}
-.pl-dots span:nth-child(3){animation-delay:.3s}
-@keyframes plDot{0%,80%,100%{opacity:.2;transform:scale(.8)}40%{opacity:1;transform:scale(1)}}
 
 /* ── Scroll Progress ── */
 #sp{position:fixed;top:0;left:0;height:3px;background:var(--g-main);z-index:99998;width:0;transition:width .1s;border-radius:0 2px 2px 0}
 
 /* ── Custom Cursor ── */
-.cursor,.cursor-f{position:fixed;border-radius:50%;pointer-events:none;z-index:99997}
-.cursor  {width:8px;height:8px;background:var(--p1);top:0;left:0;transition:transform .1s ease,background .2s}
-.cursor-f{width:36px;height:36px;border:1.5px solid rgba(93, 224, 230,.38);top:0;left:0;transition:all .18s ease}
-.cursor.h  {background:var(--a1);transform:scale(2.8)!important}
-.cursor-f.h{border-color:var(--a1);transform:scale(1.5)!important}
 
 /* ── Floating CTA ── */
 .fcta{
@@ -1349,7 +1331,6 @@ footer::before{
   .nlform{flex-direction:column}
   .ft-bot{flex-direction:column;text-align:center}
   .fcta{bottom:16px;right:16px;width:46px;height:46px}
-  .cursor,.cursor-f{display:none}
   .hero-btns{flex-direction:column}
   .hero-btns .btn-grad,.hero-btns .btn-glass{width:100%;justify-content:center}
   .pgrid{grid-template-columns:1fr}
@@ -1377,41 +1358,35 @@ footer::before{
 
 #stats{
   background:
-    linear-gradient(rgba(248, 250, 252, 0.95),rgba(226, 232, 240, 0.94)),
-    url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1920&q=70') center/cover no-repeat;
+    linear-gradient(rgba(248, 250, 252, 0.95),rgba(226, 232, 240, 0.94));
   backdrop-filter:var(--blur-sm);-webkit-backdrop-filter:var(--blur-sm);
 }
 
 #services{
   background:
-    linear-gradient(rgba(248,244,232,.96),rgba(245,240,222,.95)),
-    url('https://images.unsplash.com/photo-1518770660439-4636190af475?w=1920&q=70') center/cover no-repeat;
+    linear-gradient(rgba(248,244,232,.96),rgba(245,240,222,.95));
 }
 
 #why{
   background:
-    linear-gradient(rgba(255,255,255,.95),rgba(252,250,246,.94)),
-    url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=70') center/cover no-repeat;
+    linear-gradient(rgba(255,255,255,.95),rgba(252,250,246,.94));
   backdrop-filter:var(--blur-sm);-webkit-backdrop-filter:var(--blur-sm);
 }
 
 #industries{
   background:
-    linear-gradient(rgba(248,244,232,.96),rgba(243,238,218,.95)),
-    url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=70') center/cover no-repeat;
+    linear-gradient(rgba(248,244,232,.96),rgba(243,238,218,.95));
 }
 
 #tech{
   background:
-    linear-gradient(rgba(255,255,255,.95),rgba(252,250,246,.94)),
-    url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1920&q=70') center/cover no-repeat;
+    linear-gradient(rgba(255,255,255,.95),rgba(252,250,246,.94));
   backdrop-filter:var(--blur-sm);-webkit-backdrop-filter:var(--blur-sm);
 }
 
 #portfolio{
   background:
-    linear-gradient(rgba(248,244,232,.96),rgba(243,238,218,.95)),
-    url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1920&q=70') center/cover no-repeat;
+    linear-gradient(rgba(248,244,232,.96),rgba(243,238,218,.95));
 }
 
 #process{
@@ -1423,14 +1398,12 @@ footer::before{
 
 #faq{
   background:
-    linear-gradient(rgba(248,244,232,.96),rgba(245,240,222,.95)),
-    url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=70') center/cover no-repeat;
+    linear-gradient(rgba(248,244,232,.96),rgba(245,240,222,.95));
 }
 
 #cta-banner{
   background:
-    linear-gradient(rgba(248,244,232,.88),rgba(243,238,218,.85)),
-    url('https://images.unsplash.com/photo-1551434678-e076c223a692?w=1920&q=70') center/cover no-repeat;
+    linear-gradient(rgba(248,244,232,.88),rgba(243,238,218,.85));
   backdrop-filter:var(--blur-sm);-webkit-backdrop-filter:var(--blur-sm);
 }
 
@@ -1500,8 +1473,7 @@ footer::before{
 
 #about{
   background:
-    linear-gradient(rgba(255,255,255,.95),rgba(252,250,246,.94)),
-    url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1920&q=70') center/cover no-repeat;
+    linear-gradient(rgba(255,255,255,.95),rgba(252,250,246,.94));
   backdrop-filter:var(--blur-sm);-webkit-backdrop-filter:var(--blur-sm);
 }
 
@@ -1510,14 +1482,12 @@ footer::before{
    ═══════════════════════════════════════════════ */
 #mission{
   background:
-    linear-gradient(rgba(255,255,255,.95),rgba(252,250,246,.94)),
-    url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1920&q=70') center/cover no-repeat;
+    linear-gradient(rgba(255,255,255,.95),rgba(252,250,246,.94));
   backdrop-filter:var(--blur-sm);-webkit-backdrop-filter:var(--blur-sm);
 }
 #team-photos{
   background:
-    linear-gradient(rgba(248,244,232,.92),rgba(245,240,222,.91)),
-    url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=70') center/cover no-repeat;
+    linear-gradient(rgba(248,244,232,.92),rgba(245,240,222,.91));
 }
 #leadership{
   background:
@@ -1527,8 +1497,7 @@ footer::before{
 }
 #certifications{
   background:
-    linear-gradient(rgba(248,244,232,.96),rgba(243,238,218,.95)),
-    url('https://images.unsplash.com/photo-1518770660439-4636190af475?w=1920&q=70') center/cover no-repeat;
+    linear-gradient(rgba(248,244,232,.96),rgba(243,238,218,.95));
 }
 
 /* ═══════════════════════════════════════════════
@@ -1536,41 +1505,34 @@ footer::before{
    ═══════════════════════════════════════════════ */
 #web{
   background:
-    linear-gradient(rgba(255,255,255,.95),rgba(253,252,248,.94)),
-    url('https://images.unsplash.com/photo-1547658719-da2b51169166?w=1920&q=70') center/cover no-repeat;
+    linear-gradient(rgba(255,255,255,.95),rgba(253,252,248,.94));
   backdrop-filter:var(--blur-sm);-webkit-backdrop-filter:var(--blur-sm);
 }
 #enterprise{
   background:
-    linear-gradient(rgba(248,244,232,.96),rgba(243,238,218,.95)),
-    url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&q=70') center/cover no-repeat;
+    linear-gradient(rgba(248,244,232,.96),rgba(243,238,218,.95));
 }
 #fintech{
   background:
-    linear-gradient(rgba(255,255,255,.95),rgba(252,250,246,.94)),
-    url('https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=1920&q=70') center/cover no-repeat;
+    linear-gradient(rgba(255,255,255,.95),rgba(252,250,246,.94));
   backdrop-filter:var(--blur-sm);-webkit-backdrop-filter:var(--blur-sm);
 }
 #mobile{
   background:
-    linear-gradient(rgba(248,244,232,.96),rgba(245,240,222,.95)),
-    url('https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1920&q=70') center/cover no-repeat;
+    linear-gradient(rgba(248,244,232,.96),rgba(245,240,222,.95));
 }
 #healthcare{
   background:
-    linear-gradient(rgba(255,255,255,.95),rgba(252,250,246,.94)),
-    url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1920&q=70') center/cover no-repeat;
+    linear-gradient(rgba(255,255,255,.95),rgba(252,250,246,.94));
   backdrop-filter:var(--blur-sm);-webkit-backdrop-filter:var(--blur-sm);
 }
 #compliance{
   background:
-    linear-gradient(rgba(248,244,232,.96),rgba(243,238,218,.95)),
-    url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1920&q=70') center/cover no-repeat;
+    linear-gradient(rgba(248,244,232,.96),rgba(243,238,218,.95));
 }
 #cloud{
   background:
-    linear-gradient(rgba(255,255,255,.95),rgba(252,250,246,.94)),
-    url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=70') center/cover no-repeat;
+    linear-gradient(rgba(255,255,255,.95),rgba(252,250,246,.94));
   backdrop-filter:var(--blur-sm);-webkit-backdrop-filter:var(--blur-sm);
 }
 
@@ -1579,25 +1541,21 @@ footer::before{
    ═══════════════════════════════════════════════ */
 #erp{
   background:
-    linear-gradient(rgba(255,255,255,.95),rgba(252,250,246,.94)),
-    url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&q=70') center/cover no-repeat;
+    linear-gradient(rgba(255,255,255,.95),rgba(252,250,246,.94));
   backdrop-filter:var(--blur-sm);-webkit-backdrop-filter:var(--blur-sm);
 }
 #crm{
   background:
-    linear-gradient(rgba(248,244,232,.96),rgba(245,240,222,.95)),
-    url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&q=70') center/cover no-repeat;
+    linear-gradient(rgba(248,244,232,.96),rgba(245,240,222,.95));
 }
 #pay{
   background:
-    linear-gradient(rgba(255,255,255,.95),rgba(252,250,246,.94)),
-    url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=70') center/cover no-repeat;
+    linear-gradient(rgba(255,255,255,.95),rgba(252,250,246,.94));
   backdrop-filter:var(--blur-sm);-webkit-backdrop-filter:var(--blur-sm);
 }
 #aml{
   background:
-    linear-gradient(rgba(248,244,232,.96),rgba(243,238,218,.95)),
-    url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1920&q=70') center/cover no-repeat;
+    linear-gradient(rgba(248,244,232,.96),rgba(243,238,218,.95));
 }
 
 /* ═══════════════════════════════════════════════
@@ -1605,20 +1563,17 @@ footer::before{
    ═══════════════════════════════════════════════ */
 #banking{
   background:
-    linear-gradient(rgba(255,255,255,.95),rgba(252,250,246,.94)),
-    url('https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=1920&q=70') center/cover no-repeat;
+    linear-gradient(rgba(255,255,255,.95),rgba(252,250,246,.94));
   backdrop-filter:var(--blur-sm);-webkit-backdrop-filter:var(--blur-sm);
 }
 #government{
   background:
-    linear-gradient(rgba(255,255,255,.95),rgba(252,250,246,.94)),
-    url('https://images.unsplash.com/photo-1568992687947-868a62a9f521?w=1920&q=70') center/cover no-repeat;
+    linear-gradient(rgba(255,255,255,.95),rgba(252,250,246,.94));
   backdrop-filter:var(--blur-sm);-webkit-backdrop-filter:var(--blur-sm);
 }
 #more-sectors{
   background:
-    linear-gradient(rgba(248,244,232,.96),rgba(243,238,218,.95)),
-    url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=70') center/cover no-repeat;
+    linear-gradient(rgba(248,244,232,.96),rgba(243,238,218,.95));
 }
 
 /* ═══════════════════════════════════════════════
@@ -1626,8 +1581,7 @@ footer::before{
    ═══════════════════════════════════════════════ */
 #portfolio-grid{
   background:
-    linear-gradient(rgba(248,244,232,.96),rgba(243,238,218,.95)),
-    url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1920&q=70') center/cover no-repeat;
+    linear-gradient(rgba(248,244,232,.96),rgba(243,238,218,.95));
 }
 
 /* ═══════════════════════════════════════════════
@@ -1635,8 +1589,7 @@ footer::before{
    ═══════════════════════════════════════════════ */
 #contact-process{
   background:
-    linear-gradient(rgba(255,255,255,.95),rgba(252,250,246,.94)),
-    url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=70') center/cover no-repeat;
+    linear-gradient(rgba(255,255,255,.95),rgba(252,250,246,.94));
   backdrop-filter:var(--blur-sm);-webkit-backdrop-filter:var(--blur-sm);
 }
 #contact-form-sec{
@@ -1646,8 +1599,7 @@ footer::before{
 }
 #contact-faq{
   background:
-    linear-gradient(rgba(255,255,255,.95),rgba(252,250,246,.94)),
-    url('https://images.unsplash.com/photo-1551434678-e076c223a692?w=1920&q=70') center/cover no-repeat;
+    linear-gradient(rgba(255,255,255,.95),rgba(252,250,246,.94));
   backdrop-filter:var(--blur-sm);-webkit-backdrop-filter:var(--blur-sm);
 }
 
@@ -1867,16 +1819,13 @@ p, li {
 
   html { scroll-behavior: auto; }
 
-  [data-reveal],
-  [data-aos] {
+  [data-reveal] {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
   }
 
   /* Purely decorative motion is removed outright rather than sped up. */
-  .cursor,
-  .cursor-f { display: none !important; }
 
   #particles-canvas,
   .particles-canvas { display: none !important; }
@@ -1910,4 +1859,254 @@ p, li {
      too, otherwise the hero sits permanently over-zoomed for these users. */
   .phero-bg[data-parallax] img { transform: scale(1.04); }
   .phero-grid[data-parallax]   { inset: 0; }
+}
+
+/* ============================================================
+   ROUTE TRANSITION, 3D DEPTH, HORIZONTAL RAIL
+   ============================================================ */
+
+/* ── Route transition ──────────────────────────────────────────
+   Enter-only. A leave animation would hold the old page on screen
+   while the new one is already rendered, adding latency to every
+   navigation in exchange for a flourish. 280ms is long enough to
+   read as intentional and short enough not to be felt as a wait. */
+.route-enter {
+  animation: routeEnter 280ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes routeEnter {
+  from { opacity: 0; transform: translate3d(0, 10px, 0); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ── 3D card depth ─────────────────────────────────────────────
+   Perspective lives on the row so sibling cards share one vanishing
+   point. Setting perspective per-card gives each its own, which reads
+   as a set of unrelated objects rather than one plane — the usual
+   reason CSS 3D looks cheap.
+
+   Guarded on `hover: hover` and `pointer: fine`: on touch there is no
+   hover state, and applying these rules there leaves a card stuck in
+   a tilted position after a tap. */
+@media (hover: hover) and (pointer: fine) {
+  .depth-row { perspective: 1200px; }
+
+  .depth-row > * { transform-style: preserve-3d; }
+
+  .depth-row .pcard,
+  .depth-row .gcard {
+    transition:
+      transform 420ms cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 420ms cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: auto;
+  }
+
+  .depth-row > *:hover .pcard,
+  .depth-row > *:hover .gcard {
+    /* Small angles only. Beyond ~4deg the text edge softens and the
+       card reads as a gimmick rather than as depth. */
+    transform: translate3d(0, -6px, 0) rotateX(2.2deg) rotateY(-2.2deg);
+    box-shadow: var(--sh-xl);
+  }
+
+  /* Lift inner content slightly off the card face so the tilt has
+     genuine parallax rather than being a flat rotated image. */
+  .depth-row .pcard > *,
+  .depth-row .gcard > * {
+    transform: translateZ(18px);
+  }
+}
+
+/* ── Horizontal scroll rail ────────────────────────────────────
+   A real scroll container. The vertical-scroll coupling in
+   HorizontalScroll.tsx only assists; swipe, shift-wheel, drag,
+   keyboard and assistive tech all work without it. Overflow is
+   contained here so the document never scrolls sideways. */
+.hscroll-track {
+  display: flex;
+  gap: 1.25rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: auto;
+  padding-bottom: 1rem;
+  /* No scroll-snap here. Snapping re-targets the container whenever
+     scrollLeft is written, which silently reverts every frame the
+     scroll-linked coupling produces — the two mechanisms are trying to
+     own the same property. Native scrolling still works; it just has
+     no snap points. */
+  -webkit-overflow-scrolling: touch;
+}
+.hscroll-track > * {
+  flex: 0 0 auto;
+  width: min(340px, 78vw);
+}
+.hscroll-track:focus-visible {
+  outline: 2px solid var(--a1);
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+/* Thin, visible scrollbar — the affordance is what tells a user the
+   rail is scrollable at all. Hiding it is a common and bad default. */
+.hscroll-track::-webkit-scrollbar { height: 6px; }
+.hscroll-track::-webkit-scrollbar-track { background: var(--bg-2); border-radius: 100px; }
+.hscroll-track::-webkit-scrollbar-thumb { background: var(--p1); border-radius: 100px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .route-enter { animation: none; }
+  .depth-row .pcard,
+  .depth-row .gcard,
+  .depth-row > *:hover .pcard,
+  .depth-row > *:hover .gcard { transform: none; transition: none; }
+  .depth-row .pcard > *,
+  .depth-row .gcard > * { transform: none; }
+}
+
+/* ── Directional entrance reveal ───────────────────────────────
+   Replaces AOS entirely. AOS cost 14KB of JS, a remote stylesheet
+   from jsdelivr, and an init that polled every 100ms for up to five
+   seconds waiting for its own global to appear. Only three of its
+   animations were ever used, all of which are two CSS rules.
+
+   Direction is carried by the attribute value so one selector set
+   covers every case: [data-reveal] alone fades up.    ============================================================ */
+[data-reveal='right'] { transform: translate3d(-26px, 0, 0); }
+[data-reveal='left']  { transform: translate3d(26px, 0, 0); }
+[data-reveal='up']    { transform: translate3d(0, 18px, 0); }
+
+[data-reveal='is-visible'] { transform: translate3d(0, 0, 0); }
+
+/* ── Kinetic headline ──────────────────────────────────────────
+   Words rise and settle in sequence. Split is done at build time in
+   the component, not by a runtime text-splitting library, so there
+   is no layout thrash and no dependency.
+
+   The whole phrase remains a single accessible string: the wrapper
+   keeps the readable text for assistive tech while the visual spans
+   are hidden from it. Splitting text into per-word spans without
+   this makes a screen reader announce each word as a separate item. */
+.kinetic { display: inline; }
+.kinetic-word {
+  display: inline-block;
+  opacity: 0;
+  transform: translate3d(0, 0.5em, 0);
+  animation: kineticIn 620ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes kineticIn {
+  to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kinetic-word { animation: none; opacity: 1; transform: none; }
+  [data-reveal='right'],
+  [data-reveal='left'],
+  [data-reveal='up'] { transform: none !important; }
+}
+
+/* ============================================================
+   EDITORIAL PASS — removing the generated-template tells
+   ------------------------------------------------------------
+   The theme header above still reads "Premium Glassmorphism
+   2026". That aesthetic — gradient-filled headings, glass panels,
+   glowing cards, a particle field, a custom cursor and a fake
+   preloader — is the visual signature of a generated template,
+   and for a vendor selling AML systems to bank CTOs it reads as
+   a template rather than as a practice.
+
+   Nothing structural changes here. These rules sit last and
+   override the decorative layer, so the markup is untouched and
+   any of it can be reverted by deleting this block.
+   ============================================================ */
+
+/* ── Headings: weight and colour, not gradient fill ────────────
+   63 headings used background-clip gradient text. Beyond being
+   the single most recognisable generated-design tell, clipped
+   gradient text renders with softer edges than painted text at
+   the same size, and it silently drops to transparent if the
+   background fails to paint. Emphasis now comes from colour and
+   weight, which is how editorial typography has always done it. */
+.gtxt {
+  background: none;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+  -webkit-text-fill-color: currentColor;
+  color: var(--p1);
+}
+/* On the dark hero the accent needs to be the light tone to hold
+   contrast against #001f3d. */
+.phero-inner .gtxt,
+#hero .gtxt {
+  color: var(--a1);
+}
+
+/* ── Glass, dialled back ───────────────────────────────────────
+   Blur is retained only on the navigation, where it does real
+   work separating a translucent bar from content scrolling under
+   it. On cards it costs a compositor layer per element for an
+   effect that mostly reads as haze. */
+.pcard,
+.gcard,
+.vcard,
+.cta-card {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  background: var(--surf);
+  border: 1px solid var(--gb4);
+  box-shadow: var(--sh-sm);
+}
+
+/* ── Card hover: lift, no glow ─────────────────────────────────
+   A coloured glow around a card is decoration that carries no
+   information. A small lift and a firmer shadow says the same
+   "this is interactive" with less noise. */
+.pcard:hover,
+.gcard:hover,
+.vcard:hover {
+  box-shadow: var(--sh-lg);
+  border-color: var(--gb5);
+}
+
+/* ── Icon tiles ────────────────────────────────────────────────
+   The four value cards used emoji as icons, which renders
+   differently on every platform and is flagged in every design
+   review checklist. They now use the same icon set as the rest
+   of the site. */
+.vico {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: rgba(0, 72, 141, 0.08);
+  color: var(--p1);
+  font-size: 1.15rem;
+  margin-bottom: 0.9rem;
+}
+
+/* ── Radius, normalised ────────────────────────────────────────
+   Radii ranged across 3, 9, 10, 13 and 100px with no system.
+   Two values: one for surfaces, one for pills. */
+.pcard, .gcard, .vcard, .cta-card, .sec-img, .pimg-wrap {
+  border-radius: 12px;
+}
+.tbadge, .stag, .hero-badge {
+  border-radius: 100px;
+}
+
+/* The hero heading kept an animated multi-stop gradient with a glow
+   drop-shadow and a 3s infinite shimmer loop, at a specificity the
+   .gtxt rule above cannot reach. An infinitely animating headline is
+   the loudest generated-template tell on the page, it never settles
+   for a reader, and an always-running animation keeps the compositor
+   awake for the life of the tab. */
+.hero-title .gtxt,
+.phero-inner .hero-title .gtxt,
+.phero-inner h1 .gtxt,
+.phero-inner h2 .gtxt {
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  -webkit-text-fill-color: currentColor !important;
+  filter: none !important;
+  animation: none !important;
+  color: var(--a1);
 }

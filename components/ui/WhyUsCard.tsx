@@ -8,7 +8,7 @@ interface WhyUsCardProps {
 
 const WhyUsCard: React.FC<WhyUsCardProps> = ({ item, index }) => {
   return (
-    <div className="col" data-aos="fade-up" data-aos-delay={index * 20}>
+    <div className="col" data-reveal="up">
       <div className="wcard">
         <div className="wnum">{item.num}</div>
         <div className={`sico ${item.color} mb-3`}>

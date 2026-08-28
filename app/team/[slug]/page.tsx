@@ -125,7 +125,7 @@ export default async function TeamProfilePage({ params }: PageProps) {
       <section className="sec bg-w">
         <div className="container">
           <div className="row justify-content-center g-5">
-            <div className="col-lg-4" data-aos="fade-up">
+            <div className="col-lg-4" data-reveal="up">
               <div className="pcard p-4 text-center">
                 <Image
                   src={member.img}
@@ -196,19 +196,19 @@ export default async function TeamProfilePage({ params }: PageProps) {
           <section className="sec bg-g">
             <div className="container">
               <div className="row justify-content-between align-items-end mb-5">
-                <div className="col-lg-8" data-aos="fade-up">
+                <div className="col-lg-8" data-reveal="up">
                   <span className="stag">Published work</span>
                   <h2 className="stitle mt-3">
                     Written by <span className="gtxt">{member.name.split(' ')[0]}</span>
                   </h2>
                 </div>
-                <div className="col-auto" data-aos="fade-up">
+                <div className="col-auto" data-reveal="up">
                   <Button href="/blog" variant="glass">
                     All insights <i className="bi bi-arrow-right ms-1"></i>
                   </Button>
                 </div>
               </div>
-              <div className="row row-cols-1 row-cols-md-3 g-4">
+              <div className="row row-cols-1 row-cols-md-3 g-4 depth-row">
                 {authored.map((post, i) => (
                   <BlogCard key={post.slug} post={post} index={i} />
                 ))}
@@ -221,7 +221,7 @@ export default async function TeamProfilePage({ params }: PageProps) {
       {/* CTA */}
       <div className="divider"></div>
       <section className="sec bg-w">
-        <div className="container text-center" data-aos="fade-up">
+        <div className="container text-center" data-reveal="up">
           <h2 className="stitle">
             Talk to <span className="gtxt">an architect</span>
           </h2>

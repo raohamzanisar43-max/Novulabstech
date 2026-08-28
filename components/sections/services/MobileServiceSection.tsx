@@ -7,13 +7,13 @@ const MobileServiceSection: React.FC = () => {
     <section id="mobile" className="sec bg-g">
       <div className="container">
         <div className="row justify-content-center text-center mb-5">
-          <div className="col-lg-7" data-aos="fade-up">
+          <div className="col-lg-7" data-reveal="up">
             <span className="stag">Services 07–09</span>
             <h2 className="stitle mt-3">Mobile App <span className="gtxt">Development</span></h2>
           </div>
         </div>
         <div className="row g-4">
-          <div className="col-md-4" data-aos="fade-up">
+          <div className="col-md-4" data-reveal="up">
             <GlowCard className="gcard text-center">
               <div className="gcard-body">
                 <div className="sico i-b mx-auto"><i className="bi bi-phone-fill"></i></div>
@@ -23,7 +23,7 @@ const MobileServiceSection: React.FC = () => {
               </div>
             </GlowCard>
           </div>
-          <div className="col-md-4" data-aos="fade-up" data-aos-delay="60">
+          <div className="col-md-4" data-reveal="up">
             <GlowCard className="gcard text-center">
               <div className="gcard-body">
                 <div className="sico i-t mx-auto"><i className="bi bi-apple"></i></div>
@@ -33,7 +33,7 @@ const MobileServiceSection: React.FC = () => {
               </div>
             </GlowCard>
           </div>
-          <div className="col-md-4" data-aos="fade-up" data-aos-delay="120">
+          <div className="col-md-4" data-reveal="up">
             <GlowCard className="gcard text-center">
               <div className="gcard-body">
                 <div className="sico i-g mx-auto"><i className="bi bi-android2"></i></div>

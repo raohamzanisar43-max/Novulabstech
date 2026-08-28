@@ -37,7 +37,7 @@ export const blogPosts: BlogPost[] = [
 
       <h3>1. Screening: sanctions, PEPs and proscribed persons</h3>
       <p>You must compare customer and counterparty identities against national and international lists — the NACTA Proscribed Persons list, UN Security Council Consolidated List, OFAC SDN, and any list your correspondent banks impose on you contractually.</p>
-      <p>The engineering difficulty is not the comparison. It is that names in Pakistan do not match cleanly. Transliteration from Urdu produces multiple valid Roman spellings for the same person; patronymics and honorifics appear inconsistently; and the same CNIC may be attached to differently-spelled name records across your own systems.</p>
+      <p>The engineering difficulty lies in the data: names in Pakistan do not match cleanly. Transliteration from Urdu produces multiple valid Roman spellings for the same person; patronymics and honorifics appear inconsistently; and the same CNIC may be attached to differently-spelled name records across your own systems.</p>
       <p>Exact-match screening on this data will miss real hits. Naive fuzzy matching will bury your compliance team in false positives — we have seen a 400-name-per-day alert queue at a mid-size EMI where roughly 3% were worth reviewing. Both outcomes are failures, and the second is the one that gets you in trouble, because an analyst who dismisses 388 alerts a day will eventually dismiss the one that mattered.</p>
       <p>What works: phonetic and edit-distance matching tuned per list, with the threshold treated as a governed parameter — versioned, change-controlled, and with every tuning change logged. When SBP asks why your threshold is 0.82, "that is what the vendor shipped" is not an answer. "Here is the tuning decision, the false-negative testing behind it, and who approved it" is.</p>
 
@@ -318,7 +318,7 @@ export const blogPosts: BlogPost[] = [
       <p>This guide covers what teams building on RAAST need to design for. It is deliberately not a substitute for SBP's participant documentation — you will get the authoritative message specifications and onboarding requirements from the regulator and your sponsor bank. It is the operational and architectural context that documentation tends not to cover.</p>
 
       <h2>The mental model shift: instant is irrevocable</h2>
-      <p>The most consequential property of an instant rail is not speed, it is finality. In a batch world, a mistake discovered within the settlement window can often be corrected before money genuinely moves. On an instant rail, the credit is applied and final almost immediately, and correction becomes a commercial recovery problem rather than a technical one.</p>
+      <p>The most consequential property of an instant rail is finality, ahead of speed. In a batch world, a mistake discovered within the settlement window can often be corrected before money genuinely moves. On an instant rail, the credit is applied and final almost immediately, and correction becomes a commercial recovery problem rather than a technical one.</p>
       <p>Practically, this reorders your priorities. Pre-transaction validation gets much more important; post-transaction correction gets much less useful. Any check you were planning to run "before end of day" needs to run before you submit.</p>
 
       <h2>ISO 20022 is a modelling decision, not a serialisation detail</h2>
@@ -327,7 +327,7 @@ export const blogPosts: BlogPost[] = [
 
       <h3>Alias resolution changes your UX and your error handling</h3>
       <p>RAAST supports a payment address alias — commonly the customer's registered mobile number — rather than requiring the sender to key an account number and bank. This is genuinely good for conversion, and it introduces a resolution step your flow must handle explicitly.</p>
-      <p>Alias lookup returns the account title associated with the alias. That confirmation screen — showing the sender the resolved name before they commit — is not optional UX polish. It is the primary defence against misdirected irrevocable payments, and skipping it or rendering it in a way users click through is how institutions end up with recovery cases. Show the resolved title prominently, and do not pre-select the confirm action.</p>
+      <p>Alias lookup returns the account title associated with the alias. That confirmation screen — showing the sender the resolved name before they commit — is the primary defence against misdirected irrevocable payments, and skipping it or rendering it in a way users click through is how institutions end up with recovery cases. Show the resolved title prominently, and do not pre-select the confirm action.</p>
       <p>Design for the failure cases too: the alias may not be registered, may be registered to an institution that is temporarily unavailable, or may resolve to a name the sender does not recognise. Each needs a distinct, non-alarming message; a generic "transaction failed" for an unregistered alias produces support tickets and abandoned payments.</p>
 
       <h2>Idempotency and reconciliation: the two things that actually break</h2>

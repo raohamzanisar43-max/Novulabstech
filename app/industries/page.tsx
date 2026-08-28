@@ -6,8 +6,11 @@ import FintechDeepDive from '@/components/sections/industries/FintechDeepDive';
 import HealthcareDeepDive from '@/components/sections/industries/HealthcareDeepDive';
 import GovernmentDeepDive from '@/components/sections/industries/GovernmentDeepDive';
 import MoreSectorsSection from '@/components/sections/industries/MoreSectorsSection';
+import SectorCaseStudies from '@/components/sections/industries/SectorCaseStudies';
 import RegulatedDeliverySection from '@/components/sections/industries/RegulatedDeliverySection';
 import IndustriesCta from '@/components/sections/industries/IndustriesCta';
+import PageFaq from '@/components/sections/shared/PageFaq';
+import { industriesFaqs } from '@/content/pageFaqs';
 
 export const metadata: Metadata = {
   title: 'Industries: Banking, Healthcare & Government',
@@ -60,7 +63,9 @@ export default function IndustriesPage() {
       <HealthcareDeepDive />
       <GovernmentDeepDive />
       <MoreSectorsSection />
+      <SectorCaseStudies />
       <RegulatedDeliverySection />
+      <PageFaq items={industriesFaqs} path="/industries" />
       <IndustriesCta />
     </>
   );

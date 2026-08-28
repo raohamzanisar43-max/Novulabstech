@@ -5,7 +5,9 @@ export const services: ServiceItem[] = [
   { icon: 'bi-cpu-fill', title: 'Enterprise Software', desc: 'Custom multi-tenant SaaS, enterprise middleware, and mission-critical platforms.', color: 'i-v' },
   { icon: 'bi-bank', title: 'Financial Software', desc: 'Core banking, digital wallets, lending systems, and investment management platforms.', color: 'i-t' },
   { icon: 'bi-credit-card-2-front', title: 'Payment Gateways', desc: 'PCI-DSS compliant integrations supporting global payment rails and local acquirers.', color: 'i-c' },
-  { icon: 'bi-patch-check-fill', title: 'Mastercard / Visa', desc: 'Certified direct integrations with Mastercard and Visa networks — issuing and acquiring.', color: 'i-o' },
+  // "Certified" removed — scheme certification is issued to the institution operating the
+  // platform, not to the development firm. Matches app/layout.tsx:121 and the /services FAQ.
+  { icon: 'bi-patch-check-fill', title: 'Mastercard / Visa', desc: 'Direct integrations with Mastercard and Visa networks — issuing and acquiring.', color: 'i-o' },
   { icon: 'bi-phone-fill', title: 'Mobile Apps', desc: 'Cross-platform iOS & Android apps built with Flutter and native Swift/Kotlin.', color: 'i-g' },
   { icon: 'bi-heart-pulse-fill', title: 'Healthcare Software', desc: 'HIPAA-compliant EHR, telemedicine, and clinical workflow platforms for providers.', color: 'i-p' },
   { icon: 'bi-clipboard2-pulse-fill', title: 'Medical Billing', desc: 'End-to-end billing with ICD-10/CPT coding, claim management, and payer integration.', color: 'i-c' },
@@ -62,6 +64,13 @@ export interface PortfolioProject extends PortfolioItem {
   cat: string;
 }
 
+// TODO(client): the 9 `img` values below are hotlinked Unsplash stock photographs standing in
+// for real project work. Same credibility problem as the team photos (CLIENT-ACTIONS.md item 1),
+// and hotlinking leaks every visitor to images.unsplash.com on page load. Replace with real
+// screenshots, redacted architecture diagrams, or neutral branded panels — self-hosted.
+// NOTE: SEO-CHANGELOG.md "Not done, and why" describes these as "~30 CSS background URLs in
+// globals.css". That is inaccurate: there are zero external url() references in any CSS file.
+// The real exposure is these 9 entries in this file.
 export const portfolioProjects: PortfolioProject[] = [
   {
     cat: 'fintech',
@@ -92,7 +101,11 @@ export const portfolioProjects: PortfolioProject[] = [
     img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=75',
     tags: 'Fintech · Payments · Visa/MC',
     title: 'TranzAxis Payment Gateway',
-    desc: 'Mastercard & Visa certified payment processing — $2.4B annual transactions, 99.99% uptime, &lt;200ms authorization.',
+    // TODO(client): confirm or delete $2.4B annual volume, 99.99% uptime and <200ms
+    // authorization. CLIENT-ACTIONS.md item 7. Unevidenced performance figures attached to a
+    // named platform are the highest-risk claim class on this site. "certified" removed here
+    // for the same reason as app/layout.tsx:121.
+    desc: 'Mastercard and Visa payment processing, engineered to PCI-DSS and taken through scheme certification.',
     tech: ['Node.js', 'Mastercard', 'PCI DSS']
   },
   {

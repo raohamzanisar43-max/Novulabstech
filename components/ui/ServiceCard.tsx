@@ -10,7 +10,7 @@ interface ServiceCardProps {
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ item, index }) => {
   return (
-    <div className="col" data-aos="fade-up" data-aos-delay={index * 10}>
+    <div className="col" data-reveal="up">
       <GlowCard className="gcard">
         <div className="gcard-body p-uniform">
           <div className={`sico ${item.color}`}>
