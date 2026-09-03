@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { servicePages } from '@/content/servicePages';
 import { usePathname } from 'next/navigation';
 
@@ -10,6 +11,7 @@ const Navbar: React.FC = () => {
   const [visible, setVisible] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [companyOpen, setCompanyOpen] = useState(false);
   const pathname = usePathname();
 
   const lastScrollYRef = useRef(0);
@@ -26,7 +28,7 @@ const Navbar: React.FC = () => {
 
       // Hide when scrolling down, show when scrolling up
       if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        if (!servicesOpen && !mobileMenuOpen) {
+        if (!servicesOpen && !companyOpen && !mobileMenuOpen) {
           setVisible(false);
         }
       } else {
@@ -38,12 +40,13 @@ const Navbar: React.FC = () => {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [servicesOpen, mobileMenuOpen]);
+  }, [servicesOpen, companyOpen, mobileMenuOpen]);
 
   // Close mobile menu + dropdown on route change
   useEffect(() => {
     setMobileMenuOpen(false);
     setServicesOpen(false);
+    setCompanyOpen(false);
     setVisible(true); // make sure it's visible on route switch
   }, [pathname]);
 
@@ -72,11 +75,39 @@ const Navbar: React.FC = () => {
     if (window.innerWidth >= 992) setServicesOpen(false);
   };
 
+  const handleCompanyClick = (e: React.MouseEvent) => {
+    if (typeof window !== 'undefined' && window.innerWidth < 992) {
+      e.preventDefault();
+      setCompanyOpen((prev) => !prev);
+    }
+  };
+
+  const handleCompanyMouseEnter = () => {
+    if (window.innerWidth >= 992) setCompanyOpen(true);
+  };
+
+  const handleCompanyMouseLeave = () => {
+    if (window.innerWidth >= 992) setCompanyOpen(false);
+  };
+
   return (
     <nav className={navbarClasses}>
       <div className="container">
         <Link className="navbar-brand" href="/">
-          <img src="/logo.png" alt="NovuLabs" className="nav-logo" />
+          {/* next/image: logo.png is a 1200x1200 / 154KB PNG rendered at 40px.
+              As a raw <img> with no dimensions it was an unsized element in the
+              header of all 40 routes — the site's single largest CLS source —
+              and shipped 154KB for a 40px slot. The optimizer serves AVIF/WebP
+              at 40px instead. */}
+          <Image
+            src="/logo.png"
+            alt="NovuLabs"
+            className="nav-logo"
+            width={40}
+            height={40}
+            priority
+            sizes="40px"
+          />
           <span 
             style={{
               fontFamily: 'var(--fh)',
@@ -108,8 +139,49 @@ const Navbar: React.FC = () => {
             <li className="nav-item">
               <Link className={`nav-link ${checkActive('/', true) ? 'active' : ''}`} href="/">Home</Link>
             </li>
-            <li className="nav-item">
-              <Link className={`nav-link ${checkActive('/about') ? 'active' : ''}`} href="/about">About</Link>
+            {/* Company dropdown. Testimonials and the FAQ hub need a
+                navigation path, but a tenth and eleventh sibling would push the
+                bar to wrap at common laptop widths. They sit under About, which
+                is where a visitor evaluating the firm already looks. */}
+            <li
+              className={`nav-item dropdown ${companyOpen ? 'show' : ''}`}
+              onMouseEnter={handleCompanyMouseEnter}
+              onMouseLeave={handleCompanyMouseLeave}
+            >
+              <Link
+                className={`nav-link dropdown-toggle ${
+                  checkActive('/about') || checkActive('/testimonials') || checkActive('/faq')
+                    ? 'active'
+                    : ''
+                }`}
+                href="/about"
+                id="companyDropdown"
+                aria-expanded={companyOpen}
+                onClick={handleCompanyClick}
+              >
+                About
+              </Link>
+              <ul
+                className={`dropdown-menu ${companyOpen ? 'show' : ''}`}
+                aria-labelledby="companyDropdown"
+                style={{ display: companyOpen ? 'block' : 'none' }}
+              >
+                <li>
+                  <Link className="dropdown-item" href="/about" onClick={() => setCompanyOpen(false)}>
+                    About NovuLabs
+                  </Link>
+                </li>
+                <li>
+                  <Link className="dropdown-item" href="/testimonials" onClick={() => setCompanyOpen(false)}>
+                    Testimonials
+                  </Link>
+                </li>
+                <li>
+                  <Link className="dropdown-item" href="/faq" onClick={() => setCompanyOpen(false)}>
+                    FAQ
+                  </Link>
+                </li>
+              </ul>
             </li>
             <li
               className={`nav-item dropdown ${servicesOpen ? 'show' : ''}`}

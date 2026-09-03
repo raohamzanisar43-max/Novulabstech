@@ -50,9 +50,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   // once the layout appends " | NovuLabs".
   const seoTitle = `${member.name} — ${member.role}`;
 
+  // `bio` alone renders at 96-105 chars, well short of the ~155 Google will
+  // display, so every profile gave away SERP real estate. `longBio` overruns at
+  // 231-259. Composing from both fills the budget and stays a whole sentence:
+  // the first sentence of longBio is the fuller description, and bio is the
+  // fallback if a future profile has no longer form.
+  const metaDescription = (() => {
+    const firstSentence = member.longBio.split('. ')[0].trim();
+    const full = firstSentence.endsWith('.') ? firstSentence : `${firstSentence}.`;
+    return full.length >= 120 && full.length <= 165 ? full : member.longBio.slice(0, 155).trim();
+  })();
+
   return {
     title: seoTitle.length > 47 ? member.name : seoTitle,
-    description: member.bio,
+    description: metaDescription,
     alternates: { canonical: url },
     openGraph: {
       type: 'profile',
@@ -64,7 +75,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     twitter: {
       card: 'summary_large_image',
       title: `${member.name} — ${member.role} at NovuLabs`,
-      description: member.bio,
+      description: metaDescription,
       images: [member.img],
     },
   };

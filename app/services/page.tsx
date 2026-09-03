@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { servicePages } from '@/content/servicePages';
+import { getSpokesForPillar } from '@/content/serviceSpokes';
 import JsonLd from '@/components/seo/JsonLd';
 import { serviceSchema, webPageSchema } from '@/lib/schema';
 import HashScrollHandler from '@/components/ui/HashScrollHandler';
@@ -112,6 +113,46 @@ export default function ServicesPage() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* All 22 capabilities, grouped under the track that owns them. This is
+          the internal-linking backbone for the spoke pages: every one of them
+          is reachable from here, not just from the homepage cards that first
+          sent a visitor to it. Compact link rows rather than 22 more cards —
+          the seven cards above already carry the visual weight this page
+          needs, and 22 additional cards would be the "visually excessive"
+          version of the same information. */}
+      <section className="sec-sm bg-g">
+        <div className="container">
+          <div className="row justify-content-center text-center mb-4">
+            <div className="col-lg-8" data-reveal="up">
+              <span className="stag">Full capability list</span>
+              <h2 className="stitle mt-3">
+                All 22 services, by <span className="gtxt">track</span>
+              </h2>
+            </div>
+          </div>
+          <div className="row g-4">
+            {servicePages.map((sp) => {
+              const spokes = getSpokesForPillar(sp.slug);
+              if (spokes.length === 0) return null;
+              return (
+                <div className="col-md-6 col-lg-4" key={sp.slug} data-reveal="up">
+                  <h3 className="service-group-title">
+                    <Link href={`/services/${sp.slug}`}>{sp.navLabel}</Link>
+                  </h3>
+                  <ul className="service-group-list">
+                    {spokes.map((spoke) => (
+                      <li key={spoke.slug}>
+                        <Link href={`/services/${spoke.slug}`}>{spoke.navLabel}</Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>

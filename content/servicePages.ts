@@ -132,8 +132,15 @@ export const servicePages: ServicePage[] = [
         a: 'Usually, yes. Most of our AML work sits alongside an incumbent core rather than replacing it — we integrate at the transaction event and customer record level. The main question is whether the core can emit an immutable transaction event stream; where it cannot, we build that layer.',
       },
       {
-        q: 'Do you use machine learning for transaction monitoring?',
-        a: 'Alongside deterministic rules, not instead of them. Rules produce the alerts of record because every decision needs an explainable reason for an examiner. A model can prioritise the analyst queue, which improves throughput without making an unexplainable artefact load-bearing for compliance.',
+        // This page's FAQ used to duplicate a question, word for word, that
+        // also appears on the more specific transaction monitoring page
+        // (content/serviceSpokes.ts). One topic, two identical answers on two
+        // indexable URLs, is exactly the kind of duplication that page's own
+        // FAQPage schema warns against. Replaced with a question this page,
+        // as the pillar, is actually the right place to answer: how its own
+        // five narrower sub-services fit together as one programme.
+        q: 'How do screening, monitoring and reporting fit together as one programme?',
+        a: 'They are three connected subsystems, not three separate purchases. Sanctions and PEP screening happens at onboarding and on an ongoing basis; transaction monitoring watches behaviour after that; and a case that either produces goes to goAML reporting once a decision is made. We build them to integrate because a screening hit or a monitoring alert that dead-ends in a spreadsheet is where most AML programmes actually fail.',
       },
       {
         q: 'How long does an AML/CFT implementation take?',

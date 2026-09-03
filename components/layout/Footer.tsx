@@ -2,20 +2,57 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
+import emailjs from '@emailjs/browser';
 import { servicePages } from '@/content/servicePages';
 
+/**
+ * The subscribe form previously rendered "✓ Subscribed!" from local state
+ * without sending anything anywhere — the address was discarded on the next
+ * render. Telling someone they have subscribed when no record of them exists is
+ * a trust defect, not a cosmetic one, and it is the first thing a visitor can
+ * personally verify is untrue.
+ *
+ * It now posts through the same EmailJS service the contact and CTA forms
+ * already use, so a signup actually reaches NovuLabs, and it reports failure
+ * instead of swallowing it. No new dependency: @emailjs/browser is already in
+ * the bundle for those two forms.
+ */
+const SERVICE_ID = 'service_ogn7v0d';
+const TEMPLATE_ID = 'template_niiq07k';
+const PUBLIC_KEY = 'M34BR02JCVsynFlTi';
+
+type SubscribeState = 'idle' | 'sending' | 'done' | 'error';
+
 const Footer: React.FC = () => {
-  const [subscribed, setSubscribed] = useState(false);
+  const [status, setStatus] = useState<SubscribeState>('idle');
   const [email, setEmail] = useState('');
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email) return;
-    setSubscribed(true);
-    setTimeout(() => {
-      setSubscribed(false);
-      setEmail('');
-    }, 3000);
+    if (!email || status === 'sending') return;
+    setStatus('sending');
+
+    emailjs
+      .send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
+          full_name: 'Newsletter subscriber',
+          work_email: email,
+          service_needed: 'Newsletter subscription',
+          message: `Newsletter signup from the site footer: ${email}`,
+        },
+        { publicKey: PUBLIC_KEY }
+      )
+      .then(() => {
+        setStatus('done');
+        setEmail('');
+      })
+      .catch((err) => {
+        console.error('Newsletter subscribe failed:', err);
+        setStatus('error');
+      });
   };
 
   return (
@@ -31,7 +68,17 @@ const Footer: React.FC = () => {
           <div className="row g-5 ft-top">
             <div className="col-lg-3">
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
-                <img src="/logo.png" alt="NovuLabs" className="ft-logo" style={{ height: '40px', width: 'auto' }} />
+                {/* Same 154KB PNG as the header, below the fold — lazy, sized. */}
+                <Image
+                  src="/logo.png"
+                  alt="NovuLabs"
+                  className="ft-logo"
+                  width={40}
+                  height={40}
+                  loading="lazy"
+                  sizes="40px"
+                  style={{ height: '40px', width: 'auto' }}
+                />
                 <span 
                   style={{
                     fontFamily: 'var(--fh)',
@@ -48,8 +95,14 @@ const Footer: React.FC = () => {
                   NovuLabs
                 </span>
               </div>
+              {/* "across 40+ countries since 2026" was removed. The country
+                  count is unevidenced anywhere on the site (lib/seo.ts declares
+                  five served markets), and "since 2026" is the current year and
+                  contradicted /about. Same claim class as the certification
+                  wording removed in 6daaa0c — see artifacts/FINDINGS.md. */}
               <p className="ft-tag">
-                A premier international enterprise software house headquartered in Islamabad. Engineering mission-critical platforms across 40+ countries since 2026.
+                An enterprise software house headquartered in Islamabad, engineering
+                mission-critical platforms for regulated finance, healthcare and government.
               </p>
               <div className="ft-contact-items">
                 <a href="mailto:info@novulabs.net" className="ft-contact-item">
@@ -93,6 +146,8 @@ const Footer: React.FC = () => {
                 <li><Link href="/contact"><i className="bi bi-chevron-right"></i>Contact Us</Link></li>
                 <li><Link href="/blog"><i className="bi bi-chevron-right"></i>Insights</Link></li>
                 <li><Link href="/team"><i className="bi bi-chevron-right"></i>Our Team</Link></li>
+                <li><Link href="/testimonials"><i className="bi bi-chevron-right"></i>Testimonials</Link></li>
+                <li><Link href="/faq"><i className="bi bi-chevron-right"></i>FAQ</Link></li>
               </ul>
             </div>
 
@@ -102,24 +157,48 @@ const Footer: React.FC = () => {
                 Monthly fintech, compliance &amp; enterprise tech insights. No spam.
               </p>
               <form className="ft-subscribe-form" onSubmit={handleSubscribe}>
-                <input 
-                  type="email" 
-                  className="ft-sub-input" 
-                  placeholder="Email Address" 
+                {/* The input had no label of any kind — a placeholder is not an
+                    accessible name, so screen readers announced it as an
+                    unlabelled edit field. WCAG 3.3.2. */}
+                <label htmlFor="ft-subscribe-email" className="visually-hidden">
+                  Email address for the NovuLabs newsletter
+                </label>
+                <input
+                  id="ft-subscribe-email"
+                  type="email"
+                  name="work_email"
+                  autoComplete="email"
+                  className="ft-sub-input"
+                  placeholder="Email Address"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  required 
+                  disabled={status === 'sending'}
+                  required
                 />
-                <button 
-                  type="submit" 
+                <button
+                  type="submit"
                   className="btn-grad ft-sub-btn"
-                  style={{
-                    background: subscribed ? 'linear-gradient(135deg,#C9A84C,#E8C96A)' : '',
-                    whiteSpace: 'nowrap'
-                  }}
+                  style={{ whiteSpace: 'nowrap' }}
+                  disabled={status === 'sending' || status === 'done'}
                 >
-                  {subscribed ? '✓ Subscribed!' : 'Subscribe'}
+                  {status === 'done'
+                    ? '✓ Subscribed'
+                    : status === 'sending'
+                      ? 'Subscribing…'
+                      : 'Subscribe'}
                 </button>
+                {/* aria-live so the outcome is announced, not only shown. */}
+                <p className="ft-sub-status" role="status" aria-live="polite">
+                  {status === 'done' &&
+                    'Thanks — your address has been sent to our team.'}
+                  {status === 'error' && (
+                    <>
+                      That did not go through. Email{' '}
+                      <a href="mailto:info@novulabs.net">info@novulabs.net</a> and we will add
+                      you.
+                    </>
+                  )}
+                </p>
               </form>
             </div>
           </div>

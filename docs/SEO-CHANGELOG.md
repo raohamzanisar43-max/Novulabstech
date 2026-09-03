@@ -244,3 +244,171 @@ earn and an experienced buyer spots them:
   number, testimonials, Google Business Profile, Clutch profile.** All require
   facts only the client has. Every one is listed in `CLIENT-ACTIONS.md` with the
   exact file and line to change.
+
+---
+
+# Second pass — testimonials, FAQ hub, and the defects the first pass left
+
+Everything below was measured against the built output or a running production
+server, not read off the source. `docs/SEO-PAGE-MAP.md` carries the per-page
+table; `python scripts/verify-seo-claims.py` re-asserts the invariants.
+
+## New pages
+
+| URL | What it is | Schema |
+| --- | --- | --- |
+| `/testimonials` | Client testimonials, grouped by sector, plus a "why clients choose NovuLabs" block | `WebPage` + `BreadcrumbList` — **no** `Review`/`AggregateRating` |
+| `/faq` | FAQ hub: 10 orientation questions answered here, plus a directory into the ~60 answers that live on other pages | `WebPage` + `FAQPage` + `BreadcrumbList` |
+
+**The testimonials are placeholders and the page says so, visibly.** No genuine
+client testimonial existed anywhere in the repo or on the live site, so there
+was nothing to consolidate. Every record in `content/testimonials.ts` carries
+`placeholder: true`, which drives both a banner at the top of the page and a
+per-card "Sample — awaiting verified testimonial" tag. Set `placeholder: false`
+as each is replaced with real feedback and both disappear on their own.
+
+**Why the FAQ hub is a directory, not an aggregate.** Restating ~60 answers
+already published on ten other pages would put every Q&A at two URLs under two
+`FAQPage` nodes, so the hub would compete with the pages it exists to feed.
+Instead the hub owns 10 new questions outright (the only ones it marks up) and
+links the rest to the section that owns them. Every spoke page gains an inbound
+contextual link; no answer gains a second home.
+
+Both are in `sitemap.xml`, `/site-map`, the footer, `siteNavigationSchema()`,
+and the navbar (under a new **About** dropdown — a tenth and eleventh top-level
+item would have wrapped the bar at laptop widths).
+
+## Defects found and fixed
+
+| Defect | Where | Fix |
+| --- | --- | --- |
+| `og:url` pointed at the homepage while `rel=canonical` pointed at the page | `/legal`, `/site-map` | Explicit per-route `openGraph` block (and `og:image` restated, since an explicit block replaces the inherited one wholesale) |
+| 154KB 1200×1200 PNG rendered at 40px, unsized, in the header of all 42 routes | Navbar + Footer logo | `next/image` at 40×40 — AVIF/WebP, correct dimensions. Removed 80 of the 115 unsized `<img>` elements |
+| 147KB 1280×960 JPEG, unsized, above the fold on the homepage | `team-working.jpeg` ×3 | `next/image` with explicit dimensions / `fill` |
+| Newsletter form displayed "✓ Subscribed!" without submitting anywhere | Footer | Posts through the same EmailJS service the contact and CTA forms already use; reports failure with a mailto fallback; input given a real `<label>` (it had none) |
+| Footer link rows 22px tall on touch devices — below the WCAG 2.5.8 24px floor | Footer, breadcrumbs, team cards, new card links | 36px minimum under `(hover:none) and (pointer:coarse)`, so desktop spacing is untouched |
+| 10 meta descriptions outside the 120–165 char budget | 3 blog posts, homepage, 3 team profiles, cookie policy, sitemap | Rewritten to budget; team profiles now compose from `longBio` rather than the 96-char `bio` |
+| Sitemap homepage `<loc>` omitted the trailing slash its own canonical declares | `app/sitemap.ts` | Derived from `canonical()` |
+| Route-count assertion pinned to a literal 33 — went red on every page added | `scripts/verify-seo-claims.py` | Asserts the real invariant instead: `/_not-found` is the only `noindex` route |
+
+## Unevidenced claims removed
+
+Same class as the certification wording removed in `6daaa0c`, and found by
+grepping for the pattern that commit established.
+
+| Claim | Where |
+| --- | --- |
+| "across 40+ countries **since 2026**" — unevidenced, and 2026 is the current year, contradicting `/about` | Footer tagline |
+| "200+ projects. 40+ countries." | Homepage `og:description` |
+| "across 40+ countries" | Homepage About section |
+| "refined across 200+ enterprise deployments" | Homepage Process section |
+| "200+ enterprise projects" / "Portfolio – 200+ Enterprise Projects" | `/portfolio` metadata |
+| "deployed across 40+ hospitals" ×2 | Healthcare service + industry sections |
+| **"12+ Years of Excellence" and "500+ Engineers Worldwide"** counters | Homepage — `/team` lists three people, so the headcount claim was off by two orders of magnitude on the same site. Replaced with two statements the site substantiates on its own pages |
+
+`lib/seo.ts` declares five served markets (PK, AE, GB, US, SA). The `$2.4B` /
+`99.99%` / `2M+` case-study figures are **left in place** — they are already
+tracked as `CLIENT-ACTIONS.md` item 7 and may well be real. They need the client
+to confirm or delete, not an agent to guess.
+
+## Measured
+
+Headless Chromium against `next start`, mobile viewport (390×844):
+
+- **CLS 0.0000 on every page tested** — `/`, `/faq`, `/testimonials`,
+  `/services`, `/portfolio`, `/blog`, `/about`, `/contact`.
+- **Zero horizontal overflow** at 320, 375, 390, 414, 768, 1024, 1280 and
+  1440px across 16 routes.
+- **Zero block-level tap targets under 32px** at 320px and 390px with a touch
+  context.
+- **41/41 pages reachable by crawling internal links from `/`**, zero broken
+  links, zero dead `#fragment` targets.
+- Redirects verified live: `/case-studies*`, `/privacy`, `/terms`, `/cookies`,
+  the seven legacy `/services/*` anchors, and the apex→www rule (308).
+- DOM ≤ 1,024 nodes per page. Stylesheet 300KB raw / 47KB gzipped.
+
+**LCP was not measured meaningfully.** The 196–380ms figures observed are
+localhost with no network latency and no CDN, and they should not be quoted as
+field data. CLS is layout-driven rather than network-driven, so the 0.0000 does
+transfer. Real LCP and INP need CrUX or a RUM beacon on production traffic.
+
+---
+
+# Third pass — 22 dedicated service pages, homepage title alignment
+
+## Why 22 pages, not 22 near-duplicates
+
+The homepage lists 22 service cards (`content/siteData.ts`, `services`). Every
+one of them linked straight to `/contact` with no page in between — a visitor
+could not read a sentence about "Mastercard / Visa" or "Transaction Monitoring"
+before being asked to book a call.
+
+Building 22 fully independent pages from those 22 card titles verbatim would
+have meant several pages competing for the same intent the site's 7 existing
+pillar pages already own in depth — "Mastercard / Visa", "Payment Gateways" and
+"Financial Software" are all facets of the one fintech practice already covered
+at length by `/services/fintech-software-development`. That is textbook keyword
+cannibalisation, which this same task explicitly warned against.
+
+So `content/serviceSpokes.ts` implements a hub-and-spoke structure instead:
+
+- The 7 existing pillar pages are **unchanged**.
+- 22 new spoke pages, one per homepage card, each narrowed to a genuinely
+  distinct search intent nested under its pillar via `parentSlug`. Three cards
+  whose title is otherwise identical to their pillar's own subject
+  ("Enterprise Software", "AML Systems", "Healthcare Software") were given the
+  specific, real sub-capability their pillar's own summary already names but
+  never expanded on — legacy modernisation, case management and risk scoring,
+  and EHR/clinical systems — rather than restating the pillar a second time.
+
+Full reasoning and the complete 22-card-to-slug mapping is documented in the
+header comment of `content/serviceSpokes.ts`.
+
+## What each of the 22 pages has
+
+Unique H1, SEO title, meta description (140–165 chars), canonical, Open Graph
+and Twitter metadata, `Breadcrumbs` (`Home > Services > {Pillar} > {Page}`)
+with matching `BreadcrumbList` schema, `Service` schema, and visible FAQ with
+matching `FAQPage` schema. Body content: intro, "What We Offer" (H3
+sub-sections), "How We Help", "Our Approach", "Technologies We Use" and
+"Industries We Support" (both pulled only from what the parent pillar already
+lists — nothing invented), "Why Choose NovuLabs", "Related services"
+(sibling spokes + the parent pillar), and a CTA. No fabricated pricing,
+timelines, client names or certifications; FAQs answer real buyer questions by
+explaining what determines an answer where a fixed number would be a guess.
+
+## Wiring
+
+- `types/index.ts` — `ServiceItem` gained a `slug` field.
+- `content/siteData.ts` — all 22 homepage cards now carry the slug of the page
+  they link to.
+- `components/ui/ServiceCard.tsx` — links to the dedicated page instead of
+  `/contact`; the page itself carries its own CTA once a visitor has read it.
+- `app/services/[slug]/page.tsx` — one dynamic route now serves both pillars
+  and spokes from the same flat URL space (`generateStaticParams` returns
+  both arrays; slugs are guaranteed distinct).
+- `app/services/page.tsx` — new "All 22 services, by track" section, grouped
+  under each pillar, so every spoke has an inbound link from the hub in
+  addition to the homepage card.
+- `app/sitemap.ts`, `app/site-map/page.tsx` — all 22 included.
+
+## Homepage title
+
+`app/page.tsx` title changed from "Software House in Islamabad | NovuLabs" to
+"Enterprise Software House in Islamabad | NovuLabs" (50 chars), matching the
+H1 exactly instead of a shortened version of it. The H1 itself was already
+correct — "Enterprise Software House in Islamabad" — and was left unchanged.
+"Best" was deliberately not added to either, continuing a decision already
+documented in `HeroSection.tsx`: it is an unverifiable superlative and, in most
+markets, a comparative advertising claim needing substantiation the site does
+not publish.
+
+## Verified
+
+Production build: 68 routes, 0 type errors. `verify-seo-claims.py`: 12/12,
+including 0 duplicate titles and 0 duplicate descriptions across all 64
+prerendered pages. Crawled from `/`: 63/63 pages reachable, 0 broken links, 0
+dead `#fragment` targets. `sitemap.xml`: 63 URLs, matching the crawlable set
+exactly. 0 horizontal overflow at 320/375/390/414/768/1024/1280/1440px across
+6 spot-checked routes including 4 of the new spoke pages. 0 em dashes in any
+new visible page content (checked programmatically, comments excluded).

@@ -15,12 +15,21 @@ import InsightsSection from '@/components/sections/home/InsightsSection';
 import CtaSection from '@/components/sections/home/CtaSection';
 
 export const metadata: Metadata = {
-  // 49 chars. Leads with the head term the H1 now carries, so title, H1 and
-  // description all target one intent instead of three. The previous title led
-  // with the brand, which only helps people already searching for the brand.
-  title: { absolute: 'Software House in Islamabad | NovuLabs' },
+  // 50 chars. Matches the H1 wording exactly rather than a shortened version of
+  // it, so title, H1 and description all target one intent instead of three.
+  //
+  // No "Best" or "#1" here, on purpose, same reasoning as the H1 comment in
+  // HeroSection.tsx: it is an unverifiable superlative about the business
+  // itself, which reads as a negative E-E-A-T signal, and in most markets a
+  // comparative claim in advertising needs substantiation this site does not
+  // publish. Ranking for "best software house in islamabad" searches comes
+  // from what the page demonstrates, not from the word "best" sitting in the
+  // title tag — Google resolves that query by relevance and trust signals, not
+  // by string-matching a superlative.
+  title: { absolute: 'Enterprise Software House in Islamabad | NovuLabs' },
+  // 158 chars — was 189, which Google truncated mid-clause at ~160.
   description:
-    'Enterprise software house in Islamabad building AML/CFT compliance systems for SBP-regulated banks, HIPAA healthcare platforms and PCI-DSS payments. Talk to an architect, not a salesperson.',
+    'Enterprise software house in Islamabad building AML/CFT compliance systems, HIPAA healthcare platforms and PCI-DSS payments. Talk to an architect, not a rep.',
   keywords: [
     'software house in Islamabad',
     'software house Islamabad',
@@ -38,8 +47,13 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: '/' },
   openGraph: {
-    title: 'NovuLabs – Enterprise Software House',
-    description: 'Mission-critical fintech, AML compliance, healthcare, and government software. 200+ projects. 40+ countries.',
+    title: 'Enterprise Software House in Islamabad | NovuLabs',
+    // "200+ projects. 40+ countries." removed — neither figure is evidenced
+    // anywhere on the site or in lib/seo.ts (which declares five served
+    // markets). Same claim class as the certification wording removed in
+    // 6daaa0c; see artifacts/FINDINGS.md.
+    description:
+      'Mission-critical fintech, AML/CFT compliance, healthcare and government software, engineered in Islamabad for institutions a regulator audits.',
     url: 'https://www.novulabs.net',
     images: [{ url: '/og/enterprise-software-development.jpg', width: 1200, height: 630, alt: 'NovuLabs' }],
   },

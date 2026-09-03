@@ -110,9 +110,16 @@ def main():
     def check(label, claimed, actual, ok, detail=""):
         results.append((label, claimed, actual, ok, detail))
 
+    # This was pinned to the literal 33 from the original PR body, so it went
+    # red every time a page was added — reporting growth as a regression. The
+    # invariant worth checking is not a count, it is that /_not-found is the
+    # ONLY route carrying noindex: any other noindex route means a real page
+    # was accidentally de-indexed.
     indexable = {r: d for r, d in docs.items() if "noindex" not in (d.robots or "").lower()}
-    check("Indexable routes", "33", str(len(indexable)), len(indexable) == 33,
-          "noindex: " + ", ".join(sorted(set(docs) - set(indexable))) or "")
+    noindexed = sorted(set(docs) - set(indexable))
+    check("Only /_not-found is noindex", "['/_not-found']", str(noindexed),
+          noindexed == ["/_not-found"],
+          "%d indexable routes" % len(indexable))
 
     blog = {r: d for r, d in docs.items() if r.startswith("/blog/")}
     bad_canon = [r for r, d in blog.items()

@@ -47,14 +47,14 @@ const TeamGridSection: React.FC = () => {
                       — indexable but orphaned in the navigation graph, which is
                       exactly the shape that gets a page crawled rarely and
                       ranked poorly. */}
-                  <h2 className="ctitle mb-1" style={{ fontSize: '1.15rem' }}>
+                  <h2 className="ctitle mb-1 team-name" style={{ fontSize: '1.15rem' }}>
                     <Link href={`/team/${member.slug}`}>{member.name}</Link>
                   </h2>
                   <div className="mb-3" style={{ fontSize: '0.88rem', fontWeight: 600, color: 'var(--p1)' }}>{member.role}</div>
                   <p className="ctext mb-3" style={{ fontSize: '0.85rem' }}>{member.longBio}</p>
                   <Link
                     href={`/team/${member.slug}`}
-                    className="d-inline-block mb-3"
+                    className="d-inline-block mb-3 team-profile-link"
                     style={{ fontSize: '0.82rem', fontWeight: 600 }}
                   >
                     Profile &amp; published work <i className="bi bi-arrow-right ms-1"></i>

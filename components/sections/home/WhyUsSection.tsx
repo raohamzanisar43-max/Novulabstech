@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { whyUs } from '@/content/siteData';
 import WhyUsCard from '@/components/ui/WhyUsCard';
 
@@ -17,6 +18,15 @@ const WhyUsSection: React.FC = () => {
           {whyUs.map((item, i) => (
             <WhyUsCard key={i} item={item} index={i} />
           ))}
+        </div>
+        <div className="row justify-content-center mt-4">
+          <div className="col-lg-8 text-center">
+            <p className="mb-0" style={{ fontSize: '0.9rem', color: 'var(--tx3)' }}>
+              <Link href="/testimonials">Read what clients say about working with us</Link>, or see
+              how those engagements were structured in our{' '}
+              <Link href="/portfolio">case studies</Link>.
+            </p>
+          </div>
         </div>
       </div>
     </section>

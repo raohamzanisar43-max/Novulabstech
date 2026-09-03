@@ -3,6 +3,11 @@ export interface ServiceItem {
   title: string;
   desc: string;
   color: string;
+  /** Slug of the dedicated page in content/serviceSpokes.ts this card links to.
+   *  Every card here is one of the 22 services NovuLabs lists on the homepage,
+   *  and each now has its own indexable page rather than linking straight to
+   *  /contact with no detail in between. */
+  slug: string;
 }
 
 export interface WhyUsItem {

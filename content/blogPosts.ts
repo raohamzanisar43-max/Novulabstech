@@ -233,7 +233,7 @@ export const blogPosts: BlogPost[] = [
     title: 'Building a goAML Integration: STR and CTR Reporting That Passes Validation',
     seoTitle: 'goAML Integration: STR & CTR Reporting Guide',
     description:
-      'An engineering guide to goAML XML submission for Pakistani institutions: schema modelling, the rejection causes we see most, and how to build a pipeline that validates before it submits.',
+      'An engineering guide to goAML XML submission for Pakistani institutions: schema modelling, the rejection causes we see most, and validating before you file.',
     content: `
       <p>Every regulated institution in Pakistan that files with the Financial Monitoring Unit eventually meets goAML. Most meet it badly. The platform itself is well documented, but the documentation describes a <em>schema</em>, and teams consistently underestimate how much engineering sits between "we have transaction data" and "FMU accepted our report."</p>
       <p>This is a build guide. It assumes you already know why you are reporting and focuses on what breaks when you do.</p>
@@ -312,7 +312,7 @@ export const blogPosts: BlogPost[] = [
     title: "Integrating RAAST: What Building on Pakistan's Instant Payment Rail Actually Involves",
     seoTitle: 'RAAST Integration Guide for Pakistani Fintechs',
     description:
-      'An engineering perspective on RAAST integration: ISO 20022 messaging, alias resolution, idempotency and reconciliation, and the failure modes that matter in instant payments.',
+      'An engineering view of RAAST integration: ISO 20022 messaging, alias resolution, idempotency and reconciliation, and the failure modes that matter most.',
     content: `
       <p>RAAST is the State Bank of Pakistan's instant payment system, and it changes the engineering assumptions most Pakistani payment integrations were built on. Batch settlement windows, next-day reconciliation and "the transfer will reflect shortly" are no longer acceptable behaviours when the rail settles in seconds and the customer can see it.</p>
       <p>This guide covers what teams building on RAAST need to design for. It is deliberately not a substitute for SBP's participant documentation — you will get the authoritative message specifications and onboarding requirements from the regulator and your sponsor bank. It is the operational and architectural context that documentation tends not to cover.</p>
@@ -379,7 +379,7 @@ export const blogPosts: BlogPost[] = [
     title: 'Digital KYC in Pakistan: Designing CNIC and Biometric Verification That Holds Up',
     seoTitle: 'NADRA e-KYC & CNIC Verification: Build Guide',
     description:
-      'How to design identity verification around CNIC and biometric checks for Pakistani financial and government platforms — including consent, data minimisation, fallbacks and audit evidence.',
+      'Designing identity verification around CNIC and biometric checks for Pakistani financial and government platforms: consent, fallbacks and audit evidence.',
     content: `
       <p>Identity verification is the first thing a Pakistani financial platform builds and the thing it most often has to rebuild. The reason is rarely the integration itself. It is that teams design the happy path — customer enters CNIC, verification returns a match, account opens — and then discover that the happy path is perhaps seventy per cent of real traffic, and the remaining thirty per cent has no defined behaviour.</p>
       <p>This guide is about designing the whole distribution, not the happy path.</p>

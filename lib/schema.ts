@@ -302,6 +302,8 @@ export function siteNavigationSchema() {
     { name: 'Case Studies', path: '/portfolio' },
     { name: 'Team', path: '/team' },
     { name: 'Insights', path: '/blog' },
+    { name: 'Testimonials', path: '/testimonials' },
+    { name: 'FAQ', path: '/faq' },
     { name: 'Contact', path: '/contact' },
   ];
 

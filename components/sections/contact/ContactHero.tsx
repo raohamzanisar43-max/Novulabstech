@@ -6,7 +6,17 @@ const ContactHero: React.FC = () => {
   return (
     <section className="phero">
       <div className="phero-bg" data-parallax="38">
-        <img src="/team-working.jpeg" alt="Contact" />
+        {/* Was a raw <img> with alt="Contact" — a decorative background given
+            a label that describes the page, not the image. Every other page
+            hero already uses next/image with an empty alt here. */}
+        <Image
+          src="/team-working.jpeg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          style={{ objectFit: 'cover' }}
+        />
       </div>
       <div className="phero-ov"></div>
       <div className="phero-grid" data-parallax="14"></div>

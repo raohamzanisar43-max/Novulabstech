@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { contactFaqs } from '@/content/siteData';
 import FaqAccordion from '@/components/ui/FaqAccordion';
 import JsonLd from '@/components/seo/JsonLd';
@@ -18,6 +19,14 @@ const ContactFaqSection: React.FC = () => {
         <div className="row justify-content-center">
           <div className="col-lg-8" data-reveal="up">
             <FaqAccordion items={contactFaqs} />
+          </div>
+        </div>
+        <div className="row justify-content-center mt-4">
+          <div className="col-lg-8 text-center">
+            <p className="mb-0" style={{ fontSize: '0.9rem', color: 'var(--tx3)' }}>
+              More questions are answered on the{' '}
+              <Link href="/faq">frequently asked questions</Link> page.
+            </p>
           </div>
         </div>
       </div>

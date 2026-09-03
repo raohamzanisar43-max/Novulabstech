@@ -1,30 +1,37 @@
 import { ServiceItem, WhyUsItem, IndustryItem, TechStackItem, PortfolioItem, FaqItem, TeamMemberProfile } from '../types';
 
+// Each of these 22 cards now links to a dedicated page (content/serviceSpokes.ts)
+// instead of straight to /contact. See that file's header comment for why the
+// card title and the page it links to sometimes carry a more specific name —
+// e.g. "Enterprise Software" links to the Legacy System Modernization page,
+// which is the genuinely distinct facet of that work that did not already have
+// its own page. Nothing here was renamed for its own sake; every card still
+// links to real content about the same underlying capability.
 export const services: ServiceItem[] = [
-  { icon: 'bi-globe', title: 'Website Development', desc: 'High-performance corporate sites, portals & web apps with SEO-first architecture.', color: 'i-b' },
-  { icon: 'bi-cpu-fill', title: 'Enterprise Software', desc: 'Custom multi-tenant SaaS, enterprise middleware, and mission-critical platforms.', color: 'i-v' },
-  { icon: 'bi-bank', title: 'Financial Software', desc: 'Core banking, digital wallets, lending systems, and investment management platforms.', color: 'i-t' },
-  { icon: 'bi-credit-card-2-front', title: 'Payment Gateways', desc: 'PCI-DSS compliant integrations supporting global payment rails and local acquirers.', color: 'i-c' },
+  { icon: 'bi-globe', title: 'Website Development', desc: 'High-performance corporate sites, portals & web apps with SEO-first architecture.', color: 'i-b', slug: 'corporate-website-development' },
+  { icon: 'bi-cpu-fill', title: 'Enterprise Software', desc: 'Custom multi-tenant SaaS, enterprise middleware, and mission-critical platforms.', color: 'i-v', slug: 'legacy-system-modernization' },
+  { icon: 'bi-bank', title: 'Financial Software', desc: 'Core banking, digital wallets, lending systems, and investment management platforms.', color: 'i-t', slug: 'core-banking-software-development' },
+  { icon: 'bi-credit-card-2-front', title: 'Payment Gateways', desc: 'PCI-DSS compliant integrations supporting global payment rails and local acquirers.', color: 'i-c', slug: 'payment-gateway-development' },
   // "Certified" removed — scheme certification is issued to the institution operating the
   // platform, not to the development firm. Matches app/layout.tsx:121 and the /services FAQ.
-  { icon: 'bi-patch-check-fill', title: 'Mastercard / Visa', desc: 'Direct integrations with Mastercard and Visa networks — issuing and acquiring.', color: 'i-o' },
-  { icon: 'bi-phone-fill', title: 'Mobile Apps', desc: 'Cross-platform iOS & Android apps built with Flutter and native Swift/Kotlin.', color: 'i-g' },
-  { icon: 'bi-heart-pulse-fill', title: 'Healthcare Software', desc: 'HIPAA-compliant EHR, telemedicine, and clinical workflow platforms for providers.', color: 'i-p' },
-  { icon: 'bi-clipboard2-pulse-fill', title: 'Medical Billing', desc: 'End-to-end billing with ICD-10/CPT coding, claim management, and payer integration.', color: 'i-c' },
-  { icon: 'bi-diagram-3-fill', title: 'ERP Systems', desc: 'Custom ERP integrating finance, HR, supply chain, and procurement in one system.', color: 'i-v' },
-  { icon: 'bi-people-fill', title: 'CRM Systems', desc: 'AI-powered CRM with lead scoring, pipeline analytics, and omnichannel engagement.', color: 'i-o' },
-  { icon: 'bi-shield-lock-fill', title: 'AML Systems', desc: 'Real-time monitoring, risk scoring, and regulatory reporting for compliant institutions.', color: 'i-t' },
-  { icon: 'bi-flag-fill', title: 'CFT Compliance', desc: 'Counter-Financing of Terrorism with PEP screening and automated STR generation.', color: 'i-b' },
-  { icon: 'bi-activity', title: 'Transaction Monitoring', desc: 'ML-powered analytics detecting suspicious patterns across millions of transactions.', color: 'i-p' },
-  { icon: 'bi-filetype-xml', title: 'XML Schema Integration', desc: 'ISO 20022, SWIFT XML, and HL7 FHIR schema processing for financial messaging.', color: 'i-y' },
-  { icon: 'bi-buildings-fill', title: 'Government Portals', desc: 'National identity portals with NADRA/CNIC API, digital signature, and e-gov services.', color: 'i-g' },
-  { icon: 'bi-bank2', title: 'FMU Pakistan', desc: 'Full GOAML integration, STR/CTR filing, and SBP regulatory compliance dashboards.', color: 'i-v' },
-  { icon: 'bi-plug-fill', title: 'API Development', desc: 'RESTful & GraphQL APIs with enterprise security, rate limiting, and developer portals.', color: 'i-c' },
-  { icon: 'bi-cloud-fill', title: 'Cloud Solutions', desc: 'AWS, Azure & GCP architecture, migration, and managed infrastructure for enterprises.', color: 'i-b' },
-  { icon: 'bi-robot', title: 'AI Automation', desc: 'ML pipelines, NLP chatbots, document processing, and predictive analytics platforms.', color: 'i-t' },
-  { icon: 'bi-layers-fill', title: 'Custom SaaS Platforms', desc: 'Multi-tenant SaaS with subscription billing, white-labeling, and analytics dashboards.', color: 'i-o' },
-  { icon: 'bi-apple', title: 'iOS Development', desc: 'Native Swift & SwiftUI apps optimized for performance, security, and App Store approval.', color: 'i-b' },
-  { icon: 'bi-android2', title: 'Android Development', desc: 'Kotlin-first apps for diverse device ecosystems and enterprise Play Store deployment.', color: 'i-g' }
+  { icon: 'bi-patch-check-fill', title: 'Mastercard / Visa', desc: 'Direct integrations with Mastercard and Visa networks — issuing and acquiring.', color: 'i-o', slug: 'mastercard-visa-integration' },
+  { icon: 'bi-phone-fill', title: 'Mobile Apps', desc: 'Cross-platform iOS & Android apps built with Flutter and native Swift/Kotlin.', color: 'i-g', slug: 'cross-platform-app-development' },
+  { icon: 'bi-heart-pulse-fill', title: 'Healthcare Software', desc: 'HIPAA-compliant EHR, telemedicine, and clinical workflow platforms for providers.', color: 'i-p', slug: 'ehr-clinical-software-development' },
+  { icon: 'bi-clipboard2-pulse-fill', title: 'Medical Billing', desc: 'End-to-end billing with ICD-10/CPT coding, claim management, and payer integration.', color: 'i-c', slug: 'medical-billing-software-development' },
+  { icon: 'bi-diagram-3-fill', title: 'ERP Systems', desc: 'Custom ERP integrating finance, HR, supply chain, and procurement in one system.', color: 'i-v', slug: 'erp-software-development' },
+  { icon: 'bi-people-fill', title: 'CRM Systems', desc: 'AI-powered CRM with lead scoring, pipeline analytics, and omnichannel engagement.', color: 'i-o', slug: 'crm-software-development' },
+  { icon: 'bi-shield-lock-fill', title: 'AML Systems', desc: 'Real-time monitoring, risk scoring, and regulatory reporting for compliant institutions.', color: 'i-t', slug: 'aml-case-management-risk-scoring' },
+  { icon: 'bi-flag-fill', title: 'CFT Compliance', desc: 'Counter-Financing of Terrorism with PEP screening and automated STR generation.', color: 'i-b', slug: 'sanctions-pep-screening-software' },
+  { icon: 'bi-activity', title: 'Transaction Monitoring', desc: 'ML-powered analytics detecting suspicious patterns across millions of transactions.', color: 'i-p', slug: 'transaction-monitoring-software-development' },
+  { icon: 'bi-filetype-xml', title: 'XML Schema Integration', desc: 'ISO 20022, SWIFT XML, and HL7 FHIR schema processing for financial messaging.', color: 'i-y', slug: 'financial-messaging-schema-integration' },
+  { icon: 'bi-buildings-fill', title: 'Government Portals', desc: 'National identity portals with NADRA/CNIC API, digital signature, and e-gov services.', color: 'i-g', slug: 'government-portal-development' },
+  { icon: 'bi-bank2', title: 'FMU Pakistan', desc: 'Full GOAML integration, STR/CTR filing, and SBP regulatory compliance dashboards.', color: 'i-v', slug: 'goaml-fmu-reporting-integration' },
+  { icon: 'bi-plug-fill', title: 'API Development', desc: 'RESTful & GraphQL APIs with enterprise security, rate limiting, and developer portals.', color: 'i-c', slug: 'api-development-integration' },
+  { icon: 'bi-cloud-fill', title: 'Cloud Solutions', desc: 'AWS, Azure & GCP architecture, migration, and managed infrastructure for enterprises.', color: 'i-b', slug: 'cloud-migration-services' },
+  { icon: 'bi-robot', title: 'AI Automation', desc: 'ML pipelines, NLP chatbots, document processing, and predictive analytics platforms.', color: 'i-t', slug: 'ai-development-services' },
+  { icon: 'bi-layers-fill', title: 'Custom SaaS Platforms', desc: 'Multi-tenant SaaS with subscription billing, white-labeling, and analytics dashboards.', color: 'i-o', slug: 'custom-saas-development' },
+  { icon: 'bi-apple', title: 'iOS Development', desc: 'Native Swift & SwiftUI apps optimized for performance, security, and App Store approval.', color: 'i-b', slug: 'ios-app-development' },
+  { icon: 'bi-android2', title: 'Android Development', desc: 'Kotlin-first apps for diverse device ecosystems and enterprise Play Store deployment.', color: 'i-g', slug: 'android-app-development' }
 ];
 
 export const whyUs: WhyUsItem[] = [

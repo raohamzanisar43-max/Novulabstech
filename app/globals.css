@@ -800,7 +800,6 @@ img{max-width:100%;display:block}
 }
 .agp1{bottom:-18px;left:-20px}
 .agp2{top:-18px;right:-20px;animation-delay:2.5s}
-.agp-num{font-family:var(--fh);font-size:1.65rem;font-weight:800;background:var(--g-main);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
 .agp-sub{font-size:.68rem;color:var(--tx4);margin-top:3px}
 
 /* ── CHECK LIST ── */
@@ -1724,7 +1723,7 @@ p, li {
 /* Numerals in metrics, stats and tables should align in columns and
    share a common width, otherwise animated counters visibly jitter as
    digits change. */
-.dm-val, .agp-num, .stat-num, .counter, table td, table th {
+.dm-val, .stat-num, .counter, table td, table th {
   font-variant-numeric: tabular-nums;
   font-feature-settings: 'tnum' 1;
 }
@@ -2108,4 +2107,309 @@ p, li {
   filter: none !important;
   animation: none !important;
   color: var(--a1);
+}
+
+/* ── FAQ HUB DIRECTORY (/faq) ──────────────────────────────────
+   Deliberately small: the cards themselves reuse .gcard/.ctitle/
+   .ctext/.carr. Only the question list needed anything new. */
+.faq-dir-head{color:inherit;text-decoration:none}
+.faq-dir-head:hover{color:var(--a1)}
+.faq-dir-list{
+  list-style:none;
+  margin:14px 0 0;
+  padding:0;
+  display:flex;
+  flex-direction:column;
+  gap:9px;
+}
+.faq-dir-list li{
+  position:relative;
+  padding-left:16px;
+  font-size:.83rem;
+  line-height:1.5;
+}
+.faq-dir-list li::before{
+  content:'';
+  position:absolute;
+  left:0;top:.62em;
+  width:5px;height:5px;border-radius:50%;
+  background:var(--a1);
+  opacity:.55;
+}
+.faq-dir-list a{
+  color:var(--tx3);
+  text-decoration:none;
+  /* Touch target: 44px is the WCAG 2.5.8 / iOS minimum. The bullet rows
+     are the densest tap surface on the page. */
+  display:block;
+  min-height:24px;
+  padding:2px 0;
+}
+.faq-dir-list a:hover,
+.faq-dir-list a:focus-visible{color:var(--p1);text-decoration:underline}
+
+@media (max-width:575.98px){
+  .faq-dir-list li{font-size:.88rem}
+  .faq-dir-list a{min-height:32px;padding:4px 0}
+}
+
+/* ── TESTIMONIALS (/testimonials) ──────────────────────────────
+   The sample notice is deliberately loud. It exists so nobody can
+   mistake placeholder copy for real client feedback, including
+   whoever reviews this page before it is published. */
+.sample-notice{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  padding:18px 20px;
+  border-radius:12px;
+  background:rgba(240,217,140,.16);
+  border:1px solid rgba(201,168,76,.42);
+  color:var(--tx2);
+  font-size:.87rem;
+  line-height:1.7;
+}
+.sample-notice i{
+  color:#B08A2E;
+  font-size:1.05rem;
+  line-height:1.5;
+  flex-shrink:0;
+}
+
+.tcard{
+  background:var(--g-card);
+  backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);
+  border:1px solid rgba(255,255,255,.80);
+  border-radius:12px;
+  box-shadow:0 1px 3px rgba(26,18,8,.05),0 4px 18px rgba(26,18,8,.06);
+  padding:28px 26px;
+  margin:0;
+  display:flex;
+  flex-direction:column;
+  position:relative;
+  transition:var(--t-s);
+}
+.tcard:hover{
+  border-color:rgba(93,224,230,.20);
+  transform:translateY(-4px);
+  box-shadow:0 8px 32px rgba(26,18,8,.11),0 4px 12px rgba(93,224,230,.12);
+}
+.tcard-sm{padding:24px 22px}
+.tcard-mark{
+  font-size:1.9rem;
+  color:var(--a1);
+  opacity:.5;
+  line-height:1;
+  margin-bottom:10px;
+}
+.tcard-quote{margin:0 0 18px;padding:0;border:0}
+.tcard-quote p{
+  margin:0;
+  font-size:.92rem;
+  line-height:1.78;
+  color:var(--tx2);
+}
+.tcard-meta{
+  margin-top:auto;
+  padding-top:16px;
+  border-top:1px solid rgba(93,224,230,.14);
+  display:flex;
+  flex-direction:column;
+  gap:3px;
+}
+.tcard-role{
+  font-family:var(--fh);
+  font-weight:700;
+  font-size:.86rem;
+  color:var(--tx1);
+  letter-spacing:-.01em;
+}
+.tcard-org{font-size:.79rem;color:var(--tx3)}
+.tcard-link{
+  margin-top:8px;
+  display:inline-flex;
+  align-items:center;
+  gap:2px;
+  font-size:.78rem;
+  font-weight:700;
+  color:var(--p1);
+  text-decoration:none;
+}
+.tcard-link:hover,.tcard-link:focus-visible{color:var(--a1);text-decoration:underline}
+/* Per-card sample marker. Removed automatically with the banner once every
+   record in content/testimonials.ts has placeholder:false. */
+.tcard-flag{
+  margin-top:10px;
+  align-self:flex-start;
+  font-size:.68rem;
+  font-weight:700;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  color:#8A6A16;
+  background:rgba(240,217,140,.28);
+  border:1px solid rgba(201,168,76,.38);
+  border-radius:100px;
+  padding:3px 10px;
+}
+
+.tsector{margin-bottom:46px}
+.tsector:last-child{margin-bottom:0}
+.tsector-title{
+  font-family:var(--fh);
+  font-size:1.08rem;
+  font-weight:700;
+  letter-spacing:-.015em;
+  color:var(--tx1);
+  margin:0 0 20px;
+  padding-bottom:10px;
+  border-bottom:1px solid rgba(93,224,230,.18);
+}
+
+@media (max-width:575.98px){
+  .tcard{padding:22px 20px}
+  .tcard-sm{padding:20px 18px}
+  .tcard-quote p{font-size:.9rem}
+  .sample-notice{padding:16px;font-size:.85rem}
+}
+
+/* Footer newsletter status line — announced via role="status". Reserves no
+   height when empty, so the outcome message does not shift the footer. */
+.ft-sub-status{
+  margin:0;
+  font-size:.78rem;
+  line-height:1.6;
+  color:rgba(255,255,255,.62);
+}
+.ft-sub-status:empty{display:none}
+.ft-sub-status a{color:var(--a1);text-decoration:underline}
+
+
+/* The two homepage pills previously rendered a counted-up number. They now
+   carry a short label instead — same gradient treatment, sized for text. */
+.agp-label{
+  font-family:var(--fh);
+  font-size:1.02rem;
+  font-weight:800;
+  letter-spacing:-.02em;
+  background:var(--g-main);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  line-height:1.15;
+}
+
+/* ── TOUCH TARGETS ─────────────────────────────────────────────
+   Measured in headless Chromium at 320px and 390px with a touch
+   context: footer links rendered 22px tall and the two new card
+   link styles 21px. WCAG 2.5.8 (AA) sets a 24x24 CSS px floor and
+   platform guidance wants more, so on touch pointers these get
+   enough vertical padding to clear it comfortably.
+
+   Scoped to `(hover:none) and (pointer:coarse)` so the desktop
+   footer spacing is untouched — this is a finger problem, not a
+   cursor one. */
+@media (hover:none) and (pointer:coarse){
+  .ft-links li{margin-bottom:2px}
+  .ft-links a{
+    min-height:36px;
+    padding:6px 0;
+    align-items:center;
+  }
+  .ft-contact-item{
+    min-height:36px;
+    padding:6px 0;
+  }
+  .ft-legal a{
+    display:inline-block;
+    min-height:36px;
+    padding:8px 0;
+  }
+  .faq-dir-head,
+  .tcard-link,
+  .carr{
+    min-height:36px;
+    display:flex;
+    align-items:center;
+  }
+  .faq-dir-list a{
+    min-height:36px;
+    display:flex;
+    align-items:center;
+    padding:4px 0;
+  }
+  /* The breadcrumb trail is the densest tap row on every page. */
+  .breadcrumb-item a{
+    display:inline-block;
+    min-height:32px;
+    padding:6px 0;
+  }
+}
+
+/* Team cards were the last two tap targets under 24px on mobile — the name
+   link at 23px and the profile link at 22px. Same touch-only scoping as the
+   block above. */
+@media (hover:none) and (pointer:coarse){
+  .team-name a{
+    display:inline-block;
+    min-height:36px;
+    padding:6px 0;
+  }
+  .team-profile-link{
+    min-height:36px;
+    display:inline-flex;
+    align-items:center;
+  }
+}
+
+/* ── SERVICE GROUP LIST (/services "all 22 by track") ─────────
+   Compact link groups under each pillar name, deliberately plainer
+   than a card grid — 22 more .gcard instances on one page would be
+   the visually-excessive version of the same information. */
+.service-group-title{
+  font-family:var(--fh);
+  font-size:1.02rem;
+  font-weight:700;
+  letter-spacing:-.01em;
+  color:var(--tx1);
+  margin:0 0 14px;
+  padding-bottom:10px;
+  border-bottom:1px solid rgba(93,224,230,.18);
+}
+.service-group-title a{color:inherit;text-decoration:none}
+.service-group-title a:hover{color:var(--a1)}
+.service-group-list{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:flex;
+  flex-direction:column;
+  gap:9px;
+}
+.service-group-list li{
+  position:relative;
+  padding-left:16px;
+  font-size:.86rem;
+  line-height:1.5;
+}
+.service-group-list li::before{
+  content:'';
+  position:absolute;
+  left:0;top:.6em;
+  width:5px;height:5px;border-radius:50%;
+  background:var(--a1);
+  opacity:.55;
+}
+.service-group-list a{
+  color:var(--tx3);
+  text-decoration:none;
+  display:block;
+  min-height:24px;
+  padding:2px 0;
+}
+.service-group-list a:hover,
+.service-group-list a:focus-visible{color:var(--p1);text-decoration:underline}
+
+@media (hover:none) and (pointer:coarse){
+  .service-group-list a{min-height:36px;display:flex;align-items:center;padding:4px 0}
+  .service-group-title a{min-height:36px;display:inline-flex;align-items:center}
 }

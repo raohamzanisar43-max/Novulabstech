@@ -9,7 +9,10 @@ const HealthcareDeepDive: React.FC = () => {
           <div className="col-lg-6" data-reveal="left">
             <span className="stag">Industry 02</span>
             <h2 className="stitle mt-3">Healthcare &amp; <span className="gtxt">MedTech</span></h2>
-            <p className="mb-3">Our Healthcare division has deployed HIPAA-compliant EHR systems, telemedicine platforms, and medical billing solutions across 40+ hospitals in Pakistan, UAE, and North America.</p>
+            {/* "40+ hospitals" removed — the figure traces to one case-study
+                metric flagged as unverified in CLIENT-ACTIONS.md item 7. It can
+                be reinstated once the client substantiates it. */}
+            <p className="mb-3">Our healthcare work covers HIPAA-aligned EHR systems, telemedicine platforms and medical billing, delivered for hospital groups and providers in Pakistan, the UAE and North America.</p>
             <p className="mb-4">We understand clinical workflows, HL7 FHIR messaging standards, and the regulatory landscape for healthcare data — building systems that clinicians actually use.</p>
             <ul className="chk mb-4">
               <li><span className="chk-ico"><i className="bi bi-check"></i></span>Electronic Health Records (EHR)</li>

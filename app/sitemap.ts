@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next';
-import { SITE_URL } from '@/lib/seo';
+import { SITE_URL, canonical } from '@/lib/seo';
 import { servicePages } from '@/content/servicePages';
+import { serviceSpokes } from '@/content/serviceSpokes';
 import { caseStudies } from '@/content/caseStudies';
 import { blogPosts } from '@/content/blogPosts';
 import { legalPages } from '@/content/legalPages';
@@ -32,11 +33,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/blog', priority: 0.8, changeFrequency: 'weekly' as const },
     { path: '/about', priority: 0.7, changeFrequency: 'monthly' as const },
     { path: '/team', priority: 0.7, changeFrequency: 'monthly' as const },
+    { path: '/testimonials', priority: 0.7, changeFrequency: 'monthly' as const },
+    { path: '/faq', priority: 0.7, changeFrequency: 'monthly' as const },
     { path: '/contact', priority: 0.8, changeFrequency: 'monthly' as const },
     { path: '/site-map', priority: 0.3, changeFrequency: 'monthly' as const },
     { path: '/legal', priority: 0.3, changeFrequency: 'yearly' as const },
   ].map((r) => ({
-    url: `${SITE_URL}${r.path}`,
+    // canonical() rather than string concatenation: the homepage entry was
+    // emitting `https://www.novulabs.net` while its own rel=canonical says
+    // `https://www.novulabs.net/`. A sitemap URL that does not match the page's
+    // declared canonical is a (mild) mixed signal, and it costs nothing to fix.
+    url: canonical(r.path),
     lastModified: buildDate,
     changeFrequency: r.changeFrequency,
     priority: r.priority,
@@ -48,6 +55,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: buildDate,
     changeFrequency: 'monthly',
     priority: 0.9,
+  }));
+
+  // The 22 narrower spoke pages nested under the 7 services above. Priority
+  // set below the pillars: each spoke targets a narrower search intent than
+  // its parent, and priority is a relative hint to crawlers about where to
+  // spend budget first, not a claim about the page's importance to the site.
+  const serviceSpokeRoutes: MetadataRoute.Sitemap = serviceSpokes.map((s) => ({
+    url: `${SITE_URL}/services/${s.slug}`,
+    lastModified: buildDate,
+    changeFrequency: 'monthly',
+    priority: 0.7,
   }));
 
   const caseStudyRoutes: MetadataRoute.Sitemap = caseStudies.map((c) => ({
@@ -82,5 +100,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.2,
   }));
 
-  return [...staticRoutes, ...serviceRoutes, ...caseStudyRoutes, ...blogRoutes, ...authorRoutes, ...legalRoutes];
+  return [...staticRoutes, ...serviceRoutes, ...serviceSpokeRoutes, ...caseStudyRoutes, ...blogRoutes, ...authorRoutes, ...legalRoutes];
 }
