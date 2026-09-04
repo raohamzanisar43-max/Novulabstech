@@ -58,6 +58,18 @@ export function organizationSchema() {
     email: ORG.email,
     telephone: ORG.telephone,
     address: postalAddress(),
+    // Opening hours make the entity eligible for the "Hours" treatment in
+    // local results and give an answer engine something concrete to state when
+    // asked whether the business is open. Emitted from the same constant the
+    // contact page renders, so the two cannot disagree.
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ORG.openingHours.days,
+        opens: ORG.openingHours.opens,
+        closes: ORG.openingHours.closes,
+      },
+    ],
     sameAs: [...ORG.sameAs],
     areaServed: ORG.areaServed.map((code) => ({ '@type': 'Country', identifier: code })),
     knowsAbout: [...ORG.knowsAbout],

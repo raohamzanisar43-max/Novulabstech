@@ -3,6 +3,7 @@
 import React, { useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import Button from '@/components/ui/Button';
+import { ORG } from '@/lib/seo';
 
 // EmailJS Config
 const SERVICE_ID = 'service_ogn7v0d';
@@ -259,13 +260,41 @@ const ContactFormSection: React.FC = () => {
                   <p><a href="mailto:info@novulabs.net" style={{ color: 'var(--p1)' }}>info@novulabs.net</a></p>
                 </div>
               </div>
-              {/* TODO(client): publish a real Islamabad landline in
-                  international format (+92-51-XXXXXXX) and add it here, to the
-                  footer, and to ORG.telephone in lib/seo.ts. A landline (not a
-                  mobile) materially strengthens Google Business Profile
-                  verification and enterprise credibility. Deliberately not
-                  rendered until a real number exists — an invented one is worse
-                  than none. */}
+              {/* The page told visitors to "call us directly" while publishing
+                  no number anywhere on the site — even though the verified
+                  Google Business Profile carried one. The instruction and the
+                  number now sit together, and both match GBP for NAP
+                  consistency. Rendered from ORG so the page, the footer and the
+                  schema cannot drift apart. */}
+              {ORG.telephone && (
+                <div className="cinfo-item">
+                  <div className="cico i-b"><i className="bi bi-telephone-fill"></i></div>
+                  <div>
+                    <div className="cinfo-label">Phone</div>
+                    <p>
+                      <a
+                        href={`tel:${ORG.telephone.replace(/\s+/g, '')}`}
+                        style={{ color: 'var(--p1)' }}
+                      >
+                        {ORG.telephone}
+                      </a>
+                    </p>
+                  </div>
+                </div>
+              )}
+              {ORG.address.streetAddress && (
+                <div className="cinfo-item">
+                  <div className="cico i-o"><i className="bi bi-geo-alt-fill"></i></div>
+                  <div>
+                    <div className="cinfo-label">Office</div>
+                    <p>
+                      {ORG.address.streetAddress}
+                      <br />
+                      {ORG.address.addressLocality}, {ORG.address.addressRegion}
+                    </p>
+                  </div>
+                </div>
+              )}
               <div className="cinfo-item">
                 <div className="cico i-o"><i className="bi bi-clock-fill"></i></div>
                 <div>
@@ -279,8 +308,8 @@ const ContactFormSection: React.FC = () => {
               <div>
                 <i className="bi bi-map-fill" style={{ fontSize: '2.4rem', color: 'var(--p1)', opacity: 0.35, display: 'block', marginBottom: '10px' }}></i>
                 <p style={{ fontWeight: 600, color: 'var(--tx1)', marginBottom: '4px' }}>NovuLabs HQ</p>
-                <p style={{ fontSize: '0.8rem', color: 'var(--tx3)', marginBottom: '12px' }}>Islamabad, Pakistan</p>
-                <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="btn-glass" style={{ padding: '7px 16px', fontSize: '0.8rem', textDecoration: 'none', display: 'inline-block' }}>
+                <p style={{ fontSize: '0.8rem', color: 'var(--tx3)', marginBottom: '12px' }}>{ORG.address.streetAddress}, {ORG.address.addressLocality}</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=Novu+Labs+I-10%2F4+I-10+Islamabad" target="_blank" rel="noopener noreferrer" className="btn-glass" style={{ padding: '7px 16px', fontSize: '0.8rem', textDecoration: 'none', display: 'inline-block' }}>
                   <i className="bi bi-box-arrow-up-right me-1"></i>Open Maps
                 </a>
               </div>

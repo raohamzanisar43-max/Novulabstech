@@ -43,20 +43,39 @@ export const ORG = {
 
   email: 'info@novulabs.net',
 
-  // TODO(client): publish a real landline in international format, e.g.
-  // '+92-51-1234567'. An Islamabad landline (not a mobile) materially
-  // strengthens both Google Business Profile verification and enterprise trust.
-  // Leave as null until real — an invented number is worse than none.
-  telephone: null as string | null,
+  // Sourced from the verified Google Business Profile, which published this
+  // number while the website published none — the contact page told people to
+  // "call us directly" with nothing to call. NAP consistency requires the same
+  // number in both places, so this is now the GBP number in E.164 format.
+  //
+  // TODO(client): this is a mobile line. An Islamabad landline
+  // ('+92-51-XXXXXXX') reads as more established to enterprise and government
+  // buyers and strengthens GBP verification. Keep the mobile as secondary if it
+  // is the one that actually gets answered.
+  telephone: '+92 326 8292152',
 
   address: {
-    // TODO(client): add streetAddress + postalCode. LocalBusiness schema will
-    // not validate on a city-only address.
-    streetAddress: null as string | null,
+    // Also taken from the verified GBP, which carried a street address the site
+    // had never published. The direction of that gap was the opposite of the
+    // usual one, and it left LocalBusiness schema unable to validate.
+    streetAddress: 'I-10/4, I-10',
     addressLocality: 'Islamabad',
     addressRegion: 'Islamabad Capital Territory',
+    // TODO(client): still unknown — absent from both the website and the GBP.
+    // LocalBusiness will validate without it but the address is weaker for
+    // map-pack matching. Left null rather than guessed.
     postalCode: null as string | null,
     addressCountry: 'PK',
+  },
+
+  /** Opening hours, matching what /contact publishes. The GBP currently says
+   *  "Open 24 hours" Mon–Sat, which contradicts this; the 24/7 line on the site
+   *  is an enterprise SLA term for existing customers, not opening hours.
+   *  Mismatched hours invite user-submitted corrections on Google. */
+  openingHours: {
+    days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+    opens: '09:00',
+    closes: '18:00',
   },
 
   /** Entity corroboration for AI search (ChatGPT, Perplexity, AI Overviews).

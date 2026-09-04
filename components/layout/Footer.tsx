@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import emailjs from '@emailjs/browser';
 import { servicePages } from '@/content/servicePages';
+import { ORG } from '@/lib/seo';
 
 /**
  * The subscribe form previously rendered "✓ Subscribed!" from local state
@@ -108,8 +109,26 @@ const Footer: React.FC = () => {
                 <a href="mailto:info@novulabs.net" className="ft-contact-item">
                   <i className="bi bi-envelope-fill"></i>info@novulabs.net
                 </a>
+                {/* Full NAP in the footer, on every page. Google and answer
+                    engines corroborate an entity by finding the same name,
+                    address and phone repeated consistently — a city-only line
+                    matched nothing the verified Business Profile carried.
+                    Rendered from ORG so footer, contact page and schema stay in
+                    lockstep. */}
+                {ORG.telephone && (
+                  <a
+                    href={`tel:${ORG.telephone.replace(/\s+/g, '')}`}
+                    className="ft-contact-item"
+                  >
+                    <i className="bi bi-telephone-fill"></i>
+                    {ORG.telephone}
+                  </a>
+                )}
                 <span className="ft-contact-item">
-                  <i className="bi bi-geo-alt-fill"></i>Islamabad, Pakistan
+                  <i className="bi bi-geo-alt-fill"></i>
+                  {ORG.address.streetAddress
+                    ? `${ORG.address.streetAddress}, ${ORG.address.addressLocality}, Pakistan`
+                    : `${ORG.address.addressLocality}, Pakistan`}
                 </span>
               </div>
               <div className="ft-socs">
