@@ -15,7 +15,7 @@ const PaySection: React.FC = () => {
                 payment platforms through scheme certification"). Volume and uptime figures also
                 removed: they described a client platform, not a NovuLabs SLA, and are
                 unevidenced on this site. See CLIENT-ACTIONS.md item 7. */}
-            <p className="ssub mb-4">Enterprise payment processing platform — engineered to PCI-DSS, and taken through Mastercard and Visa scheme certification with the institutions that operate it.</p>
+            <p className="ssub mb-4">Enterprise payment processing platform: engineered to PCI-DSS, and taken through Mastercard and Visa scheme certification with the institutions that operate it.</p>
             <ul className="chk mb-4">
               <li><span className="chk-ico"><i className="bi bi-check"></i></span>Mastercard MDES tokenization</li>
               <li><span className="chk-ico"><i className="bi bi-check"></i></span>Visa VTS &amp; Visa Direct</li>

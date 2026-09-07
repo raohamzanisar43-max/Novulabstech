@@ -6,7 +6,7 @@ import { caseStudies } from '@/content/caseStudies';
  * Sector-to-case-study links on /industries.
  *
  * /industries linked to seven service pages and three articles but to zero case
- * studies — the single strongest contextual link available on a sector page,
+ * studies; the single strongest contextual link available on a sector page,
  * because a buyer reading about banking wants the banking engagement, not a
  * generic portfolio index.
  *
@@ -47,7 +47,7 @@ const SectorCaseStudies: React.FC = () => {
               Engagements in <span className="gtxt">each sector</span>
             </h2>
             <p className="ssub mt-3 mb-0">
-              Clients are described by category rather than named — every engagement below is
+              Clients are described by category rather than named: every engagement below is
               covered by an NDA. Each case study sets out the problem, the constraints we
               designed within, and the engineering decisions behind the result.
             </p>

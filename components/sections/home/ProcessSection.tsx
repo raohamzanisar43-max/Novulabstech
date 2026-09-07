@@ -7,8 +7,10 @@ const ProcessSection: React.FC = () => {
         <div className="row justify-content-center text-center mb-5">
           <div className="col-lg-7" data-reveal="up">
             <span className="stag">How We Work</span>
-            <h2 className="stitle mt-3">Our Delivery <span className="gtxt">Process</span></h2>
-            <p className="ssub mx-auto">A proven six-phase methodology refined across 200+ enterprise deployments.</p>
+            <h2 className="stitle mt-3">Our software development <span className="gtxt">process</span></h2>
+            {/* "200+ enterprise deployments" removed — no deployment count is
+                published or evidenced anywhere on the site. */}
+            <p className="ssub mx-auto">A six-phase methodology, applied the same way on every engagement so the audit trail exists from the first sprint instead of the last.</p>
           </div>
         </div>
         

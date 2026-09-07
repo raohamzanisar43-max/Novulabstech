@@ -10,7 +10,7 @@ const ErpSection: React.FC = () => {
           <div className="col-lg-6" data-reveal="right">
             <span className="stag">Solution 01</span>
             <h2 className="stitle mt-3">NovuERP<br /><span className="gtxt">Enterprise Resource Planning</span></h2>
-            <p className="ssub mb-4">A fully integrated ERP platform covering every operational domain — finance, HR, production, procurement, inventory, and reporting — in one unified system.</p>
+            <p className="ssub mb-4">A fully integrated ERP platform covering every operational domain (finance, HR, production, procurement, inventory, and reporting) in one unified system.</p>
             <div className="row g-3 mb-4">
               <div className="col-6">
                 <GlowCard className="gcard p-3">

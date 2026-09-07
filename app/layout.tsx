@@ -1,38 +1,44 @@
 import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
-import { Space_Grotesk, Outfit, JetBrains_Mono } from 'next/font/google';
+import { IBM_Plex_Serif, IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/google';
 import './globals.css';
 
 // ---------------------------------------------------------------------------
-// Typefaces
+// Typefaces — one superfamily, three voices
 // ---------------------------------------------------------------------------
-// These were previously pulled in with `@import url('https://fonts.googleapis.com/...')`
-// at the top of globals.css. That import sat *after* the Bootstrap @imports, and
-// since CSS requires @import to precede all other rules, the production CSS
-// optimizer dropped it entirely — the built stylesheet contained no reference to
-// fonts.googleapis.com at all, while `font-family` still named Space Grotesk and
-// Outfit. Every visitor was served fallback system fonts.
+// Previously Archivo + Source Sans 3 + JetBrains Mono: three unrelated
+// families chosen separately, which is why the type never quite cohered. IBM
+// Plex is a single superfamily whose serif, sans and mono were drawn together,
+// so they share skeleton, proportion and rhythm and can be mixed without the
+// seams showing.
 //
-// next/font self-hosts the files from our own origin instead: no render-blocking
-// request to a third party, no extra DNS + TLS handshake before first paint, no
-// visitor IP disclosed to Google, and `display: swap` plus the generated
-// size-adjust fallback keeps CLS near zero. This also matches the reasoning in
-// the Bootstrap comment in globals.css — do not move these back to an @import.
-const fontHeading = Space_Grotesk({
+// It also suits the subject. Plex was commissioned for an engineering company,
+// it carries none of the startup-default association that Inter and Poppins
+// now have, and the serif gives long technical articles the editorial
+// authority a geometric sans cannot. Roles: Serif for headings, Sans for body
+// and UI, Mono for eyebrow labels, code and data.
+//
+// Still self-hosted through next/font rather than an @import: no render-
+// blocking third-party request, no visitor IP disclosed to Google, and the
+// generated size-adjust fallback keeps CLS near zero. Do not move these back
+// to an @import in globals.css; that is the bug that left the site rendering
+// in system fallbacks for months.
+const fontHeading = IBM_Plex_Serif({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
+  weight: ['500', '600', '700'],
   variable: '--font-heading',
   display: 'swap',
 });
 
-const fontBody = Outfit({
+const fontBody = IBM_Plex_Sans({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700', '800', '900'],
+  weight: ['400', '500', '600'],
+  style: ['normal', 'italic'],
   variable: '--font-body',
   display: 'swap',
 });
 
-const fontMono = JetBrains_Mono({
+const fontMono = IBM_Plex_Mono({
   subsets: ['latin'],
   weight: ['400', '500'],
   variable: '--font-mono',
@@ -52,7 +58,8 @@ import Footer from '@/components/layout/Footer';
 // Viewport
 // ---------------------------------------------------------------------------
 export const viewport: Viewport = {
-  themeColor: '#C9A84C',
+  // Matches the ink ground of the hero, which is the first thing painted.
+  themeColor: '#0C1F33',
   width: 'device-width',
   initialScale: 1,
 };
@@ -63,7 +70,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.novulabs.net'),
   title: {
-    // 58 chars — inside the ~60 char SERP render budget.
+    // 58 chars, inside the ~60 char SERP render budget.
     default: 'NovuLabs — Enterprise Software House in Pakistan',
     // Page-level `title` strings must NOT contain the brand; this template
     // appends it exactly once. (Previously several pages included it too,
@@ -101,9 +108,15 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  // favicon.svg (9KB, vector) rather than logo.png (1200x1200, 151KB). The
+  // favicon is fetched on every cold page load, so a 151KB raster was costing
+  // more than the rest of the page's images combined to paint a 16px mark, and
+  // a 1200px source downscaled to 16px renders muddy. One SVG covers every tab,
+  // bookmark and PWA size. logo.png stays only for apple-touch-icon, which
+  // requires a raster.
   icons: {
-    icon: '/logo.png',
-    shortcut: '/logo.png',
+    icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
+    shortcut: '/favicon.svg',
     apple: '/logo.png',
   },
   // ⚠️ DO NOT re-add `alternates: { canonical: '/' }` here.
@@ -155,7 +168,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${fontHeading.variable} ${fontBody.variable} ${fontMono.variable}`}
     >
       <head>
-        {/* Sitewide entity graph — ProfessionalService + WebSite, linked by @id.
+        {/* Sitewide entity graph: ProfessionalService + WebSite, linked by @id.
             Server-rendered so non-JS crawlers (GPTBot, ClaudeBot, PerplexityBot,
             CCBot) can read it. Definitions live in lib/schema.ts. */}
         <JsonLd data={[organizationSchema(), websiteSchema(), siteNavigationSchema()]} />

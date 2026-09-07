@@ -4,7 +4,7 @@ import JsonLd from '@/components/seo/JsonLd';
 import { canonical } from '@/lib/seo';
 
 export interface Crumb {
-  /** Visible label. Keep it short — this is what renders in the SERP trail. */
+  /** Visible label. Keep it short; this is what renders in the SERP trail. */
   name: string;
   /** Site-relative path. Omit on the final crumb (the current page). */
   href?: string;
@@ -14,7 +14,7 @@ export interface Crumb {
  * Visual breadcrumb trail + matching BreadcrumbList JSON-LD.
  *
  * Both halves are emitted from the same array, so the rendered trail and the
- * structured data can never disagree — a mismatch is a common cause of Google
+ * structured data can never disagree; a mismatch is a common cause of Google
  * silently dropping breadcrumb display in the SERP.
  *
  * "Home" is prepended automatically; pass only the deeper levels.
@@ -35,7 +35,7 @@ export default function Breadcrumbs({
       '@type': 'ListItem',
       position: i + 1,
       name: crumb.name,
-      // The last item intentionally omits `item` per Google's guidance — the
+      // The last item intentionally omits `item` per Google's guidance; the
       // current page should not link to itself in the trail.
       ...(crumb.href && i < trail.length - 1 ? { item: canonical(crumb.href) } : {}),
     })),

@@ -6,7 +6,7 @@ import Link from 'next/link';
  * Custom 404.
  *
  * The default Next.js 404 already returned a correct HTTP 404 status (verified
- * — no soft-404 on this site, which many SPA deployments get wrong). What it
+ *: no soft-404 on this site, which many SPA deployments get wrong). What it
  * did not do was give a lost visitor or a crawler anywhere to go. Recovery
  * links here keep both moving instead of terminating the session or the crawl.
  */

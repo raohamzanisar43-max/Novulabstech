@@ -16,7 +16,7 @@ import React, { useEffect, useRef } from 'react';
  *    pin the viewport and trap the user, which breaks all of the above.
  *
  * 2. **The page never scrolls horizontally.** Overflow is contained by this
- *    element, so the document body is unaffected — the rule that a page must
+ *    element, so the document body is unaffected; the rule that a page must
  *    never scroll sideways stays intact.
  *
  * Disabled under `prefers-reduced-motion`, where it degrades to an ordinary
@@ -59,7 +59,7 @@ export default function HorizontalScroll({
       if (!active || !section || !track) return;
 
       const maxScroll = track.scrollWidth - track.clientWidth;
-      // Nothing to advance through — the content fits.
+      // Nothing to advance through; the content fits.
       if (maxScroll <= 0) return;
 
       const rect = section.getBoundingClientRect();

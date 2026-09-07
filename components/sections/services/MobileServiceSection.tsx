@@ -18,7 +18,7 @@ const MobileServiceSection: React.FC = () => {
               <div className="gcard-body">
                 <div className="sico i-b mx-auto"><i className="bi bi-phone-fill"></i></div>
                 <div className="ctitle">Cross-Platform</div>
-                <p className="ctext">Flutter &amp; React Native — one codebase, native performance on iOS &amp; Android.</p>
+                <p className="ctext">Flutter &amp; React Native: one codebase, native performance on iOS &amp; Android.</p>
                 <Button href="/contact" variant="none" className="carr justify-content-center"><i className="bi bi-arrow-right-circle"></i>Consult Us</Button>
               </div>
             </GlowCard>

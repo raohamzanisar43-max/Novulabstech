@@ -1,39 +1,46 @@
 import { ServiceItem, WhyUsItem, IndustryItem, TechStackItem, PortfolioItem, FaqItem, TeamMemberProfile } from '../types';
 
+// Each of these 22 cards now links to a dedicated page (content/serviceSpokes.ts)
+// instead of straight to /contact. See that file's header comment for why the
+// card title and the page it links to sometimes carry a more specific name —
+// e.g. "Enterprise Software" links to the Legacy System Modernization page,
+// which is the genuinely distinct facet of that work that did not already have
+// its own page. Nothing here was renamed for its own sake; every card still
+// links to real content about the same underlying capability.
 export const services: ServiceItem[] = [
-  { icon: 'bi-globe', title: 'Website Development', desc: 'High-performance corporate sites, portals & web apps with SEO-first architecture.', color: 'i-b' },
-  { icon: 'bi-cpu-fill', title: 'Enterprise Software', desc: 'Custom multi-tenant SaaS, enterprise middleware, and mission-critical platforms.', color: 'i-v' },
-  { icon: 'bi-bank', title: 'Financial Software', desc: 'Core banking, digital wallets, lending systems, and investment management platforms.', color: 'i-t' },
-  { icon: 'bi-credit-card-2-front', title: 'Payment Gateways', desc: 'PCI-DSS compliant integrations supporting global payment rails and local acquirers.', color: 'i-c' },
+  { icon: 'bi-globe', title: 'Website Development', desc: 'High-performance corporate sites, portals & web apps with SEO-first architecture.', color: 'i-b', slug: 'corporate-website-development' },
+  { icon: 'bi-cpu-fill', title: 'Enterprise Software', desc: 'Custom multi-tenant SaaS, enterprise middleware, and mission-critical platforms.', color: 'i-v', slug: 'legacy-system-modernization' },
+  { icon: 'bi-bank', title: 'Financial Software', desc: 'Core banking, digital wallets, lending systems, and investment management platforms.', color: 'i-t', slug: 'core-banking-software-development' },
+  { icon: 'bi-credit-card-2-front', title: 'Payment Gateways', desc: 'PCI-DSS compliant integrations supporting global payment rails and local acquirers.', color: 'i-c', slug: 'payment-gateway-development' },
   // "Certified" removed — scheme certification is issued to the institution operating the
   // platform, not to the development firm. Matches app/layout.tsx:121 and the /services FAQ.
-  { icon: 'bi-patch-check-fill', title: 'Mastercard / Visa', desc: 'Direct integrations with Mastercard and Visa networks — issuing and acquiring.', color: 'i-o' },
-  { icon: 'bi-phone-fill', title: 'Mobile Apps', desc: 'Cross-platform iOS & Android apps built with Flutter and native Swift/Kotlin.', color: 'i-g' },
-  { icon: 'bi-heart-pulse-fill', title: 'Healthcare Software', desc: 'HIPAA-compliant EHR, telemedicine, and clinical workflow platforms for providers.', color: 'i-p' },
-  { icon: 'bi-clipboard2-pulse-fill', title: 'Medical Billing', desc: 'End-to-end billing with ICD-10/CPT coding, claim management, and payer integration.', color: 'i-c' },
-  { icon: 'bi-diagram-3-fill', title: 'ERP Systems', desc: 'Custom ERP integrating finance, HR, supply chain, and procurement in one system.', color: 'i-v' },
-  { icon: 'bi-people-fill', title: 'CRM Systems', desc: 'AI-powered CRM with lead scoring, pipeline analytics, and omnichannel engagement.', color: 'i-o' },
-  { icon: 'bi-shield-lock-fill', title: 'AML Systems', desc: 'Real-time monitoring, risk scoring, and regulatory reporting for compliant institutions.', color: 'i-t' },
-  { icon: 'bi-flag-fill', title: 'CFT Compliance', desc: 'Counter-Financing of Terrorism with PEP screening and automated STR generation.', color: 'i-b' },
-  { icon: 'bi-activity', title: 'Transaction Monitoring', desc: 'ML-powered analytics detecting suspicious patterns across millions of transactions.', color: 'i-p' },
-  { icon: 'bi-filetype-xml', title: 'XML Schema Integration', desc: 'ISO 20022, SWIFT XML, and HL7 FHIR schema processing for financial messaging.', color: 'i-y' },
-  { icon: 'bi-buildings-fill', title: 'Government Portals', desc: 'National identity portals with NADRA/CNIC API, digital signature, and e-gov services.', color: 'i-g' },
-  { icon: 'bi-bank2', title: 'FMU Pakistan', desc: 'Full GOAML integration, STR/CTR filing, and SBP regulatory compliance dashboards.', color: 'i-v' },
-  { icon: 'bi-plug-fill', title: 'API Development', desc: 'RESTful & GraphQL APIs with enterprise security, rate limiting, and developer portals.', color: 'i-c' },
-  { icon: 'bi-cloud-fill', title: 'Cloud Solutions', desc: 'AWS, Azure & GCP architecture, migration, and managed infrastructure for enterprises.', color: 'i-b' },
-  { icon: 'bi-robot', title: 'AI Automation', desc: 'ML pipelines, NLP chatbots, document processing, and predictive analytics platforms.', color: 'i-t' },
-  { icon: 'bi-layers-fill', title: 'Custom SaaS Platforms', desc: 'Multi-tenant SaaS with subscription billing, white-labeling, and analytics dashboards.', color: 'i-o' },
-  { icon: 'bi-apple', title: 'iOS Development', desc: 'Native Swift & SwiftUI apps optimized for performance, security, and App Store approval.', color: 'i-b' },
-  { icon: 'bi-android2', title: 'Android Development', desc: 'Kotlin-first apps for diverse device ecosystems and enterprise Play Store deployment.', color: 'i-g' }
+  { icon: 'bi-patch-check-fill', title: 'Mastercard / Visa', desc: 'Direct integrations with Mastercard and Visa networks, issuing and acquiring.', color: 'i-o', slug: 'mastercard-visa-integration' },
+  { icon: 'bi-phone-fill', title: 'Mobile Apps', desc: 'Cross-platform iOS & Android apps built with Flutter and native Swift/Kotlin.', color: 'i-g', slug: 'cross-platform-app-development' },
+  { icon: 'bi-heart-pulse-fill', title: 'Healthcare Software', desc: 'HIPAA-compliant EHR, telemedicine, and clinical workflow platforms for providers.', color: 'i-p', slug: 'ehr-clinical-software-development' },
+  { icon: 'bi-clipboard2-pulse-fill', title: 'Medical Billing', desc: 'End-to-end billing with ICD-10/CPT coding, claim management, and payer integration.', color: 'i-c', slug: 'medical-billing-software-development' },
+  { icon: 'bi-diagram-3-fill', title: 'ERP Systems', desc: 'Custom ERP integrating finance, HR, supply chain, and procurement in one system.', color: 'i-v', slug: 'erp-software-development' },
+  { icon: 'bi-people-fill', title: 'CRM Systems', desc: 'AI-powered CRM with lead scoring, pipeline analytics, and omnichannel engagement.', color: 'i-o', slug: 'crm-software-development' },
+  { icon: 'bi-shield-lock-fill', title: 'AML Systems', desc: 'Real-time monitoring, risk scoring, and regulatory reporting for compliant institutions.', color: 'i-t', slug: 'aml-case-management-risk-scoring' },
+  { icon: 'bi-flag-fill', title: 'CFT Compliance', desc: 'Counter-Financing of Terrorism with PEP screening and automated STR generation.', color: 'i-b', slug: 'sanctions-pep-screening-software' },
+  { icon: 'bi-activity', title: 'Transaction Monitoring', desc: 'ML-powered analytics detecting suspicious patterns across millions of transactions.', color: 'i-p', slug: 'transaction-monitoring-software-development' },
+  { icon: 'bi-filetype-xml', title: 'XML Schema Integration', desc: 'ISO 20022, SWIFT XML, and HL7 FHIR schema processing for financial messaging.', color: 'i-y', slug: 'financial-messaging-schema-integration' },
+  { icon: 'bi-buildings-fill', title: 'Government Portals', desc: 'National identity portals with NADRA/CNIC API, digital signature, and e-gov services.', color: 'i-g', slug: 'government-portal-development' },
+  { icon: 'bi-bank2', title: 'FMU Pakistan', desc: 'Full GOAML integration, STR/CTR filing, and SBP regulatory compliance dashboards.', color: 'i-v', slug: 'goaml-fmu-reporting-integration' },
+  { icon: 'bi-plug-fill', title: 'API Development', desc: 'RESTful & GraphQL APIs with enterprise security, rate limiting, and developer portals.', color: 'i-c', slug: 'api-development-integration' },
+  { icon: 'bi-cloud-fill', title: 'Cloud Solutions', desc: 'AWS, Azure & GCP architecture, migration, and managed infrastructure for enterprises.', color: 'i-b', slug: 'cloud-migration-services' },
+  { icon: 'bi-robot', title: 'AI Automation', desc: 'ML pipelines, NLP chatbots, document processing, and predictive analytics platforms.', color: 'i-t', slug: 'ai-development-services' },
+  { icon: 'bi-layers-fill', title: 'Custom SaaS Platforms', desc: 'Multi-tenant SaaS with subscription billing, white-labeling, and analytics dashboards.', color: 'i-o', slug: 'custom-saas-development' },
+  { icon: 'bi-apple', title: 'iOS Development', desc: 'Native Swift & SwiftUI apps optimized for performance, security, and App Store approval.', color: 'i-b', slug: 'ios-app-development' },
+  { icon: 'bi-android2', title: 'Android Development', desc: 'Kotlin-first apps for diverse device ecosystems and enterprise Play Store deployment.', color: 'i-g', slug: 'android-app-development' }
 ];
 
 export const whyUs: WhyUsItem[] = [
-  { num: '01', icon: 'bi-shield-check', title: 'Security-First Engineering', desc: 'OWASP, PCI-DSS, ISO 27001, and HIPAA compliance built in from day one — never an afterthought.', color: 'i-t' },
+  { num: '01', icon: 'bi-shield-check', title: 'Security-First Engineering', desc: 'OWASP, PCI-DSS, ISO 27001, and HIPAA compliance built in from day one, never an afterthought.', color: 'i-t' },
   { num: '02', icon: 'bi-graph-up-arrow', title: 'Infinite Scalability', desc: 'Cloud-native architectures designed to scale from 1,000 to 100 million users without re-platforming.', color: 'i-b' },
-  { num: '03', icon: 'bi-award-fill', title: 'Regulatory Expertise', desc: 'Deep knowledge of FATF, FMU Pakistan, SBP, FCA, and global financial compliance — coded precisely.', color: 'i-v' },
+  { num: '03', icon: 'bi-award-fill', title: 'Regulatory Expertise', desc: 'Deep knowledge of FATF, FMU Pakistan, SBP, FCA, and global financial compliance, coded precisely.', color: 'i-v' },
   { num: '04', icon: 'bi-lightning-fill', title: 'Rapid Delivery', desc: 'Agile sprints with CI/CD pipelines deliver production-ready features every two weeks, consistently.', color: 'i-o' },
   { num: '05', icon: 'bi-headset', title: '24/7 Dedicated Support', desc: 'Round-the-clock NOC monitoring, SLA-backed support tiers, and dedicated account managers.', color: 'i-c' },
-  { num: '06', icon: 'bi-globe2', title: 'Global Delivery Model', desc: 'Office in Islamabad — follow-the-sun development velocity.', color: 'i-t' }
+  { num: '06', icon: 'bi-globe2', title: 'Global Delivery Model', desc: 'Office in Islamabad, follow-the-sun development velocity.', color: 'i-t' }
 ];
 
 export const industries: IndustryItem[] = [
@@ -67,7 +74,7 @@ export interface PortfolioProject extends PortfolioItem {
 // TODO(client): the 9 `img` values below are hotlinked Unsplash stock photographs standing in
 // for real project work. Same credibility problem as the team photos (CLIENT-ACTIONS.md item 1),
 // and hotlinking leaks every visitor to images.unsplash.com on page load. Replace with real
-// screenshots, redacted architecture diagrams, or neutral branded panels — self-hosted.
+// screenshots, redacted architecture diagrams, or neutral branded panels, self-hosted.
 // NOTE: SEO-CHANGELOG.md "Not done, and why" describes these as "~30 CSS background URLs in
 // globals.css". That is inaccurate: there are zero external url() references in any CSS file.
 // The real exposure is these 9 entries in this file.
@@ -152,10 +159,10 @@ export const portfolioProjects: PortfolioProject[] = [
 
 export const faqs: FaqItem[] = [
   { q: 'What industries does NovuLabs specialize in?', a: 'Banking & Fintech, Healthcare, Government, Manufacturing, and E-Commerce. Our deepest expertise is in AML, CFT, and FMU Pakistan compliance for regulated financial institutions.' },
-  { q: 'How do I start a project with NovuLabs?', a: 'Book a free consultation — a 45-minute discovery call with a senior architect, zero commitment. We listen first, then advise on the right approach for your specific needs.' },
+  { q: 'How do I start a project with NovuLabs?', a: 'Book a free consultation: a 45-minute discovery call with a senior architect, zero commitment. We listen first, then advise on the right approach for your specific needs.' },
   { q: 'Do you offer post-launch support and maintenance?', a: 'Yes. Tiered SLA packages from standard business-hours support to 24/7 platinum tiers with 4-hour guaranteed response. All enterprise clients get a dedicated account manager.' },
-  { q: 'Are your solutions compliant with FMU Pakistan regulations?', a: 'Absolutely. We have live deployments at multiple SBP-regulated institutions — GOAML integration, STR/CTR reporting, AML/CFT screening, all under FMU and FATF frameworks.' },
-  { q: 'Can you work alongside our existing team?', a: 'Yes. Staff augmentation, co-development, and full outsourcing — we adapt to your stack, tools, and methodologies. Many clients embed our engineers alongside their in-house teams.' }
+  { q: 'Are your solutions compliant with FMU Pakistan regulations?', a: 'Absolutely. We have live deployments at multiple SBP-regulated institutions: GOAML integration, STR/CTR reporting, AML/CFT screening, all under FMU and FATF frameworks.' },
+  { q: 'Can you work alongside our existing team?', a: 'Yes. Staff augmentation, co-development, and full outsourcing: we adapt to your stack, tools, and methodologies. Many clients embed our engineers alongside their in-house teams.' }
 ];
 
 /**
@@ -166,7 +173,7 @@ export const faqs: FaqItem[] = [
  * These three profiles previously used Unsplash stock photographs of strangers
  * under the real names of the company's CEO, CTO and COO. For a vendor asking a
  * bank to trust it with transaction monitoring, that is the single most
- * damaging credibility error on the site — and it is a Search Quality Rater
+ * damaging credibility error on the site, and it is a Search Quality Rater
  * Guidelines negative signal on top of the commercial cost.
  *
  * They have been replaced with neutral branded monograms, which is honest.
@@ -175,7 +182,7 @@ export const faqs: FaqItem[] = [
  * this branch combined.
  *
  * `credentials` is intentionally empty. Populate it only with credentials that
- * can be verified — CAMS, CISSP, AWS certifications, degrees, prior employers.
+ * can be verified: CAMS, CISSP, AWS certifications, degrees, prior employers.
  * An empty credentials array renders nothing; an invented one is a liability.
  */
 
@@ -187,7 +194,7 @@ export const faqs: FaqItem[] = [
  * the codebase changed, which is what keeps the markup policy-compliant.
  */
 export const contactFaqs: FaqItem[] = [
-  { q: 'What is the minimum project size NovuLabs works with?', a: 'Typically $15,000 USD for a standalone module or MVP. Full enterprise platforms start from $50,000. We focus on end-to-end delivery — not hourly freelance work.' },
+  { q: 'What is the minimum project size NovuLabs works with?', a: 'Typically $15,000 USD for a standalone module or MVP. Full enterprise platforms start from $50,000. We focus on end-to-end delivery, not hourly freelance work.' },
   { q: 'Do you sign NDAs before discussions?', a: 'Yes, mutual NDAs before any substantive technical discussion. Your IP and competitive information are protected from the first call.' },
   { q: 'Can you work alongside our existing in-house team?', a: 'Yes. Staff augmentation, co-development, and full outsourcing. Our engineers adapt to your existing stack, tools, sprint ceremonies, and communication preferences.' },
   { q: 'What compliance frameworks do you work to?', a: 'FATF, FMU Pakistan, SBP, HIPAA, HL7 FHIR, PCI-DSS, ISO 27001, GDPR, and Mastercard/Visa scheme requirements. To be precise about the distinction: we engineer to these standards. Where a framework issues certification, that certificate is held by the entity operating the environment, not by its development vendor.' },
@@ -218,7 +225,7 @@ export const teamMembers: TeamMemberProfile[] = [
     role: 'Chief Technology Officer',
     img: '/team/shamroz-ali-zaidi.jpg',
     imgAlt: 'Shamroz Ali Zaidi, Chief Technology Officer of NovuLabs',
-    bio: 'Owns platform architecture — multi-tenant systems, cloud, and the security posture underneath both.',
+    bio: 'Owns platform architecture: multi-tenant systems, cloud, and the security posture underneath both.',
     longBio:
       'Shamroz leads platform architecture at NovuLabs, covering multi-tenant SaaS design, cloud and Kubernetes platform engineering, and the security posture of regulated workloads. He writes here on HIPAA safeguards and HL7 FHIR interoperability.',
     skills: ['Platform architecture', 'Cloud & Kubernetes', 'Security engineering'],
@@ -238,7 +245,7 @@ export const teamMembers: TeamMemberProfile[] = [
     imgAlt: 'Ali Zaidi, Chief Operating Officer of NovuLabs',
     bio: 'Runs delivery and the compliance practice, including AML/CFT engagements with SBP-regulated institutions.',
     longBio:
-      'Ali runs delivery operations and the compliance practice at NovuLabs, including AML/CFT engagements with SBP-regulated institutions. He writes here on goAML integration, transaction monitoring design, and what regulatory examination actually asks of a system.',
+      'Ali runs delivery operations and the compliance practice at NovuLabs, including AML/CFT engagements with SBP-regulated institutions. He writes here on goAML integration, transaction monitoring design, and what regulatory examination asks of a system.',
     skills: ['AML/CFT programmes', 'Delivery operations', 'Regulatory engagement'],
     credentials: [],
     knowsAbout: [

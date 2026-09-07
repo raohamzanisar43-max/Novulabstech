@@ -10,11 +10,11 @@ const SolutionsCta: React.FC = () => {
             <div className="col-lg-7">
               <span className="stag">Let's Talk</span>
               <p className="stitle mt-3">Every project we've built<br />started with a <span className="gtxt">phone call.</span></p>
-              <p className="ssub mt-4 mb-0">We'll go through exactly what you're working on, where the hard parts are, and whether our experience is actually relevant to your situation. If it's not a good fit, we'll say that too — we'd rather tell you now than waste your time.</p>
+              <p className="ssub mt-4 mb-0">We'll go through exactly what you're working on, where the hard parts are, and whether our experience is actually relevant to your situation. If it's not a good fit, we'll say that too; we'd rather tell you now than waste your time.</p>
               <div className="cta-trust-row">
                 <div className="cta-trust-item">
                   <i className="bi bi-person-check"></i>
-                  You'll speak directly with an engineer — not a sales rep
+                  You'll speak directly with an engineer, not a sales rep
                 </div>
                 <div className="cta-trust-item">
                   <i className="bi bi-file-earmark-lock2"></i>
@@ -35,7 +35,7 @@ const SolutionsCta: React.FC = () => {
                 <Button href="mailto:info@novulabs.net" variant="glass" className="w-100 justify-content-center" style={{ fontSize: '0.94rem' }}>
                   <i className="bi bi-envelope me-1"></i>Send Us Your Brief
                 </Button>
-                <p className="cta-card-note">Most engagements start exactly this way — a straightforward conversation about one specific problem, before anyone writes a proposal.</p>
+                <p className="cta-card-note">Most engagements start exactly this way: a straightforward conversation about one specific problem, before anyone writes a proposal.</p>
               </div>
             </div>
           </div>

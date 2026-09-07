@@ -91,7 +91,7 @@ const platforms = [
     name: 'NovuCRM',
     category: 'BusinessApplication',
     description:
-      'Customer relationship management with explainable machine-learning lead prioritisation — the model orders the queue, it does not make the decision.',
+      'Customer relationship management with explainable machine-learning lead prioritisation: the model orders the queue, it does not make the decision.',
     features: ['Explainable lead scoring', 'Revenue forecasting', 'Omnichannel engagement', 'Native mobile access'],
   },
 ];

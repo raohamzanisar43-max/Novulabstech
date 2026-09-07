@@ -11,8 +11,26 @@ import { canonical } from '@/lib/seo';
 export const metadata: Metadata = {
   title: 'Legal & Policies',
   description:
-    'Privacy policy, terms of service and cookie policy for NovuLabs — written to describe what this site actually does, not from a template.',
+    'Privacy policy, terms of service and cookie policy for NovuLabs: written to describe what this site actually does, not from a template.',
   alternates: { canonical: canonical('/legal') },
+  // Without an explicit openGraph block this route inherits the root layout's
+  // og:url, which points at the homepage, so the page told crawlers and every
+  // social scraper it *was* the homepage while its canonical said otherwise.
+  openGraph: {
+    type: 'website',
+    title: 'Legal & Policies — NovuLabs',
+    description:
+      'Privacy policy, terms of service and cookie policy for NovuLabs, written to describe what this site does.',
+    url: canonical('/legal'),
+    images: [
+      {
+        url: '/og/enterprise-software-development.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'NovuLabs — enterprise software for regulated industries',
+      },
+    ],
+  },
 };
 
 export default function LegalIndexPage() {

@@ -114,7 +114,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
               >
                 {/* Attribution block. Stating the NDA position explicitly is more
                     credible than an invented client name and more credible than
-                    silence — a reader can otherwise not tell protected fact from
+                    silence; a reader can otherwise not tell protected fact from
                     invention. */}
                 <div
                   className="cta-card mb-4"
@@ -124,7 +124,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
                   <p className="mb-2">{cs.clientDescriptor}</p>
                   <div className="cta-card-label">Internal project codename</div>
                   <p className="mb-0">
-                    {cs.codename} — an internal delivery codename, not a commercial product name.
+                    {cs.codename}: an internal delivery codename, not a commercial product name.
                   </p>
                 </div>
 
@@ -150,7 +150,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
                   </React.Fragment>
                 ))}
 
-                {/* Engineering detail — the trade-offs behind the approach.
+                {/* Engineering detail; the trade-offs behind the approach.
                     Rendered only when present so a case study without it is
                     unaffected. */}
                 {cs.engineeringNotes && cs.engineeringNotes.length > 0 && (

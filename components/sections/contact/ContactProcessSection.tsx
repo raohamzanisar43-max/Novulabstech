@@ -29,7 +29,7 @@ const ContactProcessSection: React.FC = () => {
             <div className="wcard text-center">
               <div style={{ width: '46px', height: '46px', borderRadius: '50%', background: 'linear-gradient(135deg,#7c3aed,#6d28d9)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--fh)', fontWeight: '800', color: '#fff', margin: '0 auto 16px', boxShadow: '0 6px 20px rgba(124,58,237,.3)' }}>3</div>
               <h3 className="ctitle">45-Minute Call</h3>
-              <p className="ctext">Discovery call with a senior architect to explore requirements and goals — zero commitment.</p>
+              <p className="ctext">Discovery call with a senior architect to explore requirements and goals, zero commitment.</p>
             </div>
           </div>
           <div className="col-md-6 col-lg-3" data-reveal="up">

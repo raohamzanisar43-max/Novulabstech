@@ -1,39 +1,64 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
+/**
+ * Reading-progress bar.
+ *
+ * Two things were wrong with the previous version.
+ *
+ * 1. It animated `width`, a layout property, on every scroll frame. The
+ *    stylesheet had been patched to use `transform: scaleX()` instead, but the
+ *    component still wrote `width` as an INLINE style, and inline styles beat
+ *    the stylesheet. The patch only appeared to work because it carried
+ *    `!important`; remove that and the bar renders at scaleX(0), which is to
+ *    say invisible. The fix belongs here, not in a louder CSS override.
+ *
+ * 2. It ran a scroll listener with no rAF batching, calling setState on every
+ *    scroll event, which re-renders React on the main thread during scroll.
+ *
+ * Both are solved by scaleX plus a scroll timeline. Where the browser supports
+ * scroll-driven animations the bar is driven entirely by CSS off the main
+ * thread and this component renders a bare div with no listener at all. Safari
+ * and Firefox fall back to the rAF-batched transform below.
+ */
 const ScrollProgress: React.FC = () => {
-  const [width, setWidth] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+  const [cssDriven, setCssDriven] = useState(true);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
-      if (totalScroll > 0) {
-        const scrolled = (window.scrollY / totalScroll) * 100;
-        setWidth(scrolled);
-      } else {
-        setWidth(0);
-      }
+    const supported =
+      typeof CSS !== 'undefined' &&
+      CSS.supports &&
+      CSS.supports('animation-timeline', 'scroll()');
+
+    if (supported) return;          // CSS owns it; no listener, no state
+    setCssDriven(false);
+
+    let ticking = false;
+    const apply = () => {
+      ticking = false;
+      const el = ref.current;
+      if (!el) return;
+      const total = document.documentElement.scrollHeight - window.innerHeight;
+      const p = total > 0 ? Math.min(1, Math.max(0, window.scrollY / total)) : 0;
+      // transform, not width: composited, and it matches the CSS path exactly.
+      el.style.transform = `scaleX(${p})`;
+    };
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(apply);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    apply();
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  return (
-    <div 
-      id="sp" 
-      style={{ 
-        width: `${width}%`,
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        height: '3px',
-        zIndex: 99998,
-        transition: 'width 0.1s ease-out'
-      }}
-    />
-  );
+  // No inline width and no inline transition: everything visual lives in
+  // globals.css, so there is exactly one place that decides how this looks.
+  return <div id="sp" ref={ref} data-css-driven={cssDriven ? 'true' : 'false'} />;
 };
 
 export default ScrollProgress;

@@ -5,7 +5,7 @@ import Link from 'next/link';
  * Long-form /about content.
  *
  * /about measured 270 words of body copy, which for the page an enterprise
- * buyer opens second — right after the service page that brought them in — is
+ * buyer opens second, right after the service page that brought them in, is
  * far too thin to answer what they came to establish: who these people are,
  * how they work, what they will and will not take on, and whether they can be
  * trusted with a regulated workload.
@@ -39,8 +39,8 @@ const HowWeWorkSection: React.FC = () => {
               be accountable for the technical outcome, and it runs about forty-five minutes.
               That is a deliberate constraint on how we grow: it does not scale the way a
               sales team scales, and it means we talk to fewer prospects than we otherwise
-              could. We accept that trade because the alternative — a commercial conversation
-              that commits to an architecture nobody technical has examined — is how projects
+              could. We accept that trade because the alternative; a commercial conversation
+              that commits to an architecture nobody technical has examined, is how projects
               acquire the problems that surface in month five.
             </p>
             <p>
@@ -80,7 +80,7 @@ const HowWeWorkSection: React.FC = () => {
               current state but cannot reconstruct what the system knew at decision time. A
               reporting pipeline built as an export at the end rather than as a schema contract
               at the centre. Each of those is cheap to get right at design time and expensive
-              to retrofit — and each is the kind of thing an examiner asks about directly.
+              to retrofit, and each is the kind of thing an examiner asks about directly.
             </p>
             <p>
               So the compliance owner is in the design sessions, not shown a demo at the end.
@@ -106,7 +106,7 @@ const HowWeWorkSection: React.FC = () => {
               not a defensible answer.
             </p>
             <p>
-              The pattern we favour is layered — deterministic rules produce the decisions of
+              The pattern we favour is layered: deterministic rules produce the decisions of
               record, and a model runs alongside to prioritise the review queue rather than to
               decide it. You get the analyst-efficiency benefit without putting an
               unexplainable artefact on the regulatory critical path. It is a less impressive
@@ -120,13 +120,13 @@ const HowWeWorkSection: React.FC = () => {
               engagements with people the client has not met. We do not publish client names
               or logos without written permission, which is why our{' '}
               <Link href="/portfolio">case studies</Link> describe institutions by category
-              rather than by name — a constraint that costs us credibility with some buyers and
+              rather than by name; a constraint that costs us credibility with some buyers and
               which we accept, because the alternative is disclosing a client relationship
               somebody asked us to keep confidential.
             </p>
             <p>
               We also do not claim certifications we cannot evidence. Where the site describes
-              alignment with a standard, it means the engineering practice follows it — not
+              alignment with a standard, it means the engineering practice follows it, not
               that a registrar has audited us against it. Buyers in this market are asked to
               take a great deal on trust, and the least we can do is be precise about which
               claims are attestations and which are audited facts.
@@ -134,8 +134,12 @@ const HowWeWorkSection: React.FC = () => {
 
             <h3 className="mt-5">Where we work</h3>
             <p>
-              The team is based in Islamabad, and the regulatory environment we know best is
-              Pakistan&apos;s — the State Bank&apos;s AML/CFT framework, the Financial
+              The team is based in Islamabad (there is a fuller account of{' '}
+              <Link href="/software-house-in-islamabad">what we do as a software house in
+              Islamabad</Link>, and of{' '}
+              <Link href="/software-development-in-pakistan">software development in Pakistan</Link>{' '}
+              more broadly), and the regulatory environment we know best is
+              Pakistan&apos;s; the State Bank&apos;s AML/CFT framework, the Financial
               Monitoring Unit&apos;s reporting requirements, RAAST, and the identity
               infrastructure that financial onboarding depends on. That depth is specific and
               hard to acquire remotely, and it is the reason institutions here come to us

@@ -19,7 +19,7 @@ import { useEffect } from 'react';
  * - Lenis moves the page with transforms rather than firing native scroll at the
  *   same cadence, so Parallax.tsx and ScrollProgress must be driven from Lenis's
  *   own tick. Lenis dispatches a `scroll` event, which those components already
- *   listen for, so no change is needed there — but this must stay true if Lenis
+ *   listen for, so no change is needed there, but this must stay true if Lenis
  *   is ever configured with a custom wrapper.
  * - Disabled entirely under `prefers-reduced-motion`. Animating a scroll the user
  *   initiated is exactly the class of motion that triggers vestibular symptoms.
@@ -38,7 +38,7 @@ export default function SmoothScroll() {
     let frame = 0;
     let cancelled = false;
 
-    // Dynamic import keeps Lenis out of the initial bundle — it is presentation
+    // Dynamic import keeps Lenis out of the initial bundle; it is presentation
     // polish, not something the first paint depends on.
     import('lenis').then(({ default: Lenis }) => {
       if (cancelled) return;

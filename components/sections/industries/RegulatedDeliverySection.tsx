@@ -7,7 +7,7 @@ import Link from 'next/link';
  * /industries measured 512 words across four sector deep-dives, which left the
  * page asserting sector experience without demonstrating the reasoning that
  * would evidence it. This section covers what is actually common across
- * regulated delivery — the part a buyer in any of these sectors is testing for
+ * regulated delivery; the part a buyer in any of these sectors is testing for
  * when they read an industries page.
  *
  * No client names, project counts, transaction volumes or contract values
@@ -41,7 +41,7 @@ const RegulatedDeliverySection: React.FC = () => {
             </p>
             <p>
               Practically that means current state is not sufficient. You must be able to
-              reconstruct what the system knew at the moment a decision was taken — which rules
+              reconstruct what the system knew at the moment a decision was taken: which rules
               were active, which thresholds applied, which version of a policy was in force,
               and who approved the configuration that produced the outcome. Systems that store
               only the latest value can answer &ldquo;what is true now&rdquo; and cannot answer
@@ -51,7 +51,7 @@ const RegulatedDeliverySection: React.FC = () => {
 
             <h3 className="mt-5">The audit trail is a feature, with a budget</h3>
             <p>
-              Audit logging is routinely treated as infrastructure — something added late,
+              Audit logging is routinely treated as infrastructure: something added late,
               sized casually, and never tested against a real retrieval scenario. In regulated
               delivery it is a primary feature with its own data model, retention policy,
               access controls and performance characteristics.
@@ -59,8 +59,8 @@ const RegulatedDeliverySection: React.FC = () => {
             <p>
               Two properties matter more than completeness. It must be append-only, because an
               audit trail that can be edited by the system that writes it evidences nothing.
-              And it must be queryable along the axis an investigation actually uses — by
-              subject and by time — rather than only as a chronological stream you have to
+              And it must be queryable along the axis an investigation actually uses, by
+              subject and by time, rather than only as a chronological stream you have to
               grep. Retrofitting either property onto a live system with years of history is
               among the more painful pieces of work we get asked to do.
             </p>
@@ -69,13 +69,13 @@ const RegulatedDeliverySection: React.FC = () => {
             <p>
               Every sector here has to establish who someone is before granting them anything:
               a bank onboarding a customer, a hospital releasing a record, a government portal
-              issuing an entitlement. The failure mode is identical too — teams build the happy
+              issuing an entitlement. The failure mode is identical too: teams build the happy
               path and discover it covers perhaps seventy per cent of real traffic.
             </p>
             <p>
               The architecture that survives contact with reality treats verification as
               graded evidence feeding a risk decision, with defined assurance tiers and a
-              documented route between them, rather than a single gate that a legitimate
+              documented route between them, instead of a single gate that a legitimate
               person can fail with nowhere to go. The design detail is in our{' '}
               <Link href="/blog/nadra-ekyc-cnic-verification-integration-guide">
                 guide to CNIC and biometric verification
@@ -91,7 +91,7 @@ const RegulatedDeliverySection: React.FC = () => {
               national identity and revenue infrastructure on terms it does not set.
             </p>
             <p>
-              The common engineering error is treating these as export formats — build the
+              The common engineering error is treating these as export formats: build the
               internal model, map at the boundary. That holds until the external schema
               requires something the internal model has no room for, at which point it is
               retrofitted under deadline. Let the mandatory interface inform the domain model
@@ -103,7 +103,7 @@ const RegulatedDeliverySection: React.FC = () => {
               <Link href="/blog/goaml-xml-integration-str-ctr-reporting-pakistan">
                 goAML
               </Link>{' '}
-              write-ups, because it is genuinely the same lesson.
+              write-ups, because it is the same lesson.
             </p>
 
             <h3 className="mt-5">Availability obligations are asymmetric</h3>

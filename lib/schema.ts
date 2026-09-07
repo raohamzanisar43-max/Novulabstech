@@ -7,7 +7,7 @@
  * Design rules applied here:
  *  - Never emit a property whose value is a placeholder. A missing `telephone`
  *    is neutral; a fake one poisons the entity and every citation built on it.
- *  - Never emit Review/AggregateRating without real, verifiable reviews — that
+ *  - Never emit Review/AggregateRating without real, verifiable reviews; that
  *    is a manual-action risk, not a shortcut.
  *  - @id everywhere, so the graph resolves to one organisation rather than a
  *    dozen unlinked copies of the same company.
@@ -15,7 +15,7 @@
 
 import { ORG, SITE_NAME, SITE_URL, canonical, absoluteUrl } from './seo';
 
-/** Stable node identifiers — these make the JSON-LD a connected graph. */
+/** Stable node identifiers, these make the JSON-LD a connected graph. */
 export const ORG_ID = `${SITE_URL}/#organization`;
 export const WEBSITE_ID = `${SITE_URL}/#website`;
 
@@ -58,6 +58,18 @@ export function organizationSchema() {
     email: ORG.email,
     telephone: ORG.telephone,
     address: postalAddress(),
+    // Opening hours make the entity eligible for the "Hours" treatment in
+    // local results and give an answer engine something concrete to state when
+    // asked whether the business is open. Emitted from the same constant the
+    // contact page renders, so the two cannot disagree.
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ORG.openingHours.days,
+        opens: ORG.openingHours.opens,
+        closes: ORG.openingHours.closes,
+      },
+    ],
     sameAs: [...ORG.sameAs],
     areaServed: ORG.areaServed.map((code) => ({ '@type': 'Country', identifier: code })),
     knowsAbout: [...ORG.knowsAbout],
@@ -132,6 +144,65 @@ export function serviceSchema(opts: {
       '@type': 'Country',
       identifier: c,
     })),
+    ...(opts.offers?.length
+      ? {
+          hasOfferCatalog: {
+            '@type': 'OfferCatalog',
+            name: `${opts.name} — capabilities`,
+            itemListElement: opts.offers.map((o) => ({
+              '@type': 'Offer',
+              itemOffered: { '@type': 'Service', name: o },
+            })),
+          },
+        }
+      : {}),
+  });
+}
+
+/**
+ * Service node scoped to a city rather than a list of countries.
+ *
+ * `serviceSchema` above maps `areaServed` to Country nodes, which is right for
+ * the practice-area pages: those describe work delivered to five markets. It is
+ * wrong for a local landing page, where the whole point of the entity is that
+ * it is bounded to one city inside one administrative region. A City node with
+ * `containedInPlace` gives Google and answer engines the geographic hierarchy
+ * explicitly instead of asking them to infer "Islamabad" from prose.
+ *
+ * Deliberately a Service and not a second LocalBusiness. There is exactly one
+ * NovuLabs, already declared as a ProfessionalService in the root layout, and
+ * emitting a second business entity for a marketing page is how sites end up
+ * with a duplicate, competing entity in the knowledge graph. This node links
+ * back to that one organisation by @id.
+ */
+export function localServiceSchema(opts: {
+  name: string;
+  description: string;
+  path: string;
+  serviceType: string;
+  city: string;
+  region: string;
+  country: string;
+  offers?: string[];
+}) {
+  return clean({
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': `${canonical(opts.path)}#service`,
+    name: opts.name,
+    description: opts.description,
+    serviceType: opts.serviceType,
+    url: canonical(opts.path),
+    provider: { '@id': ORG_ID },
+    areaServed: {
+      '@type': 'City',
+      name: opts.city,
+      containedInPlace: {
+        '@type': 'AdministrativeArea',
+        name: opts.region,
+        containedInPlace: { '@type': 'Country', name: opts.country },
+      },
+    },
     ...(opts.offers?.length
       ? {
           hasOfferCatalog: {
@@ -268,8 +339,24 @@ export function webPageSchema(opts: {
   description: string;
   path: string;
   type?: 'WebPage' | 'AboutPage' | 'ContactPage' | 'CollectionPage';
+  /**
+   * Named entities the page genuinely discusses, as schema.org Organization
+   * nodes. This is a semantic-SEO signal rather than a decorative one: it tells
+   * a retrieval system which real-world institutions the document is about,
+   * which is what lets it be surfaced for a question about those bodies rather
+   * than only for the words on the page.
+   *
+   * Only pass entities the page actually treats. Padding this with every
+   * regulator we can name is the schema equivalent of keyword stuffing, and it
+   * degrades the signal for the ones that are real.
+   */
+  mentions?: { name: string; url?: string }[];
+  /** Set true to declare authorship and publication by the organisation.
+   *  Honest for editorial pages the company wrote as a company; blog posts
+   *  attribute to a named Person instead, via blogPostingSchema. */
+  byOrganisation?: boolean;
 }) {
-  return {
+  return clean({
     '@context': 'https://schema.org',
     '@type': opts.type ?? 'WebPage',
     '@id': `${canonical(opts.path)}#webpage`,
@@ -279,11 +366,24 @@ export function webPageSchema(opts: {
     isPartOf: { '@id': WEBSITE_ID },
     about: { '@id': ORG_ID },
     inLanguage: 'en',
-  };
+    ...(opts.byOrganisation
+      ? {
+          author: { '@id': ORG_ID },
+          publisher: { '@id': ORG_ID },
+        }
+      : {}),
+    ...(opts.mentions?.length
+      ? {
+          mentions: opts.mentions.map((m) =>
+            clean({ '@type': 'Organization', name: m.name, url: m.url ?? null })
+          ),
+        }
+      : {}),
+  });
 }
 
 /**
- * SiteNavigationElement — the primary navigation, declared as structured data.
+ * SiteNavigationElement: the primary navigation, declared as structured data.
  *
  * This is one of the few remaining signals Google uses when deciding which
  * sitelinks to render under a brand-name result. It does not guarantee sitelinks
@@ -291,7 +391,7 @@ export function webPageSchema(opts: {
  * site's primary sections from link position alone.
  *
  * Deliberately limited to the real top-level sections, in navigation order.
- * Padding this list with every URL on the site is counterproductive — it
+ * Padding this list with every URL on the site is counterproductive; it
  * flattens the hierarchy the markup is supposed to express.
  */
 export function siteNavigationSchema() {
@@ -302,6 +402,8 @@ export function siteNavigationSchema() {
     { name: 'Case Studies', path: '/portfolio' },
     { name: 'Team', path: '/team' },
     { name: 'Insights', path: '/blog' },
+    { name: 'Testimonials', path: '/testimonials' },
+    { name: 'FAQ', path: '/faq' },
     { name: 'Contact', path: '/contact' },
   ];
 

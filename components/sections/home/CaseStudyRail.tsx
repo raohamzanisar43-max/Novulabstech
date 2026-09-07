@@ -13,7 +13,7 @@ import HorizontalScroll from '@/components/ui/HorizontalScroll';
  * strongest page. The rail carries all nine without costing the vertical space
  * a nine-card grid would.
  *
- * Interaction lives in HorizontalScroll — a genuine scroll container that the
+ * Interaction lives in HorizontalScroll; a genuine scroll container that the
  * vertical-scroll coupling only assists, so swipe, shift-wheel, drag, keyboard
  * and assistive tech all work regardless.
  */
@@ -29,7 +29,7 @@ const CaseStudyRail: React.FC = () => {
             </h2>
             <p className="ssub mt-3 mb-0">
               Scroll sideways, or keep scrolling down and the rail advances with you. Clients
-              are described by category — every engagement here is covered by an NDA.
+              are described by category, every engagement here is covered by an NDA.
             </p>
           </div>
         </div>

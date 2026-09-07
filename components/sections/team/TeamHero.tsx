@@ -13,7 +13,7 @@ const TeamHero: React.FC = () => {
       <div className="container phero-inner">
         <Breadcrumbs className="mb-4" items={[{ name: 'Team' }]} />
         <span className="stag">Our People</span>
-        <h1 className="hero-title mt-3">The Engineers Behind the<br /><span className="gtxt">Infrastructure</span></h1>
+        <h1 className="hero-title mt-3">The NovuLabs<br /><span className="gtxt">Engineering and Compliance Team</span></h1>
         <p className="hero-sub">We do not employ pre-sales agents. Every person you interface with at NovuLabs is an active practitioner, engineer, or compliance architect.</p>
       </div>
     </section>

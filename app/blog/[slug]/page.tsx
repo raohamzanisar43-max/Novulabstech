@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
+import PageFaq from '@/components/sections/shared/PageFaq';
 
 import { blogPosts, getPost } from '@/content/blogPosts';
 import { teamMembers } from '@/content/siteData';
@@ -285,6 +286,17 @@ export default async function BlogPostPage({ params }: PageProps) {
           every post while the article's real subheadings were <h3>, which told
           search engines and LLM chunkers that the sales pitch was the primary
           section of the article. */}
+      {/* Per-article Q&A. Rendered only where the post defines faqs, so this
+          is additive per article rather than a block every post must fill. */}
+      {post.faqs && post.faqs.length > 0 && (
+        <PageFaq
+          items={post.faqs}
+          path={`/blog/${post.slug}`}
+          heading="Questions from"
+          headingAccent="this article"
+        />
+      )}
+
       <section id="cta-banner">
         <div className="container">
           <div className="cta-inner" data-reveal="up">

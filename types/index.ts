@@ -3,6 +3,11 @@ export interface ServiceItem {
   title: string;
   desc: string;
   color: string;
+  /** Slug of the dedicated page in content/serviceSpokes.ts this card links to.
+   *  Every card here is one of the 22 services NovuLabs lists on the homepage,
+   *  and each now has its own indexable page rather than linking straight to
+   *  /contact with no detail in between. */
+  slug: string;
 }
 
 export interface WhyUsItem {
@@ -36,6 +41,15 @@ export interface PortfolioItem {
 export interface FaqItem {
   q: string;
   a: string;
+  /**
+   * Optional "read more" target rendered under the answer.
+   *
+   * Presentational only. faqSchema() builds Question/acceptedAnswer from `q`
+   * and `a` alone, so the structured-data answer stays clean prose rather than
+   * carrying markup, which is what answer engines quote verbatim. The link
+   * gives each Q&A a route onward to the page that treats the subject in full.
+   */
+  link?: { href: string; label: string };
 }
 
 export interface TeamMember {
@@ -80,6 +94,9 @@ export interface BlogPost {
   /** Primary-source citations. Regulatory content without them reads as
    *  unverified to quality raters and to LLM retrieval pipelines. */
   sources?: { label: string; href: string }[];
+  /** Optional per-post Q&A, rendered visibly and as FAQPage schema. Posts
+   *  without it render nothing, so this is additive per article. */
+  faqs?: FaqItem[];
 }
 
 export interface TeamMemberProfile {

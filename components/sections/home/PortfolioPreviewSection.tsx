@@ -9,7 +9,7 @@ import Button from '@/components/ui/Button';
  * Heading changed from "Selected Projects", which competed with /portfolio for
  * the same intent. The homepage previously contained a superset of every inner
  * page's content — including headings byte-identical to /services' and
- * /industries' H1s — so Google would frequently rank the homepage instead of
+ * /industries' H1s, so Google would frequently rank the homepage instead of
  * the purpose-built commercial page, and both underperformed.
  */
 const PortfolioPreviewSection: React.FC = () => {
@@ -21,10 +21,10 @@ const PortfolioPreviewSection: React.FC = () => {
         <div className="row justify-content-between align-items-end mb-5">
           <div className="col-lg-7" data-reveal="up">
             <span className="stag">Our work</span>
-            <h2 className="stitle mt-3">Three engagements, <span className="gtxt">in detail</span></h2>
+            <h2 className="stitle mt-3">Enterprise software <span className="gtxt">case studies</span></h2>
             <p className="ssub mt-3 mb-0">
               Each case study covers the problem, the constraints we designed within, and what
-              actually changed. Client names are withheld under NDA and described by category.
+              changed. Client names are withheld under NDA and described by category.
             </p>
           </div>
           <div className="col-auto" data-reveal="up">

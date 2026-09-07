@@ -7,7 +7,7 @@ import { usePathname } from 'next/navigation';
  * Route transition.
  *
  * app/template.tsx (as opposed to layout.tsx) is remounted on every navigation,
- * which is exactly the hook a page transition needs — the animation restarts per
+ * which is exactly the hook a page transition needs; the animation restarts per
  * route without any client-side router state of our own.
  *
  * The transition is intentionally short and enter-only. A leave animation would

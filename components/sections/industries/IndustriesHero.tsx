@@ -13,8 +13,8 @@ const IndustriesHero: React.FC = () => {
       <div className="container phero-inner">
         <Breadcrumbs className="mb-4" items={[{ name: 'Industries' }]} />
         <span className="stag">Sectors We Serve</span>
-        <h1 className="hero-title mt-3">Built for <span className="gtxt">Critical Industries</span></h1>
-        <p className="hero-sub">Deep domain expertise in the sectors that matter most — where software failures carry real consequences for institutions, patients, citizens, and economies.</p>
+        <h1 className="hero-title mt-3">Industries We Build <span className="gtxt">Software For</span></h1>
+        <p className="hero-sub">Deep domain expertise in the sectors that matter most: where software failures carry real consequences for institutions, patients, citizens, and economies.</p>
       </div>
     </section>
   );

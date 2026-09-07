@@ -9,8 +9,8 @@ const GovernmentDeepDive: React.FC = () => {
           <div className="col-lg-6" data-reveal="right">
             <span className="stag">Industry 03</span>
             <h2 className="stitle mt-3">Government &amp; <span className="gtxt">Public Sector</span></h2>
-            <p className="mb-3">We have extensive experience delivering government-grade software for regulatory agencies, tax authorities, and national identity infrastructure — where security, availability, and auditability are non-negotiable.</p>
-            <p className="mb-4">Our government systems integrate with NADRA, FBR, SECP, and SBP — with the compliance architecture and audit trails that government contracting requires.</p>
+            <p className="mb-3">We have extensive experience delivering government-grade software for regulatory agencies, tax authorities, and national identity infrastructure: where security, availability, and auditability are non-negotiable.</p>
+            <p className="mb-4">Our government systems integrate with NADRA, FBR, SECP, and SBP, with the compliance architecture and audit trails that government contracting requires.</p>
             <ul className="chk mb-4">
               <li><span className="chk-ico"><i className="bi bi-check"></i></span>National identity &amp; CNIC/NADRA integration</li>
               <li><span className="chk-ico"><i className="bi bi-check"></i></span>Tax filing &amp; FBR revenue portals</li>

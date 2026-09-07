@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { servicePages } from '@/content/servicePages';
+import { getSpokesForPillar } from '@/content/serviceSpokes';
 import JsonLd from '@/components/seo/JsonLd';
 import { serviceSchema, webPageSchema } from '@/lib/schema';
 import HashScrollHandler from '@/components/ui/HashScrollHandler';
@@ -13,11 +14,13 @@ import HealthcareServiceSection from '@/components/sections/services/HealthcareS
 import ComplianceServiceSection from '@/components/sections/services/ComplianceServiceSection';
 import CloudServiceSection from '@/components/sections/services/CloudServiceSection';
 import ServicesCta from '@/components/sections/services/ServicesCta';
+import PageFaq from '@/components/sections/shared/PageFaq';
+import { servicesHubFaqs } from '@/content/pageFaqs';
 
 export const metadata: Metadata = {
   title: 'Enterprise Software Development Services',
   description:
-    'Seven enterprise engineering services: AML/CFT compliance, fintech, healthcare IT, enterprise systems, mobile, cloud & AI, and web. Pick your track.',
+    'Seven engineering services from our Islamabad team: AML/CFT compliance, fintech, healthcare IT, enterprise systems, mobile apps, cloud and AI, and web.',
   keywords: [
     'enterprise software development services',
     'fintech software development Pakistan',
@@ -81,7 +84,7 @@ export default function ServicesPage() {
       <ServicesHero />
       <div className="divider"></div>
 
-      {/* Hub grid — every service now has its own indexable URL. This block is
+      {/* Hub grid, every service now has its own indexable URL. This block is
           the internal-linking backbone of the whole commercial cluster. */}
       <section className="sec bg-w" id="service-index">
         <div className="container">
@@ -93,7 +96,7 @@ export default function ServicesPage() {
               </h2>
               <p className="ssub mx-auto">
                 Each track has its own page with the detail, the constraints we design within, and the
-                questions clients actually ask.
+                questions clients ask.
               </p>
             </div>
           </div>
@@ -116,6 +119,46 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      {/* All 22 capabilities, grouped under the track that owns them. This is
+          the internal-linking backbone for the spoke pages: every one of them
+          is reachable from here, not just from the homepage cards that first
+          sent a visitor to it. Compact link rows rather than 22 more cards —
+          the seven cards above already carry the visual weight this page
+          needs, and 22 additional cards would be the "visually excessive"
+          version of the same information. */}
+      <section className="sec-sm bg-g">
+        <div className="container">
+          <div className="row justify-content-center text-center mb-4">
+            <div className="col-lg-8" data-reveal="up">
+              <span className="stag">Full capability list</span>
+              <h2 className="stitle mt-3">
+                All 22 services, by <span className="gtxt">track</span>
+              </h2>
+            </div>
+          </div>
+          <div className="row g-4">
+            {servicePages.map((sp) => {
+              const spokes = getSpokesForPillar(sp.slug);
+              if (spokes.length === 0) return null;
+              return (
+                <div className="col-md-6 col-lg-4" key={sp.slug} data-reveal="up">
+                  <h3 className="service-group-title">
+                    <Link href={`/services/${sp.slug}`}>{sp.navLabel}</Link>
+                  </h3>
+                  <ul className="service-group-list">
+                    {spokes.map((spoke) => (
+                      <li key={spoke.slug}>
+                        <Link href={`/services/${spoke.slug}`}>{spoke.navLabel}</Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       <WebServiceSection />
       <EnterpriseServiceSection />
       <FintechServiceSection />
@@ -123,6 +166,18 @@ export default function ServicesPage() {
       <HealthcareServiceSection />
       <ComplianceServiceSection />
       <CloudServiceSection />
+      {/* The hub was the only top-level commercial page on the site without a
+          FAQ block. These answer the questions asked before a buyer knows
+          which practice area they need, so they belong here rather than on
+          any one service page. */}
+      <PageFaq
+        items={servicesHubFaqs}
+        path="/services"
+        heading="Choosing a"
+        headingAccent="service"
+        intro="What buyers ask before they know which track fits."
+      />
+
       <ServicesCta />
     </>
   );

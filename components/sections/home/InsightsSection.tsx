@@ -9,7 +9,7 @@ import Button from '@/components/ui/Button';
  * Added to close an internal-linking gap: the homepage linked to all seven
  * service pages and three case studies, but to zero blog posts. The homepage is
  * the strongest page on the site by inbound authority, and none of it was
- * reaching /blog/* — the articles were only linked from /blog itself and from
+ * reaching /blog/*; the articles were only linked from /blog itself and from
  * each other, so the whole editorial cluster sat one hop further from the
  * homepage than it needed to.
  *
@@ -27,7 +27,7 @@ const InsightsSection: React.FC = () => {
         <div className="row justify-content-between align-items-end mb-5">
           <div className="col-lg-7" data-reveal="up">
             <span className="stag">Insights</span>
-            {/* Deliberately not "Our Blog" — the heading targets the engineering
+            {/* Deliberately not "Our Blog"; the heading targets the engineering
                 intent the articles actually serve, and avoids competing with
                 /blog for the same query the way the old homepage headings
                 competed with /services and /industries. */}
@@ -35,7 +35,7 @@ const InsightsSection: React.FC = () => {
               Engineering notes from <span className="gtxt">regulated delivery</span>
             </h2>
             <p className="ssub mt-3 mb-0">
-              Build guides written for the engineer who has to ship the thing — goAML
+              Build guides written for the engineer who has to ship the thing: goAML
               submission, instant payment rails, identity verification and healthcare
               interoperability, with primary sources cited throughout.
             </p>

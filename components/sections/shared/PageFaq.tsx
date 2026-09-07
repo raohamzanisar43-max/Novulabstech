@@ -6,7 +6,7 @@ import JsonLd from '@/components/seo/JsonLd';
 import { faqSchema } from '@/lib/schema';
 
 /**
- * Reusable page FAQ block — visible Q&A plus matching FAQPage schema.
+ * Reusable page FAQ block, visible Q&A plus matching FAQPage schema.
  *
  * Both halves come from one array, so the rendered questions and the structured
  * data cannot drift apart. A FAQPage declaring questions the page does not
@@ -26,7 +26,7 @@ export default function PageFaq({
   className = 'sec bg-g',
 }: {
   items: FaqItem[];
-  /** Page path — used for the schema @id so each FAQPage is distinct. */
+  /** Page path, used for the schema @id so each FAQPage is distinct. */
   path: string;
   heading?: string;
   headingAccent?: string;
@@ -57,7 +57,7 @@ export default function PageFaq({
           <div className="col-lg-8 text-center">
             <p className="mb-0" style={{ fontSize: '0.9rem', color: 'var(--tx3)' }}>
               Question not answered here?{' '}
-              <Link href="/contact">Book a technical consultation</Link> — it is taken by an
+              <Link href="/contact">Book a technical consultation</Link>; it is taken by an
               architect, not a salesperson.
             </p>
           </div>

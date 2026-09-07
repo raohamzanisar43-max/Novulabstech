@@ -4,7 +4,8 @@ import Image from 'next/image';
 import Button from '@/components/ui/Button';
 import TiltCard from '@/components/ui/TiltCard';
 
-// entire right-hand hero visual — the largest element above the fold, and the
+// TiltCard was previously loaded with next/dynamic + ssr:false, which meant the
+// entire right-hand hero visual; the largest element above the fold, and the
 // LCP candidate on this page — was absent from the server HTML and only
 // appeared after hydration. That delays LCP by the whole JS round trip and
 // hides the image from any crawler that does not execute JavaScript.
@@ -26,7 +27,7 @@ const HeroSection: React.FC = () => {
                 <span className="hero-dot"></span>
                 Architect-led engineering for regulated industries
               </div>
-              {/* H1 targets "software house in Islamabad" — the head term for
+              {/* H1 targets "software house in Islamabad"; the head term for
                   this business, and previously absent from the H1 entirely
                   ("Next-Gen Enterprise Software House" carried no location and
                   no query intent).
@@ -46,7 +47,7 @@ const HeroSection: React.FC = () => {
                 <span className="gtxt">in Islamabad</span>
               </h1>
               <p className="hero-sub">
-                We engineer mission-critical platforms for fintech institutions, government agencies, healthcare networks, and global enterprises — built for scale, security, and compliance.
+                We build AML/CFT compliance systems for SBP-regulated banks, HIPAA healthcare platforms, and payment infrastructure. Every enquiry is answered by an architect, not a salesperson.
               </p>
               <div className="hero-btns">
                 <Button href="/contact" variant="grad">
@@ -61,7 +62,7 @@ const HeroSection: React.FC = () => {
           {/* Right: Hero Image */}
           <div className="col-lg-6 hero-visual">
             <TiltCard className="hero-img-wrap">
-              {/* `priority` — this is the LCP element. It was carrying
+              {/* `priority`; this is the LCP element. It was carrying
                   loading="lazy", which tells the browser to defer the one image
                   it should fetch first. next/image also emits a preload hint and
                   a responsive srcset, so phones stop downloading a 1200px asset

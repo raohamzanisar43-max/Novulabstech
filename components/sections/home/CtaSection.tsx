@@ -58,7 +58,7 @@ const CtaSection: React.FC = () => {
                 <span className="gtxt">We'll tell you how we can help.</span>
               </p>
               <p className="ssub mt-4 mb-0">
-                A 45-minute call with one of our engineers. We'll listen to what you're working on, share what we know from similar projects, and give you honest advice on the right way forward — whether that's working with us or not.
+                A 45-minute call with one of our engineers. We'll listen to what you're working on, share what we know from similar projects, and give you honest advice on the right way forward, whether that's working with us or not.
               </p>
               <div className="cta-trust-row">
                 <div className="cta-trust-item">
@@ -67,7 +67,7 @@ const CtaSection: React.FC = () => {
                 </div>
                 <div className="cta-trust-item">
                   <i className="bi bi-file-earmark-lock2"></i>
-                  NDA signed upfront — your ideas stay yours
+                  NDA signed upfront: your ideas stay yours
                 </div>
                 <div className="cta-trust-item">
                   <i className="bi bi-arrow-right-circle"></i>

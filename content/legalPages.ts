@@ -52,7 +52,7 @@ export const legalPages: LegalPage[] = [
         heading: 'What we collect, and why',
         body: [
           '<strong>Information you give us.</strong> When you submit the contact or consultation form we collect your name, work email address, the service area you selected and the content of your message. We use it solely to respond to your enquiry and to conduct any resulting engagement. If you subscribe to updates we collect your email address for that purpose only.',
-          '<strong>Information collected automatically.</strong> Our hosting infrastructure records standard server logs — IP address, user agent, requested URL, timestamp and referring page — which are used to operate the site securely and to diagnose faults.',
+          '<strong>Information collected automatically.</strong> Our hosting infrastructure records standard server logs (IP address, user agent, requested URL, timestamp and referring page) which are used to operate the site securely and to diagnose faults.',
           '<strong>What we do not collect.</strong> We do not ask for, and you should not send us, sensitive personal data, financial account details, health information or credentials through this website\'s forms.',
         ],
       },
@@ -110,7 +110,7 @@ export const legalPages: LegalPage[] = [
       'The terms governing use of novulabs.net, including intellectual property, acceptable use, and the limits of what this website constitutes.',
     lastUpdated: '16 August 2026',
     intro:
-      'These terms govern your use of novulabs.net. They do not govern any services engagement — that is covered by a separate written agreement. If the two ever conflict, the services agreement prevails.',
+      'These terms govern your use of novulabs.net. They do not govern any services engagement; that is covered by a separate written agreement. If the two ever conflict, the services agreement prevails.',
     sections: [
       {
         heading: 'Acceptance',
@@ -128,7 +128,7 @@ export const legalPages: LegalPage[] = [
         heading: 'Intellectual property',
         body: [
           'The content, design, code and branding of this website are owned by NovuLabs Technology Pvt Ltd unless otherwise indicated. You may read, quote with attribution, and link to it. You may not reproduce it wholesale or present it as your own.',
-          'Third-party names and marks referenced on this site — including Mastercard, Visa, NADRA, RAAST and others — are the property of their respective owners and are used for identification only.',
+          'Third-party names and marks referenced on this site (including Mastercard, Visa, NADRA, RAAST and others) are the property of their respective owners and are used for identification only.',
         ],
       },
       {
@@ -158,22 +158,22 @@ export const legalPages: LegalPage[] = [
     title: 'Cookie Policy',
     seoTitle: 'Cookie Policy',
     description:
-      'What this site stores in your browser and why. Written to describe actual behaviour rather than a generic template.',
+      'What novulabs.net stores in your browser and why: which cookies are necessary, what is not used, and how to clear them. Real behaviour, not boilerplate.',
     lastUpdated: '16 August 2026',
     intro:
-      'This page describes what novulabs.net stores in your browser. It is written to match what the site actually does — if we add analytics or advertising technology later, this page will be updated before that goes live, not after.',
+      'This page describes what novulabs.net stores in your browser. It is written to match what the site actually does: if we add analytics or advertising technology later, this page will be updated before that goes live, not after.',
     sections: [
       {
         heading: 'What a cookie is',
         body: [
-          'A cookie is a small text file a website asks your browser to store and send back on later visits. Related technologies — local storage, session storage — work similarly and are covered by this policy.',
+          'A cookie is a small text file a website asks your browser to store and send back on later visits. Related technologies (local storage, session storage) work similarly and are covered by this policy.',
         ],
       },
       {
         heading: 'What this site currently uses',
         body: [
           '<strong>Strictly necessary.</strong> Cookies required for the site to function and to protect the contact form against abuse. These cannot be disabled without breaking the site, and they do not track you across other websites.',
-          '<strong>Analytics.</strong> [Client to confirm.] If an analytics tool is in use, name it here along with the data it collects, its retention period, and whether IP addresses are anonymised. If none is in use, state that plainly — it is a genuine privacy advantage and worth saying.',
+          '<strong>Analytics.</strong> [Client to confirm.] If an analytics tool is in use, name it here along with the data it collects, its retention period, and whether IP addresses are anonymised. If none is in use, state that plainly; it is a genuine privacy advantage and worth saying.',
           '<strong>Advertising and cross-site tracking.</strong> None. We do not run advertising technology on this site and do not share visitor data with advertising networks.',
         ],
       },

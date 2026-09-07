@@ -9,7 +9,7 @@ const IndustriesSection: React.FC = () => {
         <div className="row justify-content-center text-center mb-5">
           <div className="col-lg-7" data-reveal="up">
             <span className="stag">Sectors We Serve</span>
-            <h2 className="stitle mt-3">Where our <span className="gtxt">domain depth</span> is</h2>
+            <h2 className="stitle mt-3">Industries and sectors <span className="gtxt">we know well</span></h2>
           </div>
         </div>
         <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">

@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 /**
  * Server-rendered FAQ accordion built on native <details>/<summary>.
@@ -12,7 +13,7 @@ import React from 'react';
 export default function FaqAccordion({
   items,
 }: {
-  items: { q: string; a: string }[];
+  items: { q: string; a: string; link?: { href: string; label: string } }[];
 }) {
   return (
     <div className="faq-native">
@@ -24,7 +25,14 @@ export default function FaqAccordion({
               <i className="bi bi-plus"></i>
             </span>
           </summary>
-          <div className="fans-in">{f.a}</div>
+          <div className="fans-in">
+            {f.a}
+            {f.link && (
+              <p className="faq-more">
+                <Link href={f.link.href}>{f.link.label}</Link>
+              </p>
+            )}
+          </div>
         </details>
       ))}
     </div>

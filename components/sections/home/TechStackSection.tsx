@@ -8,8 +8,8 @@ const TechStackSection: React.FC = () => {
         <div className="row align-items-center g-5">
           <div className="col-lg-5" data-reveal="right">
             <span className="stag">Our Stack</span>
-            <h2 className="stitle mt-3">Cutting-Edge <span className="gtxt">Technologies</span></h2>
-            <p className="ssub mb-4">We use the world's best frameworks and cloud platforms — always the right tool for your requirements.</p>
+            <h2 className="stitle mt-3">Technologies <span className="gtxt">we build on</span></h2>
+            <p className="ssub mb-4">We use the world's best frameworks and cloud platforms, always the right tool for your requirements.</p>
             
             {/* Spinning cube visual element */}
             <div className="d-flex gap-5 align-items-center flex-wrap mt-4">

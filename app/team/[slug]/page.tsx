@@ -16,7 +16,7 @@ import { canonical } from '@/lib/seo';
 /**
  * Author / profile pages.
  *
- * Why these exist: bylines previously resolved to `/team#slug` — a fragment, not
+ * Why these exist: bylines previously resolved to `/team#slug`; a fragment, not
  * a page. Google does not treat a fragment as a distinct entity, so:
  *
  *   - the `author` in every BlogPosting pointed at a URL that is really just
@@ -50,9 +50,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   // once the layout appends " | NovuLabs".
   const seoTitle = `${member.name} — ${member.role}`;
 
+  // `bio` alone renders at 96-105 chars, well short of the ~155 Google will
+  // display, so every profile gave away SERP real estate. `longBio` overruns at
+  // 231-259. Composing from both fills the budget and stays a whole sentence:
+  // the first sentence of longBio is the fuller description, and bio is the
+  // fallback if a future profile has no longer form.
+  const metaDescription = (() => {
+    const firstSentence = member.longBio.split('. ')[0].trim();
+    const full = firstSentence.endsWith('.') ? firstSentence : `${firstSentence}.`;
+    return full.length >= 120 && full.length <= 165 ? full : member.longBio.slice(0, 155).trim();
+  })();
+
   return {
     title: seoTitle.length > 47 ? member.name : seoTitle,
-    description: member.bio,
+    description: metaDescription,
     alternates: { canonical: url },
     openGraph: {
       type: 'profile',
@@ -64,7 +75,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     twitter: {
       card: 'summary_large_image',
       title: `${member.name} — ${member.role} at NovuLabs`,
-      description: member.bio,
+      description: metaDescription,
       images: [member.img],
     },
   };
@@ -170,7 +181,7 @@ export default async function TeamProfilePage({ params }: PageProps) {
               </ul>
 
               {/* Rendered only when non-empty. The data model deliberately keeps
-                  `credentials` empty rather than inventing any — an unverifiable
+                  `credentials` empty rather than inventing any; an unverifiable
                   credential is an E-E-A-T liability, not an asset. */}
               {member.credentials.length > 0 && (
                 <>
@@ -189,7 +200,7 @@ export default async function TeamProfilePage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* Authored articles — the archive that ties the person to the work */}
+      {/* Authored articles; the archive that ties the person to the work */}
       {authored.length > 0 && (
         <>
           <div className="divider"></div>

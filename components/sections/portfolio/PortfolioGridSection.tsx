@@ -27,6 +27,16 @@ const PortfolioGridSection: React.FC = () => {
   return (
     <section className="sec bg-g" id="portfolio-grid">
       <div className="container">
+        {/* The grid had no heading of its own, so the only <h2> on this page
+            was the FAQ block. A filter control is not a section heading. */}
+        <div className="row justify-content-center text-center mb-4">
+          <div className="col-lg-8" data-reveal="up">
+            <h2 className="stitle">
+              Nine engagements, <span className="gtxt">by sector</span>
+            </h2>
+          </div>
+        </div>
+
         {/* Filter */}
         <div className="pfilter justify-content-center mb-5" data-reveal="up">
           {filters.map((f) => (

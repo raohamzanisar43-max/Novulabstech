@@ -13,7 +13,7 @@ const AboutHero: React.FC = () => {
       <div className="container phero-inner">
         <Breadcrumbs className="mb-4" items={[{ name: 'About' }]} />
         <span className="stag">Our Story</span>
-        <h1 className="hero-title mt-3">Building the Future of<br /><span className="gtxt">Enterprise Technology</span></h1>
+        <h1 className="hero-title mt-3">Inside NovuLabs, an<br /><span className="gtxt">Enterprise Software House in Islamabad</span></h1>
         <p className="hero-sub">A senior engineering team on a single mission: building mission-critical software that the world's most demanding institutions can trust.</p>
       </div>
     </section>

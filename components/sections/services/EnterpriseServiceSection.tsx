@@ -10,7 +10,7 @@ const EnterpriseServiceSection: React.FC = () => {
           <div className="col-lg-7" data-reveal="up">
             <span className="stag">Service 02</span>
             <h2 className="stitle mt-3">Enterprise Software <span className="gtxt">Development</span></h2>
-            <p className="ssub mx-auto">Custom platforms for complex business problems — multi-tenant SaaS, internal tools, and mission-critical systems engineered for infinite scale.</p>
+            <p className="ssub mx-auto">Custom platforms for complex business problems: multi-tenant SaaS, internal tools, and mission-critical systems engineered for infinite scale.</p>
           </div>
         </div>
         <div className="row g-4">
