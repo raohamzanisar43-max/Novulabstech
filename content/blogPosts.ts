@@ -20,7 +20,7 @@ export const blogPosts: BlogPost[] = [
       { q: 'What does an AML/CFT programme require from a system, as opposed to from a policy?', a: 'Three things a document cannot provide. Screening that resolves a customer to one authoritative identity before it checks any list, monitoring that produces alerts with a reason attached rather than a score alone, and a record that lets you reconstruct what the system knew at the moment a decision was taken. A policy describes intent; an examiner asks the system to evidence what actually happened, which is an architectural property.' },
       { q: 'Why is explainability treated as a hard requirement rather than a preference?', a: 'Because the answer has to survive an examination. When an examiner asks why a particular transaction was or was not flagged, a model score is not a defensible answer, and neither is a rule nobody can locate. The workable pattern is layered: deterministic rules produce the decisions of record with their reasoning attached, and a model runs alongside to prioritise the review queue rather than to decide anything.' },
     ],
-    title: 'Navigating AML/CFT Regulations in Pakistan: An Engineering Guide for Fintechs',
+    title: 'AML/CFT in Pakistan: An Engineering Guide',
     seoTitle: 'AML/CFT Compliance in Pakistan: Fintech Guide',
     description:
       'How SBP and FMU requirements translate into actual system architecture: screening, transaction monitoring, and goAML-conformant STR/CTR reporting.',
@@ -246,7 +246,7 @@ export const blogPosts: BlogPost[] = [
       { q: 'Why do goAML submissions get rejected?', a: 'Rejections cluster around a small set of causes rather than being random: party identifiers placed in the wrong typed field, conditionally-mandatory fields modelled as optional, dates and separators in a local rather than schema format, and narratives that validate but tell the analyst nothing. The single highest-leverage fix is to run the same XSD validation the FMU runs inside your own pipeline before submission, which converts a slow, externally visible failure into a fast, local, invisible one.' },
       { q: 'Is the narrative field really worth engineering effort?', a: 'Yes, because it is the part a human actually reads. It is free text, so it never fails validation, which is exactly why it is neglected. "Unusual activity detected by system" is a technically valid submission and a useless one. Supporting the writing of a filing narrative with the detail an examiner expects is a product surface, not a text box.' },
     ],
-    title: 'Building a goAML Integration: STR and CTR Reporting That Passes Validation',
+    title: 'goAML Integration: STR and CTR That Validate',
     seoTitle: 'goAML Integration: STR & CTR Reporting Guide',
     description:
       'An engineering guide to goAML XML submission for Pakistani institutions: schema modelling, the rejection causes we see most, and validating before you file.',
@@ -329,7 +329,7 @@ export const blogPosts: BlogPost[] = [
       { q: 'What changes when payments become instant and irrevocable?', a: 'Correction stops being available, so validation has to move ahead of the transaction. On a batch rail an error discovered inside the settlement window can often be fixed before money moves; on an instant rail the credit is applied and final within seconds, and a mistake becomes a commercial recovery problem rather than a technical rollback. That single property reorders the engineering priorities for the whole integration.' },
       { q: 'Which two disciplines matter most on an instant rail?', a: 'Idempotency and reconciliation, and both belong in the first sprint rather than the last. Idempotency has to be enforced at the database, because application-level checks lose to concurrency: two workers can both read "not seen" before either writes. Reconciliation has to be a first-class scheduled process rather than an error path. Retrofitting either into a live payment path is genuinely dangerous.' },
     ],
-    title: "Integrating RAAST: What Building on Pakistan's Instant Payment Rail Actually Involves",
+    title: 'Integrating RAAST: What It Actually Involves',
     seoTitle: 'RAAST Integration Guide for Pakistani Fintechs',
     description:
       'An engineering view of RAAST integration: ISO 20022 messaging, alias resolution, idempotency and reconciliation, and the failure modes that matter most.',
@@ -400,7 +400,7 @@ export const blogPosts: BlogPost[] = [
       { q: 'Does an identity check tell you whether a customer is who they claim to be?', a: 'Not on its own, and treating it as though it does is the most consequential misunderstanding in onboarding design. A verification check confirms that the presented credentials correspond to a record. It does not establish that the person presenting them is the person described, which is why liveness, device signals and behavioural checks exist alongside it, and why the result belongs in a risk decision rather than as a gate that returns a simple pass or fail.' },
       { q: 'What should happen when a legitimate customer fails verification?', a: 'They should have somewhere to go. Modelling assurance in tiers, each unlocking a defined level of capability with a documented route between them, is far more robust than one binary gate: a customer who cannot complete a biometric check is not rejected, they hold a capped product and a path to upgrade. Teams routinely build the happy path and then discover it covers perhaps seventy per cent of real traffic.' },
     ],
-    title: 'Digital KYC in Pakistan: Designing CNIC and Biometric Verification That Holds Up',
+    title: 'Digital KYC in Pakistan: CNIC and Biometrics',
     seoTitle: 'NADRA e-KYC & CNIC Verification: Build Guide',
     description:
       'Designing identity verification around CNIC and biometric checks for Pakistani financial and government platforms: consent, fallbacks and audit evidence.',

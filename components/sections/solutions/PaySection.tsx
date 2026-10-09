@@ -21,7 +21,7 @@ const PaySection: React.FC = () => {
               <li><span className="chk-ico"><i className="bi bi-check"></i></span>Visa VTS &amp; Visa Direct</li>
               <li><span className="chk-ico"><i className="bi bi-check"></i></span>RAAST instant payment system (SBP)</li>
               <li><span className="chk-ico"><i className="bi bi-check"></i></span>1LINK ATM/POS switching</li>
-              <li><span className="chk-ico"><i className="bi bi-check"></i></span>Built to PCI-DSS Level 1 controls</li>
+              <li><span className="chk-ico"><i className="bi bi-check"></i></span>Engineered to PCI-DSS requirements; certification is held by the operating institution</li>
             </ul>
             <Button href="/contact" variant="grad"><i className="bi bi-calendar-check me-1"></i>Consult About NovuPay</Button>
           </div>

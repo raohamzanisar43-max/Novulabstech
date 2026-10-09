@@ -21,29 +21,46 @@ const PATH = '/software-house-in-islamabad';
  * answers "what is a software house in Islamabad and how do I pick one". The
  * overlap is the company name, which is not duplicate content.
  *
- * The H1 is the head term as a plain noun phrase, without "Best". That word is
- * an unverifiable superlative about the business itself, and this page argues
- * in its own body that the question has no general answer, so putting it in the
- * H1 would contradict the page. The "best software house in islamabad" query is
- * served by answering it honestly in the FAQ block, which is also the form an
- * answer engine can quote.
+ * KEYWORD TARGET: "best software agency in Islamabad" and its close variants
+ * ("best software development agency / company / house in Islamabad").
+ *
+ * The phrase is carried in the H1, in a dedicated H2, and across the FAQ block,
+ * because that is where this page's search intent actually sits: somebody
+ * typing "best software agency in Islamabad" is trying to choose a supplier,
+ * and the seven evaluation questions in the body are the most useful answer we
+ * can give them.
+ *
+ * The framing matters. The H1 reads "How to Choose the Best Software Agency in
+ * Islamabad", not "We Are the Best Software Agency in Islamabad". The first
+ * carries the exact phrase and matches what the page delivers. The second is a
+ * bare superlative about ourselves, which no buyer believes, which contradicts
+ * the body's own argument that the right agency depends on what you are
+ * building, and which in most markets is a comparative advertising claim that
+ * needs substantiation this site does not publish. The keyword coverage is the
+ * same either way; only the credibility differs.
+ *
+ * "Agency", "company" and "software house" are all used deliberately. They are
+ * the same thing to a buyer in this market and people search all three.
  */
 export const metadata: Metadata = {
-  // 27 chars + " | NovuLabs" = 38 rendered, well inside the SERP budget, and the
-  // head term sits at the front where it carries the most weight.
-  title: 'Software House in Islamabad',
-  // 155 chars.
+  // 47 chars + " | NovuLabs" = 58 rendered, inside the SERP budget, with the
+  // head term at the front where it carries the most weight.
+  title: 'Best Software Agency in Islamabad: How to Choose',
+  // 158 chars.
   description:
-    'NovuLabs is a software house in Islamabad building custom software for banks, healthcare and government: AML/CFT, payments, EHR, ERP, mobile and cloud.',
+    'Choosing the best software agency in Islamabad: seven questions to ask before you sign, what drives cost and timelines, and where NovuLabs fits. Based in I-10.',
   keywords: [
-    'software house in Islamabad',
+    'best software agency in Islamabad',
+    'best software development agency in Islamabad',
     'best software house in Islamabad',
+    'best software company in Islamabad',
+    'software agency in Islamabad',
+    'software house in Islamabad',
     'software development company in Islamabad',
-    'software company in Islamabad',
+    'top software companies in Islamabad',
     'custom software development Islamabad',
     'IT company in Islamabad',
     'mobile app development Islamabad',
-    'web development company Islamabad',
     'enterprise software development Pakistan',
     'fintech software house Islamabad',
     'software house I-10 Islamabad',
@@ -52,23 +69,23 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: canonical(PATH),
-    title: 'Software House in Islamabad | NovuLabs',
+    title: 'Best Software Agency in Islamabad: How to Choose | NovuLabs',
     description:
-      'Custom software built in I-10, Islamabad for regulated organisations: compliance, payments, healthcare, government and enterprise platforms.',
+      'How to choose the best software agency in Islamabad: the questions to ask, what drives cost, and how NovuLabs works. Custom software built in I-10.',
     images: [
       {
         url: '/og/enterprise-software-development.jpg',
         width: 1200,
         height: 630,
-        alt: 'NovuLabs, a software house in Islamabad',
+        alt: 'NovuLabs, a software agency in Islamabad',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Software House in Islamabad | NovuLabs',
+    title: 'Best Software Agency in Islamabad: How to Choose | NovuLabs',
     description:
-      'Custom software built in Islamabad for banks, healthcare providers, government departments and enterprises.',
+      'Seven questions to ask before you pick a software agency in Islamabad, and what actually separates one from another.',
     images: ['/og/enterprise-software-development.jpg'],
   },
 };
@@ -81,9 +98,9 @@ export default function SoftwareHouseIslamabadPage() {
       <JsonLd
         data={[
           webPageSchema({
-            name: 'Software House in Islamabad',
+            name: 'Best Software Agency in Islamabad: How to Choose',
             description:
-              'NovuLabs is a software house in Islamabad building custom software for banks, healthcare providers, government departments and enterprises.',
+              'How to choose the best software agency in Islamabad, and how NovuLabs builds custom software for banks, healthcare providers, government departments and enterprises.',
             path: PATH,
             byOrganisation: true,
             mentions: [
@@ -121,12 +138,13 @@ export default function SoftwareHouseIslamabadPage() {
       {/* Hero */}
       <section className="phero">
         <div className="container phero-inner">
-          <Breadcrumbs items={[{ name: 'Software House in Islamabad' }]} className="mb-3" />
+          <Breadcrumbs items={[{ name: 'Software Agency in Islamabad' }]} className="mb-3" />
           <span className="stag">Islamabad, Pakistan</span>
-          <h1 className="hero-title mt-3">Software House in Islamabad</h1>
+          <h1 className="hero-title mt-3">How to Choose the Best Software Agency in Islamabad</h1>
           <p className="hero-sub">
-            Custom software for organisations a regulator can audit, engineered in I-10, Islamabad,
-            for clients in Pakistan, the Gulf, the UK and North America.
+            The questions worth asking before you sign, what actually separates one software agency
+            from another, and where NovuLabs fits. We build custom software for organisations a
+            regulator can audit, from I-10, Islamabad.
           </p>
         </div>
       </section>
@@ -213,7 +231,7 @@ export default function SoftwareHouseIslamabadPage() {
       <PageFaq
         items={ISLAMABAD_FAQS}
         path={PATH}
-        heading="Software house in Islamabad:"
+        heading="Choosing a software agency in Islamabad:"
         headingAccent="common questions"
         intro="Answers to what buyers in Islamabad ask us most often, including the one about who is best."
       />

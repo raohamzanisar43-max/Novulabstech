@@ -39,7 +39,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ post, index }) => {
           </div>
           <div>
             <Button href={`/blog/${post.slug}`} variant="glass" style={{ padding: '8px 16px', fontSize: '0.8rem' }}>
-              Read Article <i className="bi bi-arrow-right ms-1"></i>
+              Read: {post.title} <i className="bi bi-arrow-right ms-1"></i>
             </Button>
           </div>
         </div>

@@ -10,20 +10,16 @@ const CrmSection: React.FC = () => {
             <span className="stag">Solution 02</span>
             <h2 className="stitle mt-3">NovuCRM<br /><span className="gtxt">AI-Powered Customer Management</span></h2>
             <p className="ssub mb-4">Enterprise CRM with AI-driven lead scoring, revenue forecasting, pipeline automation, and omnichannel engagement across email, SMS, and WhatsApp.</p>
-            <div className="d-flex gap-3 mb-4 flex-wrap">
-              <div style={{ background: 'rgba(93, 224, 230, 0.08)', border: '1px solid rgba(93, 224, 230, 0.18)', borderRadius: 'var(--r)', padding: '16px 20px', textAlign: 'center', flex: 1, minWidth: '120px' }}>
-                <div style={{ fontFamily: 'var(--fh)', fontSize: '1.5rem', fontWeight: '800', background: 'var(--g-main)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>34%</div>
-                <div style={{ fontSize: '0.75rem', color: 'var(--tx3)' }}>Higher Conversion</div>
-              </div>
-              <div style={{ background: 'rgba(0, 72, 141, 0.08)', border: '1px solid rgba(0, 72, 141, 0.18)', borderRadius: 'var(--r)', padding: '16px 20px', textAlign: 'center', flex: 1, minWidth: '120px' }}>
-                <div style={{ fontFamily: 'var(--fh)', fontSize: '1.5rem', fontWeight: '800', color: 'var(--p1)' }}>2.1x</div>
-                <div style={{ fontSize: '0.75rem', color: 'var(--tx3)' }}>Revenue Growth</div>
-              </div>
-              <div style={{ background: 'rgba(165, 243, 252, 0.08)', border: '1px solid rgba(165, 243, 252, 0.18)', borderRadius: 'var(--r)', padding: '16px 20px', textAlign: 'center', flex: 1, minWidth: '120px' }}>
-                <div style={{ fontFamily: 'var(--fh)', fontSize: '1.5rem', fontWeight: '800', color: 'var(--p3)' }}>89%</div>
-                <div style={{ fontSize: '0.75rem', color: 'var(--tx3)' }}>Forecast Accuracy</div>
-              </div>
-            </div>
+            {/* Metric tiles removed (findings register F-04 / C-4). The case study
+                for the same work declines to publish figures it cannot evidence,
+                and says so; this page cannot carry a second, weaker standard.
+                These are capability statements a buyer can check in a call. */}
+            <ul className="chk mb-4">
+              <li><span className="chk-ico"><i className="bi bi-check"></i></span>Lead scoring that ranks the queue and never makes the decision</li>
+              <li><span className="chk-ico"><i className="bi bi-check"></i></span>Pipeline stages modelled on how your deals actually move, exceptions included</li>
+              <li><span className="chk-ico"><i className="bi bi-check"></i></span>Email, SMS and WhatsApp contact history on one customer record</li>
+              <li><span className="chk-ico"><i className="bi bi-check"></i></span>Audit trail on every customer contact, for regulated sales processes</li>
+            </ul>
             <Button href="/contact" variant="grad"><i className="bi bi-calendar-check me-1"></i>Consult About NovuCRM</Button>
           </div>
           <div className="col-lg-6" data-reveal="right">

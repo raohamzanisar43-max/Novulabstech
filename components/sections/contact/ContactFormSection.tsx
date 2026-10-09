@@ -160,7 +160,7 @@ const ContactFormSection: React.FC = () => {
                       onChange={handleInputChange}
                       disabled={formSubmitted}
                     >
-                      <option value="">— Optional —</option>
+                      <option value="">Optional</option>
                       <option>$10K – $50K</option>
                       <option>$50K – $150K</option>
                       <option>$150K – $500K</option>
@@ -177,7 +177,7 @@ const ContactFormSection: React.FC = () => {
                       required 
                       disabled={formSubmitted}
                     >
-                      <option value="">— Select a Service —</option>
+                      <option value="">Select a service</option>
                       <option value="Enterprise Software Development">Enterprise Software Development</option>
                       <option value="Financial Software / Fintech">Financial Software / Fintech</option>
                       <option value="AML / CFT Compliance">AML / CFT Compliance</option>

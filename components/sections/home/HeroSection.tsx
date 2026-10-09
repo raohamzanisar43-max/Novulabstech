@@ -28,22 +28,29 @@ const HeroSection: React.FC = () => {
                 <span className="hero-dot"></span>
                 Architect-led engineering for regulated industries
               </div>
-              {/* H1 targets "software house in Islamabad"; the head term for
-                  this business, and previously absent from the H1 entirely
-                  ("Next-Gen Enterprise Software House" carried no location and
-                  no query intent).
+              {/* H1 reads "Best Enterprise Software House in Islamabad", at
+                  the owner's explicit direction.
 
-                  "Best" is deliberately not used. It is an unverifiable
-                  superlative about the business itself, which is an E-E-A-T
-                  liability in a YMYL-adjacent vertical, is the kind of
-                  self-declared claim Google's helpful-content guidance treats
-                  as a negative signal, and in most markets a comparative
-                  superiority claim in advertising requires substantiation the
-                  site does not publish. The exact-match phrase is carried
-                  without it; rankings for "best …" queries come from what the
-                  page proves, not from the word appearing in the heading. */}
+                  Note the H1 no longer matches the title tag word for word:
+                  "Enterprise" sits between "Best" and "Software House", so the
+                  contiguous phrase "best software house in Islamabad" is
+                  carried by the title and description rather than the heading.
+                  Both strings are in the head-term set the page targets, so
+                  this is a deliberate split, not drift — if the title is ever
+                  rewritten, keep the exact phrase somewhere in the <head>.
+
+                  "Best" is a claim, so the copy directly beneath it says what
+                  it is measured on (software a regulator can inspect, and an
+                  architect on the first call) rather than leaving it as bare
+                  puffery. That keeps the heading consistent with the rest of
+                  the site, which argues that "best" depends on the project.
+
+                  Cannibalisation check: /software-house-in-islamabad targets
+                  the comparison phrasing ("How to Choose the Best Software
+                  Agency in Islamabad"). House vs agency and head term vs
+                  how-to keep the two pages on distinct queries. */}
               <h1 className="hero-title">
-                <KineticHeading text="Enterprise Software House" />
+                <KineticHeading text="Best Enterprise Software House" />
                 {/* Explicit space, not just the <br/>. Text extractors — Google's
                     included — concatenate across the break, and without this the
                     H1 reads as "Housein Islamabad", which loses the exact-match
@@ -54,15 +61,31 @@ const HeroSection: React.FC = () => {
                   <KineticHeading text="in Islamabad" delayStep={55} />
                 </span>
               </h1>
+              {/* Two sentences, doing two jobs: what we build (with the terms a
+                  buyer searches), then the one promise that is checkable on the
+                  next click. The previous version spent its second sentence
+                  restating the category, which the H1 directly above already
+                  said. */}
               <p className="hero-sub">
-                We build AML/CFT compliance systems for SBP-regulated banks, HIPAA healthcare platforms, and payment infrastructure. Every enquiry is answered by an architect, not a salesperson.
+                We build the systems banks, hospitals and government departments get audited on:
+                AML and transaction monitoring, payment infrastructure, patient records. The kind
+                of software where being wrong is expensive and being unable to explain why is
+                worse.
+              </p>
+              <p className="hero-sub">
+                Your first call is with the architect who would own the build. No account manager,
+                no discovery deck, and an honest answer if we are the wrong firm for it.
               </p>
               <div className="hero-btns">
+                {/* "Talk to an architect" instead of "Book a Free Consultation":
+                    it describes what actually happens and it is the specific
+                    promise the copy above just made. Generic CTA labels ask for
+                    a commitment without saying what is on the other side. */}
                 <Button href="/contact" variant="grad">
-                  <i className="bi bi-rocket-takeoff me-1"></i>Book a Free Consultation
+                  <i className="bi bi-rocket-takeoff me-1"></i>Talk to an architect
                 </Button>
                 <Button href="/portfolio" variant="glass">
-                  <i className="bi bi-folder2-open me-1"></i>View Our Work
+                  <i className="bi bi-folder2-open me-1"></i>See how we built it
                 </Button>
               </div>
             </div>

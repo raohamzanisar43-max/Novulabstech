@@ -10,7 +10,8 @@ const WhyUsCard: React.FC<WhyUsCardProps> = ({ item, index }) => {
   return (
     <div className="col" data-reveal="up">
       <div className="wcard">
-        <div className="wnum">{item.num}</div>
+        {/* Numbering removed: the six items are not a sequence (register M-4). */}
+        {item.num && <div className="wnum">{item.num}</div>}
         <div className={`sico ${item.color} mb-3`}>
           <i className={`bi ${item.icon}`}></i>
         </div>

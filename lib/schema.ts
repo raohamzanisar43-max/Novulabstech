@@ -355,6 +355,31 @@ export function webPageSchema(opts: {
    *  Honest for editorial pages the company wrote as a company; blog posts
    *  attribute to a named Person instead, via blogPostingSchema. */
   byOrganisation?: boolean;
+  /**
+   * Path to the page that books a meeting, declared as the page's
+   * potentialAction. Emits a ReserveAction, which is the vocabulary for
+   * "reserve a slot with this organisation" — the closest true description of
+   * a consultation form. It gives an assistant answering "book a call with
+   * NovuLabs" an explicit target instead of guessing from button text.
+   *
+   * Only set this where the target really does take a booking. A
+   * potentialAction pointing at a page with no form is a broken promise in
+   * markup, and it is the sort of mismatch that gets structured data ignored
+   * sitewide.
+   */
+  reserveActionPath?: string;
+  /**
+   * Site-relative paths this page deliberately links to, emitted as
+   * schema.org `relatedLink`.
+   *
+   * This is the structured-data half of internal linking: the rendered <a>
+   * tags tell a crawler where it can go, and this tells it which of those
+   * destinations the author considers part of the same topic cluster. It is
+   * only a signal if it stays honest — pass the handful of pages genuinely
+   * related to this one, not every URL on the site, and only paths that are
+   * also linked in the visible markup.
+   */
+  relatedLink?: string[];
 }) {
   return clean({
     '@context': 'https://schema.org',
@@ -379,6 +404,26 @@ export function webPageSchema(opts: {
           ),
         }
       : {}),
+    ...(opts.reserveActionPath
+      ? {
+          potentialAction: {
+            '@type': 'ReserveAction',
+            name: 'Book a free technical consultation',
+            target: {
+              '@type': 'EntryPoint',
+              urlTemplate: canonical(opts.reserveActionPath),
+              actionPlatform: [
+                'http://schema.org/DesktopWebPlatform',
+                'http://schema.org/MobileWebPlatform',
+              ],
+            },
+            result: { '@type': 'Reservation', name: 'Consultation booking' },
+          },
+        }
+      : {}),
+    ...(opts.relatedLink?.length
+      ? { relatedLink: opts.relatedLink.map((p) => canonical(p)) }
+      : {}),
   });
 }
 
@@ -402,7 +447,6 @@ export function siteNavigationSchema() {
     { name: 'Case Studies', path: '/portfolio' },
     { name: 'Team', path: '/team' },
     { name: 'Insights', path: '/blog' },
-    { name: 'Testimonials', path: '/testimonials' },
     { name: 'FAQ', path: '/faq' },
     { name: 'Contact', path: '/contact' },
   ];

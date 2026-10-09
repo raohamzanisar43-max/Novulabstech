@@ -3042,3 +3042,205 @@ footer a:not(.btn-grad) { color: var(--a1); }
   display: inline-block;
 }
 .faq-more a:hover::after { transform: translateX(3px); }
+
+/* ── Sitemap page ─────────────────────────────────────────────────────────
+   /site-map previously borrowed .ft-head and .ft-links from the footer. Those
+   are written for the footer's near-black ground: white headings and pale grey
+   links. On this page's white section that measured 1.00:1 and 1.95:1, so ten
+   group headings were invisible and eighty links were nearly so. These are the
+   same shapes drawn for a light ground. */
+.sm-head {
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--p1);              /* 11.9:1 on paper */
+  font-family: var(--fm);
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--gb4);
+}
+.sm-links { list-style: none; padding: 0; margin: 0; }
+.sm-links li { margin-bottom: 7px; }
+.sm-links a {
+  font-size: .875rem;
+  color: var(--tx2);             /* 10.3:1 on paper */
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 28px;
+  transition: color .16s ease, transform .16s ease;
+}
+.sm-links a i {
+  font-size: .58rem;
+  color: var(--a1);
+  flex-shrink: 0;
+  transition: transform .16s ease;
+}
+.sm-links a:hover {
+  color: var(--a1);              /* 6.7:1 on paper */
+  transform: translateX(3px);
+}
+
+/* ── SYMPTOM BOX (service spoke pages) ────────────────────────
+   "This page is probably for you if" — sits directly under the
+   intro so a buyer can self-identify before any explanation.
+   Visually set apart from the article prose because it is a
+   different kind of content: a checklist, not a paragraph. */
+.symptom-box{
+  margin:28px 0 34px;
+  padding:24px 26px;
+  border-radius:12px;
+  background:rgba(15,97,87,.05);
+  /* Full hairline border only. A thick coloured left edge on a card is the
+     side-tab pattern; the tint and the checkbox markers already set this
+     apart from the article prose. */
+  border:1px solid rgba(15,97,87,.20);
+}
+.symptom-heading{
+  font-family:var(--fh);
+  font-size:1rem !important;
+  font-weight:700;
+  letter-spacing:-.01em;
+  color:var(--tx1);
+  margin:0 0 14px !important;
+  padding:0 !important;
+  border:0 !important;
+}
+.symptom-list{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.symptom-list li{
+  position:relative;
+  padding-left:26px;
+  font-size:.95rem;
+  line-height:1.6;
+  color:var(--tx2);
+}
+.symptom-list li::before{
+  content:'';
+  position:absolute;
+  left:2px;top:.5em;
+  width:9px;height:9px;
+  border-radius:2px;
+  border:2px solid var(--a1);
+  opacity:.8;
+}
+.symptom-foot{
+  margin:16px 0 0 !important;
+  font-size:.88rem !important;
+  color:var(--tx3);
+}
+
+@media (max-width:575.98px){
+  .symptom-box{padding:20px 18px;margin:22px 0 28px}
+  .symptom-list li{font-size:.92rem}
+}
+
+/* Card titles that are links: inherit the title styling rather than looking
+   like inline body links. Used where the card's single descriptive anchor is
+   the title itself. */
+.card-title-link{color:inherit;text-decoration:none}
+.card-title-link:hover,.card-title-link:focus-visible{color:var(--a1)}
+
+/* "NovuLabs in facts" on /about (content findings register C-8). A definition
+   list, because these are label/value pairs and a screen reader should hear
+   them as such, not as a run of paragraphs. */
+.facts-dl { margin: 0; border-top: 1px solid var(--gb4); }
+.facts-row {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 18px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--gb4);
+}
+.facts-row dt {
+  font-family: var(--fm);
+  font-size: .72rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--tx3);
+  padding-top: 3px;
+}
+.facts-row dd { margin: 0; color: var(--tx1); font-size: .98rem; line-height: 1.55; }
+@media (max-width: 640px) {
+  .facts-row { grid-template-columns: 1fr; gap: 4px; }
+}
+
+
+/* ── Sitemap: section descriptions and nested sub-services ── */
+.sm-intro { max-width: 70ch; margin: 0 auto 36px; text-align: center; color: var(--tx2); }
+.sm-desc { font-size: .86rem; line-height: 1.55; color: var(--tx3); margin: -4px 0 12px; }
+.sm-sub { list-style: none; margin: 4px 0 6px 18px; padding: 0 0 0 12px; border-left: 1px solid var(--gb4); }
+.sm-sub li { margin-bottom: 5px; }
+.sm-sub a { font-size: .82rem; color: var(--tx3); min-height: 26px; }
+.sm-sub a:hover { color: var(--a1); }
+.sm-wide { grid-column: 1 / -1; }
+
+/* ── HOMEPAGE TESTIMONIAL CARDS ──────────────────────────────────────────
+   Cards rather than a carousel: eight quotes are readable at a glance in a
+   grid, and a carousel would hide seven of them from a crawler behind a
+   control nobody clicks. Scroll animation comes from the existing
+   [data-reveal-group] system, which already respects prefers-reduced-motion. */
+.htcard{
+  background:var(--g-card);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);
+  border:1px solid var(--gb2);border-radius:var(--r-lg);
+  padding:22px;height:100%;margin:0;
+  display:flex;flex-direction:column;gap:12px;
+  box-shadow:var(--sh-sm),var(--sh-inner);transition:var(--t);
+}
+.htcard:hover{border-color:var(--gb4);transform:translateY(-4px);box-shadow:var(--sh-md),var(--sh-inner)}
+.htcard-top{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.htcard-service{
+  font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+  color:var(--a1);line-height:1.3;
+}
+.htcard-stars{font-size:.78rem;color:#e0a92b;letter-spacing:.06em;flex-shrink:0}
+.htcard-quote{
+  margin:0;font-size:.86rem;line-height:1.68;color:var(--tx2);
+  border-left:2px solid rgba(15,97,87,.18);padding-left:13px;
+}
+.htcard-role{
+  margin-top:auto;padding-top:6px;font-size:.74rem;color:var(--tx3);
+  display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+}
+.htcard-flag{
+  font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:#8a5d18;background:rgba(224,169,43,.14);
+  border:1px solid rgba(224,169,43,.3);border-radius:3px;padding:1px 6px;
+}
+.sample-notice{
+  font-size:.85rem;line-height:1.6;color:var(--tx2);margin:0;
+  background:rgba(224,169,43,.1);border:1px solid rgba(224,169,43,.28);
+  border-left:3px solid #e0a92b;border-radius:0 var(--r-sm,6px) var(--r-sm,6px) 0;
+  padding:13px 16px;
+}
+
+/* ── SERVICE GROUP HEADINGS ──────────────────────────────────────────────
+   The 22 service cards are grouped into eight categories. The number is the
+   group's position in a fixed sequence of eight, not a ranking. */
+.svc-group-head{display:flex;align-items:center;gap:14px;margin:0 0 20px}
+.svc-group-num{
+  font-size:.74rem;font-weight:700;color:var(--a1);letter-spacing:.06em;
+  font-variant-numeric:tabular-nums;flex-shrink:0;
+}
+.svc-group-title{
+  font-size:1.06rem;font-weight:700;color:var(--tx1);margin:0;
+  letter-spacing:-.01em;flex-shrink:0;
+}
+.svc-group-rule{flex:1;height:1px;background:linear-gradient(90deg,var(--gb3),transparent);min-width:20px}
+
+/* ── INDUSTRY CARD CTA ───────────────────────────────────────────────────
+   Each industry card now links to that sector's own page, and this names the
+   destination. A span, not a nested anchor: the card itself is the link. */
+.icard-cta{
+  display:inline-flex;align-items:center;gap:6px;margin-top:9px;
+  font-size:.76rem;font-weight:700;color:var(--a1);
+}
+.icard-cta i{transition:transform .22s ease;font-size:.8rem}
+.icard:hover .icard-cta i{transform:translateX(4px)}

@@ -14,7 +14,7 @@ const AboutHero: React.FC = () => {
         <Breadcrumbs className="mb-4" items={[{ name: 'About' }]} />
         <span className="stag">Our Story</span>
         <h1 className="hero-title mt-3">Inside NovuLabs, an<br /><span className="gtxt">Enterprise Software House in Islamabad</span></h1>
-        <p className="hero-sub">A senior engineering team on a single mission: building mission-critical software that the world's most demanding institutions can trust.</p>
+        <p className="hero-sub">A senior engineering team building software for banks, hospitals and government departments: systems that are inspected by a regulator as well as used by customers.</p>
       </div>
     </section>
   );

@@ -56,7 +56,8 @@ export default function NotFound() {
                     </div>
                     <div className="ctitle">{d.label}</div>
                     <Link href={d.href} className="carr">
-                      <i className="bi bi-arrow-right-circle"></i>Go
+                      <i className="bi bi-arrow-right-circle"></i>
+                      {d.label}
                     </Link>
                   </div>
                 </div>

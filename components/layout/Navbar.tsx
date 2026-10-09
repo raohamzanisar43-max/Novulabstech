@@ -150,7 +150,7 @@ const Navbar: React.FC = () => {
             >
               <Link
                 className={`nav-link dropdown-toggle ${
-                  checkActive('/about') || checkActive('/testimonials') || checkActive('/faq')
+                  checkActive('/about') || checkActive('/faq')
                     ? 'active'
                     : ''
                 }`}
@@ -169,11 +169,6 @@ const Navbar: React.FC = () => {
                 <li>
                   <Link className="dropdown-item" href="/about" onClick={() => setCompanyOpen(false)}>
                     About NovuLabs
-                  </Link>
-                </li>
-                <li>
-                  <Link className="dropdown-item" href="/testimonials" onClick={() => setCompanyOpen(false)}>
-                    Testimonials
                   </Link>
                 </li>
                 <li>

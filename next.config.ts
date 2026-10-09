@@ -37,6 +37,31 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
 
+      // /services/cross-platform-app-development was retired and consolidated
+      // into the Islamabad app page. SERP research found no evidenced demand for
+      // "flutter/react native app development islamabad" as standalone city
+      // queries \u2014 the frameworks appear as technology entities inside the
+      // city SERPs, not as searched phrases. Its one useful argument (choose the
+      // framework on the constraint, not the fashion) now lives as a section on
+      // the replacement page, which is why this is a 301 and not a 410.
+      {
+        source: '/services/cross-platform-app-development',
+        destination: '/mobile-app-development-in-islamabad',
+        permanent: true,
+      },
+
+      // /services/corporate-website-development was retired: the page scoped
+      // itself to "corporate" sites while the homepage card that linked to it
+      // said "Website Development", so it under-claimed the head term it was
+      // the only page positioned for. Rewritten and reissued at
+      // /services/website-development. 301 rather than 410 because the old URL
+      // held the same intent \u2014 the replacement is a superset of it.
+      {
+        source: '/services/corporate-website-development',
+        destination: '/services/website-development',
+        permanent: true,
+      },
+
       // /portfolio's own title tag says "Case Studies", so external parties and
       // Google will probe /case-studies. It returned 404. Claim it.
       { source: '/case-studies', destination: '/portfolio', permanent: true },

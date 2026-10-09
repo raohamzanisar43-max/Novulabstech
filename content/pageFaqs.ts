@@ -198,7 +198,7 @@ export const servicesHubFaqs: FaqItem[] = [
  * most likely to be asking how much of this to believe. These answer that
  * directly rather than defending the testimonials.
  */
-export const testimonialFaqs: FaqItem[] = [
+export const supplierVerificationFaqs: FaqItem[] = [
   {
     q: 'How should I verify claims a software company makes about its work?',
     a: 'Ask for specifics that are expensive to fake. Which regulator or standard the system had to satisfy, what the integration surface was, which architectural decision was reversed and why. A firm that built the thing can answer in detail without preparation; a firm that did not will stay at the level of adjectives. Where clients are under NDA and cannot be named, the engineering description is what remains checkable, so judge that.',
@@ -210,7 +210,7 @@ export const testimonialFaqs: FaqItem[] = [
     link: { href: '/portfolio', label: 'How the case studies are written' },
   },
   {
-    q: 'Are the outcome figures in these testimonials independently audited?',
+    q: 'Are the outcome figures in NovuLabs case studies independently audited?',
     a: 'No. Where a figure appears it is reported by the client and has not been independently verified, and it is marked as such rather than presented as an audited result. What we can evidence directly is the engineering: the standards each system was built to, the architecture decisions and their rejected alternatives, and the integration surfaces involved.',
     link: { href: '/about', label: 'What we do and do not claim' },
   },

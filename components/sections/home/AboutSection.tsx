@@ -43,23 +43,45 @@ const AboutSection: React.FC = () => {
           </div>
           <div className="col-lg-7" data-reveal="left">
             <span className="stag">Who We Are</span>
-            <h2 className="stitle mt-3">What NovuLabs does, <span className="gtxt">and who for</span></h2>
-            {/* "across 40+ countries" removed, unevidenced. lib/seo.ts
-                declares five served markets (PK, AE, GB, US, SA). */}
-            <p className="ssub mb-4">NovuLabs is an enterprise software house headquartered in Islamabad. We engineer platforms that power financial systems, healthcare networks and government portals, for institutions that answer to a regulator as well as to a user.</p>
-            
-            {/* Contextual link into the local landing page. The homepage is
-                the strongest internal source of link equity on the site, and
-                the anchor text here is the head term itself in a sentence that
-                actually needs it, not a bolted-on keyword link. */}
+            <h2 className="stitle mt-3">
+              An enterprise software house <span className="gtxt">in Islamabad</span>
+            </h2>
             <p className="ssub mb-4">
-              If you are comparing suppliers locally, the{' '}
-              <Link href="/software-house-in-islamabad">
-                software house in Islamabad
-              </Link>{' '}
-              page covers where we are, how we engage, and the questions worth asking any firm
-              before you sign. For the national picture, including the regulators involved and
-              what to settle in a contract, see{' '}
+              NovuLabs is an enterprise software house based in I-10, Islamabad, focused on
+              building intelligent, secure, and scalable digital solutions for businesses and
+              organizations around the world. From custom enterprise software and mobile
+              applications to AI-powered solutions, cloud platforms, and digital transformation,
+              we combine strong engineering expertise with a deep understanding of the problems
+              businesses need to solve.
+            </p>
+            <p className="ssub mb-4">
+              We believe that systems should be built around the people who use them, delivering
+              experiences that are reliable, intuitive, and purposeful. We work closely with our
+              clients from strategy and architecture through development, deployment, and ongoing
+              support. Our team combines engineering expertise with a business-first approach to
+              create secure and reliable technology tailored to each client&apos;s unique needs.
+            </p>
+            <p className="ssub mb-4">
+              At NovuLabs, we aim to be more than a development vendor. We work as a long-term
+              technology partner, helping businesses build software that performs today while
+              remaining scalable and adaptable for tomorrow.
+            </p>
+
+            {/* Contextual links into the service pages the paragraph above
+                describes, plus the two local landing pages. Anchor text is the
+                service name in a sentence that needed it, not a keyword row
+                bolted on underneath. */}
+            <p className="ssub mb-4">
+              In practice that means{' '}
+              <Link href="/services/legacy-system-modernization">enterprise software development</Link>,{' '}
+              <Link href="/services/website-development">custom website development</Link>,{' '}
+              <Link href="/mobile-app-development-in-islamabad">mobile app development</Link>,{' '}
+              <Link href="/services/ai-development-services">AI automation</Link> and{' '}
+              <Link href="/services/cloud-migration-services">cloud architecture</Link>. If you are
+              comparing suppliers locally, the{' '}
+              <Link href="/software-house-in-islamabad">software house in Islamabad</Link> page
+              covers how we engage and the questions worth asking any firm before you sign; for the
+              national picture see{' '}
               <Link href="/software-development-in-pakistan">software development in Pakistan</Link>.
             </p>
 

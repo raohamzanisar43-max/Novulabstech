@@ -7,9 +7,25 @@ const TechStackSection: React.FC = () => {
       <div className="container">
         <div className="row align-items-center g-5">
           <div className="col-lg-5" data-reveal="right">
-            <span className="stag">Our Stack</span>
+            <span className="stag">Our Technology Stack</span>
             <h2 className="stitle mt-3">Technologies <span className="gtxt">we build on</span></h2>
-            <p className="ssub mb-4">We use the world's best frameworks and cloud platforms, always the right tool for your requirements.</p>
+            <p className="ssub mb-4">
+              We work with proven technologies across web development, mobile applications,
+              enterprise software, cloud infrastructure, databases, and artificial intelligence.
+            </p>
+            {/* "Why we use them" rather than a longer list. A stack list on its
+                own is a claim every supplier makes identically; the selection
+                criteria are the part that says something about how the team
+                decides. */}
+            <h3 className="ctitle mt-4" style={{ fontSize: '1.05rem' }}>Why we use them</h3>
+            <p className="ssub mb-0">
+              We choose technologies based on the requirements of each project, including
+              performance, scalability, security, compatibility, development speed, and long-term
+              maintainability. This stack gives our engineers the flexibility to choose the right
+              tools for the job, whether we are building a high-performance web application, an
+              enterprise platform, a cross-platform mobile app, a cloud-native system, or an
+              AI-powered solution.
+            </p>
             
             {/* Spinning cube visual element */}
             <div className="d-flex gap-5 align-items-center flex-wrap mt-4">

@@ -6,6 +6,7 @@ import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import FaqAccordion from '@/components/ui/FaqAccordion';
 import { faqSchema, webPageSchema } from '@/lib/schema';
 import { hubFaqs, careerFaqs, marketFaqs, faqDirectory, totalAnsweredQuestions } from '@/content/faqHub';
+import { supplierVerificationFaqs } from '@/content/pageFaqs';
 
 /**
  * /faq; the site's FAQ hub.
@@ -69,7 +70,7 @@ export default function FaqPage() {
           // Only the questions this page itself answers in full. All three
           // clusters qualify; the directory below does not, because those
           // answers live on the pages that own them.
-          faqSchema([...hubFaqs, ...careerFaqs, ...marketFaqs], '/faq'),
+          faqSchema([...hubFaqs, ...supplierVerificationFaqs, ...careerFaqs, ...marketFaqs], '/faq'),
         ]}
       />
 
@@ -150,6 +151,32 @@ export default function FaqPage() {
       </section>
 
       {/* ---------------------------------------------------------------- */}
+      {/* Verifying a supplier. Rescued from the retired /testimonials page
+          (content findings register F-03, C-2): the page was taken down because
+          its quotes were placeholders, but these three answers were among the
+          most useful on the site and deserved a real home. They live here and
+          nowhere else, so each Q&A still has exactly one URL. */}
+      <section className="sec bg-w" id="verifying-a-supplier">
+        <div className="container">
+          <div className="row justify-content-center text-center mb-5">
+            <div className="col-lg-8" data-reveal="up">
+              <span className="stag">Due diligence</span>
+              <h2 className="stitle mt-3">
+                Verifying <span className="gtxt">a supplier</span>
+              </h2>
+              <p className="ssub mt-3 mb-0">
+                How to test what any software company claims about its work, including this one.
+              </p>
+            </div>
+          </div>
+          <div className="row justify-content-center">
+            <div className="col-lg-8" data-reveal="up">
+              <FaqAccordion items={supplierVerificationFaqs} />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Careers. Informational only: there is no advertised internship
           programme, and these answers say so rather than implying otherwise. */}
       <section className="sec bg-w" id="careers">
@@ -217,9 +244,12 @@ export default function FaqPage() {
                         </li>
                       ))}
                     </ul>
+                    {/* Names the group rather than repeating "Read the
+                        answers" on all 16 cards. Identical anchor text across
+                        16 different destinations describes none of them. */}
                     <Link href={group.href} className="carr">
                       <i className="bi bi-arrow-right-circle" aria-hidden="true"></i>
-                      Read the answers
+                      {group.title} answers
                     </Link>
                   </div>
                 </div>
@@ -251,7 +281,7 @@ export default function FaqPage() {
                 Prefer to read first? See{' '}
                 <Link href="/services">what we build</Link>,{' '}
                 <Link href="/portfolio">how past engagements were structured</Link>, or{' '}
-                <Link href="/testimonials">what clients say about working with us</Link>.
+                <Link href="/software-house-in-islamabad">how we work as a software house</Link>.
               </p>
             </div>
           </div>

@@ -46,7 +46,7 @@ const CaseStudyRail: React.FC = () => {
                 <Image
                   className="pimg"
                   src={`/portfolio/${cs.slug}.jpg`}
-                  alt={`${cs.codename} — ${cs.industry}`}
+                  alt={`${cs.codename}, ${cs.industry}`}
                   width={1200}
                   height={630}
                   sizes="340px"

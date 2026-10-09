@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { faqs } from '@/content/siteData';
+import Button from '@/components/ui/Button';
 import FaqAccordion from '@/components/ui/FaqAccordion';
 import JsonLd from '@/components/seo/JsonLd';
 import { faqSchema } from '@/lib/schema';
@@ -22,7 +23,7 @@ const FaqSection: React.FC = () => {
         <div className="row justify-content-center text-center mb-5">
           <div className="col-lg-6" data-reveal="up">
             <span className="stag">FAQ</span>
-            <h2 className="stitle mt-3">Frequently asked <span className="gtxt">questions</span></h2>
+            <h2 className="stitle mt-3">Hiring a software house <span className="gtxt">in Islamabad</span></h2>
           </div>
         </div>
         <div className="row justify-content-center">
@@ -32,11 +33,18 @@ const FaqSection: React.FC = () => {
         </div>
         <div className="row justify-content-center mt-4">
           <div className="col-lg-8 text-center">
-            <p className="mb-0" style={{ fontSize: '0.9rem', color: 'var(--tx3)' }}>
+            <p style={{ fontSize: '0.9rem', color: 'var(--tx3)' }}>
               These are the short answers.{' '}
               <Link href="/faq">See all frequently asked questions</Link> for engagement models,
               compliance scope and technology choices.
             </p>
+            {/* Consult CTA sits directly under the FAQ, which is where a reader
+                who has had their question answered is most likely to act. */}
+            <div className="mt-4">
+              <Button href="/contact" variant="grad">
+                <i className="bi bi-chat-dots me-1"></i>Consult Us
+              </Button>
+            </div>
           </div>
         </div>
       </div>

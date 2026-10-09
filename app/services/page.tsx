@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { servicePages } from '@/content/servicePages';
-import { getSpokesForPillar } from '@/content/serviceSpokes';
+import { getSpokesForPillar, serviceSpokes } from '@/content/serviceSpokes';
 import JsonLd from '@/components/seo/JsonLd';
 import { serviceSchema, webPageSchema } from '@/lib/schema';
 import HashScrollHandler from '@/components/ui/HashScrollHandler';
@@ -132,7 +132,7 @@ export default function ServicesPage() {
             <div className="col-lg-8" data-reveal="up">
               <span className="stag">Full capability list</span>
               <h2 className="stitle mt-3">
-                All 22 services, by <span className="gtxt">track</span>
+                All {serviceSpokes.length} services, by <span className="gtxt">track</span>
               </h2>
             </div>
           </div>

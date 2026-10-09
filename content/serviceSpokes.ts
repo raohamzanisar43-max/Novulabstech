@@ -79,12 +79,34 @@ export interface ServiceSpoke {
   icon: string;
   /** Intro paragraph(s), before any heading. */
   intro: string[];
+  /**
+   * "You probably need this if..." — the symptoms a buyer recognises in their
+   * own organisation, rendered high on the page before any explanation.
+   *
+   * These pages previously opened by teaching the topic, which is the wrong
+   * order for a commercial page: a reader arrives with a symptom, not with a
+   * curiosity about architecture. Naming the symptom first lets them self-
+   * identify in about five seconds, and everything below then reads as the
+   * answer to a question they have already asked themselves.
+   */
+  symptoms: string[];
   /** "What We Offer", rendered as H3 subsections. */
   offerings: { title: string; body: string }[];
   /** "How We Help": the business problems this solves, as paragraphs. */
   howWeHelp: string[];
   /** "Our Approach": method, as paragraphs. */
   approach: string[];
+  /**
+   * Optional long-form body, rendered as H2 sections after "Our Approach".
+   *
+   * Most spokes do not need this: the fixed offerings/howWeHelp/approach
+   * fields carry a focused page, which is the right length for a narrow
+   * capability. A spoke targeting a broad head term where the search intent
+   * genuinely spans several sub-decisions (which build route, which CMS, who
+   * does the work) needs room to answer each one under its own heading
+   * instead of compressing them into a single paragraph.
+   */
+  sections?: { heading: string; body: string[] }[];
   /** Subset of the parent pillar's real stack. */
   technologies: string[];
   /** Subset of content/siteData.ts `industries` titles that genuinely apply. */
@@ -103,40 +125,143 @@ export const serviceSpokes: ServiceSpoke[] = [
   // PILLAR: web-development
   // ===========================================================================
   {
-    slug: 'corporate-website-development',
+    slug: 'website-development',
     parentSlug: 'web-development',
     navLabel: 'Website Development',
-    h1: 'Corporate Website Development',
-    seoTitle: 'Corporate Website Development Services',
+    h1: 'Website Development Services',
+    seoTitle: 'Website Development Services: Design to Launch',
     description:
-      'Corporate and marketing website development, server-rendered and content-led. Distinct from portal work: fast, accessible and easy to update.',
-    summary: 'Marketing and corporate sites built to load fast, read cleanly and rank, not just look finished in a demo.',
+      'Website development in Islamabad across every build route: Figma, WordPress, Shopify, AI-assisted and fully custom 3D sites. Fast, secure and easy to update.',
+    summary: 'Fast, secure and efficient websites built on the route that fits the job \u2014 design-led, WordPress, Shopify, AI-assisted or fully custom.',
     icon: 'bi-globe',
+    symptoms: [
+      'Your site takes more than four seconds to load on a phone and you have stopped checking',
+      'Every content change needs a developer, so the site is months out of date',
+      'It was built by an agency that has since stopped answering email',
+      'You rank for your own company name and almost nothing else',
+      'You have a Figma file everybody approved and no working site to show for it',
+      'Something was generated with an AI builder in a weekend and now nobody can safely change it',
+    ],
     intro: [
-      'A corporate website is a different engineering problem than a customer portal or an admin console. It is read far more than it is used, most of its visitors arrive from a search result rather than a login screen, and its job is to load fast, explain the business clearly, and hand off cleanly to a contact form or a sales conversation.',
-      'This page covers that specific work: marketing sites, corporate sites and content-led public sites. Portals, dashboards and authenticated web applications are a related but different service, covered on the parent web platform page linked below.',
+      'NovuLabs builds some of the fastest, most secure and most efficient websites in Islamabad. NovuLabs is the biggest software house in Islamabad, with several highly experienced web developers such as [Shamroz Ali Zaidi](/team/shamroz-ali-zaidi), a professional website and software developer with more than ten years of experience. He is one of the best web developers in Islamabad and has helped more than twenty businesses build their websites; he helped [Dental Forte](https://www.dentalforte.pk/) build the great-looking, SEO-optimised site they have today.',
+      'You should look forward to working with NovuLabs, as it is one of the best software and website development agencies in Islamabad, and the questions worth asking any supplier are set out in our guide to choosing a [software house in Islamabad](/software-house-in-islamabad). If your site has already been built, reach out to NovuLabs and check whether it has any of the following limitations:',
+      'This page covers public, content-led website development. Portals, admin consoles and authenticated web applications are a different engineering problem, covered on our [enterprise web platform development](/services/web-development) page.',
     ],
     offerings: [
-      { title: 'Content-first architecture', body: 'Pages structured around what a visitor is trying to find, with a content model that a non-technical team can update without touching code.' },
-      { title: 'Technical SEO built in', body: 'Semantic HTML, correct heading structure, clean URLs, sitemap and metadata handled at the framework level rather than bolted on with a plugin afterwards.' },
-      { title: 'Performance as a requirement, not a goal', body: 'Server-rendered pages, optimised images and minimal client-side JavaScript, because a slow corporate site loses visitors before they read a word.' },
-      { title: 'Design system handoff', body: 'A component library the team can extend, so a new landing page or campaign site does not mean starting from a blank file.' },
+      { title: 'Design in Figma, built to match', body: 'We use Figma to design great 3D-looking, immersive websites, using tools inside Figma such as FigJam. First we design the flat layout \u2014 menus, text and buttons \u2014 and plan where the 3D objects will sit on the screen. Then we use Figma plugins such as Spline or Vectary to import, stretch and light actual 3D shapes right inside our canvas. Finally we map out the interactive animations, showing exactly how a 3D model should spin or move when a user scrolls or clicks, which gives the developers a precise visual guide for coding the final product.' },
+      { title: 'WordPress builds and rescues', body: 'We build beautiful WordPress websites using custom themes and block patterns, for teams whose priority is publishing daily without a developer, plus recovery work on sites buried under plugins nobody remembers installing. We also offer complete maintenance, security and refunds on all of our WordPress websites, which makes us the most trustworthy and responsible agency in Islamabad.' },
+      { title: 'Shopify and commerce', body: 'Theme development, custom sections, app and payment integration, and the product-data structure that decides whether your collection pages can ever rank. To keep these pages secure we use tools such as Supabase and GitHub, so data stays safe and every change is tracked. The systems sitting behind a store are covered in more depth under [API development and integration](/services/api-development-integration).' },
+      { title: 'AI-assisted delivery', body: 'Claude, ChatGPT and builders like Lovable, used where they measurably shorten the boring middle of a build, under human review, with the generated code held to the same standard as the hand-written code around it. We do not simply ship AI slop; we build websites that win customers on how they look, planned properly by our team, with AI used as a tool rather than as the designer.' },
+      { title: 'Fully custom front-ends', body: 'Server-rendered Next.js and React builds for sites whose requirements \u2014 scale, integrations, performance budgets, 3D \u2014 outgrow what a template can carry.' },
+      { title: 'Technical SEO and migration', body: 'Semantic markup, heading structure, clean URLs, sitemap, canonical tags and redirect mapping handled at framework level during the build, not bolted on with a plugin after traffic drops.' },
     ],
     howWeHelp: [
-      'Most corporate sites we are asked to rebuild are not broken, they are slow, hard to update, or built on a stack the original agency stopped supporting. The fix is rarely a redesign; it is usually a rebuild on infrastructure the client controls.',
-      'The second common request is a site that was built to look good in a pitch and never accounted for how search engines or screen readers actually parse a page. We build for both from the first commit rather than retrofitting accessibility and SEO once traffic depends on it.',
+      'Most people who come to us want a website redesign and are quietly terrified of one. That fear is reasonable. A redesign that changes your URLs without a redirect map can wipe out rankings you spent years earning, and the drop shows up a fortnight after everyone has finished congratulating each other. So we plan a redesign around what already works: the pages bringing you traffic stay, their addresses are preserved or properly redirected, and the new design goes on top of that rather than straight over it.',
+      'If the real complaint is that your website is slow, that is often the entire job and it does not need a redesign at all. A slow site is usually the same short list every time: oversized images, third-party scripts loading ahead of your own content, and a theme doing work nobody asked for. We measure page speed on a real mid-range phone rather than a developer\u2019s laptop, fix the handful of things that actually move the number, and make the site properly mobile-friendly so it behaves on the screen most of your visitors are holding.',
+      'A lot of businesses are stuck for a duller reason: nobody in the building can update the site. If publishing matters more to you than engineering, WordPress website development with a real custom theme solves it \u2014 your own team adds pages, posts and prices without raising a support ticket. Where a site is already on WordPress and buried under plugins, we strip it back to what it actually needs and take on the website maintenance, so there is somebody responsible when something breaks.',
+      'For ecommerce website development we start with the unglamorous half: product data, collections, variants, and a page structure Google can index. A Shopify store that looks beautiful and cannot be found is an expensive catalogue. We work on both ends, plus the path to checkout, because the two numbers that decide whether the build paid for itself are how many people find you and how many reach payment.',
+      'Some sites get plenty of visitors and almost no enquiries. That is rarely a design problem. It is usually one page that does not say what you do, a contact form asking for six things when it needs two, or landing pages built for a campaign that never made the next step clear. We find where people leave, rewrite the pages carrying the decision, and stop hiding the thing you want them to do.',
+      'If this is your first business website, we will deliberately keep it small. Five or six pages built properly and structured to grow beats a thirty-page site of thin pages you will never find time to maintain. The blog, the store and the 3D showpiece can come later, when there is a reason for them.',
+      'And if your last developer has simply stopped replying, that is a normal reason to [get in touch](/contact) and we hear it often. We take over existing sites: get the hosting, domain and repository access moved into your name, document what is actually running, and tell you honestly whether it is cheaper to keep the site or rebuild it.',
     ],
     approach: [
-      'We start from the pages that carry commercial weight (home, services, contact) and the information architecture that connects them, before touching visual design. A fast site with a confusing structure still loses visitors.',
-      'Server-side rendering by default. Client-side JavaScript is added only where a real interaction needs it, not as a framework default.',
+      'We start from the pages that carry commercial weight \u2014 home, services, contact \u2014 and the information architecture connecting them, before anyone opens a design tool. A fast site with a confusing structure still loses visitors.',
+      'Server-side rendering by default. Client-side JavaScript is added where a real interaction needs it, not as a framework default, because the content has to exist in the raw HTML response for a crawler that never runs your scripts.',
+      'Every build route is decided against the same three questions: who edits this after launch, how often, and what breaks if they get it wrong. The answers, not a stack preference, pick the tooling.',
     ],
-    technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Node.js'],
+    sections: [
+      {
+        heading: 'Every build route, and when each one is the right call',
+        body: [
+          'There is no single correct way to build a website, and most disappointing projects come from picking the route before understanding the job. A sixty-page content site run by a two-person marketing team and a five-page product launch with a 3D configurator are not the same problem, and a firm that only builds one way will quietly turn your problem into the one it prefers.',
+          'What follows is the honest version of each route: what it is genuinely good at, and the cost it hands you later. Read the one that sounds like your situation, then ignore the rest.',
+        ],
+      },
+      {
+        heading: 'Figma first, when design is the thing being bought',
+        body: [
+          'Figma is where a website gets argued about cheaply. Changing a layout there costs minutes; changing it after build costs a sprint. For anything design-led \u2014 a brand site, a launch page, a site whose whole job is to feel more credible than the competition \u2014 the design phase is the leverage, and skipping it to "start building and see how it looks" is the most expensive shortcut in this business.',
+          'The part that decides whether a Figma file survives contact with code is how it is built, not how it looks. A file that is 40 flat screens will be interpreted, approximated, and drift within a month. A file built as a system \u2014 defined type scale, spacing tokens, real component variants, hover and focus and error and empty states, laid out at the breakpoints that matter \u2014 translates almost mechanically into components and stays true after launch.',
+          'We work either way: you bring a file and we build to it faithfully, or we design it with you first. If you bring one, expect a short honest audit before the estimate \u2014 which screens are underspecified, where the responsive behaviour is undecided, which interaction is going to cost three times what it appears to. That conversation is cheaper before the quote than after it, and our [case studies](/portfolio) show how the finished builds turned out.',
+        ],
+      },
+      {
+        heading: 'WordPress, when publishing beats engineering',
+        body: [
+          'WordPress still runs a large share of the web for one unglamorous reason: non-technical teams can publish on it without asking anyone. If your site lives or dies on how fast a marketing person can get a post, a landing page or a changed price live, that matters more than any architectural argument against it.',
+          'Built properly, that means a custom theme, block patterns your editors can assemble without breaking the layout, and a small deliberate set of plugins. Built the usual way, it means a purchased theme carrying features you will never use, a page builder generating markup no crawler enjoys, and thirty plugins each loading their own stylesheet \u2014 which is how a "simple" site ends up taking six seconds to render a paragraph of text.',
+          'Most WordPress work we do is rescue rather than greenfield: auditing what each plugin is actually for, removing what nothing depends on, replacing a page builder with real templates, and getting the site back to a speed where visitors stay. Where the content model is the real problem \u2014 pages that should be structured data being maintained as freehand text \u2014 we say so, because no amount of caching fixes that.',
+        ],
+      },
+      {
+        heading: 'Shopify and commerce builds',
+        body: [
+          'On a store, the website is the operations layer. Theme work, custom sections, checkout behaviour, app and payment integrations, and the shape of your product data all feed into two numbers that decide whether the build paid for itself: how many visitors reach checkout, and how many arrive from search in the first place.',
+          'The second number is where most stores are quietly losing. Collection pages with no unique content cannot rank; product titles written for an internal spreadsheet cannot rank; variant structures that create four near-identical URLs for one product compete with themselves. Those are content-model decisions made during the build, and they are painful to reverse once a catalogue is live and indexed \u2014 which is exactly why we argue about them early, before the theme is skinned.',
+          'Apps get the same scrutiny as plugins. Every one is third-party JavaScript on your critical path, and a review widget that adds a second to every product page load is not free marketing.',
+        ],
+      },
+      {
+        heading: 'AI-assisted builds: Claude, ChatGPT, Lovable and the rest',
+        body: [
+          'We use AI tooling daily and will say plainly where it helps and where it does not. It is genuinely good at the boring middle of a build: scaffolding repetitive components, converting a settled design into first-pass markup, writing the migration script, drafting test cases, translating content, and explaining an unfamiliar codebase faster than reading it. On that work it removes days, and refusing to use it is just billing you for typing.',
+          'Builders like Lovable are the fastest way to get from an idea to something clickable. For validating a concept, pitching internally, or putting a real page in front of real users this week, that speed is the whole point and nothing else competes with it.',
+          'What these tools do not yet do reliably is own the decisions that cost money later: data modelling, access control, performance budgets, accessibility semantics, and anything whose failure mode is silent. Generated code tends to look confident and correct, which is precisely why it needs reviewing rather than trusting. Our rule is simple \u2014 AI can write it, a human is accountable for it, and it passes the same review, accessibility and performance checks as everything else in the repository.',
+          'If you have already built something with an AI builder and hit the wall where each new change breaks two old things, that is a normal place to arrive and a normal place to hand over. Usually the design and the content are worth keeping, and what needs rebuilding is the structure underneath them.',
+        ],
+      },
+      {
+        heading: 'Fully custom builds, and the sites that need them',
+        body: [
+          'A custom front-end earns its cost when the requirements stop fitting a template: real traffic volume, a performance budget you have to meet rather than hope for, several systems to integrate, a design system shared across multiple properties, or interaction that no theme supports. Below that threshold, custom is often vanity, and we will tell you when we think you are about to buy it. Where the product is a subscription rather than a site, [custom SaaS development](/services/custom-saas-development) is the closer fit.',
+          'Our default is server-rendered Next.js with React and TypeScript, styled with Tailwind, on Node. The reason is less about fashion than about what reads the page. GPTBot, ClaudeBot, PerplexityBot and CCBot largely do not execute JavaScript, so a client-rendered site hands them an empty shell and becomes invisible to every major AI assistant no matter how strong the writing is. "Is the content in the raw HTML response?" is a release check here, not an assumption.',
+        ],
+      },
+      {
+        heading: '3D, WebGL and motion: who actually builds these',
+        body: [
+          'A genuinely beautiful 3D website is not a front-end task with a library bolted on. It is three specialists working to one performance budget, and projects fail when a business hires one of the three and hopes the rest is configuration.',
+          'The 3D artist models, textures and lights the scene, and decides what the thing is supposed to feel like. The WebGL or Three.js engineer gets that scene running at a stable frame rate on a mid-range phone \u2014 draw calls, texture budgets, level of detail, loading strategy \u2014 which is where most of the real engineering lives. The motion designer owns choreography and timing: what moves, when, how it responds to scroll or cursor, and when it deliberately does nothing. A fourth role quietly decides whether the site ships: someone accountable for the non-3D fallback, because a heavy scene that ignores a slow device or a reduced-motion preference is an accessibility failure and a bounce, not a showcase.',
+          'On our side that named individual is [Shamroz Ali Zaidi](/team/shamroz-ali-zaidi), who leads the build on this work. We put one accountable name on it rather than selling you \"our team\".',
+          'If a supplier will not tell you which named individual is responsible for frame rate on a 3D build, that is worth more than any showreel.',
+        ],
+      },
+      {
+        heading: 'Speed, accessibility and the crawlers that now read your site',
+        body: [
+          'Three requirements get treated as polish and are actually structural, which is why adding them late costs a multiple of designing them in.',
+          'Speed is mostly a short, unexciting list: bound your image dimensions, keep third-party scripts off the critical path, defer the JavaScript nothing on first paint needs, and set an actual largest-contentful-paint budget somebody owns. It gets measured on representative devices and connections, because everything is fast on a developer laptop on office fibre.',
+          'Accessibility is a property of the component library, not a checklist at the end. Semantic structure, keyboard operability, visible focus, adequate contrast and honest form errors are decisions made once in a button and a field, and inherited by every page afterwards. Retrofitting them later means reopening every component you already shipped.',
+          'Crawlability now has two audiences. Search engines still want clean structure, one clear H1 per page, descriptive titles, self-referencing canonical tags and a sitemap that matches reality. AI assistants want the same thing plus content that exists without JavaScript, because increasingly your answer reaches a buyer as a citation inside an assistant rather than as a blue link.',
+        ],
+      },
+      {
+        heading: 'Migration without losing what the old site earned',
+        body: [
+          'The fastest way to lose money on a new website is to launch a better one onto a worse set of URLs. If a page has spent years accumulating links and rankings, a redesign that quietly changes its address throws that away, and the traffic loss shows up two weeks later when the launch is already being celebrated.',
+          'So a migration starts with an inventory: which URLs hold real value, which redirect where, which should be consolidated because three pages have been competing for one search intent, and which should return a clean 410 because they should never have existed. Then sitemap, canonical tags and internal links are verified against that plan before launch, and search performance is watched closely for the first weeks after \u2014 the window where a mistake is still cheap to fix.',
+        ],
+      },
+      {
+        heading: 'What you own when we are finished',
+        body: [
+          'Repository, hosting account, domain, CMS and analytics are yours and in your name from the start, not held on your behalf. You should be able to hire someone else next year without asking our permission for access, and if that sounds like a low bar, it is one a surprising number of agencies fail.',
+          'Handover is a component library your team can extend, documentation for the parts that are not obvious, and a content model designed so routine work \u2014 a new page, a changed price, a campaign landing page \u2014 does not need an engineering ticket. The measure of a finished website build is not the launch screenshot; it is how cheap the tenth change is. More of the questions buyers ask before signing are answered in our [FAQ](/faq), or you can [talk to an architect directly](/contact).',
+        ],
+      },
+    ],
+    technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Node.js', 'WordPress', 'Shopify', 'Figma'],
     industries: ['Banking & Fintech', 'Healthcare & MedTech', 'Manufacturing & Logistics'],
     faqs: [
-      { q: 'How is this different from your web platform development service?', a: 'This page covers marketing and corporate sites: content-led, public, largely read rather than logged into. The web platform service covers portals, admin consoles and applications with authentication and workflow behind them. Many projects need both, built on the same stack so they share components.' },
-      { q: 'Can you work with our existing brand and content, or do we need a full redesign?', a: 'Most rebuilds keep the existing brand and reuse existing copy where it works. A rebuild is usually about the engineering underneath: speed, structure and how easy the site is to maintain, not the visual identity.' },
-      { q: 'Will our content team be able to update the site without a developer?', a: 'Yes, that is a specific requirement we design for. The content model is built so routine updates, like a new page or a changed price, do not need an engineering ticket.' },
-      { q: 'Do you handle the SEO migration if we are moving from an existing site?', a: 'Yes. Redirect mapping, preserving indexed URLs where they are valuable, and verifying the new site’s sitemap and canonical tags are part of a migration, not an afterthought.' },
+      { q: 'How is this different from your web platform development service?', a: 'This page covers public, content-led websites: marketing sites, brand sites, corporate sites and stores, which are read far more than they are used. The web platform service covers portals, admin consoles and applications with authentication and workflow behind them. Many organisations need both, and we build them on the same stack so they share a component library rather than drifting into two different-looking products.' },
+      { q: 'Should we use WordPress, Shopify, an AI builder or a custom build?', a: 'It depends on who edits the site after launch and how often. Daily publishing by a non-technical team points to WordPress. Selling physical products points to Shopify. Validating an idea fast points to an AI builder like Lovable. Real traffic, hard performance budgets, several integrations or 3D work point to a custom Next.js build. We recommend a route after hearing the actual constraints, and we will say when a custom build would be money you do not need to spend.' },
+      { q: 'Do you use AI to build websites?', a: 'Yes, deliberately and under review. AI tooling is genuinely faster at scaffolding components, converting a settled design into first-pass markup, writing migrations and drafting tests. It is not left to own data modelling, access control, accessibility semantics or performance decisions, and every line it produces passes the same review as hand-written code. A human is accountable for what ships.' },
+      { q: 'Can you finish or fix a site someone built with an AI builder?', a: 'Usually, yes, and it is a common starting point. The design and content are normally worth keeping; what needs rebuilding is the structure underneath, so the next change takes ten minutes instead of breaking two other things. We audit first and tell you honestly whether rescuing or restarting is cheaper.' },
+      { q: 'Can you build a 3D or animated website?', a: 'Yes, with the caveat that it needs a 3D artist, a WebGL engineer and a motion designer working to one performance budget, plus someone accountable for the non-3D fallback. A heavy scene that ignores a mid-range phone or a reduced-motion preference is a bounce, not a showcase. Shamroz Ali Zaidi leads that work and is named on your proposal.' },
+      { q: 'Can you work with our existing brand and Figma file?', a: 'Yes. Most rebuilds keep the existing brand and reuse existing copy where it still works. If you bring a Figma file we audit it first and tell you which screens are underspecified or where the responsive behaviour is undecided, because that conversation is much cheaper before the quote than after the build.' },
+      { q: 'Will our content team be able to update the site without a developer?', a: 'Yes, and it is a requirement we design for rather than a nice-to-have. The content model is built so routine updates \u2014 a new page, a changed price, a campaign landing page \u2014 do not need an engineering ticket.' },
+      { q: 'Do you handle the SEO migration if we are moving from an existing site?', a: 'Yes. Redirect mapping, preserving the indexed URLs that carry real value, consolidating pages that have been competing for one search intent, and verifying the new sitemap and canonical tags are part of the migration plan rather than an afterthought. We also watch search performance for the first weeks after launch, while a mistake is still cheap to fix.' },
+      { q: 'How long does a website build take?', a: 'It is driven by scope and by how fast decisions and content arrive, which is usually the real constraint rather than engineering. A five-page site built to an approved design moves quickly; a sixty-page migration with a new content model does not. We scope in phases so the commercially important pages go live first instead of everything waiting on the slowest section.' },
     ],
     relatedSpokes: ['api-development-integration', 'custom-saas-development'],
     relatedCaseStudies: [],
@@ -156,6 +281,12 @@ export const serviceSpokes: ServiceSpoke[] = [
       'Modernizing legacy enterprise systems: migrating aging platforms, replacing unsupported stacks, and untangling business logic without stopping the business.',
     summary: 'Replacing or re-platforming an aging system that the business depends on but nobody wants to touch anymore.',
     icon: 'bi-cpu-fill',
+    symptoms: [
+      'One person understands the system and they are talking about retiring',
+      'The vendor stopped supporting your version and upgrades are no longer offered',
+      'A change that should take two days takes three weeks and nobody can say why',
+      'You are paying maintenance on something you are afraid to touch',
+    ],
     intro: [
       'Most organisations do not decide to modernise a system because it stopped working. They decide because the vendor stopped supporting it, the one engineer who understood it left, or every new feature now takes three times as long as it should. The system still runs; the risk is that it keeps running exactly until the day it cannot be fixed.',
       'This work sits underneath our broader enterprise software practice, specifically for organisations replacing or re-platforming something that already exists rather than building from a blank page.',
@@ -196,6 +327,12 @@ export const serviceSpokes: ServiceSpoke[] = [
       'Custom ERP development covering finance, HR, procurement and supply chain in one system, built around how your organisation actually operates, not a template.',
     summary: 'ERP built around your actual processes, for organisations where an off-the-shelf module list stops fitting.',
     icon: 'bi-diagram-3-fill',
+    symptoms: [
+      'Finance, procurement and the warehouse each keep their own spreadsheet',
+      'Month-end close involves reconciling three exports by hand',
+      'Your process is genuinely unusual and every ERP demo requires a workaround',
+      'Nobody in the business can get a current number without asking someone',
+    ],
     intro: [
       'Off-the-shelf ERP works well for organisations whose processes look like the software vendor’s template. It works less well for a manufacturer with a specific production workflow, or an organisation whose finance and procurement processes exist for a genuine regulatory or operational reason that the standard module cannot express.',
       'We build ERP systems around the process, not the other way round, integrating finance, HR, procurement and supply chain data into one authoritative system rather than reconciling spreadsheets between departments.',
@@ -236,6 +373,12 @@ export const serviceSpokes: ServiceSpoke[] = [
       'Custom CRM development for processes off-the-shelf CRM cannot express: lead scoring, pipeline logic and omnichannel data in a single record.',
     summary: 'A CRM built around your sales and relationship process, when a general-purpose CRM makes you adapt to it instead.',
     icon: 'bi-people-fill',
+    symptoms: [
+      'Your reps keep the real pipeline in a spreadsheet next to the CRM',
+      'Reporting numbers do not match what the sales team believes is true',
+      'You have customised the platform so heavily that upgrades now break things',
+      'Customer history lives in four tools and none of them agree',
+    ],
     intro: [
       'General-purpose CRM platforms are built to fit as many sales processes as possible, which means every organisation ends up customising pipeline stages, fields and automations until the underlying platform is barely visible. At a certain point, the customisation itself becomes the maintenance burden.',
       'A custom CRM makes sense once your relationship data, lead scoring logic, or pipeline structure has outgrown what the platform’s configuration options can express without workarounds.',
@@ -276,6 +419,12 @@ export const serviceSpokes: ServiceSpoke[] = [
       'Government-grade portal development: identity verification, tax filing and digital signatures built to the audit standard public-sector contracts require.',
     summary: 'Public-sector portals built for the security, availability and audit trail a government contract requires.',
     icon: 'bi-buildings-fill',
+    symptoms: [
+      'A procurement security review is coming and the documentation does not exist',
+      'Citizens abandon the process halfway and you cannot see where',
+      'Identity verification works in testing and fails for real applicants',
+      'The system cannot show who accessed a record, or when',
+    ],
     intro: [
       'A government portal is judged differently than a commercial one. Availability, security and auditability are contractual requirements rather than quality goals, and the system has to hold up under a security review from people who will never use it day to day, not just a user acceptance test.',
       'We build national identity, tax filing, and citizen-service portals with that review in mind from the architecture stage, including the identity and digital-signature infrastructure they depend on.',
@@ -316,6 +465,12 @@ export const serviceSpokes: ServiceSpoke[] = [
       'RESTful and GraphQL API development for enterprise systems, plus integration work connecting existing platforms that were never designed to talk to each other.',
     summary: 'APIs and integrations that connect the systems your organisation already runs, built with the security a shared endpoint needs.',
     icon: 'bi-plug-fill',
+    symptoms: [
+      'Two systems hold the same customer and disagree about the details',
+      'Every new integration is a bespoke project rather than a configuration',
+      'A partner has asked for API access and you have nothing to give them',
+      'Data moves between systems by scheduled export and someone watching it',
+    ],
     intro: [
       'Most enterprise problems that look like "we need a new system" are integration problems: two platforms that hold overlapping data and never agreed on which one is authoritative. Building an API is the easy part; deciding what the API represents, and securing it properly, is where the real work is.',
       'We design and build APIs for new systems and integration layers connecting existing ones, whether that means a public developer-facing API or an internal service boundary nobody outside the organisation will ever see.',
@@ -342,7 +497,7 @@ export const serviceSpokes: ServiceSpoke[] = [
       { q: 'How do you decide which system owns which data when two platforms overlap?', a: 'By mapping the actual data flow with the teams that use each system, then defining ownership explicitly rather than assuming it. This is usually the first and most important step in any integration project, before any code is written.' },
       { q: 'What happens when we need to change the API later without breaking existing integrations?', a: 'Versioning is built in from the first release specifically so this is possible. A new version can ship alongside the old one, giving existing integrations time to migrate rather than breaking on deployment.' },
     ],
-    relatedSpokes: ['legacy-system-modernization', 'financial-messaging-schema-integration', 'corporate-website-development'],
+    relatedSpokes: ['legacy-system-modernization', 'financial-messaging-schema-integration', 'website-development'],
     relatedCaseStudies: [],
     relatedPosts: [],
   },
@@ -360,6 +515,12 @@ export const serviceSpokes: ServiceSpoke[] = [
       'Core banking development and modernisation: accounts, ledgers and lending engineered alongside your existing core, not as a full replacement.',
     summary: 'Core banking and lending platform engineering, usually alongside an existing core rather than replacing it outright.',
     icon: 'bi-bank',
+    symptoms: [
+      'Your core cannot give you a real-time view of a transaction',
+      'Launching a product means a change request to a vendor and a long queue',
+      'Reconciliation between the ledger and the rail is a manual morning job',
+      'You need a capability the core was never designed to support',
+    ],
     intro: [
       'Most institutions do not replace their core banking system outright; the risk and cost of a full replacement is rarely justified when the actual need is a specific capability the existing core cannot support. Our core banking work usually means building alongside an incumbent core, at the transaction event and customer record level.',
       'This covers account management, ledger systems, digital wallets and lending platforms, whether that is a new capability layered on an existing core or a modernised replacement for one part of it.',
@@ -400,6 +561,12 @@ export const serviceSpokes: ServiceSpoke[] = [
       'Payment gateway development engineered to PCI-DSS: card processing, local rail connectivity and settlement reconciliation for licensed institutions.',
     summary: 'Payment gateway and switching infrastructure engineered to PCI-DSS, connecting card networks and local payment rails.',
     icon: 'bi-credit-card-2-front',
+    symptoms: [
+      'Failed payments leave the ledger and the network disagreeing',
+      'You are scoped for PCI-DSS and the assessment is looming',
+      'A processor outage takes your payments down with no fallback',
+      'Settlement discrepancies are found days later, by a person',
+    ],
     intro: [
       'A payment gateway sits at the point where a transaction can fail expensively and publicly, so the engineering discipline around it is different from most software: every state has to be recoverable, every failure mode has to be handled explicitly, and the system has to be built to PCI-DSS requirements from the start rather than audited into compliance afterwards.',
       'We build payment gateways and switching infrastructure that connect card networks and local payment rails, for licensed institutions and EMIs that need infrastructure they control instead of a black-box processor.',
@@ -440,6 +607,12 @@ export const serviceSpokes: ServiceSpoke[] = [
       'Card scheme integration for issuing and acquiring, including MDES and VTS tokenization, taken through scheme certification with the operating institution.',
     summary: 'Card scheme issuing and acquiring integration, including tokenization, taken through certification with the institution that operates it.',
     icon: 'bi-patch-check-fill',
+    symptoms: [
+      'Scheme certification has failed once already and the feedback is opaque',
+      'You need tokenisation for a wallet and MDES or VTS is unfamiliar ground',
+      'Issuing and acquiring are being quoted as one project by someone who has done neither',
+      'Your processor\'s roadmap does not include what you need this year',
+    ],
     intro: [
       'Integrating with Mastercard and Visa is not a single API call; it is a certification process the scheme runs against the institution operating the platform, covering issuing, acquiring, and tokenisation depending on what the institution offers. We build the technical integration and support the institution through that certification process.',
       'This work is scheme-specific and detail-heavy: message formats, tokenisation flows and the specific test cases each network requires before granting production access.',
@@ -484,6 +657,12 @@ export const serviceSpokes: ServiceSpoke[] = [
       'AML case management and risk scoring: the analyst workflow, investigation tooling and audit trail behind an alert, not only the detection engine.',
     summary: 'The analyst-facing side of AML: case workflow, risk scoring and the audit trail an examiner reviews months later.',
     icon: 'bi-shield-lock-fill',
+    symptoms: [
+      'Case status is tracked in a spreadsheet outside the monitoring system',
+      'Analysts cannot show why a case was closed six months later',
+      'Risk scoring rules need an engineering ticket to change',
+      'An examination found gaps in your decision records',
+    ],
     intro: [
       'An alert is not a decision. Between a transaction monitoring system flagging something and a filed STR or a cleared case, there is a workflow: an analyst investigates, a risk score gets applied or adjusted, a decision gets made, and all of it has to be reconstructable by an examiner who was not there when it happened.',
       'This is that layer: risk scoring, case assignment, investigation tooling and the audit trail, separate from the detection engine covered on the transaction monitoring page and the alerting logic itself.',
@@ -524,6 +703,12 @@ export const serviceSpokes: ServiceSpoke[] = [
       'Sanctions and PEP screening software for onboarding and ongoing monitoring: name matching against OFAC and NACTA lists, tuned to reduce false positives.',
     summary: 'Name-matching and screening against sanctions and PEP lists, tuned so analysts are not drowning in false positives.',
     icon: 'bi-flag-fill',
+    symptoms: [
+      'Analysts clear ten false positives for every real match',
+      'Screening happens at onboarding and never again after that',
+      'A list update silently broke matching and nobody noticed for weeks',
+      'Name transliteration is producing misses you only find by accident',
+    ],
     intro: [
       'Screening a customer against a sanctions or politically-exposed-persons list sounds like a lookup. In practice it is a fuzzy-matching problem: names transliterate differently across languages, dates of birth are sometimes missing, and a screening engine tuned too loosely buries analysts in false positives while one tuned too tight misses genuine matches.',
       'We build screening systems for onboarding and ongoing monitoring against OFAC, NACTA and equivalent sanctions and PEP data sources, tuned for your actual customer base instead of a generic default.',
@@ -564,6 +749,12 @@ export const serviceSpokes: ServiceSpoke[] = [
       'Real-time transaction monitoring systems combining deterministic rules with model-assisted prioritization, designed so every alert has an explainable reason.',
     summary: 'Real-time monitoring built on rules an examiner can follow, with machine learning prioritizing the analyst queue rather than deciding it.',
     icon: 'bi-activity',
+    symptoms: [
+      'Alert volume exceeds what your team can honestly review',
+      'Rules were set years ago and nobody remembers the reasoning',
+      'You cannot reproduce why an alert fired last quarter',
+      'A model scores transactions and nobody can explain a single score',
+    ],
     intro: [
       'Transaction monitoring is the detection layer of an AML programme: watching transaction patterns in real time or near real time and generating alerts when something matches a defined typology. The engineering challenge is scale (monitoring millions of transactions) combined with precision (not burying analysts in noise).',
       'We build monitoring engines around deterministic rules, since every alert needs an explainable reason for an examiner, with machine learning used to prioritise the analyst queue rather than replacing the rules that generate alerts.',
@@ -604,6 +795,12 @@ export const serviceSpokes: ServiceSpoke[] = [
       'ISO 20022, SWIFT and goAML XML schema integration for regulatory reporting and financial messaging: validated internally before anything reaches a regulator.',
     summary: 'ISO 20022, SWIFT and goAML XML integration, validated against the schema before anything is submitted to a regulator or network.',
     icon: 'bi-filetype-xml',
+    symptoms: [
+      'Submissions are being rejected and the error messages are unhelpful',
+      'A schema version changed and you found out from the rejections',
+      'Validation happens after submission rather than before it',
+      'Message mapping lives in one engineer\'s head',
+    ],
     intro: [
       'Financial and regulatory messaging runs on strict schemas: ISO 20022 for payments messaging, SWIFT XML for correspondent banking, goAML XML for AML reporting to Pakistan’s Financial Monitoring Unit. Getting the schema wrong does not fail gracefully; it means a rejected submission, a bounced payment, or a compliance filing that has to be corrected and resubmitted.',
       'We build the integration layer that generates, validates and submits these messages, checking conformance against the schema in your own environment before anything reaches the regulator or the network.',
@@ -644,6 +841,12 @@ export const serviceSpokes: ServiceSpoke[] = [
       'goAML integration and FMU Pakistan regulatory reporting: STR and CTR filing pipelines built for the Anti-Money Laundering Act 2010 and SBP requirements.',
     summary: 'STR and CTR filing pipelines built directly for goAML and Pakistan’s Financial Monitoring Unit reporting obligations.',
     icon: 'bi-bank2',
+    symptoms: [
+      'Filings are re-typed into the goAML portal by hand',
+      'You cannot connect a filed report back to the case that produced it',
+      'STR narratives are assembled from scattered analyst notes at filing time',
+      'An FMU rejection took days to diagnose',
+    ],
     intro: [
       'Institutions regulated under Pakistan’s Anti-Money Laundering Act 2010 report suspicious and currency transactions to the Financial Monitoring Unit through the goAML system. That reporting obligation touches case management, schema-accurate XML generation, and the submission workflow itself, and a gap in any part of that chain becomes a compliance finding.',
       'This page covers the FMU reporting pipeline specifically: taking a case decision through to a correctly filed STR or CTR. The XML schema work behind it is covered on the messaging integration page linked below.',
@@ -688,6 +891,12 @@ export const serviceSpokes: ServiceSpoke[] = [
       'Electronic health record and clinical systems development built to HL7 FHIR interoperability and the HIPAA Security Rule, including telemedicine integration.',
     summary: 'Electronic health record and clinical software built for real HL7 FHIR interoperability, not a translation layer bolted on at the end.',
     icon: 'bi-heart-pulse-fill',
+    symptoms: [
+      'A lab or referring provider wants to exchange data and it is a project every time',
+      'Clinicians share logins because the real workflow is too slow',
+      'Patient data is structured as free text and cannot be analysed',
+      'A HIPAA review is scheduled and audit logging is incomplete',
+    ],
     intro: [
       'An EHR is only as useful as its ability to exchange data with the rest of a patient’s care: labs, pharmacy, referring providers, and eventually other hospital systems. Building interoperability as a genuine architectural principle rather than a translation layer added at the end determines whether that data exchange is fast or painful for years afterward.',
       'We build EHR and clinical systems, including telemedicine integration, to the HIPAA Security Rule and to HL7 FHIR interoperability, distinct from the revenue-cycle and billing work covered on the medical billing page.',
@@ -728,6 +937,12 @@ export const serviceSpokes: ServiceSpoke[] = [
       'Medical billing and revenue cycle software with ICD-10/CPT coding, claim management and payer integration, built alongside or separate from a clinical EHR.',
     summary: 'Revenue-cycle software: ICD-10/CPT coding, claim management and payer integration, distinct from the clinical record itself.',
     icon: 'bi-clipboard2-pulse-fill',
+    symptoms: [
+      'Denials are found weeks later and the reason is unclear',
+      'Coding errors are caught by the payer rather than by your system',
+      'Each payer needs a different manual process',
+      'Days in accounts receivable is climbing and nobody can attribute it',
+    ],
     intro: [
       'Medical billing is a different problem from clinical documentation, even though the two are closely related and often need to share data. Billing software has its own domain: coding accuracy, claim submission, payer-specific rules, and denial management, and it is worth engineering as its own system rather than an afterthought bolted onto an EHR.',
       'We build billing and revenue-cycle systems with ICD-10 and CPT coding, claim management and payer integration, either alongside a clinical system we are also building or integrated with an EHR the provider already runs.',
@@ -763,46 +978,6 @@ export const serviceSpokes: ServiceSpoke[] = [
   // PILLAR: mobile-app-development
   // ===========================================================================
   {
-    slug: 'cross-platform-app-development',
-    parentSlug: 'mobile-app-development',
-    navLabel: 'Cross-Platform Apps',
-    h1: 'Cross-Platform Mobile App Development',
-    seoTitle: 'Cross-Platform App Development Services',
-    description:
-      'Cross-platform mobile app development with Flutter and React Native, for products that need one codebase across iOS and Android without native rework.',
-    summary: 'One codebase across iOS and Android with Flutter or React Native, for products where native-per-platform is not worth the duplicated cost.',
-    icon: 'bi-phone-fill',
-    intro: [
-      'Cross-platform development is the right default for most mobile products: one codebase targeting both iOS and Android, which means one team, one release cycle, and roughly half the ongoing maintenance of building and keeping two native codebases in sync. It stops being the right default when an app needs deep platform-specific capability that a cross-platform framework cannot expose cleanly, which is when native development, covered on the iOS and Android pages, is the better call.',
-      'This page covers Flutter and React Native development specifically. We will tell you honestly which approach fits your product before proposing either.',
-    ],
-    offerings: [
-      { title: 'Flutter development', body: 'Single-codebase apps with native-compiled performance, well suited to products where UI consistency across platforms matters as much as native feel.' },
-      { title: 'React Native development', body: 'Cross-platform apps sharing code with a React-based web product where one exists, useful when a team already has React expertise in-house.' },
-      { title: 'Offline-first architecture', body: 'Local data persistence and sync logic for field or connectivity-constrained environments, so the app remains usable when the network is not.' },
-      { title: 'Push notifications and background sync', body: 'Notification infrastructure via Firebase and background data sync that behaves correctly across both platforms’ different lifecycle rules.' },
-    ],
-    howWeHelp: [
-      'The decision between cross-platform and native is a real engineering trade-off, and we make it honestly rather than defaulting to whichever framework we most recently used. Cross-platform wins when time-to-market and one shared codebase outweigh needing the newest platform-specific APIs on day one.',
-      'A recurring problem we solve within cross-platform apps specifically is connectivity: field operations, wallet apps used in low-signal areas, or telemedicine access in regions with unreliable networks all need an offline-first design, not just error handling for a dropped connection.',
-    ],
-    approach: [
-      'We assess whether cross-platform genuinely fits before proposing it, including what platform-specific capability the product might need later, not just what it needs at launch.',
-      'For connectivity-sensitive products, offline behaviour is designed from the data layer up, not added as a fallback once the online-only version is built.',
-    ],
-    technologies: ['Flutter', 'React Native', 'Firebase', 'WebRTC'],
-    industries: ['Banking & Fintech', 'Healthcare & MedTech', 'E-Commerce & Retail'],
-    faqs: [
-      { q: 'Should we build cross-platform or native for our app?', a: 'It depends on what the app needs to do and how much platform-specific capability matters. Cross-platform is usually right for most business apps; native makes more sense when you need the newest platform APIs immediately or truly platform-specific performance. We will tell you which fits before proposing either.' },
-      { q: 'Flutter or React Native, which do you recommend?', a: 'It depends on your existing team and product. React Native is a strong fit if you already have React expertise or a React web product to share code with; Flutter tends to give more consistent UI behaviour across platforms out of the box. We make this call based on your specific situation, not a default preference.' },
-      { q: 'Can the app work reliably in areas with poor connectivity?', a: 'Yes, that is a design requirement we build for specifically, with local data persistence and sync logic, rather than an app that simply shows an error when the connection drops.' },
-      { q: 'Can we start cross-platform and move to native later if we need to?', a: 'In some cases, yes, particularly if the initial architecture anticipates it. It is worth raising this possibility during initial scoping so the app is not built in a way that makes a later native migration harder than it needs to be.' },
-    ],
-    relatedSpokes: ['ios-app-development', 'android-app-development'],
-    relatedCaseStudies: ['finsync-digital-wallet', 'carepulse-telemedicine-app'],
-    relatedPosts: [],
-  },
-  {
     slug: 'ios-app-development',
     parentSlug: 'mobile-app-development',
     navLabel: 'iOS Development',
@@ -812,6 +987,12 @@ export const serviceSpokes: ServiceSpoke[] = [
       'Native iOS app development in Swift and SwiftUI, for apps that need platform-specific performance, App Store approval discipline, and deep iOS API access.',
     summary: 'Native Swift and SwiftUI development for apps that need the platform’s full capability, not a cross-platform approximation of it.',
     icon: 'bi-apple',
+    symptoms: [
+      'App Store review has rejected you and the reason is not obvious',
+      'You need a platform API that your cross-platform framework does not expose',
+      'Performance or battery behaviour is failing on real devices',
+      'Biometric and secure storage requirements are beyond a wrapper',
+    ],
     intro: [
       'Native iOS development makes sense when an app depends on platform-specific capability a cross-platform framework cannot expose well: deep hardware integration, the newest iOS APIs on release day, or performance requirements where a compiled cross-platform layer introduces measurable overhead.',
       'We build in Swift and SwiftUI, with the App Store approval process, Apple’s review guidelines and platform conventions treated as part of the build, not an afterthought at submission time.',
@@ -838,7 +1019,7 @@ export const serviceSpokes: ServiceSpoke[] = [
       { q: 'Do you handle biometric authentication and secure data storage?', a: 'Yes, using iOS’s native security capabilities like Keychain and biometric authentication as the platform intends, which is particularly relevant for financial and healthcare apps handling sensitive data.' },
       { q: 'Can a native iOS app share a backend with an Android or web app?', a: 'Yes, the backend and API layer are typically shared across platforms regardless of whether the client apps are native or cross-platform. Native development affects the client only, not the server architecture.' },
     ],
-    relatedSpokes: ['android-app-development', 'cross-platform-app-development'],
+    relatedSpokes: ['android-app-development', 'api-development-integration'],
     relatedCaseStudies: ['finsync-digital-wallet'],
     relatedPosts: [],
   },
@@ -852,6 +1033,12 @@ export const serviceSpokes: ServiceSpoke[] = [
       'Native Android app development in Kotlin for a diverse device ecosystem, including enterprise Google Play deployment and platform-specific integration.',
     summary: 'Kotlin-first native development built for the range of devices and OS versions an Android product has to run on.',
     icon: 'bi-android2',
+    symptoms: [
+      'It works on a flagship and fails on the mid-range devices your users own',
+      'Background sync and notifications behave differently per manufacturer',
+      'You need managed distribution rather than the public Play Store',
+      'A device fleet in the field is running versions you cannot control',
+    ],
     intro: [
       'Android’s device diversity is the real engineering challenge native Android development solves: a product built for a flagship phone on the latest OS version behaves differently on a mid-range device three OS versions behind, and both are real users. That diversity is also why native development sometimes pays off over cross-platform, when an app needs to run well across genuinely varied hardware.',
       'We build Kotlin-first native Android apps, including enterprise deployment through Google Play, with device and OS-version diversity treated as a design constraint from the start.',
@@ -878,7 +1065,7 @@ export const serviceSpokes: ServiceSpoke[] = [
       { q: 'When does native Android make more sense than cross-platform?', a: 'When device diversity or platform-specific behaviour (background processing, deep hardware integration, manufacturer-specific OS quirks) genuinely needs to be handled at the native level. For most business apps without that constraint, cross-platform is the more efficient choice.' },
       { q: 'Can this integrate with the same backend as an iOS or web app?', a: 'Yes, the backend and API layer are shared across platforms regardless of client technology. Choosing native Android affects the client application only.' },
     ],
-    relatedSpokes: ['ios-app-development', 'cross-platform-app-development'],
+    relatedSpokes: ['ios-app-development', 'api-development-integration'],
     relatedCaseStudies: [],
     relatedPosts: [],
   },
@@ -896,6 +1083,12 @@ export const serviceSpokes: ServiceSpoke[] = [
       'Cloud migration and infrastructure engineering on AWS, Azure and GCP: architecture, migration planning and managed Kubernetes infrastructure for enterprises.',
     summary: 'Cloud migration and infrastructure architecture on AWS, Azure or GCP, planned around your actual data residency and uptime constraints.',
     icon: 'bi-cloud-fill',
+    symptoms: [
+      'Your cloud bill grew after migration instead of shrinking',
+      'Infrastructure was configured by hand and nobody can reproduce it',
+      'A regulator has asked where the data physically sits and the answer is vague',
+      'You migrated the servers and kept every on-premise assumption',
+    ],
     intro: [
       'Cloud migration is rarely just "move the servers." It usually means re-architecting for how a cloud platform actually wants to run software: managed services instead of self-hosted equivalents, infrastructure defined as code instead of manually configured, and a cost model that behaves very differently from a fixed-cost data centre if the architecture is not designed for it.',
       'We plan and execute cloud migrations on AWS, Azure and GCP, and build the Kubernetes platform infrastructure underneath applications that need it, distinct from the applied AI and automation work covered on the AI development page.',
@@ -936,6 +1129,12 @@ export const serviceSpokes: ServiceSpoke[] = [
       'Applied AI development: machine learning pipelines, NLP and document processing, and predictive analytics, scoped to problems where a model output is auditable.',
     summary: 'Applied ML, NLP and document processing built for problems where the model’s output needs to be explainable, not a generic AI feature bolted on.',
     icon: 'bi-robot',
+    symptoms: [
+      'Someone has asked for AI and nobody has defined the problem',
+      'Staff spend hours on document work that follows a stable pattern',
+      'A model is in production and no one can explain an individual output',
+      'You need prioritisation, not automation, and the vendors keep offering automation',
+    ],
     intro: [
       'Applied AI work in regulated or high-stakes environments has a specific constraint most generic AI development does not: a model’s output often has to be explainable, or at minimum bounded, because someone downstream (an examiner, a clinician, an auditor) needs to understand why the system made a recommendation.',
       'We build machine learning pipelines, NLP and document processing, and predictive analytics with that constraint designed in, distinct from the infrastructure and cloud platform work covered on the cloud migration page.',

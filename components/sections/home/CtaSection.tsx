@@ -108,7 +108,7 @@ const CtaSection: React.FC = () => {
                       required
                       disabled={formSubmitted}
                     >
-                      <option value="">— Select a Service —</option>
+                      <option value="">Select a service</option>
                       <option value="Enterprise Software Development">Enterprise Software Development</option>
                       <option value="Financial Software / Fintech">Financial Software / Fintech</option>
                       <option value="AML / CFT Compliance">AML / CFT Compliance</option>

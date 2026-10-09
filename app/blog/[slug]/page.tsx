@@ -268,11 +268,21 @@ export default async function BlogPostPage({ params }: PageProps) {
                   <div className="gcard h-100">
                     <div className="gcard-body">
                       <span className="stag">{r!.category}</span>
-                      <div className="ctitle mt-2">{r!.title}</div>
+                      {/* One link per card, and its anchor text is the article
+                          title. Previously the card carried a second link
+                          reading "Read article", which is the generic anchor an
+                          on-page audit flags, and repeating the title in both
+                          places just renders it twice. */}
+                      <div className="ctitle mt-2">
+                        <Link href={`/blog/${r!.slug}`} className="card-title-link">
+                          {r!.title}
+                        </Link>
+                      </div>
                       <p className="ctext">{r!.description}</p>
-                      <Link href={`/blog/${r!.slug}`} className="carr">
-                        <i className="bi bi-arrow-right-circle"></i>Read article
-                      </Link>
+                      <span className="carr" aria-hidden="true">
+                        <i className="bi bi-arrow-right-circle"></i>
+                        Read the article
+                      </span>
                     </div>
                   </div>
                 </div>

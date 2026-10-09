@@ -56,7 +56,7 @@ const PortfolioCard: React.FC<PortfolioCardProps> = ({ project, index }) => {
               className="btn-glass"
               style={{ padding: '7px 16px', fontSize: '0.79rem' }}
             >
-              Read the case study →
+              Read the {project.title} case study →
             </Link>
           </div>
         </div>

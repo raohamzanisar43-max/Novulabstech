@@ -8,6 +8,22 @@ export interface ServiceItem {
    *  and each now has its own indexable page rather than linking straight to
    *  /contact with no detail in between. */
   slug: string;
+  /**
+   * Optional absolute path that overrides the default `/services/{slug}` link.
+   *
+   * Almost every card links to its spoke under /services. The exception is a
+   * card whose best destination is a root-level landing page — geo pages like
+   * /mobile-app-development-in-islamabad live outside the services tree on
+   * purpose, so that a city page does not compete with the pillar it belongs
+   * to. `slug` stays required and must still name a real page, because other
+   * code reads it; this only changes where the card points.
+   */
+  href?: string;
+  /** Category heading this card sits under in the homepage services grid.
+   *  The 22 services are grouped rather than listed flat, so a visitor scanning
+   *  for "mobile app development" finds three related cards together instead of
+   *  three cards scattered through a grid of twenty-two. */
+  group: string;
 }
 
 export interface WhyUsItem {
@@ -23,6 +39,27 @@ export interface IndustryItem {
   title: string;
   desc: string;
   color: string;
+  /** Slug of this sector's own page under /industries. Every industry card
+   *  links to its own page rather than all ten pointing at the /industries
+   *  hub, which told a crawler nothing about any individual sector. */
+  slug: string;
+  /** Anchor text for the card's link, naming the destination. "Explore
+   *  Healthcare" is a usable anchor; ten identical "Explore this" links are
+   *  not, and an on-page audit flags them first. */
+  cta: string;
+}
+
+export interface TestimonialCard {
+  service: string;
+  quote: string;
+  /** Real name and company, or role and sector under NDA. Optional because
+   *  these are published unattributed; never fill it with an invented person. */
+  role?: string;
+  stars: number;
+  /** True until a real, attributable client has said these words. Drives the
+   *  visible sample notice on the section, exactly as content/testimonials.ts
+   *  does for /testimonials. Never set false without a real quote behind it. */
+  placeholder: boolean;
 }
 
 export interface TechStackItem {
@@ -129,4 +166,23 @@ export interface ContactFormData {
   email: string;
   subject: string;
   message: string;
+}
+
+export interface IndustryPage {
+  slug: string;
+  name: string;
+  h1: string;
+  title: string;
+  description: string;
+  intro: string;
+  /** What we build for this sector. Four entries, each a real capability with
+   *  its own page or portfolio work behind it. */
+  builds: { title: string; desc: string }[];
+  /** What makes the sector hard. This is the section a buyer reads to decide
+   *  whether the supplier has done their kind of work before, so it names
+   *  obligations and failure modes rather than benefits. */
+  constraints: string[];
+  /** Services from content/siteData.ts most relevant to this sector; each
+   *  links to that service's own page. */
+  services: { slug: string; label: string }[];
 }

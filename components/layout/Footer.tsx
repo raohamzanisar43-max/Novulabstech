@@ -164,7 +164,6 @@ const Footer: React.FC = () => {
                 <li><Link href="/contact"><i className="bi bi-chevron-right"></i>Contact Us</Link></li>
                 <li><Link href="/blog"><i className="bi bi-chevron-right"></i>Insights</Link></li>
                 <li><Link href="/team"><i className="bi bi-chevron-right"></i>Our Team</Link></li>
-                <li><Link href="/testimonials"><i className="bi bi-chevron-right"></i>Testimonials</Link></li>
                 <li><Link href="/faq"><i className="bi bi-chevron-right"></i>FAQ</Link></li>
               </ul>
             </div>

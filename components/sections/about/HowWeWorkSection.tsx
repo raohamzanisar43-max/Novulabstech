@@ -129,7 +129,10 @@ const HowWeWorkSection: React.FC = () => {
               alignment with a standard, it means the engineering practice follows it, not
               that a registrar has audited us against it. Buyers in this market are asked to
               take a great deal on trust, and the least we can do is be precise about which
-              claims are attestations and which are audited facts.
+              claims are attestations and which are audited facts.{' '}
+              If you want to test that, the{' '}
+              <Link href="/faq#verifying-a-supplier">questions worth asking any supplier</Link>{' '}
+              apply to us as much as anyone.
             </p>
 
             <h3 className="mt-5">Where we work</h3>

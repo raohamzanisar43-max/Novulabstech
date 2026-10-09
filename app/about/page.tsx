@@ -5,6 +5,7 @@ import AboutHero from '@/components/sections/about/AboutHero';
 import MissionSection from '@/components/sections/about/MissionSection';
 import HowWeWorkSection from '@/components/sections/about/HowWeWorkSection';
 import AboutPhotos from '@/components/sections/about/AboutPhotos';
+import AboutFacts from '@/components/sections/about/AboutFacts';
 import AboutCta from '@/components/sections/about/AboutCta';
 import PageFaq from '@/components/sections/shared/PageFaq';
 import { aboutFaqs } from '@/content/pageFaqs';
@@ -56,6 +57,7 @@ export default function AboutPage() {
       <div className="divider"></div>
       <MissionSection />
       <HowWeWorkSection />
+      <AboutFacts />
       <AboutPhotos />
       <PageFaq items={aboutFaqs} path="/about" />
       <AboutCta />

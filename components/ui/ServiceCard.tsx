@@ -25,8 +25,13 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ item, index }) => {
           </div>
           <div className="ctitle">{item.title}</div>
           <div className="ctext">{item.desc}</div>
-          <Link href={`/services/${item.slug}`} className="carr">
-            <i className="bi bi-arrow-right-circle"></i>Learn more
+          {/* Anchor text names the destination instead of saying "Learn more".
+              22 identical "Learn more" links pointing at 22 different pages
+              tells a crawler nothing about any of them, and it is the anchor
+              text an on-page audit flags first. */}
+          <Link href={item.href ?? `/services/${item.slug}`} className="carr">
+            <i className="bi bi-arrow-right-circle"></i>
+            {item.title}
           </Link>
         </div>
       </GlowCard>

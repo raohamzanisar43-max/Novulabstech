@@ -34,7 +34,7 @@ export const legalPages: LegalPage[] = [
   {
     slug: 'privacy-policy',
     title: 'Privacy Policy',
-    seoTitle: 'Privacy Policy',
+    seoTitle: 'Privacy Policy: What We Collect and Why',
     description:
       'How NovuLabs collects, uses and retains personal data from this website and from client engagements, and the rights available to you.',
     lastUpdated: '16 August 2026',
@@ -105,7 +105,7 @@ export const legalPages: LegalPage[] = [
   {
     slug: 'terms-of-service',
     title: 'Terms of Service',
-    seoTitle: 'Terms of Service',
+    seoTitle: 'Terms of Service for novulabs.net',
     description:
       'The terms governing use of novulabs.net, including intellectual property, acceptable use, and the limits of what this website constitutes.',
     lastUpdated: '16 August 2026',
@@ -156,7 +156,7 @@ export const legalPages: LegalPage[] = [
   {
     slug: 'cookie-policy',
     title: 'Cookie Policy',
-    seoTitle: 'Cookie Policy',
+    seoTitle: 'Cookie Policy: What This Site Stores',
     description:
       'What novulabs.net stores in your browser and why: which cookies are necessary, what is not used, and how to clear them. Real behaviour, not boilerplate.',
     lastUpdated: '16 August 2026',
