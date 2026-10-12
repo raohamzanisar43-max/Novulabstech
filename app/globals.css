@@ -4679,3 +4679,15 @@ footer .ft-logo + span {
   color: #4e8fb9 !important;
   opacity: 1;
 }
+
+/* Navigation: only the current route gets the active capsule. */
+.navbar .navbar-nav .nav-link:hover {
+  color: #ffffff !important;
+  background: transparent !important;
+  transform: none !important;
+}
+
+.navbar .navbar-nav .nav-link.active {
+  color: #07366d !important;
+  background: #b9f3ff !important;
+}
