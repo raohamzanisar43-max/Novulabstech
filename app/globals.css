@@ -4518,6 +4518,14 @@ section [class*="card"] h4 {
   .navbar .nav-link { font-size: 1rem !important; }
 }
 
+/* Keep every desktop navigation label the same compact size as Contact Us. */
+@media (min-width: 768px) {
+  .navbar .nav-link,
+  .navbar .nav-cta {
+    font-size: 1rem !important;
+  }
+}
+
 /* Final shared light-blue theme for every route. */
 :root {
   --p1: #145a9c;
