@@ -119,8 +119,10 @@ const Navbar: React.FC = () => {
             <li className="nav-item">
               <Link className={`nav-link ${checkActive('/blog') ? 'active' : ''}`} href="/blog">Blogs</Link>
             </li>
+            <li className="nav-item">
+              <Link className={`nav-link ${checkActive('/contact') ? 'active' : ''}`} href="/contact">Contact Us</Link>
+            </li>
           </ul>
-          <Link href="/contact" className={`nav-cta nav-link ms-lg-3 ${checkActive('/contact') ? 'active' : ''}`}>Contact Us</Link>
         </div>
       </div>
     </nav>
