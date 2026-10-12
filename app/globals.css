@@ -4435,6 +4435,77 @@ footer .ft-legal a {
   filter: saturate(1.28) brightness(.92) hue-rotate(8deg) !important;
 }
 
+/* Global scale correction: keep the whole site readable without oversized
+   navigation, hero copy, or card text. */
+html { font-size: 16px !important; }
+
+body {
+  font-size: 1rem !important;
+  line-height: 1.55;
+}
+
+p, li, label, blockquote, figcaption, dt, dd,
+section p, section li, section .ssub, section .ctext,
+footer p, footer li {
+  font-size: 1rem !important;
+}
+
+section .ctitle,
+section .card-title,
+section [class*="card"] h3,
+section [class*="card"] h4 {
+  font-size: 1.12rem !important;
+}
+
+.navbar-brand > span {
+  font-size: 1.65rem !important;
+}
+
+.navbar .nav-link {
+  font-size: 1rem !important;
+  padding-left: 12px !important;
+  padding-right: 12px !important;
+}
+
+.navbar .nav-cta {
+  font-size: 1rem !important;
+  padding: 10px 22px !important;
+}
+
+.navbar-brand .nav-logo,
+.navbar .nav-logo {
+  width: 52px !important;
+  height: 52px !important;
+}
+
+#hero .hero-title,
+.phero-inner .hero-title,
+.phero-inner h1 {
+  font-size: clamp(2.3rem, 3.6vw, 4rem) !important;
+  line-height: 1.06 !important;
+}
+
+#hero .hero-sub,
+.phero-inner .hero-sub,
+.phero-inner p {
+  font-size: clamp(.92rem, 1vw, 1rem) !important;
+}
+
+.stitle {
+  font-size: clamp(1.7rem, 2.7vw, 2.5rem) !important;
+}
+
+@media (max-width: 767px) {
+  html { font-size: 16px !important; }
+
+  .navbar-brand > span { font-size: 1.4rem !important; }
+  .navbar .nav-link { font-size: 1rem !important; }
+  .navbar .nav-logo { width: 48px !important; height: 48px !important; }
+  #hero .hero-title,
+  .phero-inner .hero-title,
+  .phero-inner h1 { font-size: clamp(2.25rem, 10vw, 3.1rem) !important; }
+}
+
 /* Final shared light-blue theme for every route. */
 :root {
   --p1: #145a9c;
