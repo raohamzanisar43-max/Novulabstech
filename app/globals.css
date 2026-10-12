@@ -4520,7 +4520,7 @@ section [class*="card"] h4 {
 
 /* Keep every desktop navigation label the same compact size as Contact Us. */
 @media (min-width: 768px) {
-  .navbar .nav-link,
+  .navbar .navbar-nav .nav-link,
   .navbar .nav-cta {
     font-size: 1rem !important;
   }
