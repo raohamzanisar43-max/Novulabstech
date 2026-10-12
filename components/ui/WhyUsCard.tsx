@@ -8,7 +8,11 @@ interface WhyUsCardProps {
 
 const WhyUsCard: React.FC<WhyUsCardProps> = ({ item, index }) => {
   return (
-    <div className="col" data-reveal="up">
+    <div
+      className="col why-card-col"
+      data-reveal="up"
+      style={{ '--why-index': index } as React.CSSProperties}
+    >
       <div className="wcard">
         <div className="wnum">{item.num}</div>
         <div className={`sico ${item.color} mb-3`}>

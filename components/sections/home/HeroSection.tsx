@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Button from '@/components/ui/Button';
 import TiltCard from '@/components/ui/TiltCard';
+import { ORG } from '@/lib/seo';
 
 // TiltCard was previously loaded with next/dynamic + ssr:false, which meant the
 // entire right-hand hero visual; the largest element above the fold, and the
@@ -15,6 +16,8 @@ import TiltCard from '@/components/ui/TiltCard';
 // the tilt attaches on hydration as a progressive enhancement.
 
 const HeroSection: React.FC = () => {
+  const whatsappHref = `https://wa.me/${ORG.telephone.replace(/\D/g, '')}?text=${encodeURIComponent('Hello NovuLabs, I would like to discuss a project.')}`;
+
   return (
     <section id="hero">
       <div className="hero-grid"></div>
@@ -50,8 +53,8 @@ const HeroSection: React.FC = () => {
                 We build AML/CFT compliance systems for SBP-regulated banks, HIPAA healthcare platforms, and payment infrastructure. Every enquiry is answered by an architect, not a salesperson.
               </p>
               <div className="hero-btns">
-                <Button href="/contact" variant="grad">
-                  <i className="bi bi-rocket-takeoff me-1"></i>Book a Free Consultation
+                <Button href={whatsappHref} variant="grad">
+                  <i className="bi bi-whatsapp me-1"></i>Chat on WhatsApp
                 </Button>
                 <Button href="/portfolio" variant="glass">
                   <i className="bi bi-folder2-open me-1"></i>View Our Work
@@ -68,8 +71,8 @@ const HeroSection: React.FC = () => {
                   a responsive srcset, so phones stop downloading a 1200px asset
                   to paint it at ~360px. */}
               <Image
-                    src="/hero-office.webp"
-                    alt="NovuLabs office interior"
+                    src="/hero/team-meeting.png"
+                    alt="NovuLabs team meeting in the Islamabad office"
                 width={1280}
                 height={960}
                     priority

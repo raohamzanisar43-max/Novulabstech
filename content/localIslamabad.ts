@@ -108,7 +108,7 @@ export const ISLAMABAD_FAQS: FaqItem[] = [
   },
   {
     q: 'Where is NovuLabs located in Islamabad?',
-    a: 'NovuLabs is based in I-10/4, I-10, Islamabad, Islamabad Capital Territory, Pakistan. You can reach us on +92 326 8292152 or at info@novulabs.net. Office hours are Monday to Friday, 9:00am to 6:00pm Pakistan Standard Time. Enterprise support arrangements for existing clients run outside those hours and are agreed per contract.',
+    a: 'NovuLabs is based in I-10/4, I-10, Islamabad, Islamabad Capital Territory, Pakistan. You can reach us on +92 326 8292154 or at info@novulabs.net. Office hours are Monday to Friday, 9:00am to 6:00pm Pakistan Standard Time. Enterprise support arrangements for existing clients run outside those hours and are agreed per contract.',
   },
   {
     q: 'What does custom software development cost in Islamabad?',

@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
-import { IBM_Plex_Serif, IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/google';
 import './globals.css';
 
 // ---------------------------------------------------------------------------
@@ -23,28 +22,6 @@ import './globals.css';
 // generated size-adjust fallback keeps CLS near zero. Do not move these back
 // to an @import in globals.css; that is the bug that left the site rendering
 // in system fallbacks for months.
-const fontHeading = IBM_Plex_Serif({
-  subsets: ['latin'],
-  weight: ['500', '600', '700'],
-  variable: '--font-heading',
-  display: 'swap',
-});
-
-const fontBody = IBM_Plex_Sans({
-  subsets: ['latin'],
-  weight: ['400', '500', '600'],
-  style: ['normal', 'italic'],
-  variable: '--font-body',
-  display: 'swap',
-});
-
-const fontMono = IBM_Plex_Mono({
-  subsets: ['latin'],
-  weight: ['400', '500'],
-  variable: '--font-mono',
-  display: 'swap',
-});
-
 import JsonLd from '@/components/seo/JsonLd';
 import { organizationSchema, websiteSchema, siteNavigationSchema } from '@/lib/schema';
 
@@ -108,15 +85,15 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  // favicon.svg (9KB, vector) rather than logo.png (1200x1200, 151KB). The
-  // favicon is fetched on every cold page load, so a 151KB raster was costing
-  // more than the rest of the page's images combined to paint a 16px mark, and
-  // a 1200px source downscaled to 16px renders muddy. One SVG covers every tab,
-  // bookmark and PWA size. logo.png stays only for apple-touch-icon, which
-  // requires a raster.
+  // favicon.ico / favicon.png are the NovuLabs "N" mark cropped tight from
+  // logo.png (which has large transparent padding that renders muddy at 16px).
+  // logo.png stays only for apple-touch-icon.
   icons: {
-    icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
-    shortcut: '/favicon.svg',
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon.png', type: 'image/png', sizes: '256x256' },
+    ],
+    shortcut: '/favicon.ico',
     apple: '/logo.png',
   },
   // ⚠️ DO NOT re-add `alternates: { canonical: '/' }` here.
@@ -165,7 +142,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`${fontHeading.variable} ${fontBody.variable} ${fontMono.variable}`}
+      className=""
     >
       <head>
         {/* Sitewide entity graph: ProfessionalService + WebSite, linked by @id.

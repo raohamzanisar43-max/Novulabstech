@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { whyUs } from '@/content/siteData';
-import WhyUsCard from '@/components/ui/WhyUsCard';
+import WhyUsDeck from '@/components/sections/home/WhyUsDeck';
 
 const WhyUsSection: React.FC = () => {
   return (
@@ -14,11 +14,7 @@ const WhyUsSection: React.FC = () => {
             <p className="ssub mx-auto">We work with organisations whose software is inspected by someone other than their own users: a regulator, an auditor, or a payment scheme.</p>
           </div>
         </div>
-        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-          {whyUs.map((item, i) => (
-            <WhyUsCard key={i} item={item} index={i} />
-          ))}
-        </div>
+        <WhyUsDeck items={whyUs} />
         <div className="row justify-content-center mt-4">
           <div className="col-lg-8 text-center">
             <p className="mb-0" style={{ fontSize: '0.9rem', color: 'var(--tx3)' }}>

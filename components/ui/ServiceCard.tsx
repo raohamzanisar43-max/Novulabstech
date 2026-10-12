@@ -17,9 +17,21 @@ interface ServiceCardProps {
  */
 const ServiceCard: React.FC<ServiceCardProps> = ({ item, index }) => {
   return (
-    <div className="col" data-reveal="up">
+    <div
+      className="col service-card-col"
+      data-reveal="up"
+      style={{ '--service-index': index } as React.CSSProperties}
+    >
       <GlowCard className="gcard">
         <div className="gcard-body p-uniform">
+          <div className={`service-visual service-visual-${index % 6}`} aria-hidden="true">
+            <span className="service-visual-orbit service-visual-orbit-one"></span>
+            <span className="service-visual-orbit service-visual-orbit-two"></span>
+            <span className="service-visual-node service-visual-node-one"></span>
+            <span className="service-visual-node service-visual-node-two"></span>
+            <span className="service-visual-node service-visual-node-three"></span>
+            <i className={`bi ${item.icon}`}></i>
+          </div>
           <div className={`sico ${item.color}`}>
             <i className={`bi ${item.icon}`}></i>
           </div>

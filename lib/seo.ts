@@ -52,7 +52,7 @@ export const ORG = {
   // ('+92-51-XXXXXXX') reads as more established to enterprise and government
   // buyers and strengthens GBP verification. Keep the mobile as secondary if it
   // is the one that actually gets answered.
-  telephone: '+92 326 8292152',
+  telephone: '+92 326 8292154',
 
   address: {
     // Also taken from the verified GBP, which carried a street address the site
