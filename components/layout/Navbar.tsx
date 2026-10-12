@@ -48,13 +48,6 @@ const Navbar: React.FC = () => {
   const hasDarkHero = true;
   const navbarClasses = `navbar navbar-expand-lg ${hasDarkHero && !scrolled ? 'nav-inv' : ''} ${scrolled ? 'scrolled' : ''} ${visible ? 'nav-visible' : 'nav-hidden'}`;
 
-  const checkActive = (href: string, exact = false) => {
-    if (exact) {
-      return pathname === href;
-    }
-    return pathname === href || (href !== '/' && pathname.startsWith(href));
-  };
-
   return (
     <nav className={navbarClasses}>
       <div className="container">
@@ -102,26 +95,26 @@ const Navbar: React.FC = () => {
         <div className={`collapse navbar-collapse ${mobileMenuOpen ? 'show' : ''}`} id="nvmenu">
           <ul className="navbar-nav mx-auto gap-1">
             <li className="nav-item">
-              <Link className={`nav-link ${checkActive('/', true) ? 'active' : ''}`} href="/">Home</Link>
+              <Link className="nav-link" href="/">Home</Link>
             </li>
             <li className="nav-item">
-              <Link className={`nav-link ${checkActive('/services') ? 'active' : ''}`} href="/services">Services</Link>
+              <Link className="nav-link" href="/services">Services</Link>
             </li>
             <li className="nav-item">
-              <Link className={`nav-link ${checkActive('/about') ? 'active' : ''}`} href="/about">About</Link>
+              <Link className="nav-link" href="/about">About</Link>
             </li>
             <li className="nav-item">
-              <Link className={`nav-link ${checkActive('/team') ? 'active' : ''}`} href="/team">Team</Link>
+              <Link className="nav-link" href="/team">Team</Link>
             </li>
             <li className="nav-item">
-              <Link className={`nav-link ${checkActive('/careers') ? 'active' : ''}`} href="/careers">Careers</Link>
+              <Link className="nav-link" href="/careers">Careers</Link>
             </li>
             <li className="nav-item">
-              <Link className={`nav-link ${checkActive('/blog') ? 'active' : ''}`} href="/blog">Blogs</Link>
+              <Link className="nav-link" href="/blog">Blogs</Link>
             </li>
           </ul>
         </div>
-        <Link className={`nav-cta ${checkActive('/contact') ? 'active' : ''}`} href="/contact">
+        <Link className="nav-cta" href="/contact">
           Contact Us
         </Link>
       </div>
