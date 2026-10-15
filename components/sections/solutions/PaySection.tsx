@@ -28,7 +28,7 @@ const PaySection: React.FC = () => {
           <div className="col-lg-6" data-reveal="left">
             <div className="sec-img">
               <img
-                src="/portfolio/tranzaxis-payment-gateway.jpg"
+                src="/industries/banking-fintech.png"
                 alt="NovuPay payment processing platform"
                 width={1200}
                 height={630}

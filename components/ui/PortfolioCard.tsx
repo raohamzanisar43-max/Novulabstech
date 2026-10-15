@@ -25,7 +25,7 @@ const PortfolioCard: React.FC<PortfolioCardProps> = ({ project, index }) => {
         <Link href={href} className="pimg-wrap d-block" aria-hidden="true" tabIndex={-1}>
           <Image
             className="pimg"
-            src={`/portfolio/${project.slug}.jpg`}
+            src={`/portfolio/${project.slug}.webp`}
             alt=""
             width={1200}
             height={630}

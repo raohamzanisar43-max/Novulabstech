@@ -107,7 +107,7 @@ const Navbar: React.FC = () => {
               <Link className="nav-link" href="/team">Team</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" href="/careers">Careers</Link>
+              <Link className="nav-link" href="/portfolio">Case Studies</Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" href="/blog">Blogs</Link>

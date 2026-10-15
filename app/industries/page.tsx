@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import JsonLd from '@/components/seo/JsonLd';
 import { webPageSchema } from '@/lib/schema';
 import IndustriesHero from '@/components/sections/industries/IndustriesHero';
-import FintechDeepDive from '@/components/sections/industries/FintechDeepDive';
 import HealthcareDeepDive from '@/components/sections/industries/HealthcareDeepDive';
 import GovernmentDeepDive from '@/components/sections/industries/GovernmentDeepDive';
 import MoreSectorsSection from '@/components/sections/industries/MoreSectorsSection';
@@ -59,7 +58,6 @@ export default function IndustriesPage() {
       />
       <IndustriesHero />
       <div className="divider"></div>
-      <FintechDeepDive />
       <HealthcareDeepDive />
       <GovernmentDeepDive />
       <MoreSectorsSection />

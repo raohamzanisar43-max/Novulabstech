@@ -46,7 +46,7 @@ const ErpSection: React.FC = () => {
           <div className="col-lg-6" data-reveal="left">
             <div className="sec-img">
               <img
-                src="/portfolio/omnierp-manufacturing-suite.jpg"
+                src="/industries/manufacturing-logistics.png"
                 alt="NovuERP enterprise resource planning platform"
                 width={1200}
                 height={630}

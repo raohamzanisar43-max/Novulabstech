@@ -6,9 +6,9 @@ import Button from '@/components/ui/Button';
 import { ORG } from '@/lib/seo';
 
 // EmailJS Config
-const SERVICE_ID = 'service_ogn7v0d';
-const TEMPLATE_ID = 'template_niiq07k';
-const PUBLIC_KEY = 'M34BR02JCVsynFlTi';
+const SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 'service_ogn7v0d';
+const TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || 'template_niiq07k';
+const PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || 'M34BR02JCVsynFlTi';
 
 interface ContactFormData {
   full_name: string;
@@ -25,6 +25,8 @@ const ContactFormSection: React.FC = () => {
   const formRef = useRef<HTMLFormElement>(null);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formError, setFormError] = useState(false);
+  const [isSending, setIsSending] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const [formData, setFormData] = useState<ContactFormData>({
     full_name: '',
     organization: '',
@@ -44,14 +46,15 @@ const ContactFormSection: React.FC = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formRef.current) return;
     setFormError(false);
+    setErrorMessage('');
+    setIsSending(true);
 
-    emailjs
-      .sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, { publicKey: PUBLIC_KEY })
-      .then(() => {
+    try {
+      await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, { publicKey: PUBLIC_KEY });
         setFormSubmitted(true);
         setTimeout(() => {
           setFormSubmitted(false);
@@ -66,11 +69,14 @@ const ContactFormSection: React.FC = () => {
             message: ''
           });
         }, 4000);
-      })
-      .catch((err) => {
+    } catch (err) {
         console.error('EmailJS error:', err);
         setFormError(true);
-      });
+        const status = err && typeof err === 'object' && 'status' in err ? ` (status ${(err as { status?: number }).status})` : '';
+        setErrorMessage(`Message could not be sent${status}. Please try again or email info@novulabs.net.`);
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
@@ -212,12 +218,14 @@ const ContactFormSection: React.FC = () => {
                         fontSize: '0.97rem',
                         background: formSubmitted ? 'linear-gradient(135deg,#C9A84C,#E8C96A)' : '',
                       }}
-                      disabled={formSubmitted}
-                    >
+                      disabled={formSubmitted || isSending}
+                      >
                       {formSubmitted ? (
                         <>
                           <i className="bi bi-check-circle me-2"></i>Message Sent; We'll be in touch!
                         </>
+                      ) : isSending ? (
+                        <><i className="bi bi-hourglass-split me-2"></i>Sending...</>
                       ) : (
                         <>
                           <i className="bi bi-send-fill me-2"></i>Send Message; We Respond in 4 Hours
@@ -226,6 +234,7 @@ const ContactFormSection: React.FC = () => {
                     </Button>
                   </div>
                   <div className="col-12 text-center">
+                    {formError && <p role="alert" style={{ fontSize: '0.8rem', color: '#ef4444', margin: '0 0 8px' }}>{errorMessage}</p>}
                     <p style={{ fontSize: '0.73rem', color: 'var(--tx4)', margin: 0 }}>🔒 Your information is confidential and never shared with third parties.</p>
                   </div>
                 </div>

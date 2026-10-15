@@ -22,7 +22,7 @@ const GovernmentDeepDive: React.FC = () => {
           <div className="col-lg-6" data-reveal="left">
             <div className="sec-img">
               <img
-                src="/portfolio/natid-verification-portal.jpg"
+                src="/portfolio/natid-verification-portal.webp"
                 alt="National identity verification portal for the public sector"
                 width={1200}
                 height={630}

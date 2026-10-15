@@ -29,7 +29,7 @@ const CrmSection: React.FC = () => {
           <div className="col-lg-6" data-reveal="right">
             <div className="sec-img">
               <img
-                src="/portfolio/novucrm-intelligence-suite.jpg"
+                src="/services/service-10.webp"
                 alt="NovuCRM customer intelligence platform"
                 width={1200}
                 height={630}

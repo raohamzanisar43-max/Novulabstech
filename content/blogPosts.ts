@@ -75,7 +75,7 @@ export const blogPosts: BlogPost[] = [
       <p>For a fintech starting from nothing, the order that has worked best in our engagements is: consolidate the customer record first; then build screening against it; then event-log the transaction stream; then rule-based monitoring on that log; then the goAML reporting pipeline with schema validation; and only then consider model-assisted alert prioritisation. Each stage produces something independently useful to the compliance team, which matters, because a programme that delivers nothing for nine months tends not to survive to month ten.</p>
       <p>At NovuLabs we build these components into core banking, EMI and digital wallet platforms for SBP-regulated institutions. If you are early enough that the three expensive decisions above are still open, that is the best possible time to talk.</p>
     `,
-    coverImage: '/blog/aml-cft-pakistan.jpg',
+    coverImage: '/industries/banking-fintech.png',
     coverAlt:
       'Transaction monitoring dashboard showing alert queues for AML/CFT screening at a Pakistani financial institution',
     category: 'Compliance',
@@ -148,7 +148,7 @@ export const blogPosts: BlogPost[] = [
       <h2>What we would prioritise</h2>
       <p>If you are building now: get the PHI access log right from the first commit, because reconstructing it later is impossible. Decide the native-versus-translation question explicitly and write down why. Budget clinical time for terminology mapping. And be precise in how you describe your compliance posture: in this market, accuracy is a competitive advantage, because so many competitors are not accurate.</p>
     `,
-    coverImage: '/blog/hipaa-hl7-fhir.jpg',
+    coverImage: '/services/service-08.webp',
     coverAlt:
       'Clinician using a HIPAA-compliant electronic health record system with HL7 FHIR data exchange',
     category: 'Healthcare',
@@ -218,7 +218,7 @@ export const blogPosts: BlogPost[] = [
       <p>Would a competitor gain anything by running this exact process? If not, buy it. Can you describe your differentiating workflow precisely enough to specify it? If not, you are not ready to build it. Do you have, or will you fund, the engineering capability to maintain a custom platform for the next seven years? If not, the build will be delivered and then decay. And if you built this and it worked, what would change for the business? A vague answer to that last one is the strongest available signal that the honest recommendation is to buy.</p>
       <p>We take on custom builds where the answers point that way, and we say so when they do not. The conversation is more useful than the pitch.</p>
     `,
-    coverImage: '/blog/custom-vs-erp.jpg',
+    coverImage: '/industries/manufacturing-logistics.png',
     coverAlt:
       'Enterprise architecture diagram comparing a custom-built platform with an off-the-shelf ERP deployment',
     category: 'Enterprise',
@@ -297,7 +297,7 @@ export const blogPosts: BlogPost[] = [
       <p>If you are scoping this work, three honest expectations. The mapping layer is where the effort actually lives: typically more than the extraction and transmission combined, because it encodes every conditional rule. The compliance team must be in the design sessions, not shown a demo at the end, because narrative structure and disposition workflow are their domain and retrofitting them is expensive. And build the local XSD validation first, before any mapping code, so that every subsequent commit is checked against the real contract rather than against your understanding of it.</p>
       <p>Done this way, goAML reporting becomes a boring, reliable part of the platform. Done as an afterthought export, it becomes the thing that fails during an inspection.</p>
     `,
-    coverImage: '/portfolio/corebanking-aml-suite.jpg',
+    coverImage: '/portfolio/corebanking-aml-suite.webp',
     coverAlt:
       'Engineering view of a goAML XML submission pipeline showing schema validation before transmission to FMU Pakistan',
     category: 'Compliance',
@@ -369,7 +369,7 @@ export const blogPosts: BlogPost[] = [
       <p>Three things determine whether this project goes well. Confirm your participation model early: whether you connect directly or through a sponsor bank materially changes your obligations, your testing access and your timeline, and it is not a decision engineering can make alone. Get access to a test environment before committing to a delivery date, because integration timelines on regulated rails are driven by certification and access, not by how fast your team writes code. And design the reconciliation and idempotency layers in the first sprint instead of the last; they are architectural, and retrofitting them into a live payment path is genuinely dangerous.</p>
       <p>Instant payments reward boring engineering. The interesting parts of the system should be your product; the payment path should be predictable, observable and dull.</p>
     `,
-    coverImage: '/portfolio/tranzaxis-payment-gateway.jpg',
+    coverImage: '/industries/banking-fintech.png',
     coverAlt:
       'Payment engineering diagram showing RAAST instant payment flow with alias resolution and reconciliation stages',
     category: 'Fintech',
@@ -442,7 +442,7 @@ export const blogPosts: BlogPost[] = [
       <h2>Before you scope the work</h2>
       <p>Confirm your access route to authoritative verification early: the commercial and regulatory path to it drives your timeline far more than the integration code does, and it typically runs through a sponsor institution or a licensed intermediary rather than being something you procure directly. Agree the assurance tiers with compliance before design, because they determine the screens. And budget properly for the unhappy paths: in our experience the exception handling, review queue and manual-fallback tooling are comfortably more work than the verification integration itself, and they are what determines whether real customers can actually open an account.</p>
     `,
-    coverImage: '/portfolio/natid-verification-portal.jpg',
+    coverImage: '/services/service-13.webp',
     coverAlt:
       'Identity verification flow diagram showing CNIC validation, biometric capture and assurance tiering for Pakistani digital KYC',
     category: 'Identity',

@@ -42,7 +42,7 @@ const AboutSection: React.FC = () => {
             </div>
           </div>
           <div className="col-lg-7" data-reveal="left">
-            <span className="stag">Who We Are</span>
+            <span className="stag">What We Are</span>
             <h2 className="stitle mt-3">What NovuLabs does, <span className="gtxt">and who for</span></h2>
             {/* "across 40+ countries" removed, unevidenced. lib/seo.ts
                 declares five served markets (PK, AE, GB, US, SA). */}

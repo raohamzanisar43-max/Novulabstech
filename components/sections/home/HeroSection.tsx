@@ -1,87 +1,39 @@
 "use client";
 
-import Image from 'next/image';
-import Button from '@/components/ui/Button';
-import TiltCard from '@/components/ui/TiltCard';
-import { ORG } from '@/lib/seo';
-
-// TiltCard was previously loaded with next/dynamic + ssr:false, which meant the
-// entire right-hand hero visual; the largest element above the fold, and the
-// LCP candidate on this page — was absent from the server HTML and only
-// appeared after hydration. That delays LCP by the whole JS round trip and
-// hides the image from any crawler that does not execute JavaScript.
-//
-// TiltCard only uses a ref and two pointer handlers, so it server-renders
-// perfectly well. It is now a normal import: the markup ships in the HTML and
-// the tilt attaches on hydration as a progressive enhancement.
+import { useEffect, useRef } from "react";
 
 const HeroSection: React.FC = () => {
-  const whatsappHref = `https://wa.me/${ORG.telephone.replace(/\D/g, '')}?text=${encodeURIComponent('Hello NovuLabs, I would like to discuss a project.')}`;
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    video.src = "/hero/novulabs-hero.mp4";
+    video.load();
+    void video.play().catch(() => undefined);
+  }, []);
 
   return (
-    <section id="hero">
-      <div className="hero-grid"></div>
-      <div className="container">
-        <div className="row align-items-center g-5">
-          {/* Left */}
-          <div className="col-lg-6">
-            <div className="hero-inner">
-              <div className="hero-badge">
-                <span className="hero-dot"></span>
-                Architect-led engineering for regulated industries
-              </div>
-              {/* H1 targets "software house in Islamabad"; the head term for
-                  this business, and previously absent from the H1 entirely
-                  ("Next-Gen Enterprise Software House" carried no location and
-                  no query intent).
-
-                  "Best" is deliberately not used. It is an unverifiable
-                  superlative about the business itself, which is an E-E-A-T
-                  liability in a YMYL-adjacent vertical, is the kind of
-                  self-declared claim Google's helpful-content guidance treats
-                  as a negative signal, and in most markets a comparative
-                  superiority claim in advertising requires substantiation the
-                  site does not publish. The exact-match phrase is carried
-                  without it; rankings for "best …" queries come from what the
-                  page proves, not from the word appearing in the heading. */}
-              <h1 className="hero-title">
-                Enterprise Software House{' '}
-                <br />
-                <span className="gtxt">in Islamabad</span>
-              </h1>
-              <p className="hero-sub">
-                We build AML/CFT compliance systems for SBP-regulated banks, HIPAA healthcare platforms, and payment infrastructure. Every enquiry is answered by an architect, not a salesperson.
-              </p>
-              <div className="hero-btns">
-                <Button href={whatsappHref} variant="grad">
-                  <i className="bi bi-whatsapp me-1"></i>Chat on WhatsApp
-                </Button>
-                <Button href="/portfolio" variant="glass">
-                  <i className="bi bi-folder2-open me-1"></i>View Our Work
-                </Button>
-              </div>
-            </div>
-          </div>
-          {/* Right: Hero Image */}
-          <div className="col-lg-6 hero-visual">
-            <TiltCard className="hero-img-wrap">
-              {/* `priority`; this is the LCP element. It was carrying
-                  loading="lazy", which tells the browser to defer the one image
-                  it should fetch first. next/image also emits a preload hint and
-                  a responsive srcset, so phones stop downloading a 1200px asset
-                  to paint it at ~360px. */}
-              <Image
-                    src="/hero/team-meeting.png"
-                    alt="NovuLabs team meeting in the Islamabad office"
-                width={1280}
-                height={960}
-                    priority
-                sizes="(max-width: 991px) 100vw, 50vw"
-              />
-              <div className="hero-img-overlay"></div>
-              <div className="hero-img-shine"></div>
-            </TiltCard>
-          </div>
+    <section id="hero" className="hero-video-only" aria-label="NovuLabs introduction">
+      <video ref={videoRef} className="hero-full-video" muted loop playsInline preload="metadata" aria-label="NovuLabs introduction video" />
+      <div className="hero-stats-strip" aria-label="NovuLabs highlights">
+        <div className="hero-stat-group">
+          <strong>1M+</strong>
+          <ul>
+            <li>Active Users Worldwide</li>
+            <li>Trusted by Businesses Globally</li>
+            <li>Seamless Integration Capability</li>
+          </ul>
+        </div>
+        <div className="hero-stat-group support">
+          <strong><span>24/7</span> Support</strong>
+          <ul>
+            <li>Always available, day or night</li>
+            <li>Fast response time guaranteed</li>
+            <li>Expert agents ready to assist</li>
+            <li>Multi-language customer care</li>
+          </ul>
         </div>
       </div>
     </section>

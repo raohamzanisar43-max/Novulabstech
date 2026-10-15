@@ -9,6 +9,7 @@
 // links to real content about the same underlying capability.
 export const services: ServiceItem[] = [
   { icon: 'bi-globe', title: 'Website Development', desc: 'High-performance corporate sites, portals & web apps with SEO-first architecture.', color: 'i-b', slug: 'corporate-website-development' },
+  { icon: 'bi-display', title: 'Desktop Application Development', desc: 'Secure, reliable desktop applications for Windows, macOS, and enterprise workflows.', color: 'i-c', slug: 'desktop-application-development' },
   { icon: 'bi-cpu-fill', title: 'Enterprise Software', desc: 'Custom multi-tenant SaaS, enterprise middleware, and mission-critical platforms.', color: 'i-v', slug: 'legacy-system-modernization' },
   { icon: 'bi-bank', title: 'Financial Software', desc: 'Core banking, digital wallets, lending systems, and investment management platforms.', color: 'i-t', slug: 'core-banking-software-development' },
   { icon: 'bi-credit-card-2-front', title: 'Payment Gateways', desc: 'PCI-DSS compliant integrations supporting global payment rails and local acquirers.', color: 'i-c', slug: 'payment-gateway-development' },
@@ -81,7 +82,7 @@ export interface PortfolioProject extends PortfolioItem {
 export const portfolioProjects: PortfolioProject[] = [
   {
     cat: 'fintech',
-    img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=75',
+    img: '/portfolio/corebanking-aml-suite.webp',
     tags: 'Fintech · AML · Compliance',
     title: 'CoreBanking AML Suite',
     desc: 'Real-time transaction monitoring and GOAML-integrated compliance for a Tier-1 bank processing 2M+ daily transactions.',
@@ -89,7 +90,7 @@ export const portfolioProjects: PortfolioProject[] = [
   },
   {
     cat: 'healthcare',
-    img: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&q=75',
+    img: '/portfolio/medicore-ehr-platform.webp',
     tags: 'Healthcare · EHR · HIPAA',
     title: 'MediCore EHR Platform',
     desc: 'HIPAA-compliant Electronic Health Records deployed across 40+ hospitals with integrated telemedicine and billing.',
@@ -97,7 +98,7 @@ export const portfolioProjects: PortfolioProject[] = [
   },
   {
     cat: 'government',
-    img: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600&q=75',
+    img: '/portfolio/natid-verification-portal.webp',
     tags: 'Government · Identity · PKI',
     title: 'NatID Verification Portal',
     desc: 'National identity verification with CNIC/NADRA API, biometric authentication, and PKI digital signatures.',
@@ -105,7 +106,7 @@ export const portfolioProjects: PortfolioProject[] = [
   },
   {
     cat: 'fintech',
-    img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=75',
+    img: '/portfolio/tranzaxis-payment-gateway.webp',
     tags: 'Fintech · Payments · Visa/MC',
     title: 'TranzAxis Payment Gateway',
     // TODO(client): confirm or delete $2.4B annual volume, 99.99% uptime and <200ms
@@ -117,7 +118,7 @@ export const portfolioProjects: PortfolioProject[] = [
   },
   {
     cat: 'enterprise',
-    img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=75',
+    img: '/portfolio/omnierp-manufacturing-suite.webp',
     tags: 'Enterprise · ERP · Manufacturing',
     title: 'OmniERP Manufacturing Suite',
     desc: 'Integrated ERP covering production, inventory, HR, and finance for a multinational conglomerate across 3 countries.',
@@ -125,7 +126,7 @@ export const portfolioProjects: PortfolioProject[] = [
   },
   {
     cat: 'mobile',
-    img: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&q=75',
+    img: '/portfolio/finsync-digital-wallet.webp',
     tags: 'Mobile · Fintech · Wallet',
     title: 'FinSync Digital Wallet',
     desc: 'Cross-platform digital wallet with RAAST instant payments, P2P transfers, bill payments. 1M+ active users.',
@@ -133,7 +134,7 @@ export const portfolioProjects: PortfolioProject[] = [
   },
   {
     cat: 'healthcare',
-    img: 'https://images.unsplash.com/photo-1584982751601-97dcc096659c?w=600&q=75',
+    img: '/portfolio/carepulse-telemedicine-app.webp',
     tags: 'Healthcare · Telemedicine · Mobile',
     title: 'CarePulse Telemedicine App',
     desc: 'HIPAA-compliant telemedicine iOS/Android app with HD video, e-prescriptions, and remote vitals. 500K+ users.',
@@ -141,7 +142,7 @@ export const portfolioProjects: PortfolioProject[] = [
   },
   {
     cat: 'enterprise',
-    img: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=75',
+    img: '/portfolio/novucrm-intelligence-suite.webp',
     tags: 'Enterprise · CRM · AI',
     title: 'NovuCRM Intelligence Suite',
     desc: 'AI-powered CRM with ML lead scoring, revenue forecasting, and omnichannel engagement with native mobile app.',
@@ -149,7 +150,7 @@ export const portfolioProjects: PortfolioProject[] = [
   },
   {
     cat: 'government',
-    img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=75',
+    img: '/portfolio/taxlink-revenue-portal.webp',
     tags: 'Government · Tax · FBR',
     title: 'TaxLink Revenue Portal',
     desc: 'Federal tax filing portal integrating FBR APIs, e-signature workflows, automated assessment, and compliance dashboards.',

@@ -23,7 +23,7 @@ const ServicesDeck: React.FC<ServicesDeckProps> = ({ items }) => {
   }, [items.length]);
 
   useEffect(() => {
-    const timer = window.setInterval(() => moveCard(1), 1000);
+    const timer = window.setInterval(() => moveCard(1), 3400);
     return () => window.clearInterval(timer);
   }, [moveCard]);
 

@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import JsonLd from '@/components/seo/JsonLd';
 import { webPageSchema } from '@/lib/schema';
 import HeroSection from '@/components/sections/home/HeroSection';
-import AboutSection from '@/components/sections/home/AboutSection';
 import ServicesSection from '@/components/sections/home/ServicesSection';
+import TestimonialsSection from '@/components/sections/home/TestimonialsSection';
 import WhyUsSection from '@/components/sections/home/WhyUsSection';
 import IndustriesSection from '@/components/sections/home/IndustriesSection';
 import TechStackSection from '@/components/sections/home/TechStackSection';
@@ -78,9 +78,8 @@ export default function Home() {
         })}
       />
       <HeroSection />
-      <AboutSection />
-      <div className="divider"></div>
       <ServicesSection />
+      <TestimonialsSection />
       <WhyUsSection />
       <div className="divider"></div>
       <IndustriesSection />

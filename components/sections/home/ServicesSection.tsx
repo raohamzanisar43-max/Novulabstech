@@ -1,34 +1,31 @@
 import React from 'react';
 import { services } from '@/content/siteData';
 import ServicesDeck from '@/components/sections/home/ServicesDeck';
-import Link from 'next/link';
-import Button from '@/components/ui/Button';
+
+// Keep this homepage section focused on capabilities we deliver as services.
+// Product/platform offerings remain available on their dedicated pages, but do
+// not appear in the rotating Services showcase.
+const serviceOfferingSlugs = new Set([
+  'corporate-website-development',
+  'desktop-application-development',
+  'legacy-system-modernization',
+  'cross-platform-app-development',
+  'financial-messaging-schema-integration',
+  'api-development-integration',
+  'cloud-migration-services',
+  'ai-development-services',
+  'custom-saas-development',
+  'ios-app-development',
+  'android-app-development',
+]);
 
 const ServicesSection: React.FC = () => {
+  const serviceItems = services.filter((item) => serviceOfferingSlugs.has(item.slug));
+
   return (
     <section className="sec bg-g z1" id="services">
       <div className="container">
-        <div className="row justify-content-center text-center mb-5">
-          <div className="col-lg-7" data-reveal="up">
-            <span className="stag">What We Build</span>
-            <h2 className="stitle mt-3">Software development <span className="gtxt">services we provide</span></h2>
-            <p className="ssub mx-auto">From compliant fintech platforms to AI-powered automation, mission-critical software that enterprises depend on.</p>
-            {/* The audit found no body link from the homepage to /solutions at
-                all, which left a primary navigation section on three inbound
-                links at crawl depth 2. */}
-            <p className="ssub mx-auto mt-3">
-              Some of it we have already built: see{' '}
-              <Link href="/solutions">our four enterprise platforms</Link> before commissioning
-              anything custom.
-            </p>
-          </div>
-        </div>
-        <ServicesDeck items={services} />
-        <div className="text-center mt-5" data-reveal="up">
-          <Button href="/services" variant="grad">
-            <i className="bi bi-arrow-right me-1"></i>Explore All Services
-          </Button>
-        </div>
+        <ServicesDeck items={serviceItems} />
       </div>
     </section>
   );
