@@ -1,28 +1,34 @@
 import React from 'react';
-import Link from 'next/link';
-import { whyUs } from '@/content/siteData';
-import WhyUsDeck from '@/components/sections/home/WhyUsDeck';
+
+const clientLogos = [
+  { name: 'T-Tronic', detail: 'Angels', className: 'client-logo-tronic' },
+  { name: 'Mars', detail: 'BPO', className: 'client-logo-mars' },
+  { name: 'AXXON', detail: '', className: 'client-logo-axxon' },
+];
 
 const WhyUsSection: React.FC = () => {
   return (
-    <section className="sec bg-w z1" id="why">
-      <div className="container">
-        <div className="row justify-content-center text-center mb-5">
-          <div className="col-lg-7" data-reveal="up">
-            <span className="stag">Why NovuLabs</span>
-            <h2 className="stitle mt-3">Why teams choose <span className="gtxt">a specialist</span></h2>
-            <p className="ssub mx-auto">We work with organisations whose software is inspected by someone other than their own users: a regulator, an auditor, or a payment scheme.</p>
-          </div>
-        </div>
-        <WhyUsDeck items={whyUs} />
-        <div className="row justify-content-center mt-4">
-          <div className="col-lg-8 text-center">
-            <p className="mb-0" style={{ fontSize: '0.9rem', color: 'var(--tx3)' }}>
-              <Link href="/testimonials">Read what clients say about working with us</Link>, or see
-              how those engagements were structured in our{' '}
-              <Link href="/portfolio">case studies</Link>.
-            </p>
-          </div>
+    <section className="results-section" id="clients">
+      <div className="results-intro">
+        <h2>Exceptional Results, Designed<br />For Exceptional Clients</h2>
+        <p>
+          We believe consistency creates trust. Our designers challenge assumptions, our<br className="results-desktop-break" />
+          developers double-check every detail, and our marketers stay curious.<br className="results-desktop-break" />
+          This mindset allows us to deliver work that remains authentic, dependable, and<br className="results-desktop-break" />
+          truly valuable for our clients.
+        </p>
+      </div>
+
+      <div className="client-logo-strip" aria-label="Our clients">
+        <div className="client-logo-heading">Happy<br />Clients</div>
+        <div className="client-logo-divider" aria-hidden="true" />
+        <div className="client-logo-track">
+          {[...clientLogos, ...clientLogos].map((logo, index) => (
+            <div className={`client-logo ${logo.className}`} key={`${logo.name}-${index}`} aria-label={logo.name}>
+              <span>{logo.name}</span>
+              {logo.detail && <small>{logo.detail}</small>}
+            </div>
+          ))}
         </div>
       </div>
     </section>

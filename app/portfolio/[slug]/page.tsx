@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!cs) return { title: 'Case study not found' };
 
   const url = canonical(`/portfolio/${cs.slug}`);
-  const img = `/portfolio/${cs.slug}.webp`;
+  const img = `/portfolio/${cs.slug}.${cs.slug === 'tranzaxis-payment-gateway' ? 'png' : 'jpg'}`;
 
   return {
     title: cs.seoTitle,
@@ -70,7 +70,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
             title: cs.title,
             description: cs.description,
             slug: cs.slug,
-            image: `/portfolio/${cs.slug}.webp`,
+            image: `/portfolio/${cs.slug}.${cs.slug === 'tranzaxis-payment-gateway' ? 'png' : 'jpg'}`,
             industry: cs.industry,
             keywords: cs.keywords,
           }),

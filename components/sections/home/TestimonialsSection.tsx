@@ -1,19 +1,25 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-const testimonials: Array<{
+type Testimonial = {
   initials: string;
   name: string;
   role: string;
   quote: string;
   image?: string;
-}> = [
+  focus?: string;
+};
+
+const testimonials: Testimonial[] = [
   {
     initials: 'A',
     name: 'Ayesha',
     role: 'LMS Client',
     image: '/testimonials/ayesha.png',
+    focus: 'center 25%',
     quote: 'NovuLabs built an LMS that made course management, online learning, and student engagement much easier for our team.',
   },
   {
@@ -31,6 +37,8 @@ const testimonials: Array<{
 ];
 
 export default function TestimonialsSection() {
+  const [active, setActive] = useState(0);
+
   return (
     <section className="client-testimonials sec" id="clients">
       <div className="container client-testimonials-layout">
@@ -41,20 +49,48 @@ export default function TestimonialsSection() {
           <p>We build long-term partnerships around clear communication, thoughtful engineering, and products made for real daily use.</p>
           <Link href="/testimonials" className="client-testimonials-button">View More</Link>
         </div>
-        <div className="client-testimonials-grid">
-          {testimonials.map((testimonial) => (
-            <article className={`client-testimonial-card ${testimonial.image ? 'has-client-image' : ''}`} key={testimonial.initials}>
-              <div className="client-testimonial-avatar">
-                {testimonial.image ? (
-                  <Image src={testimonial.image} alt={`${testimonial.name}, LMS client`} width={160} height={160} />
-                ) : testimonial.initials}
-              </div>
-              <div className="client-testimonial-name">{testimonial.name}</div>
-              <div className="client-testimonial-role">{testimonial.role}</div>
-              <p>{testimonial.quote}</p>
-              <div className="client-testimonial-rating" aria-label="5 out of 5 stars">★★★★★</div>
-            </article>
-          ))}
+
+        <div className="ct-track" role="list">
+          {testimonials.map((t, i) => {
+            const isActive = i === active;
+
+            return (
+              <article
+                key={t.initials}
+                role="listitem"
+                tabIndex={0}
+                aria-expanded={isActive}
+                aria-label={`${t.name}, ${t.role}`}
+                className={`ct-card${isActive ? ' is-active' : ''}`}
+                onMouseEnter={() => setActive(i)}
+                onFocus={() => setActive(i)}
+                onClick={() => setActive(i)}
+              >
+                <div className={`ct-photo${t.image ? '' : ' is-placeholder'}`}>
+                  {t.image && (
+                    <Image
+                      src={t.image}
+                      alt={`${t.name}, ${t.role}`}
+                      fill
+                      sizes="(max-width: 900px) 100vw, 560px"
+                      style={{ objectFit: 'cover', objectPosition: t.focus ?? 'center top' }}
+                    />
+                  )}
+                </div>
+
+                <div className="ct-body">
+                  <div className="ct-line" />
+                  <div className="ct-name"><strong>Name:</strong> <span>{t.name}</span></div>
+                  <div className="ct-role">{t.role}</div>
+                  <p>{t.quote}</p>
+                  <div className="ct-ratings">
+                    <strong>Ratings</strong>
+                    <div className="ct-stars" aria-label="5 out of 5 stars">★★★★★</div>
+                  </div>
+                </div>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>

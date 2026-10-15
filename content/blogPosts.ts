@@ -297,15 +297,15 @@ export const blogPosts: BlogPost[] = [
       <p>If you are scoping this work, three honest expectations. The mapping layer is where the effort actually lives: typically more than the extraction and transmission combined, because it encodes every conditional rule. The compliance team must be in the design sessions, not shown a demo at the end, because narrative structure and disposition workflow are their domain and retrofitting them is expensive. And build the local XSD validation first, before any mapping code, so that every subsequent commit is checked against the real contract rather than against your understanding of it.</p>
       <p>Done this way, goAML reporting becomes a boring, reliable part of the platform. Done as an afterthought export, it becomes the thing that fails during an inspection.</p>
     `,
-    coverImage: '/portfolio/corebanking-aml-suite.webp',
+    coverImage: '/portfolio/corebanking-aml-suite.jpg',
     coverAlt:
       'Engineering view of a goAML XML submission pipeline showing schema validation before transmission to FMU Pakistan',
     category: 'Compliance',
     date: 'August 19, 2026',
     publishedISO: '2026-08-19T09:00:00+05:00',
     modifiedISO: '2026-08-19T09:00:00+05:00',
-    author: 'Ali Zaidi',
-    authorSlug: 'ali-zaidi',
+    author: 'Hanzala Haleem',
+    authorSlug: 'hanzala-haleem',
     readTime: '10 min read',
     tags: ['goAML', 'STR', 'CTR', 'FMU Pakistan', 'AML', 'Compliance Engineering'],
     related: [
@@ -449,8 +449,8 @@ export const blogPosts: BlogPost[] = [
     date: 'August 19, 2026',
     publishedISO: '2026-08-19T11:00:00+05:00',
     modifiedISO: '2026-08-19T11:00:00+05:00',
-    author: 'Shamroz Ali Zaidi',
-    authorSlug: 'shamroz-ali-zaidi',
+    author: 'Rao Hamza Nisar',
+    authorSlug: 'rao-hamza-nisar',
     readTime: '10 min read',
     tags: ['e-KYC', 'NADRA', 'CNIC', 'Identity Verification', 'Compliance', 'Fintech'],
     related: [

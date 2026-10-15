@@ -45,7 +45,7 @@ const CaseStudyRail: React.FC = () => {
               <div className="pimg-wrap" style={{ height: '170px' }}>
                 <Image
                   className="pimg"
-                  src={`/portfolio/${cs.slug}.webp`}
+                  src={`/portfolio/${cs.slug}.${cs.slug === 'tranzaxis-payment-gateway' ? 'png' : 'jpg'}`}
                   alt={`${cs.codename} — ${cs.industry}`}
                   width={1200}
                   height={630}

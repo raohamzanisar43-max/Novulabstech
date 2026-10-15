@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef } from "react";
 
 const HeroSection: React.FC = () => {
@@ -9,14 +10,39 @@ const HeroSection: React.FC = () => {
     const video = videoRef.current;
     if (!video) return;
 
-    video.src = "/hero/novulabs-hero.mp4";
-    video.load();
-    void video.play().catch(() => undefined);
+    const startVideo = () => {
+      const source = video.dataset.src;
+      if (!source || video.src) return;
+      video.src = source;
+      video.load();
+      void video.play().catch(() => undefined);
+    };
+
+    if (typeof window.requestIdleCallback === 'function') {
+      const idleId = window.requestIdleCallback(startVideo, { timeout: 2500 });
+      return () => window.cancelIdleCallback(idleId);
+    }
+
+    const timer = window.setTimeout(startVideo, 1800);
+    return () => window.clearTimeout(timer);
   }, []);
 
   return (
     <section id="hero" className="hero-video-only" aria-label="NovuLabs introduction">
-      <video ref={videoRef} className="hero-full-video" muted loop playsInline preload="metadata" aria-label="NovuLabs introduction video" />
+      <video
+        ref={videoRef}
+        className="hero-full-video"
+        data-src="/hero/novulabs-hero.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        aria-label="NovuLabs introduction video"
+      />
+      <div className="hero-video-n-mark" aria-hidden="true">
+        <Image src="/logo.png" alt="" width={48} height={48} priority />
+      </div>
       <div className="hero-stats-strip" aria-label="NovuLabs highlights">
         <div className="hero-stat-group">
           <strong>1M+</strong>
