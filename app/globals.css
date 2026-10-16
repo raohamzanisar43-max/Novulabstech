@@ -6295,3 +6295,35 @@ input, textarea, select { min-width: 0; }
   font-family: var(--font-poppins, 'Poppins'), 'Segoe UI', Arial, sans-serif !important;
 }
 #hero .hs2-list li::marker { color: #6b7a90 !important; }
+
+/* ===== Hero stats strip: shorter ===== */
+@media (min-width: 768px) {
+  .hero-stats-strip {
+    --h: 104px;
+    height: var(--h) !important;
+    min-height: var(--h) !important;
+    -webkit-clip-path: polygon(
+      0 0, 32.4% 0, 33.6% 4px, 34.6% 8px,
+      39.6% calc(var(--h) - 26px), 40.3% calc(var(--h) - 20px), 41.3% calc(var(--h) - 16px),
+      58.7% calc(var(--h) - 16px), 59.7% calc(var(--h) - 20px), 60.4% calc(var(--h) - 26px),
+      65.4% 8px, 66.4% 4px, 67.6% 0,
+      100% 0, 100% 100%, 0 100%
+    ) !important;
+    clip-path: polygon(
+      0 0, 32.4% 0, 33.6% 4px, 34.6% 8px,
+      39.6% calc(var(--h) - 26px), 40.3% calc(var(--h) - 20px), 41.3% calc(var(--h) - 16px),
+      58.7% calc(var(--h) - 16px), 59.7% calc(var(--h) - 20px), 60.4% calc(var(--h) - 26px),
+      65.4% 8px, 66.4% 4px, 67.6% 0,
+      100% 0, 100% 100%, 0 100%
+    ) !important;
+  }
+
+  .hero-stat-group:first-child,
+  .hero-stat-group.support {
+    height: var(--h) !important;
+    padding-block: 10px !important;
+  }
+
+  .hero-stat-group > strong { font-size: clamp(1.6rem, 2.3vw, 2.2rem) !important; }
+  .hero-stat-group ul { font-size: .8rem !important; line-height: 1.4 !important; }
+}
