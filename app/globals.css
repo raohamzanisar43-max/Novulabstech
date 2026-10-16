@@ -6403,3 +6403,33 @@ input, textarea, select { min-width: 0; }
     line-height: 1.45;
   }
 }
+
+/* Final standard typography scale: keep the whole site readable without oversized type. */
+html { font-size: 16px; }
+body { font-size: 1rem; line-height: 1.6; }
+
+h1 { font-size: clamp(2rem, 4.4vw, 3.6rem) !important; }
+h2 { font-size: clamp(1.55rem, 2.8vw, 2.35rem) !important; }
+h3 { font-size: clamp(1.05rem, 1.6vw, 1.3rem) !important; }
+h4 { font-size: clamp(.98rem, 1.3vw, 1.15rem) !important; }
+
+p, li, label, blockquote, figcaption, dt, dd,
+section p, section li, section .ssub, section .ctext,
+footer p, footer li { font-size: 1rem !important; }
+
+button, input, textarea, select, .btn, .nav-link,
+.breadcrumb, .carr, .ft-link, .ft-text, .ft-contact {
+  font-size: .95rem !important;
+}
+
+.navbar-brand > span { font-size: 1.9rem !important; }
+.navbar .nav-link { font-size: 1rem !important; }
+.navbar .nav-cta { font-size: 1rem !important; }
+.stitle, .ctitle, .ft-head { font-size: clamp(1.65rem, 3vw, 2.5rem) !important; }
+.ssub { font-size: 1rem !important; }
+
+@media (max-width: 767px) {
+  html { font-size: 16px; }
+  .navbar-brand > span { font-size: 1.45rem !important; }
+  .stitle, .ctitle, .ft-head { font-size: clamp(1.45rem, 7vw, 2rem) !important; }
+}
