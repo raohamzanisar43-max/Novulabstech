@@ -23,7 +23,7 @@ const WebServiceSection: React.FC = () => {
           <div className="col-lg-6" data-reveal="left">
             <div className="sec-img">
               <img
-                src="/og/web-development.jpg"
+                src="/services/service-04.webp"
                 alt="Web platform engineering services"
                 width={1200}
                 height={630}
