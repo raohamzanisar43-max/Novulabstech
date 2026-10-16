@@ -14,6 +14,7 @@ const CtaSection: React.FC = () => {
   const formRef = useRef<HTMLFormElement>(null);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formError, setFormError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const [formData, setFormData] = useState<InquiryFormData>({
     full_name: '',
     work_email: '',
@@ -30,6 +31,7 @@ const CtaSection: React.FC = () => {
     e.preventDefault();
     if (!formRef.current) return;
     setFormError(false);
+    setErrorMessage('');
 
     emailjs
       .sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, { publicKey: PUBLIC_KEY })
@@ -43,6 +45,13 @@ const CtaSection: React.FC = () => {
       .catch((err) => {
         console.error('EmailJS error:', err);
         setFormError(true);
+        const emailError = err && typeof err === 'object' ? err as { status?: number; text?: string } : {};
+        const status = emailError.status ? ` (status ${emailError.status})` : '';
+        setErrorMessage(
+          emailError.text?.trim()
+            ? `Message could not be sent${status}: ${emailError.text.trim()}`
+            : `Something went wrong${status}. Please try again.`,
+        );
       });
   };
 
@@ -144,7 +153,7 @@ const CtaSection: React.FC = () => {
                     </Button>
                     {formError && (
                       <p style={{ color: '#ef4444', fontSize: '0.8rem', margin: 0, textAlign: 'center' }}>
-                        Something went wrong. Please try again.
+                        {errorMessage || 'Something went wrong. Please try again.'}
                       </p>
                     )}
                   </div>
