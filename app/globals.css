@@ -6327,3 +6327,8 @@ input, textarea, select { min-width: 0; }
   .hero-stat-group > strong { font-size: clamp(1.6rem, 2.3vw, 2.2rem) !important; }
   .hero-stat-group ul { font-size: .8rem !important; line-height: 1.4 !important; }
 }
+
+/* Make the two desktop hero cards narrower without changing their content. */
+@media (min-width: 1200px) {
+  #hero.hero-video-only > .hs2 { --hs-a: 40%; }
+}
