@@ -220,4 +220,17 @@ export const teamMembers: TeamMemberProfile[] = [
       'Total cost of ownership modelling',
     ],
   },
+  {
+    slug: 'fatima-nisar',
+    name: 'Fatima Nisar',
+    role: 'Branch Head',
+    img: '/team/fatima-nisar.jpeg',
+    imgAlt: 'Fatima Nisar, Branch Head at NovuLabs',
+    bio: 'Leads branch operations and helps keep client delivery organised and connected.',
+    longBio:
+      'Fatima leads branch operations at NovuLabs, helping keep teams coordinated and client delivery moving smoothly.',
+    skills: ['Branch operations', 'Team coordination', 'Client delivery'],
+    credentials: [],
+    knowsAbout: ['Branch operations', 'Team coordination', 'Client delivery'],
+  },
 ];
