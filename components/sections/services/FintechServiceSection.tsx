@@ -23,7 +23,7 @@ const FintechServiceSection: React.FC = () => {
           <div className="col-lg-6" data-reveal="right">
             <div className="sec-img">
               <img
-                src="/og/fintech-software-development.jpg"
+                src="/industries/banking-fintech.png"
                 alt="Fintech software development services"
                 width={1200}
                 height={630}
