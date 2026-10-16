@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 const TeamHero: React.FC = () => {
   return (
-    <section className="phero">
+    <section className="phero team-phero">
       <div className="phero-bg" data-parallax="38">
         <Image src="/hero/team.jpg" alt="" fill priority sizes="100vw" style={{ objectFit: 'cover' }} />
       </div>

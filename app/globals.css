@@ -6477,3 +6477,20 @@ h1, h2, h3, h4, h5, h6,
   --g-main: var(--g-btn);
   --g-main2: var(--g-btn);
 }
+
+/* Team hero sits on a light background, so its first heading line must not be white. */
+.team-phero .hero-title {
+  background: linear-gradient(90deg, #0876d1 0%, #35b8ea 52%, #8be7ff 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.team-member-phero .hero-title {
+  background: linear-gradient(90deg, #0876d1 0%, #35b8ea 52%, #8be7ff 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+}

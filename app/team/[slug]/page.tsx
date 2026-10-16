@@ -112,7 +112,7 @@ export default async function TeamProfilePage({ params }: PageProps) {
       />
 
       {/* Hero */}
-      <section className="phero">
+      <section className="phero team-member-phero">
         <div className="phero-bg" data-parallax="38">
           <Image src="/hero/team.jpg" alt="" fill priority sizes="100vw" style={{ objectFit: 'cover' }} />
         </div>
