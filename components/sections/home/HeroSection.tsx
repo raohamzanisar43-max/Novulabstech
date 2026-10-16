@@ -1,11 +1,38 @@
 "use client";
 
 import Image from "next/image";
+import { useEffect, useRef } from "react";
 
 const LOCAL_VIDEO_URL = '/hero/novulabs-hero.mp4';
 const REMOTE_VIDEO_URL = 'https://media.githubusercontent.com/media/raohamzanisar43-max/Novulabstech/main/public/hero/novulabs-hero.mp4';
 
 const HeroSection: React.FC = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    video.muted = true;
+    video.defaultMuted = true;
+    video.setAttribute('muted', '');
+
+    const playVideo = () => {
+      void video.play().catch(() => undefined);
+    };
+
+    video.addEventListener('loadedmetadata', playVideo);
+    video.addEventListener('canplay', playVideo);
+    playVideo();
+    const retry = window.setTimeout(playVideo, 800);
+
+    return () => {
+      window.clearTimeout(retry);
+      video.removeEventListener('loadedmetadata', playVideo);
+      video.removeEventListener('canplay', playVideo);
+    };
+  }, []);
+
   const startVideo = (event: React.SyntheticEvent<HTMLVideoElement>) => {
     void event.currentTarget.play().catch(() => undefined);
   };
@@ -21,6 +48,7 @@ const HeroSection: React.FC = () => {
   return (
     <section id="hero" className="hero-video-only" aria-label="NovuLabs introduction">
       <video
+        ref={videoRef}
         className="hero-full-video"
         src={LOCAL_VIDEO_URL}
         poster="/hero/novulabs-hero-poster.jpg"
