@@ -72,8 +72,14 @@ const ContactFormSection: React.FC = () => {
     } catch (err) {
         console.error('EmailJS error:', err);
         setFormError(true);
-        const status = err && typeof err === 'object' && 'status' in err ? ` (status ${(err as { status?: number }).status})` : '';
-        setErrorMessage(`Message could not be sent${status}. Please try again or email info@novulabs.net.`);
+        const emailError = err && typeof err === 'object' ? err as { status?: number; text?: string } : {};
+        const status = emailError.status ? ` (status ${emailError.status})` : '';
+        const reason = emailError.text?.trim();
+        setErrorMessage(
+          reason
+            ? `Message could not be sent${status}: ${reason}`
+            : `Message could not be sent${status}. Please try again or email info@novulabs.net.`,
+        );
     } finally {
       setIsSending(false);
     }
