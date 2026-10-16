@@ -6458,3 +6458,14 @@ footer .ft-head {
   color: #43c7f2 !important;
   -webkit-text-fill-color: #43c7f2 !important;
 }
+
+/* Use the same blue-to-cyan gradient as the NovuLabs wordmark on every heading. */
+h1, h2, h3, h4, h5, h6,
+.hero-title, .stitle, .ctitle, .ft-head,
+.gtxt {
+  background: linear-gradient(90deg, #0876d1 0%, #35b8ea 52%, #8be7ff 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+}
