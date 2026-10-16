@@ -6488,7 +6488,9 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .team-member-phero .hero-title {
-  background: none !important;
-  color: #102847 !important;
-  -webkit-text-fill-color: #102847 !important;
+  background: linear-gradient(90deg, #0876d1 0%, #35b8ea 52%, #8be7ff 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
 }
