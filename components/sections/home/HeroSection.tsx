@@ -1,43 +1,22 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef } from "react";
-
 const HeroSection: React.FC = () => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    const startVideo = () => {
-      const source = video.dataset.src;
-      if (!source || video.src) return;
-      video.src = source;
-      video.load();
-      void video.play().catch(() => undefined);
-    };
-
-    if (typeof window.requestIdleCallback === 'function') {
-      const idleId = window.requestIdleCallback(startVideo, { timeout: 2500 });
-      return () => window.cancelIdleCallback(idleId);
-    }
-
-    const timer = window.setTimeout(startVideo, 1800);
-    return () => window.clearTimeout(timer);
-  }, []);
+  const startVideo = (event: React.SyntheticEvent<HTMLVideoElement>) => {
+    void event.currentTarget.play().catch(() => undefined);
+  };
 
   return (
     <section id="hero" className="hero-video-only" aria-label="NovuLabs introduction">
       <video
-        ref={videoRef}
         className="hero-full-video"
-        data-src="/hero/novulabs-hero.mp4"
+        src="/hero/novulabs-hero.mp4"
         autoPlay
         muted
         loop
         playsInline
-        preload="metadata"
+        preload="auto"
+        onCanPlay={startVideo}
         aria-label="NovuLabs introduction video"
       />
       <div className="hero-video-n-mark" aria-hidden="true">
