@@ -6507,3 +6507,14 @@ h1, h2, h3, h4, h5, h6,
   color: transparent !important;
   -webkit-text-fill-color: transparent !important;
 }
+
+/* Final readable color: no page hero heading should remain hardcoded white. */
+.phero-inner h1,
+.phero-inner h2,
+.phero-inner h3,
+.phero-inner .hero-title,
+.phero-inner .hero-title .gtxt {
+  background: none !important;
+  color: #102847 !important;
+  -webkit-text-fill-color: #102847 !important;
+}
