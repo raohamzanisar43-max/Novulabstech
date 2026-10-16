@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 
-const HERO_VIDEO_URL = 'https://media.githubusercontent.com/media/raohamzanisar43-max/Novulabstech/main/public/hero/novulabs-hero.mp4';
 const LOCAL_VIDEO_URL = '/hero/novulabs-hero.mp4';
+const REMOTE_VIDEO_URL = 'https://media.githubusercontent.com/media/raohamzanisar43-max/Novulabstech/main/public/hero/novulabs-hero.mp4';
 
 const HeroSection: React.FC = () => {
   const startVideo = (event: React.SyntheticEvent<HTMLVideoElement>) => {
@@ -12,8 +12,8 @@ const HeroSection: React.FC = () => {
 
   const fallbackToLocalVideo = (event: React.SyntheticEvent<HTMLVideoElement>) => {
     const video = event.currentTarget;
-    if (video.src.endsWith(LOCAL_VIDEO_URL)) return;
-    video.src = LOCAL_VIDEO_URL;
+    if (video.src === REMOTE_VIDEO_URL) return;
+    video.src = REMOTE_VIDEO_URL;
     video.load();
     void video.play().catch(() => undefined);
   };
@@ -22,7 +22,7 @@ const HeroSection: React.FC = () => {
     <section id="hero" className="hero-video-only" aria-label="NovuLabs introduction">
       <video
         className="hero-full-video"
-        src={HERO_VIDEO_URL}
+        src={LOCAL_VIDEO_URL}
         autoPlay
         muted
         loop
