@@ -205,13 +205,13 @@ export const contactFaqs: FaqItem[] = [
 export const teamMembers: TeamMemberProfile[] = [
   {
     slug: 'muneeb-ali-jaffari',
-    name: 'Muneeb Ali Jaffari',
+    name: 'Moneeb Ali Jaffari',
     role: 'CEO & Founder',
-    img: '/team/muneeb-ali-jaffari.jpg',
-    imgAlt: 'Muneeb Ali Jaffari, CEO and Founder of NovuLabs',
+    img: '/team/moneeb.png',
+    imgAlt: 'Moneeb Ali Jaffari, CEO and Founder of NovuLabs',
     bio: 'Sets the commercial direction and takes the first technical call on most enterprise engagements.',
     longBio:
-      'Muneeb founded NovuLabs and leads its enterprise engagements, including the initial architecture conversation on most new work. He writes here on build-versus-buy economics and on why the honest recommendation is frequently to buy.',
+      'Moneeb founded NovuLabs and leads its enterprise engagements, including the initial architecture conversation on most new work. He writes here on build-versus-buy economics and on why the honest recommendation is frequently to buy.',
     skills: ['Enterprise strategy', 'Build vs buy', 'Delivery models'],
     credentials: [],
     knowsAbout: [

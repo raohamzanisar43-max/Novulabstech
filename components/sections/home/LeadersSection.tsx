@@ -3,11 +3,34 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { teamMembers } from '@/content/siteData';
 
-const creativeTeam = [
-  { slug: 'awais-abdul-khaliq', name: 'Awais Abdul Khaliq', img: '/team/creative-01.jpeg' },
-  { slug: 'rubakh', name: 'Rubakh', img: '/team/creative-02.jpeg' },
-  { slug: 'hanzla-haleem', name: 'Hanzla Haleem', img: '/team/creative-03.jpeg' },
-  { slug: 'faisal-tayyab', name: 'Faisal Tayyab', img: '/team/creative-04.jpeg' },
+type CreativeMember = {
+  slug: string;
+  name: string;
+  role: string;
+  img: string;
+  x: string;
+  y: string;
+  label: 'left' | 'right';
+  lx: string;
+};
+
+/** Render each word separately so labels can be revealed in sequence. */
+const Words = ({ text, start }: { text: string; start: number }) => (
+  <>
+    {text.split(' ').map((word, k) => (
+      <React.Fragment key={k}>
+        {k > 0 && ' '}
+        <span className="w" style={{ '--w': start + k } as React.CSSProperties}>{word}</span>
+      </React.Fragment>
+    ))}
+  </>
+);
+
+const creativeTeam: CreativeMember[] = [
+  { slug: 'owais-abdul-khaliq', name: 'Owais Abdul Khaliq', role: 'AI Engineer', img: '/team/cutout-owais.png', x: '9%', y: '12.5%', label: 'right', lx: '66%' },
+  { slug: 'rubakh', name: 'Rubakh', role: 'Software Engineer', img: '/team/cutout-rubakh.png', x: '40%', y: '14.8%', label: 'right', lx: '70%' },
+  { slug: 'hanzla-haleem', name: 'Hanzla Haleem', role: 'Senior Software Engineer', img: '/team/cutout-hanzala.png', x: '66%', y: '16.4%', label: 'right', lx: '68%' },
+  { slug: 'talha', name: 'Talha', role: 'Backend Developer', img: '/team/cutout-talha.png', x: '37.7%', y: '61.7%', label: 'right', lx: '70%' },
 ];
 
 /** Homepage creative team section. Team data stays in content/siteData.ts. */
@@ -40,24 +63,34 @@ const LeadersSection: React.FC = () => {
         </div>
 
         <div className="creative-team-stage" data-reveal="up">
-          <div className="creative-team-word" aria-hidden="true">
-            <span>CREATIVE</span>
-            <span>TEAM</span>
-          </div>
-          <div className="creative-team-members">
-            {creativeTeam.map((member) => (
-              <Link href="/team" className="creative-team-member" key={member.slug} aria-label={member.name}>
+          <svg className="creative-team-word" viewBox="0 0 920 640" aria-hidden="true" focusable="false">
+            <text x="460" y="330" textAnchor="middle" textLength="820" lengthAdjust="spacingAndGlyphs">CREATIVE</text>
+            <text x="460" y="600" textAnchor="middle" textLength="470" lengthAdjust="spacingAndGlyphs">TEAM</text>
+          </svg>
+          {creativeTeam.map((member, i) => (
+            <Link
+              href="/team"
+              className={`creative-team-member label-${member.label}`}
+              style={{ '--x': member.x, '--y': member.y, '--lx': member.lx, '--i': i } as React.CSSProperties}
+              key={member.slug}
+              aria-label={member.name}
+            >
+              <span className="creative-team-photo-wrap">
                 <Image
                   className="creative-team-photo"
                   src={member.img}
-                  alt={member.name}
-                  width={600}
-                  height={700}
-                  sizes="(max-width: 768px) 42vw, 220px"
+                  alt={`${member.name}, ${member.role}`}
+                  width={400}
+                  height={460}
+                  sizes="(max-width: 768px) 20vw, 160px"
                 />
-              </Link>
-            ))}
-          </div>
+              </span>
+              <span className="creative-team-cap">
+                <strong><Words text={member.name} start={0} /></strong>
+                <small><Words text={member.role} start={member.name.split(' ').length} /></small>
+              </span>
+            </Link>
+          ))}
         </div>
       </div>
     </section>

@@ -43,18 +43,19 @@ const HeroSection: React.FC = () => {
       <div className="hero-video-n-mark" aria-hidden="true">
         <Image src="/logo.png" alt="" width={48} height={48} priority />
       </div>
-      <div className="hero-stats-strip" aria-label="NovuLabs highlights">
-        <div className="hero-stat-group">
-          <strong>1M+</strong>
-          <ul>
+
+      <div className="hs2" aria-label="NovuLabs highlights">
+        <div className="hs2-card">
+          <strong className="hs2-big">1M+</strong>
+          <ul className="hs2-list">
             <li>Active Users Worldwide</li>
             <li>Trusted by Businesses Globally</li>
             <li>Seamless Integration Capability</li>
           </ul>
         </div>
-        <div className="hero-stat-group support">
-          <strong><span>24/7</span> Support</strong>
-          <ul>
+        <div className="hs2-card">
+          <strong className="hs2-big"><span>24/7</span> Support</strong>
+          <ul className="hs2-list">
             <li>Always available, day or night</li>
             <li>Fast response time guaranteed</li>
             <li>Expert agents ready to assist</li>
