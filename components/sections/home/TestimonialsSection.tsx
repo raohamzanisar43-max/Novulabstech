@@ -26,12 +26,14 @@ const testimonials: Testimonial[] = [
     initials: 'HC',
     name: 'Healthcare Operations Team',
     role: 'Healthcare Technology',
+    image: '/testimonials/healthcare-doctor.jpeg',
     quote: 'The team understood our operational needs quickly and delivered a clear, scalable product experience.',
   },
   {
     initials: 'EP',
     name: 'Enterprise Product Team',
     role: 'Enterprise Software',
+    image: '/testimonials/enterprise-client.jpeg',
     quote: 'From architecture to support, the process stayed focused, practical, and easy to move forward with.',
   },
 ];
