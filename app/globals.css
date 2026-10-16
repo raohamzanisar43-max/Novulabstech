@@ -6328,7 +6328,29 @@ input, textarea, select { min-width: 0; }
   .hero-stat-group ul { font-size: .8rem !important; line-height: 1.4 !important; }
 }
 
-/* Make the two desktop hero cards narrower without changing their content. */
-@media (min-width: 1200px) {
-  #hero.hero-video-only > .hs2 { --hs-a: 40%; }
+/* Shorten the actual hero stats strip used by HeroSection. */
+@media (min-width: 768px) {
+  #hero.hero-video-only > .hs2 {
+    --h: 104px;
+    height: var(--h) !important;
+    min-height: var(--h) !important;
+    clip-path: polygon(
+      0 0, 32.4% 0, 33.6% 4px, 34.6% 8px,
+      39.6% calc(var(--h) - 26px), 40.3% calc(var(--h) - 20px), 41.3% calc(var(--h) - 16px),
+      58.7% calc(var(--h) - 16px), 59.7% calc(var(--h) - 20px), 60.4% calc(var(--h) - 26px),
+      65.4% 8px, 66.4% 4px, 67.6% 0,
+      100% 0, 100% 100%, 0 100%
+    ) !important;
+    -webkit-clip-path: polygon(
+      0 0, 32.4% 0, 33.6% 4px, 34.6% 8px,
+      39.6% calc(var(--h) - 26px), 40.3% calc(var(--h) - 20px), 41.3% calc(var(--h) - 16px),
+      58.7% calc(var(--h) - 16px), 59.7% calc(var(--h) - 20px), 60.4% calc(var(--h) - 26px),
+      65.4% 8px, 66.4% 4px, 67.6% 0,
+      100% 0, 100% 100%, 0 100%
+    ) !important;
+  }
+
+  #hero.hero-video-only > .hs2 > .hs2-card {
+    height: var(--h) !important;
+  }
 }
