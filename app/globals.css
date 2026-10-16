@@ -4867,6 +4867,25 @@ footer .ft-logo + span {
   filter: none;
   mix-blend-mode: normal;
 }
+.hero-video-play {
+  position: absolute;
+  z-index: 4;
+  top: 50%;
+  left: 50%;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transform: translate(-50%, -50%);
+  padding: 14px 22px;
+  border: 1px solid rgba(255,255,255,.8);
+  border-radius: 999px;
+  background: rgba(7,67,181,.9);
+  color: #fff;
+  font: 600 1rem/1 var(--fh, Arial, sans-serif);
+  cursor: pointer;
+  box-shadow: 0 10px 28px rgba(0,0,0,.18);
+}
+.hero-video-play:hover { background: #0756c7; }
 
 @media (max-width: 767px) {
   .hero-video-only {
