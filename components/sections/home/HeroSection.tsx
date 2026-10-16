@@ -23,11 +23,13 @@ const HeroSection: React.FC = () => {
       <video
         className="hero-full-video"
         src={LOCAL_VIDEO_URL}
+        poster="/hero/novulabs-hero-poster.jpg"
         autoPlay
         muted
         loop
         playsInline
         preload="auto"
+        onLoadedData={startVideo}
         onCanPlay={startVideo}
         onError={fallbackToLocalVideo}
         aria-label="NovuLabs introduction video"
