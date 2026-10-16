@@ -18,6 +18,9 @@ interface PortfolioCardProps {
  */
 const PortfolioCard: React.FC<PortfolioCardProps> = ({ project, index }) => {
   const href = `/portfolio/${project.slug}`;
+  const imageSrc = project.slug === 'corebanking-aml-suite'
+    ? '/portfolio/goaml-aml-suite.jpg'
+    : `/portfolio/${project.slug}.${project.slug === 'tranzaxis-payment-gateway' ? 'png' : 'jpg'}`;
 
   return (
     <div className="col" data-reveal="up">
@@ -25,7 +28,7 @@ const PortfolioCard: React.FC<PortfolioCardProps> = ({ project, index }) => {
         <Link href={href} className="pimg-wrap d-block" aria-hidden="true" tabIndex={-1}>
           <Image
             className="pimg"
-            src={`/portfolio/${project.slug}.${project.slug === 'tranzaxis-payment-gateway' ? 'png' : 'jpg'}`}
+            src={imageSrc}
             alt=""
             width={1200}
             height={630}
