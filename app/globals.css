@@ -6358,3 +6358,48 @@ input, textarea, select { min-width: 0; }
     height: var(--h) !important;
   }
 }
+
+/* Compact mobile first fold: keep the two stats side by side. */
+@media (max-width: 767px) {
+  .navbar .nav-cta { display: none !important; }
+
+  #hero.hero-video-only > .hs2 {
+    flex-direction: row !important;
+    align-items: stretch;
+    justify-content: space-between;
+    height: clamp(92px, 24vw, 112px) !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    background: #fff !important;
+  }
+
+  #hero.hero-video-only > .hs2 > .hs2-card {
+    width: 50%;
+    height: 100% !important;
+    min-width: 0;
+    flex-direction: row;
+    align-items: center;
+    gap: clamp(8px, 2vw, 14px);
+    padding: 0 clamp(12px, 4vw, 24px) !important;
+    margin: 0 !important;
+    border: 0 !important;
+  }
+
+  #hero.hero-video-only > .hs2 > .hs2-card + .hs2-card {
+    justify-content: flex-end;
+    border-left: 1px solid #e6eaf1 !important;
+  }
+
+  #hero .hs2-big {
+    min-width: 0;
+    font-size: clamp(1.35rem, 5vw, 2rem);
+  }
+
+  #hero .hs2-list {
+    min-width: 0;
+    padding-left: clamp(12px, 3vw, 20px);
+    font-size: clamp(.62rem, 2.1vw, .76rem);
+    line-height: 1.45;
+  }
+}
