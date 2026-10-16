@@ -18,7 +18,7 @@ const HealthcareServiceSection: React.FC = () => {
           <div className="col-lg-6" data-reveal="left">
             <div className="sec-img">
               <img
-                src="/og/healthcare-software-development.jpg"
+                src="/testimonials/healthcare-doctor.jpeg"
                 alt="Healthcare software development services"
                 width={1200}
                 height={630}
