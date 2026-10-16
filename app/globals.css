@@ -6494,3 +6494,16 @@ h1, h2, h3, h4, h5, h6,
   color: transparent !important;
   -webkit-text-fill-color: transparent !important;
 }
+
+/* Use the shared heading gradient on every page hero instead of hardcoded white text. */
+.phero-inner h1,
+.phero-inner h2,
+.phero-inner h3,
+.phero-inner .hero-title,
+.phero-inner .hero-title .gtxt {
+  background: linear-gradient(90deg, #0876d1 0%, #35b8ea 52%, #8be7ff 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+}
