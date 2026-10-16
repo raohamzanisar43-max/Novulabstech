@@ -31,10 +31,10 @@ const testimonials: Testimonial[] = [
   },
   {
     initials: 'EP',
-    name: 'Mr. James Anderson',
+    name: 'Alex Morgan',
     role: 'Enterprise Software',
-    image: '/testimonials/enterprise-client.jpeg',
-    quote: 'From architecture to support, the process stayed focused, practical, and easy to move forward with.',
+    image: '/testimonials/enterprise-alex-morgan.jpeg',
+    quote: 'The team understood our requirements and delivered a software solution that made our daily operations much easier. The process was smooth, and the final product exceeded our expectations.',
   },
 ];
 
