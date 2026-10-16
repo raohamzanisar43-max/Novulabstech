@@ -59,7 +59,6 @@ const HeroSection: React.FC = () => {
         ref={videoRef}
         className="hero-full-video"
         src={LOCAL_VIDEO_URL}
-        poster="/hero/novulabs-hero-poster.jpg"
         autoPlay
         muted
         loop
