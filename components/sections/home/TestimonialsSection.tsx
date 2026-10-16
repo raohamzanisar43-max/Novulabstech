@@ -33,7 +33,7 @@ const testimonials: Testimonial[] = [
     initials: 'EP',
     name: 'Alex Morgan',
     role: 'Enterprise Software',
-    image: '/testimonials/enterprise-alex-morgan.jpeg',
+    image: '/testimonials/alex-morgan.jpeg',
     quote: 'The team understood our requirements and delivered a software solution that made our daily operations much easier. The process was smooth, and the final product exceeded our expectations.',
   },
 ];
