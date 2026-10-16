@@ -56,7 +56,14 @@ const LeadersSection: React.FC = () => {
         <div className="creative-leaders" data-reveal="up">
           {teamMembers.slice(0, 3).map((member) => (
             <Link href={`/team/${member.slug}`} className="creative-leader-card" key={member.slug}>
-              <Image src={member.img} alt={member.imgAlt} width={600} height={700} sizes="(max-width: 700px) 28vw, 170px" />
+              <Image
+                src={member.img}
+                alt={member.imgAlt}
+                width={800}
+                height={800}
+                quality={100}
+                sizes="(max-width: 700px) 50vw, 420px"
+              />
               <span><strong>{member.name}</strong><small>{member.role}</small></span>
             </Link>
           ))}
