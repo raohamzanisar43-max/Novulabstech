@@ -6459,6 +6459,8 @@ footer .ft-head {
   -webkit-text-fill-color: #43c7f2 !important;
 }
 
+.creative-team-word text { fill: url(#creative-heading-gradient); }
+
 /* Use the same blue-to-cyan gradient as the NovuLabs wordmark on every heading. */
 h1, h2, h3, h4, h5, h6,
 .hero-title, .stitle, .ctitle, .ft-head,

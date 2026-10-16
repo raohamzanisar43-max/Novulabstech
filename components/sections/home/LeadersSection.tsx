@@ -71,8 +71,15 @@ const LeadersSection: React.FC = () => {
 
         <div className="creative-team-stage" data-reveal="up">
           <svg className="creative-team-word" viewBox="0 0 920 640" aria-hidden="true" focusable="false">
-            <text x="460" y="330" textAnchor="middle" textLength="820" lengthAdjust="spacingAndGlyphs">CREATIVE</text>
-            <text x="460" y="600" textAnchor="middle" textLength="470" lengthAdjust="spacingAndGlyphs">TEAM</text>
+            <defs>
+              <linearGradient id="creative-heading-gradient" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stopColor="#0876d1" />
+                <stop offset="52%" stopColor="#35b8ea" />
+                <stop offset="100%" stopColor="#8be7ff" />
+              </linearGradient>
+            </defs>
+            <text fill="url(#creative-heading-gradient)" x="460" y="330" textAnchor="middle" textLength="820" lengthAdjust="spacingAndGlyphs">CREATIVE</text>
+            <text fill="url(#creative-heading-gradient)" x="460" y="600" textAnchor="middle" textLength="470" lengthAdjust="spacingAndGlyphs">TEAM</text>
           </svg>
           {creativeTeam.map((member, i) => (
             <Link
