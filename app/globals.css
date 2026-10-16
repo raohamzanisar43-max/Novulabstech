@@ -6433,3 +6433,28 @@ button, input, textarea, select, .btn, .nav-link,
   .navbar-brand > span { font-size: 1.45rem !important; }
   .stitle, .ctitle, .ft-head { font-size: clamp(1.45rem, 7vw, 2rem) !important; }
 }
+
+/* Consistent heading color on light sections. */
+h1, h2, h3, h4, h5, h6,
+.hero-title, .stitle, .ctitle, .ft-head,
+.gtxt {
+  color: #102847 !important;
+  -webkit-text-fill-color: #102847 !important;
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+}
+
+/* Preserve readable contrast on dark hero and footer surfaces. */
+#hero h1, #hero h2, #hero h3,
+.phero-inner h1, .phero-inner h2, .phero-inner h3,
+.phero-inner .hero-title,
+footer .ft-head {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+}
+
+#hero .gtxt, .phero-inner .gtxt {
+  color: #43c7f2 !important;
+  -webkit-text-fill-color: #43c7f2 !important;
+}
