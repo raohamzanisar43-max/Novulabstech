@@ -6518,3 +6518,45 @@ h1, h2, h3, h4, h5, h6,
   color: #102847 !important;
   -webkit-text-fill-color: #102847 !important;
 }
+
+/* Creative team: GSAP mask reveal (TeamMaskReveal). Portraits slide up from the
+   clipped bottom edge of their wrapper; name/role words slide up out of their
+   own line masks. GSAP owns the transform, so the hover lift uses the
+   individual `scale`/`translate` properties instead. Replaces the CSS loops. */
+.creative-team-stage .creative-team-photo,
+.creative-team-stage[data-reveal='is-visible'] .creative-team-photo { animation: none; translate: 0 0; will-change: transform; }
+.creative-team-cap .w,
+.creative-team-stage[data-reveal='is-visible'] .creative-team-cap .w { animation: none; opacity: 1; }
+.creative-team-cap strong, .creative-team-cap small { overflow: hidden; padding-bottom: .15em; margin-bottom: -.15em; }
+.creative-team-member:hover .creative-team-photo { scale: 1.05; translate: 0 -4%; animation: none; }
+.creative-team-member:hover .creative-team-cap .w { animation: none; opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .creative-team-stage .creative-team-photo { translate: 0 0; }
+}
+
+/* Creative team stage: wide composition matching the reference. The wordmark
+   spans nearly the full stage width; portraits overlap the letters (C, E, T of
+   TEAM) and one sits above the middle of CREATIVE. Coordinates are in a
+   1000x500 space (see the SVG viewBox in LeadersSection). */
+.creative-team-stage {
+  width: min(100vw - 32px, 1400px);
+  margin-left: 50%;
+  translate: -50% 0;
+  aspect-ratio: 1000 / 500;
+  margin-top: 40px;
+}
+.creative-team-stage .creative-team-member { width: 13cqw; }
+.creative-team-stage .creative-team-cap { top: -7%; }
+.creative-team-stage .creative-team-cap strong,
+.creative-team-stage .creative-team-cap small { font-size: clamp(.55rem, 1.45cqw, 1.05rem); }
+.creative-team-stage .creative-team-word { padding: 0; gap: 0; }
+.creative-team-stage .creative-team-word text { font-size: 173px; }
+.creative-team-stage .creative-team-photo { -webkit-mask-image: none; mask-image: none; }
+@media (max-width: 700px) {
+  .creative-team-stage { width: calc(100vw - 24px); margin-top: 24px; }
+  .creative-team-stage .creative-team-member:nth-child(n+4) { display: block; }
+  .creative-team-stage .creative-team-member { width: 22cqw; }
+  .creative-team-stage .creative-team-cap { top: -9%; }
+  .creative-team-stage .creative-team-cap small { display: none; }
+  .creative-team-stage .creative-team-cap strong { font-size: clamp(.5rem, 2.6cqw, .75rem); }
+}

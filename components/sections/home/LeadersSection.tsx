@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { teamMembers } from '@/content/siteData';
+import TeamMaskReveal from '@/components/ui/TeamMaskReveal';
 
 type CreativeMember = {
   slug: string;
@@ -27,10 +28,10 @@ const Words = ({ text, start }: { text: string; start: number }) => (
 );
 
 const creativeTeam: CreativeMember[] = [
-  { slug: 'owais-abdul-khaliq', name: 'Owais Abdul Khaliq', role: 'AI Engineer', img: '/team/cutout-owais.png', x: '9%', y: '12.5%', label: 'right', lx: '66%' },
-  { slug: 'rubakh', name: 'Rubakh', role: 'Software Engineer', img: '/team/cutout-rubakh.png', x: '40%', y: '14.8%', label: 'right', lx: '70%' },
-  { slug: 'tafseer', name: 'Tafseer', role: 'Full Stack Developer', img: '/team/cutout-tafseer.jpg', x: '66%', y: '16.4%', label: 'right', lx: '68%' },
-  { slug: 'talha', name: 'Faisal Tayyab', role: 'Backend Developer', img: '/team/cutout-talha.png', x: '37.7%', y: '61.7%', label: 'right', lx: '70%' },
+  { slug: 'owais-abdul-khaliq', name: 'Owais Abdul Khaliq', role: 'AI Engineer', img: '/team/cutout-owais.png', x: '0.5%', y: '18.3%', label: 'right', lx: '75%' },
+  { slug: 'rubakh', name: 'Rubakh', role: 'Software Engineer', img: '/team/cutout-rubakh.png', x: '47.5%', y: '-1%', label: 'right', lx: '75%' },
+  { slug: 'tafseer', name: 'Tafseer', role: 'Full Stack Developer', img: '/team/cutout-tafseer.png', x: '83.5%', y: '19.4%', label: 'left', lx: '20%' },
+  { slug: 'talha', name: 'Faisal Tayyab', role: 'Backend Developer', img: '/team/cutout-talha.png', x: '29%', y: '67%', label: 'right', lx: '75%' },
 ];
 
 /** Homepage creative team section. Team data stays in content/siteData.ts. */
@@ -70,7 +71,8 @@ const LeadersSection: React.FC = () => {
         </div>
 
         <div className="creative-team-stage" data-reveal="up">
-          <svg className="creative-team-word" viewBox="0 0 920 640" aria-hidden="true" focusable="false">
+          <TeamMaskReveal />
+          <svg className="creative-team-word" viewBox="0 0 1000 500" aria-hidden="true" focusable="false">
             <defs>
               <linearGradient id="creative-heading-gradient" x1="0" y1="0" x2="1" y2="0">
                 <stop offset="0%" stopColor="#0876d1" />
@@ -78,8 +80,8 @@ const LeadersSection: React.FC = () => {
                 <stop offset="100%" stopColor="#8be7ff" />
               </linearGradient>
             </defs>
-            <text fill="url(#creative-heading-gradient)" x="460" y="330" textAnchor="middle" textLength="820" lengthAdjust="spacingAndGlyphs">CREATIVE</text>
-            <text fill="url(#creative-heading-gradient)" x="460" y="600" textAnchor="middle" textLength="470" lengthAdjust="spacingAndGlyphs">TEAM</text>
+            <text fill="url(#creative-heading-gradient)" x="481" y="266" textAnchor="middle" textLength="950" lengthAdjust="spacingAndGlyphs">CREATIVE</text>
+            <text fill="url(#creative-heading-gradient)" x="508" y="483" textAnchor="middle" textLength="527" lengthAdjust="spacingAndGlyphs">TEAM</text>
           </svg>
           {creativeTeam.map((member, i) => (
             <Link
