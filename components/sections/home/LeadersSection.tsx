@@ -31,7 +31,6 @@ type LeaderCard = {
   alt: string;
   name: string;
   role: string;
-  captionBaked?: boolean;
 };
 
 /** Render each word separately so labels can be revealed in sequence. */
@@ -55,11 +54,11 @@ const creativeTeam: CreativeMember[] = [
 
 const partner: LeaderCard = {
   key: 'chen-wei',
-  img: '/team/chen-wei-card.jpg',
+  href: '/team', // no individual profile page yet; behaves like the other cards and opens the team page
+  img: '/team/chen-wei-partner.jpg',
   alt: 'Chen Wei, Partner (Director) at NovuLabs',
   name: 'Chen Wei',
   role: 'Partner (Director)',
-  captionBaked: true,
 };
 
 /** Homepage creative team section. Team data stays in content/siteData.ts. */
@@ -106,8 +105,7 @@ const LeadersSection: React.FC = () => {
                   quality={100}
                   sizes="(max-width: 700px) 50vw, 420px"
                 />
-                {/* The partner card artwork already carries its own caption. */}
-                {!leader.captionBaked && <span><strong>{leader.name}</strong><small>{leader.role}</small></span>}
+                <span><strong>{leader.name}</strong><small>{leader.role}</small></span>
               </>
             );
             return leader.href ? (
