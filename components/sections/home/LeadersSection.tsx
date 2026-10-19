@@ -13,6 +13,8 @@ type CreativeMember = {
   y: string;
   label: 'left' | 'right';
   lx: string;
+  /** Portrait width in cqw, tuned per cutout so every head renders at the same size. */
+  w: string;
 };
 
 /** Render each word separately so labels can be revealed in sequence. */
@@ -28,10 +30,10 @@ const Words = ({ text, start }: { text: string; start: number }) => (
 );
 
 const creativeTeam: CreativeMember[] = [
-  { slug: 'owais-abdul-khaliq', name: 'Owais Abdul Khaliq', role: 'AI Engineer', img: '/team/cutout-owais.png', x: '0.5%', y: '18.3%', label: 'right', lx: '75%' },
-  { slug: 'rubakh', name: 'Rubakh', role: 'Software Engineer', img: '/team/cutout-rubakh.png', x: '47.5%', y: '-1%', label: 'right', lx: '75%' },
-  { slug: 'tafseer', name: 'Tafseer', role: 'Full Stack Developer', img: '/team/cutout-tafseer.png', x: '83.5%', y: '19.4%', label: 'left', lx: '20%' },
-  { slug: 'talha', name: 'Faisal Tayyab', role: 'Backend Developer', img: '/team/cutout-talha.png', x: '29%', y: '67%', label: 'right', lx: '75%' },
+  { slug: 'owais-abdul-khaliq', name: 'Owais Abdul Khaliq', role: 'AI Engineer', img: '/team/cutout-owais.png', x: '0.5%', y: '19.6%', label: 'right', lx: '75%', w: '12.3cqw' },
+  { slug: 'rubakh', name: 'Rubakh', role: 'Software Engineer', img: '/team/cutout-rubakh.png', x: '47.2%', y: '-4.4%', label: 'right', lx: '72%', w: '13.7cqw' },
+  { slug: 'tafseer', name: 'Tafseer', role: 'Full Stack Developer', img: '/team/cutout-tafseer.png', x: '82.5%', y: '19.2%', label: 'left', lx: '20%', w: '14.7cqw' },
+  { slug: 'talha', name: 'Faisal Tayyab', role: 'Backend Developer', img: '/team/cutout-talha.png', x: '29%', y: '64.2%', label: 'right', lx: '75%', w: '14.1cqw' },
 ];
 
 /** Homepage creative team section. Team data stays in content/siteData.ts. */
@@ -87,7 +89,7 @@ const LeadersSection: React.FC = () => {
             <Link
               href="/team"
               className={`creative-team-member label-${member.label}`}
-              style={{ '--x': member.x, '--y': member.y, '--lx': member.lx, '--i': i } as React.CSSProperties}
+              style={{ '--x': member.x, '--y': member.y, '--lx': member.lx, '--i': i, '--w': member.w } as React.CSSProperties}
               key={member.slug}
               aria-label={member.name}
             >

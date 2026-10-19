@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 
-const LOCAL_VIDEO_URL = '/hero/novulabs-hero.mp4';
+const LOCAL_VIDEO_URL = '/hero/novulabs-hero-4k.mp4';
 const REMOTE_VIDEO_URL = 'https://media.githubusercontent.com/media/raohamzanisar43-max/Novulabstech/main/public/hero/novulabs-hero.mp4';
 
 const HeroSection: React.FC = () => {

@@ -6560,3 +6560,11 @@ h1, h2, h3, h4, h5, h6,
   .creative-team-stage .creative-team-cap small { display: none; }
   .creative-team-stage .creative-team-cap strong { font-size: clamp(.5rem, 2.6cqw, .75rem); }
 }
+
+/* Per-portrait width (--w) keeps head sizes consistent across different cutouts. */
+.creative-team-stage .creative-team-member { width: var(--w, 13cqw); }
+@media (max-width: 700px) {
+  .creative-team-stage .creative-team-member { width: calc(var(--w, 13cqw) * 1.6); }
+}
+.creative-team-stage { margin-top: 110px; }
+@media (max-width: 700px) { .creative-team-stage { margin-top: 70px; } }
