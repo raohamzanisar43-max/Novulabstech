@@ -55,6 +55,9 @@ const HeroSection: React.FC = () => {
 
   return (
     <section id="hero" className="hero-video-only" aria-label="NovuLabs introduction">
+      {/* The hero is a video with no on-screen heading; keep one h1 for the page for
+          search engines and screen readers. */}
+      <h1 className="visually-hidden">NovuLabs: Enterprise Software House in Islamabad</h1>
       <video
         ref={videoRef}
         className="hero-full-video"

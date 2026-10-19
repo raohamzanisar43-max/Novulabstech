@@ -273,7 +273,8 @@ export function blogPostingSchema(opts: {
   datePublished: string;
   dateModified: string;
   authorName: string;
-  authorPath: string;
+  /** Omit when the author has no profile page; a Person with no url is valid. */
+  authorPath?: string;
   section: string;
   keywords: string[];
   wordCount?: number;
@@ -293,7 +294,7 @@ export function blogPostingSchema(opts: {
     author: {
       '@type': 'Person',
       name: opts.authorName,
-      url: canonical(opts.authorPath),
+      url: opts.authorPath ? canonical(opts.authorPath) : undefined,
     },
     publisher: { '@id': ORG_ID },
     articleSection: opts.section,

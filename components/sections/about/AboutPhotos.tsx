@@ -21,14 +21,14 @@ const AboutPhotos: React.FC = () => {
           </div>
           <div className="col-md-6" data-reveal="left">
             <div className="sec-img">
-              <img
-                src="/hero/about.jpg"
-                alt="NovuLabs engineering team at work in Islamabad"
-                width={1920}
-                height={1080}
+              <Image
+                src="/hero/about1.jpeg"
+                alt="NovuLabs engineering team working at laptops beside the NovuLabs logo in the Islamabad office"
+                width={1448}
+                height={1086}
+                sizes="(max-width: 767px) 100vw, 50vw"
                 loading="lazy"
-                decoding="async"
-                style={{ height: '300px', width: '100%', objectFit: 'cover' }}
+                style={{ height: '300px', width: '100%', objectFit: 'cover', objectPosition: 'center 42%' }}
               />
             </div>
           </div>

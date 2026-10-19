@@ -1,3 +1,4 @@
+import { teamMembers } from '@/content/siteData';
 import type { Metadata } from 'next';
 import JsonLd from '@/components/seo/JsonLd';
 import { blogPosts } from '@/content/blogPosts';
@@ -67,7 +68,11 @@ export default function BlogPage() {
               url: canonical(`/blog/${p.slug}`),
               datePublished: p.publishedISO,
               dateModified: p.modifiedISO,
-              author: { '@type': 'Person', name: p.author, url: canonical(`/team/${p.authorSlug}`) },
+              author: {
+                '@type': 'Person',
+                name: p.author,
+                ...(teamMembers.some((m) => m.slug === p.authorSlug) ? { url: canonical(`/team/${p.authorSlug}`) } : {}),
+              },
             })),
           },
         ]}

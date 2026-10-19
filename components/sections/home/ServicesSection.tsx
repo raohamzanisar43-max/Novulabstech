@@ -5,9 +5,10 @@ import ServicesDeck from '@/components/sections/home/ServicesDeck';
 // Keep this homepage section focused on capabilities we deliver as services.
 // Product/platform offerings remain available on their dedicated pages, but do
 // not appear in the rotating Services showcase.
+// 'desktop-application-development' is left out until its /services/ page exists;
+// its card linked to a 404.
 const serviceOfferingSlugs = new Set([
   'corporate-website-development',
-  'desktop-application-development',
   'legacy-system-modernization',
   'cross-platform-app-development',
   'financial-messaging-schema-integration',

@@ -13,6 +13,11 @@ import Button from '@/components/ui/Button';
 import { blogPostingSchema, webPageSchema } from '@/lib/schema';
 import { canonical } from '@/lib/seo';
 
+/** Profile path for a post's author, or undefined when they have no /team/ page (some bylines do not). */
+function authorProfilePath(authorSlug: string): string | undefined {
+  return teamMembers.some((m) => m.slug === authorSlug) ? `/team/${authorSlug}` : undefined;
+}
+
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
@@ -38,7 +43,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: post.seoTitle ?? post.title,
     description: post.description,
     keywords: post.tags,
-    authors: [{ name: post.author, url: canonical(`/team/${post.authorSlug}`) }],
+    authors: [{ name: post.author, url: authorProfilePath(post.authorSlug) ? canonical(authorProfilePath(post.authorSlug)!) : undefined }],
     // THE FIX. Previously absent, so the root layout's `alternates.canonical:
     // '/'` was inherited and every post declared rel=canonical → the homepage,
     // instructing Google to drop the entire /blog/ tree from the index.
@@ -50,7 +55,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: post.description,
       publishedTime: post.publishedISO,
       modifiedTime: post.modifiedISO,
-      authors: [canonical(`/team/${post.authorSlug}`)],
+      authors: authorProfilePath(post.authorSlug) ? [canonical(authorProfilePath(post.authorSlug)!)] : undefined,
       section: post.category,
       tags: post.tags,
       images: [{ url: post.coverImage, width: 1200, height: 630, alt: post.coverAlt }],
@@ -89,7 +94,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             datePublished: post.publishedISO,
             dateModified: post.modifiedISO,
             authorName: post.author,
-            authorPath: `/team/${post.authorSlug}`,
+            authorPath: authorProfilePath(post.authorSlug),
             section: post.category,
             keywords: post.tags,
           }),
@@ -126,9 +131,13 @@ export default async function BlogPostPage({ params }: PageProps) {
                 string, which is unresolvable for E-E-A-T and for LLM retrieval. */}
             <span>
               By{' '}
-              <Link href={`/team/${post.authorSlug}`} rel="author">
+              {author ? (
+                <Link href={`/team/${author.slug}`} rel="author">
+                  <strong>{post.author}</strong>
+                </Link>
+              ) : (
                 <strong>{post.author}</strong>
-              </Link>
+              )}
             </span>{' '}
             • <time dateTime={post.publishedISO}>{post.date}</time>
           </div>
