@@ -1,13 +1,37 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-const LOCAL_VIDEO_URL = '/hero/novulabs-hero-4k.mp4';
+gsap.registerPlugin(ScrollTrigger);
+
+const LOCAL_VIDEO_URL = '/hero/novulabs-hero.mp4';
 const REMOTE_VIDEO_URL = 'https://media.githubusercontent.com/media/raohamzanisar43-max/Novulabstech/main/public/hero/novulabs-hero.mp4';
 
 const HeroSection: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  // Curtain effect: the hero (video + stats strip) stays pinned while the next
+  // section scrolls up over it. pinSpacing is off so no empty space is left
+  // behind. Desktop only: pinning is jumpy on touch browsers with collapsing bars.
+  useLayoutEffect(() => {
+    const mm = gsap.matchMedia();
+    mm.add('(min-width: 992px)', () => {
+      const trigger = ScrollTrigger.create({
+        trigger: sectionRef.current,
+        start: 'top top',
+        end: 'bottom top',
+        pin: true,
+        pinSpacing: false,
+        invalidateOnRefresh: true,
+      });
+      return () => trigger.kill();
+    });
+    return () => mm.revert();
+  }, []);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -54,7 +78,7 @@ const HeroSection: React.FC = () => {
   };
 
   return (
-    <section id="hero" className="hero-video-only" aria-label="NovuLabs introduction">
+    <section id="hero" ref={sectionRef} className="hero-video-only" aria-label="NovuLabs introduction">
       {/* The hero is a video with no on-screen heading; keep one h1 for the page for
           search engines and screen readers. */}
       <h1 className="visually-hidden">NovuLabs: Enterprise Software House in Islamabad</h1>
