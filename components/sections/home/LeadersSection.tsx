@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { teamMembers } from '@/content/siteData';
 import TeamMaskReveal from '@/components/ui/TeamMaskReveal';
+import LeadersMotion from '@/components/sections/home/LeadersMotion';
 
 type CreativeMember = {
   slug: string;
@@ -15,6 +16,22 @@ type CreativeMember = {
   lx: string;
   /** Portrait width in cqw, tuned per cutout so every head renders at the same size. */
   w: string;
+};
+
+/** Leader card artwork (cropped from the supplied card designs). Falls back to the member's regular photo. */
+const leaderCardImages: Record<string, string> = {
+  'muneeb-ali-jaffari': '/team/moneeb-card.jpg',
+  'fatima-nisar': '/team/fatima-nisar-card.jpg',
+};
+
+type LeaderCard = {
+  key: string;
+  href?: string;
+  img: string;
+  alt: string;
+  name: string;
+  role: string;
+  captionBaked?: boolean;
 };
 
 /** Render each word separately so labels can be revealed in sequence. */
@@ -36,12 +53,33 @@ const creativeTeam: CreativeMember[] = [
   { slug: 'talha', name: 'Faisal Tayyab', role: 'Backend Developer', img: '/team/cutout-talha.png', x: '29%', y: '64.2%', label: 'right', lx: '75%', w: '14.1cqw' },
 ];
 
+const partner: LeaderCard = {
+  key: 'chen-wei',
+  img: '/team/chen-wei-card.jpg',
+  alt: 'Chen Wei, Partner (Director) at NovuLabs',
+  name: 'Chen Wei',
+  role: 'Partner (Director)',
+  captionBaked: true,
+};
+
 /** Homepage creative team section. Team data stays in content/siteData.ts. */
 const LeadersSection: React.FC = () => {
+  const profiles: LeaderCard[] = teamMembers.slice(0, 3).map((member) => ({
+    key: member.slug,
+    href: `/team/${member.slug}`,
+    img: leaderCardImages[member.slug] ?? member.img,
+    alt: member.imgAlt,
+    name: member.name,
+    role: member.role,
+  }));
+  // The partner sits between the first two profile cards.
+  const leaders: LeaderCard[] = [profiles[0], partner, ...profiles.slice(1)];
+
   return (
     <section className="sec bg-g z1 creative-team" id="leaders">
+      <LeadersMotion />
       <div className="container">
-        <div className="creative-team-head" data-reveal="up">
+        <div className="creative-team-head">
           <Link href="/team" className="lead-eyebrow">
             Our Team <i className="bi bi-arrow-right" aria-hidden="true"></i>
           </Link>
@@ -56,20 +94,28 @@ const LeadersSection: React.FC = () => {
           <Link href="/team" className="lead-btn">View More</Link>
         </div>
 
-        <div className="creative-leaders" data-reveal="up">
-          {teamMembers.slice(0, 3).map((member) => (
-            <Link href={`/team/${member.slug}`} className="creative-leader-card" key={member.slug}>
-              <Image
-                src={member.img}
-                alt={member.imgAlt}
-                width={800}
-                height={800}
-                quality={100}
-                sizes="(max-width: 700px) 50vw, 420px"
-              />
-              <span><strong>{member.name}</strong><small>{member.role}</small></span>
-            </Link>
-          ))}
+        <div className="creative-leaders">
+          {leaders.map((leader) => {
+            const card = (
+              <>
+                <Image
+                  src={leader.img}
+                  alt={leader.alt}
+                  width={900}
+                  height={1321}
+                  quality={100}
+                  sizes="(max-width: 700px) 50vw, 420px"
+                />
+                {/* The partner card artwork already carries its own caption. */}
+                {!leader.captionBaked && <span><strong>{leader.name}</strong><small>{leader.role}</small></span>}
+              </>
+            );
+            return leader.href ? (
+              <Link href={leader.href} className="creative-leader-card" key={leader.key}>{card}</Link>
+            ) : (
+              <div className="creative-leader-card" key={leader.key}>{card}</div>
+            );
+          })}
         </div>
 
         <div className="creative-team-stage" data-reveal="up">
