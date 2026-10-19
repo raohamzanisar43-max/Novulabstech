@@ -5082,8 +5082,10 @@ footer .ft-logo + span {
   width: min(100%, 620px) !important;
   height: clamp(280px, 30vw, 380px) !important;
   aspect-ratio: 16 / 10;
-  object-fit: cover;
-  border-radius: 28px;
+  /* The artwork mixes tall transparent 3D icons with wide photos; `cover` cropped
+     the icons' heads/limbs and the photos' sides. `contain` shows each whole. */
+  object-fit: contain;
+  border-radius: 0;
   margin: auto;
 }
 
@@ -6697,3 +6699,17 @@ h1, h2, h3, h4, h5, h6,
   #services.sec > .container { width: 100%; }
   #services .service-card-deck { height: min(470px, 62vh); min-height: 0; }
 }
+
+/* Services (desktop): let the blurred previous/next thumbnails straddle the edge of
+   the artwork instead of sitting on top of it. */
+@media (min-width: 992px) {
+  #services .service-float-left { left: -50px; }
+  #services .service-float-right { right: -50px; }
+}
+
+/* Services (phone): the card content is taller than the old 620px deck, so the
+   "Scroll to explore" hint sat on top of the View More button. */
+@media (max-width: 767px) {
+  .service-card-deck { height: 700px; min-height: 700px; }
+}
+

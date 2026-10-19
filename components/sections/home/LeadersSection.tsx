@@ -26,7 +26,6 @@ const leaderCardImages: Record<string, string> = {
 
 type LeaderCard = {
   key: string;
-  href?: string;
   img: string;
   alt: string;
   name: string;
@@ -54,7 +53,6 @@ const creativeTeam: CreativeMember[] = [
 
 const partner: LeaderCard = {
   key: 'chen-wei',
-  href: '/team', // no individual profile page yet; behaves like the other cards and opens the team page
   img: '/team/chen-wei-partner.jpg',
   alt: 'Chen Wei, Partner (Director) at NovuLabs',
   name: 'Chen Wei',
@@ -65,7 +63,6 @@ const partner: LeaderCard = {
 const LeadersSection: React.FC = () => {
   const profiles: LeaderCard[] = teamMembers.slice(0, 3).map((member) => ({
     key: member.slug,
-    href: `/team/${member.slug}`,
     img: leaderCardImages[member.slug] ?? member.img,
     alt: member.imgAlt,
     name: member.name,
@@ -94,26 +91,20 @@ const LeadersSection: React.FC = () => {
         </div>
 
         <div className="creative-leaders">
-          {leaders.map((leader) => {
-            const card = (
-              <>
-                <Image
-                  src={leader.img}
-                  alt={leader.alt}
-                  width={900}
-                  height={1321}
-                  quality={100}
-                  sizes="(max-width: 700px) 50vw, 420px"
-                />
-                <span><strong>{leader.name}</strong><small>{leader.role}</small></span>
-              </>
-            );
-            return leader.href ? (
-              <Link href={leader.href} className="creative-leader-card" key={leader.key}>{card}</Link>
-            ) : (
-              <div className="creative-leader-card" key={leader.key}>{card}</div>
-            );
-          })}
+          {/* Display-only cards: the leaders are not linked to individual profile pages. */}
+          {leaders.map((leader) => (
+            <div className="creative-leader-card" key={leader.key}>
+              <Image
+                src={leader.img}
+                alt={leader.alt}
+                width={900}
+                height={1321}
+                quality={100}
+                sizes="(max-width: 700px) 50vw, 420px"
+              />
+              <span><strong>{leader.name}</strong><small>{leader.role}</small></span>
+            </div>
+          ))}
         </div>
 
         <div className="creative-team-stage" data-reveal="up">
