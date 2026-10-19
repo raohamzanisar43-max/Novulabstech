@@ -47,7 +47,7 @@ const Words = ({ text, start }: { text: string; start: number }) => (
 
 const creativeTeam: CreativeMember[] = [
   { slug: 'owais-abdul-khaliq', name: 'Owais Abdul Khaliq', role: 'AI Engineer', img: '/team/cutout-owais.png', x: '0.5%', y: '19.6%', label: 'right', lx: '75%', w: '12.3cqw' },
-  { slug: 'rubakh', name: 'Rubakh', role: 'Software Engineer', img: '/team/cutout-rubakh.png', x: '47.2%', y: '-4.4%', label: 'right', lx: '72%', w: '13.7cqw' },
+  { slug: 'rubakh', name: 'Rubakh', role: 'Software Engineer', img: '/team/cutout-rubakh-v2.png', x: '47.2%', y: '-4.4%', label: 'right', lx: '72%', w: '13.7cqw' },
   { slug: 'tafseer', name: 'Tafseer', role: 'Full Stack Developer', img: '/team/cutout-tafseer.png', x: '82.5%', y: '19.2%', label: 'left', lx: '20%', w: '14.7cqw' },
   { slug: 'talha', name: 'Faisal Tayyab', role: 'Backend Developer', img: '/team/cutout-talha.png', x: '29%', y: '64.2%', label: 'right', lx: '75%', w: '14.1cqw' },
 ];
