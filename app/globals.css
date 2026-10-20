@@ -6713,3 +6713,12 @@ h1, h2, h3, h4, h5, h6,
   .service-card-deck { height: 700px; min-height: 700px; }
 }
 
+
+/* Project cards: product screenshots are shown whole (no cropping), centred on the
+   screenshot's own background colour. */
+.proj-shot img.is-screenshot { object-fit: contain; }
+.proj-card:hover .proj-shot img.is-screenshot { transform: scale(1.02); }
+
+/* Screenshot cards use the screenshots' own wide ratio so the whole dashboard fills
+   the frame edge to edge (all three product shots are ~2.2:1). */
+.proj-shot:has(img.is-screenshot) { aspect-ratio: 1919 / 874; }

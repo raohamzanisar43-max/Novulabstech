@@ -14,11 +14,21 @@ const WhyUsSection: React.FC = () => {
         <div className="proj-grid">
           {liveProjects.map((project) => (
             <article className="proj-card" key={project.slug} data-reveal="up">
-              <a className="proj-shot" href={project.url} target="_blank" rel="noopener noreferrer" aria-label={`Open ${project.name} live site`}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={project.image} alt={project.imageAlt} width={1280} height={800} loading="lazy" />
-                <span className="proj-visit">Live <i className="bi bi-box-arrow-up-right" aria-hidden="true" /></span>
-              </a>
+              {(() => {
+                const shotInner = (
+                  <>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img className={project.imageBg ? 'is-screenshot' : undefined} src={project.image} alt={project.imageAlt} width={1280} height={800} loading="lazy" />
+                    {project.url && <span className="proj-visit">Live <i className="bi bi-box-arrow-up-right" aria-hidden="true" /></span>}
+                  </>
+                );
+                const shotStyle = project.imageBg ? { background: project.imageBg } : undefined;
+                return project.url ? (
+                  <a className="proj-shot" style={shotStyle} href={project.url} target="_blank" rel="noopener noreferrer" aria-label={`Open ${project.name} live site`}>{shotInner}</a>
+                ) : (
+                  <div className="proj-shot" style={shotStyle}>{shotInner}</div>
+                );
+              })()}
               <div className="proj-body">
                 <span className="ptag">{project.category}</span>
                 <h3 className="proj-name">{project.name}</h3>
@@ -26,9 +36,11 @@ const WhyUsSection: React.FC = () => {
                 <div className="proj-tags">
                   {project.features.map((feature) => <span className="tbadge" key={feature}>{feature}</span>)}
                 </div>
-                <a className="btn-glass proj-link" href={project.url} target="_blank" rel="noopener noreferrer">
-                  Visit live site <i className="bi bi-arrow-up-right" aria-hidden="true" />
-                </a>
+                {project.url && (
+                  <a className="btn-glass proj-link" href={project.url} target="_blank" rel="noopener noreferrer">
+                    Visit live site <i className="bi bi-arrow-up-right" aria-hidden="true" />
+                  </a>
+                )}
               </div>
             </article>
           ))}
