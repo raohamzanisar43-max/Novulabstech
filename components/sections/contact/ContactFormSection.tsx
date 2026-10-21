@@ -3,7 +3,7 @@
 import React, { useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import Button from '@/components/ui/Button';
-import { ORG } from '@/lib/seo';
+import { OFFICE_MAP_URL, ORG } from '@/lib/seo';
 
 // EmailJS Config
 const SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 'service_ogn7v0d';
@@ -303,9 +303,11 @@ const ContactFormSection: React.FC = () => {
                   <div>
                     <div className="cinfo-label">Office</div>
                     <p>
-                      {ORG.address.streetAddress}
-                      <br />
-                      {ORG.address.addressLocality}, {ORG.address.addressRegion}
+                      <a href={OFFICE_MAP_URL} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--p1)' }}>
+                        {ORG.address.streetAddress}
+                        <br />
+                        {ORG.address.addressLocality}, {ORG.address.addressRegion}
+                      </a>
                     </p>
                   </div>
                 </div>
@@ -324,7 +326,7 @@ const ContactFormSection: React.FC = () => {
                 <i className="bi bi-map-fill" style={{ fontSize: '2.4rem', color: 'var(--p1)', opacity: 0.35, display: 'block', marginBottom: '10px' }}></i>
                 <p style={{ fontWeight: 600, color: 'var(--tx1)', marginBottom: '4px' }}>NovuLabs HQ</p>
                 <p style={{ fontSize: '0.8rem', color: 'var(--tx3)', marginBottom: '12px' }}>{ORG.address.streetAddress}, {ORG.address.addressLocality}</p>
-                <a href="https://www.google.com/maps/search/?api=1&query=Novu+Labs+I-10%2F4+I-10+Islamabad" target="_blank" rel="noopener noreferrer" className="btn-glass" style={{ padding: '7px 16px', fontSize: '0.8rem', textDecoration: 'none', display: 'inline-block' }}>
+                <a href={OFFICE_MAP_URL} target="_blank" rel="noopener noreferrer" className="btn-glass" style={{ padding: '7px 16px', fontSize: '0.8rem', textDecoration: 'none', display: 'inline-block' }}>
                   <i className="bi bi-box-arrow-up-right me-1"></i>Open Maps
                 </a>
               </div>

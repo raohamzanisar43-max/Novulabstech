@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import emailjs from '@emailjs/browser';
 import { servicePages } from '@/content/servicePages';
-import { ORG } from '@/lib/seo';
+import { OFFICE_MAP_URL, ORG } from '@/lib/seo';
 
 /**
  * The subscribe form previously rendered "✓ Subscribed!" from local state
@@ -121,12 +121,18 @@ const Footer: React.FC = () => {
                     {ORG.telephone}
                   </a>
                 )}
-                <span className="ft-contact-item">
+                <a
+                  href={OFFICE_MAP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="ft-contact-item"
+                  aria-label="Open NovuLabs office location in Google Maps"
+                >
                   <i className="bi bi-geo-alt-fill"></i>
                   {ORG.address.streetAddress
                     ? `${ORG.address.streetAddress}, ${ORG.address.addressLocality}, Pakistan`
                     : `${ORG.address.addressLocality}, Pakistan`}
-                </span>
+                </a>
               </div>
               <div className="ft-socs">
                 <a href="https://www.linkedin.com/company/novu-labs/" target="_blank" rel="noopener noreferrer" className="fsoc" title="LinkedIn"><i className="bi bi-linkedin"></i></a>

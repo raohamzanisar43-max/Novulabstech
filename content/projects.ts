@@ -78,4 +78,4 @@ export const liveProjects: LiveProject[] = [
     imageAlt: 'MarketingOS dashboard showing the content editor, brand switcher and list of drafted and scheduled posts',
     url: 'https://content-dashboard-v3-1.onrender.com/',
   },
-];
+].filter((project) => !['darbar-shah-chan-chirag', 'sentra-aml'].includes(project.slug));

@@ -14,6 +14,7 @@
 export const SITE_URL = 'https://www.novulabs.net';
 export const SITE_NAME = 'NovuLabs';
 export const LEGAL_NAME = 'NovuLabs Technology Pvt Ltd';
+export const OFFICE_MAP_URL = 'https://www.google.com/maps/search/?api=1&query=Novu+Labs+I-10%2F3+Islamabad';
 
 /** Canonical URL builder. Always absolute, always www, never a trailing slash
  *  (except the root). Use this everywhere instead of hand-writing URLs. */
@@ -58,7 +59,7 @@ export const ORG = {
     // Also taken from the verified GBP, which carried a street address the site
     // had never published. The direction of that gap was the opposite of the
     // usual one, and it left LocalBusiness schema unable to validate.
-    streetAddress: 'I-10/4, I-10',
+    streetAddress: 'I-10/3',
     addressLocality: 'Islamabad',
     addressRegion: 'Islamabad Capital Territory',
     // TODO(client): still unknown, absent from both the website and the GBP.
