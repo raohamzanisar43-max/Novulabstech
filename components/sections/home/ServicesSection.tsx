@@ -1,6 +1,6 @@
 import React from 'react';
 import { services } from '@/content/siteData';
-import ServicesDeck from '@/components/sections/home/ServicesDeck';
+import ServicesRope from '@/components/sections/home/ServicesRope';
 
 // Keep this homepage section focused on capabilities we deliver as services.
 // Product/platform offerings remain available on their dedicated pages, but do
@@ -24,10 +24,15 @@ const ServicesSection: React.FC = () => {
   const serviceItems = services.filter((item) => serviceOfferingSlugs.has(item.slug));
 
   return (
-    <section className="sec bg-g z1" id="services">
+    <section className="sec bg-g z1 rope-section" id="services">
       <div className="container">
-        <ServicesDeck items={serviceItems} />
+        <div className="text-center mb-4" data-reveal="up">
+          <span className="stag">What We Build</span>
+          <h2 className="stitle mt-3">Services, <span className="gtxt">hung out for you to explore</span></h2>
+          <p className="ssub mt-3 mb-0 mx-auto">Pick a service to see how we deliver it.</p>
+        </div>
       </div>
+      <ServicesRope items={serviceItems} />
     </section>
   );
 };
