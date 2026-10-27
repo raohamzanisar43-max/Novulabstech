@@ -22,6 +22,7 @@ type CreativeMember = {
 const leaderCardImages: Record<string, string> = {
   'muneeb-ali-jaffari': '/team/moneeb-card.jpg',
   'fatima-nisar': '/team/fatima-nisar-card.jpg',
+  'hanzla-bin-haleem': '/team/hanzala-card.jpg',
 };
 
 type LeaderCard = {

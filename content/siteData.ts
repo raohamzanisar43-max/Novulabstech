@@ -233,4 +233,17 @@ export const teamMembers: TeamMemberProfile[] = [
     credentials: [],
     knowsAbout: ['Branch operations', 'Team coordination', 'Client delivery'],
   },
+  {
+    slug: 'hanzla-bin-haleem',
+    name: 'Hanzla bin Haleem',
+    role: 'Business Developer',
+    img: '/team/hanzla-bin-haleem.jpeg',
+    imgAlt: 'Hanzla bin Haleem, Business Developer at NovuLabs',
+    bio: 'Builds relationships with prospective clients and helps connect their needs with the right NovuLabs team.',
+    longBio:
+      'Hanzla bin Haleem works in business development at NovuLabs, helping prospective clients understand how the team can support their software and technology goals.',
+    skills: ['Business development', 'Client relationships', 'Partnerships'],
+    credentials: [],
+    knowsAbout: ['Business development', 'Client relationships', 'Partnerships'],
+  },
 ];
