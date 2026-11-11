@@ -6833,3 +6833,65 @@ h1, h2, h3, h4, h5, h6,
     border-radius: 22px 22px 0 0 !important;
   }
 }
+/* ===== Mobile hero: full-screen video + notched stats strip ===== */
+@media (max-width: 767px) {
+  #hero.hero-video-only {
+    height: 100svh !important;
+    min-height: 480px !important;
+    display: block !important;
+    position: relative;
+    overflow: hidden !important;
+  }
+  #hero .hero-full-video {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    aspect-ratio: auto !important;
+    object-fit: cover !important;
+    object-position: center !important;
+  }
+  #hero .hero-video-n-mark { display: none !important; }
+  #hero.hero-video-only > .hs2 {
+    position: absolute !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 76px !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    flex-direction: row !important;
+    align-items: stretch !important;
+    justify-content: space-between !important;
+    border-radius: 0 !important;
+    background: #fff !important;
+    clip-path: polygon(0 0, 26% 0, 32% calc(100% - 10px), 68% calc(100% - 10px), 74% 0, 100% 0, 100% 100%, 0 100%) !important;
+    -webkit-clip-path: polygon(0 0, 26% 0, 32% calc(100% - 10px), 68% calc(100% - 10px), 74% 0, 100% 0, 100% 100%, 0 100%) !important;
+  }
+  #hero.hero-video-only > .hs2 > .hs2-card {
+    width: 50% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    border: 0 !important;
+    padding: 0 16px 10px 18px !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+  }
+  #hero.hero-video-only > .hs2 > .hs2-card + .hs2-card {
+    justify-content: flex-end !important;
+    text-align: right;
+    padding: 0 16px 10px 0 !important;
+  }
+  #hero .hs2-list { display: none !important; }
+  #hero .hs2-big {
+    min-width: 0 !important;
+    font-size: 1.3rem !important;
+    line-height: 1.05 !important;
+    white-space: nowrap !important;
+  }
+  #hero .hs2-big span { display: block !important; margin: 0 !important; }
+}
