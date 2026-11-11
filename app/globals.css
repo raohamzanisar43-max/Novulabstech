@@ -6765,3 +6765,71 @@ h1, h2, h3, h4, h5, h6,
    in normal block flow so its heading and full-width stage stack vertically. */
 #services.rope-section { display: block; min-height: 0; }
 .rope-wrap { width: 100%; }
+
+/* ===== Mobile hero fix: natural height, stacked stats strip ===== */
+@media (max-width: 767px) {
+  #hero.hero-video-only {
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  #hero .hero-full-video {
+    position: relative !important;
+    inset: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  #hero .hero-video-n-mark { display: none !important; }
+
+  #hero.hero-video-only > .hs2 {
+    position: static !important;
+    height: auto !important;
+    min-height: 0 !important;
+    flex-direction: column !important;
+    padding: 20px 20px 24px !important;
+    clip-path: none !important;
+    -webkit-clip-path: none !important;
+  }
+
+  #hero.hero-video-only > .hs2 > .hs2-card {
+    width: 100% !important;
+    height: auto !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    gap: 8px !important;
+    padding: 0 !important;
+  }
+
+  #hero.hero-video-only > .hs2 > .hs2-card + .hs2-card {
+    border-left: 0 !important;
+    border-top: 1px solid #e6eaf1 !important;
+    margin-top: 16px !important;
+    padding-top: 16px !important;
+  }
+
+  #hero .hs2-big { font-size: 1.6rem !important; white-space: normal !important; }
+  #hero .hs2-big span { display: inline !important; margin-right: .25em; }
+  #hero .hs2-list { font-size: .85rem !important; padding-left: 18px !important; border-left: 0 !important; }
+}
+/* ===== Mobile hero fix 2: stats card full width ===== */
+@media (max-width: 767px) {
+  #hero.hero-video-only {
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+  }
+  #hero.hero-video-only > .hs2 {
+    width: 100% !important;
+    max-width: 100% !important;
+    align-self: stretch !important;
+    margin: 0 !important;
+    border-radius: 22px 22px 0 0 !important;
+  }
+}
