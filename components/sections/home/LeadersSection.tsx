@@ -57,7 +57,7 @@ const creativeTeam: CreativeMember[] = [
   { slug: 'rubakh', name: 'Rubakh', role: 'Software Engineer', img: '/team/cutout-rubakh-v2.png', x: '47.2%', y: '-4.4%', label: 'right', lx: '72%', w: '13.7cqw' },
   { slug: 'tafseer', name: 'Tafseer', role: 'Full Stack Developer', img: '/team/cutout-tafseer.png', x: '82.5%', y: '19.2%', label: 'left', lx: '20%', w: '14.7cqw' },
   { slug: 'talha', name: 'Faisal Tayyab', role: 'Backend Developer', img: '/team/cutout-talha.png', x: '29%', y: '64.2%', label: 'right', lx: '75%', w: '14.1cqw' },
-  { slug: 'alishba-mustafa', name: 'Alishba Mustafa', role: 'Full Stack Developer', img: '/team/Alishba.jpeg', x: '57%', y: '54%', label: 'right', lx: '74%', w: '14.2cqw' },
+  { slug: 'alishba-mustafa', name: 'Alishba Mustafa', role: 'Full Stack Developer', img: '/team/alishba%20mustafa.png', x: '57%', y: '54%', label: 'right', lx: '74%', w: '14.2cqw' },
 ];
 
 const partner: LeaderCard = {
