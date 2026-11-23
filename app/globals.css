@@ -1151,6 +1151,22 @@ textarea.finput{resize:vertical;min-height:115px}
 .phero-inner .hero-title .gtxt,
 .phero-inner h1 .gtxt,
 .phero-inner h2 .gtxt{color:var(--a1)}
+.team-member-phero .hero-title,
+.team-member-phero .hero-title a {
+  color: #0876d1 !important;
+  -webkit-text-fill-color: #0876d1 !important;
+}
+.team-member-phero .hero-sub,
+.team-member-phero .phero-inner p {
+  color: #496b88 !important;
+}
+.team-member-phero .breadcrumb-item,
+.team-member-phero .breadcrumb-item.active {
+  color: #496b88 !important;
+}
+.team-member-phero .phero-inner .stag {
+  color: #0876d1 !important;
+}
 .phero-inner p,
 .phero-inner .hero-sub{color:#CBD6E3!important}
 .phero-inner .breadcrumb-item{color:#AEBBCB}
