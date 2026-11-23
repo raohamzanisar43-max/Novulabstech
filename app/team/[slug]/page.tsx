@@ -167,9 +167,15 @@ export default async function TeamProfilePage({ params }: PageProps) {
               <h2 className="stitle" style={{ fontSize: '1.8rem' }}>
                 About {member.name.split(' ')[0]}
               </h2>
-              <p className="mt-3" style={{ fontSize: 'var(--step-0)', lineHeight: 1.78 }}>
-                {member.longBio}
-              </p>
+              {member.longBio.split(/\n\s*\n/).map((paragraph, index) => (
+                <p
+                  className="mt-3"
+                  style={{ fontSize: 'var(--step-0)', lineHeight: 1.78 }}
+                  key={`${member.slug}-bio-${index}`}
+                >
+                  {paragraph}
+                </p>
+              ))}
 
               <h3 className="mt-5" style={{ fontSize: '1.15rem' }}>
                 Areas of focus
