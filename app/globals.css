@@ -5772,6 +5772,8 @@ footer .ft-logo + span {
 .creative-leader-card:hover { transform: translateY(-7px); }
 .creative-leader-card img { width: 100%; height: 100%; object-fit: contain; object-position: center bottom; }
 .creative-leader-card span { position: absolute; inset: auto 0 0; padding: 28px 10px 8px; background: linear-gradient(transparent, rgba(0,35,100,.92)); }
+.creative-leader-card span a { display: block; color: inherit; text-decoration: none; }
+.creative-leader-card span a:hover, .creative-leader-card span a:focus-visible { text-decoration: underline; }
 .creative-leader-card strong, .creative-leader-card small { display: block; line-height: 1.2; }
 .creative-leader-card strong { font-size: .78rem; }
 .creative-leader-card small { margin-top: 3px; font-size: .62rem; }

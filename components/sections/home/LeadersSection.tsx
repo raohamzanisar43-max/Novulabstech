@@ -25,12 +25,19 @@ const leaderCardImages: Record<string, string> = {
   'hanzla-bin-haleem': '/team/hanzala-card.jpg',
 };
 
+const leaderLinkedIn: Record<string, string> = {
+  'muneeb-ali-jaffari': 'https://www.linkedin.com/in/moneeb-ali-jaffari-cams-acbi-39ba59116/',
+  'fatima-nisar': 'https://www.linkedin.com/in/fatima-nisar-525801251/',
+  'hanzla-bin-haleem': 'https://www.linkedin.com/in/hanzlahaleem9211/',
+};
+
 type LeaderCard = {
   key: string;
   img: string;
   alt: string;
   name: string;
   role: string;
+  linkedin?: string;
 };
 
 /** Render each word separately so labels can be revealed in sequence. */
@@ -68,6 +75,7 @@ const LeadersSection: React.FC = () => {
     alt: member.imgAlt,
     name: member.name,
     role: member.role,
+    linkedin: leaderLinkedIn[member.slug],
   }));
   // The partner sits between the first two profile cards.
   const leaders: LeaderCard[] = [profiles[0], partner, ...profiles.slice(1)];
@@ -92,7 +100,6 @@ const LeadersSection: React.FC = () => {
         </div>
 
         <div className="creative-leaders">
-          {/* Display-only cards: the leaders are not linked to individual profile pages. */}
           {leaders.map((leader) => (
             <div className="creative-leader-card" key={leader.key}>
               <Image
@@ -103,7 +110,21 @@ const LeadersSection: React.FC = () => {
                 quality={100}
                 sizes="(max-width: 700px) 50vw, 420px"
               />
-              <span><strong>{leader.name}</strong><small>{leader.role}</small></span>
+              <span>
+                {leader.linkedin ? (
+                  <a
+                    href={leader.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${leader.name} LinkedIn profile`}
+                  >
+                    <strong>{leader.name}</strong>
+                  </a>
+                ) : (
+                  <strong>{leader.name}</strong>
+                )}
+                <small>{leader.role}</small>
+              </span>
             </div>
           ))}
         </div>
