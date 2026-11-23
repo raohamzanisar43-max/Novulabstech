@@ -228,7 +228,7 @@ export const teamMembers: TeamMemberProfile[] = [
     imgAlt: 'Fatima Nisar, Branch Head at NovuLabs',
     bio: 'Leads branch operations and helps keep client delivery organised and connected.',
     longBio:
-      'Fatima leads branch operations at NovuLabs, helping keep teams coordinated and client delivery moving smoothly.',
+      'Fatima Nisar is a branch operations leader focused on team coordination, organisational effectiveness, and dependable client delivery. As Branch Head at NovuLabs, she helps connect people, processes, and priorities so that the organisation can operate with clarity and consistency.\n\nHer work brings together operational planning, internal communication, team support, and day-to-day delivery oversight. By keeping teams aligned and ensuring that important details move between the right people at the right time, she helps create a working environment where projects can progress smoothly and clients receive a consistent experience.\n\nFatima\'s leadership approach is centred on collaboration, accountability, operational excellence, and building strong relationships across the organisation. Her focus is on creating sustainable processes and supporting teams that can deliver meaningful value to clients and partners.',
     skills: ['Branch operations', 'Team coordination', 'Client delivery'],
     credentials: [],
     knowsAbout: ['Branch operations', 'Team coordination', 'Client delivery'],
@@ -239,9 +239,9 @@ export const teamMembers: TeamMemberProfile[] = [
     role: 'Business Developer',
     img: '/team/hanzla-bin-haleem.jpeg',
     imgAlt: 'Hanzla bin Haleem, Business Developer at NovuLabs',
-    bio: 'Builds relationships with prospective clients and helps connect their needs with the right NovuLabs team.',
+    bio: 'Identifies prospective clients, understands their software needs, and connects them with the right NovuLabs team.',
     longBio:
-      'Hanzla bin Haleem works in business development at NovuLabs, helping prospective clients understand how the team can support their software and technology goals.',
+      'Hanzla bin Haleem is a business development professional focused on client relationships, market development, and connecting organisations with technology solutions that address their real business needs. As Business Developer at NovuLabs, he helps prospective clients understand how the right software strategy can support growth, efficiency, and long-term transformation.\n\nHis work combines opportunity development, relationship building, needs discovery, and clear communication between clients and the NovuLabs delivery team. By listening carefully to operational challenges and understanding the goals behind each enquiry, he helps shape conversations that are practical, transparent, and aligned with the client\'s priorities.\n\nHanzla\'s approach to business development is built on trust, responsiveness, and creating lasting partnerships. His focus is on understanding each organisation\'s direction, introducing the right expertise at the right stage, and helping turn promising conversations into sustainable business relationships.',
     skills: ['Business development', 'Client relationships', 'Partnerships'],
     credentials: [],
     knowsAbout: ['Business development', 'Client relationships', 'Partnerships'],
