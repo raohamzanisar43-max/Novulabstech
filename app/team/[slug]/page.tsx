@@ -125,7 +125,11 @@ export default async function TeamProfilePage({ params }: PageProps) {
           />
           <span className="stag">{member.role}</span>
           <h1 className="hero-title mt-3" style={{ fontSize: '2.6rem' }}>
-            {member.name}
+            {member.linkedin ? (
+              <a className="profile-name-link" href={member.linkedin} target="_blank" rel="noopener noreferrer me" aria-label={`${member.name} LinkedIn profile`}>
+                {member.name}
+              </a>
+            ) : member.name}
           </h1>
           <p className="hero-sub">{member.bio}</p>
         </div>
@@ -146,7 +150,11 @@ export default async function TeamProfilePage({ params }: PageProps) {
                   style={{ borderRadius: '50%', margin: '0 auto', objectFit: 'cover' }}
                 />
                 <h2 className="mt-4" style={{ fontSize: '1.25rem' }}>
-                  {member.name}
+                  {member.linkedin ? (
+                    <a className="profile-name-link" href={member.linkedin} target="_blank" rel="noopener noreferrer me" aria-label={`${member.name} LinkedIn profile`}>
+                      {member.name}
+                    </a>
+                  ) : member.name}
                 </h2>
                 <p style={{ color: 'var(--tx3)', fontSize: '.9rem' }}>{member.role}</p>
 

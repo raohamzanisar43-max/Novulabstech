@@ -209,6 +209,7 @@ export const teamMembers: TeamMemberProfile[] = [
     role: 'CEO & Founder',
     img: '/team/moneeb.png',
     imgAlt: 'Moneeb Ali Jaffari, CEO and Founder of NovuLabs',
+    linkedin: 'https://www.linkedin.com/in/moneeb-ali-jaffari-cams-acbi-39ba59116/',
     bio: 'Sets the commercial direction and takes the first technical call on most enterprise engagements.',
     longBio:
       'Moneeb Ali Jaffari is a visionary business leader, technology entrepreneur, and financial crime compliance professional with extensive experience in organizational leadership, regulatory compliance, risk management, and business transformation.\n\nAs the Founder and Group Executive Chairman, he brings together strategic vision, industry expertise, and an innovation-driven mindset to build technology solutions and businesses that address evolving global market needs. With a strong professional background in Anti-Money Laundering (AML), Countering the Financing of Terrorism (CFT), financial crime compliance, and regulatory governance, he has developed valuable expertise in leading compliance functions and managing organizational risks.\n\nHolding internationally recognized professional credentials, including Certified Anti-Money Laundering Specialist (CAMS) and Associate Chartered Banker (ACBI), Moneeb combines financial industry knowledge with an entrepreneurial approach to technology and business development.\n\nHis leadership philosophy focuses on innovation, strategic execution, operational excellence, and building sustainable organizations that create meaningful value for clients, partners, and stakeholders.',
@@ -226,6 +227,7 @@ export const teamMembers: TeamMemberProfile[] = [
     role: 'Branch Head',
     img: '/team/fatima-nisar.jpeg',
     imgAlt: 'Fatima Nisar, Branch Head at NovuLabs',
+    linkedin: 'https://www.linkedin.com/in/fatima-nisar-525801251/',
     bio: 'Leads branch operations and helps keep client delivery organised and connected.',
     longBio:
       'Fatima Nisar is a branch operations leader focused on team coordination, organisational effectiveness, and dependable client delivery. As Branch Head at NovuLabs, she helps connect people, processes, and priorities so that the organisation can operate with clarity and consistency.\n\nHer work brings together operational planning, internal communication, team support, and day-to-day delivery oversight. By keeping teams aligned and ensuring that important details move between the right people at the right time, she helps create a working environment where projects can progress smoothly and clients receive a consistent experience.\n\nFatima\'s leadership approach is centred on collaboration, accountability, operational excellence, and building strong relationships across the organisation. Her focus is on creating sustainable processes and supporting teams that can deliver meaningful value to clients and partners.',
@@ -239,6 +241,7 @@ export const teamMembers: TeamMemberProfile[] = [
     role: 'Business Developer',
     img: '/team/hanzla-bin-haleem.jpeg',
     imgAlt: 'Hanzla bin Haleem, Business Developer at NovuLabs',
+    linkedin: 'https://www.linkedin.com/in/hanzlahaleem9211/',
     bio: 'Identifies prospective clients, understands their software needs, and connects them with the right NovuLabs team.',
     longBio:
       'Hanzla bin Haleem is a business development professional focused on client relationships, market development, and connecting organisations with technology solutions that address their real business needs. As Business Developer at NovuLabs, he helps prospective clients understand how the right software strategy can support growth, efficiency, and long-term transformation.\n\nHis work combines opportunity development, relationship building, needs discovery, and clear communication between clients and the NovuLabs delivery team. By listening carefully to operational challenges and understanding the goals behind each enquiry, he helps shape conversations that are practical, transparent, and aligned with the client\'s priorities.\n\nHanzla\'s approach to business development is built on trust, responsiveness, and creating lasting partnerships. His focus is on understanding each organisation\'s direction, introducing the right expertise at the right stage, and helping turn promising conversations into sustainable business relationships.',
