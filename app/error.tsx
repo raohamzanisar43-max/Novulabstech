@@ -27,7 +27,8 @@ export default function Error({
     // Console only. There is no error-reporting service wired up on this site;
     // adding one is a decision with a data-processing implication in a
     // regulated context, so it is not made here by default.
-    console.error('Route error:', error);
+    const detail = error instanceof Error ? error.message : 'Unknown route error';
+    console.warn('Route error:', detail);
   }, [error]);
 
   return (

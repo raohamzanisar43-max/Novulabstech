@@ -71,7 +71,12 @@ const HeroSection: React.FC = () => {
 
   const fallbackToLocalVideo = (event: React.SyntheticEvent<HTMLVideoElement>) => {
     const video = event.currentTarget;
-    if (video.src === REMOTE_VIDEO_URL) return;
+    if (video.dataset.fallbackAttempted === 'true') {
+      video.pause();
+      video.style.visibility = 'hidden';
+      return;
+    }
+    video.dataset.fallbackAttempted = 'true';
     video.src = REMOTE_VIDEO_URL;
     video.load();
     void video.play().catch(() => undefined);

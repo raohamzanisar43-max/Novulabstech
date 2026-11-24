@@ -249,4 +249,18 @@ export const teamMembers: TeamMemberProfile[] = [
     credentials: [],
     knowsAbout: ['Business development', 'Client relationships', 'Partnerships'],
   },
+  {
+    slug: 'hamza-nisar',
+    name: 'Hamza Nisar',
+    role: 'Tech Lead',
+    img: '/team/hamza-nisar.png',
+    imgAlt: 'Hamza Nisar, Tech Lead at NovuLabs',
+    linkedin: 'https://www.linkedin.com/in/raohamzanisar/',
+    bio: 'Leads technical execution and helps turn product requirements into dependable software systems.',
+    longBio:
+      'Hamza Nisar is a Tech Lead at NovuLabs, focused on turning product requirements into dependable software systems. He helps guide technical execution, keep engineering work aligned with business needs, and support the team through the decisions that shape a project.\n\nHis work sits at the intersection of software design, implementation, code quality, and delivery. By bringing structure to technical discussions and keeping attention on maintainability, performance, and real-world use, he helps teams move from an idea to a system that can be supported over time.\n\nHamza\'s approach is centred on practical engineering, clear communication, and shared ownership. As Tech Lead, he contributes to the technical direction of projects while helping create a collaborative environment in which engineers can solve problems carefully and deliver with confidence.',
+    skills: ['Technical leadership', 'Software architecture', 'Engineering delivery'],
+    credentials: [],
+    knowsAbout: ['Technical leadership', 'Software architecture', 'Engineering delivery'],
+  },
 ];

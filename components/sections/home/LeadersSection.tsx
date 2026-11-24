@@ -29,6 +29,7 @@ const leaderLinkedIn: Record<string, string> = {
   'muneeb-ali-jaffari': 'https://www.linkedin.com/in/moneeb-ali-jaffari-cams-acbi-39ba59116/',
   'fatima-nisar': 'https://www.linkedin.com/in/fatima-nisar-525801251/',
   'hanzla-bin-haleem': 'https://www.linkedin.com/in/hanzlahaleem9211/',
+  'hamza-nisar': 'https://www.linkedin.com/in/raohamzanisar/',
 };
 
 type LeaderCard = {
@@ -61,11 +62,11 @@ const creativeTeam: CreativeMember[] = [
 ];
 
 const partner: LeaderCard = {
-  key: 'chen-wei',
-  img: '/team/chen-wei-partner.jpg',
-  alt: 'Chen Wei, Partner (Director) at NovuLabs',
-  name: 'Chen Wei',
-  role: 'Partner (Director)',
+  key: 'hamza-nisar',
+  img: '/team/hamza-nisar.png',
+  alt: 'Hamza Nisar, Tech Lead at NovuLabs',
+  name: 'Hamza Nisar',
+  role: 'Tech Lead',
 };
 
 /** Homepage creative team section. Team data stays in content/siteData.ts. */
