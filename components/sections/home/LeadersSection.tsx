@@ -154,7 +154,7 @@ const LeadersSection: React.FC = () => {
             >
               <span className="creative-team-photo-wrap">
                 <Image
-                  className="creative-team-photo"
+                  className={`creative-team-photo${member.slug === 'alishba-mustafa' ? ' creative-team-photo-blend' : ''}`}
                   src={member.img}
                   alt={`${member.name}, ${member.role}`}
                   width={400}

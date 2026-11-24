@@ -5886,6 +5886,7 @@ footer .ft-logo + span {
 .creative-team-photo-wrap { position: relative; z-index: 0; display: block; clip-path: inset(-40% -40% 0 -40%); }
 .creative-team-member:hover .creative-team-photo-wrap { z-index: 2; }
 .creative-team-photo { display: block; width: 100%; height: auto; transform-origin: 50% 100%; transition: transform .5s cubic-bezier(.22,1,.36,1), filter .5s ease; filter: drop-shadow(0 6px 5px rgba(0,0,0,.2)); -webkit-mask-image: linear-gradient(#000 78%, transparent); mask-image: linear-gradient(#000 78%, transparent); }
+.creative-team-photo-blend { mix-blend-mode: multiply; }
 .creative-team-member:hover .creative-team-photo { transform: translateY(-4%) scale(1.05); filter: drop-shadow(0 14px 12px rgba(0,0,0,.28)); }
 .creative-team-stage[data-reveal='is-visible'] .creative-team-photo { animation: ct-emerge 1.1s cubic-bezier(.22,1,.36,1) var(--d) backwards; }
 .creative-team-stage[data-reveal='is-visible'] .creative-team-cap .w { animation: ct-word .45s ease-out calc(var(--d) + .85s + var(--w, 0) * .17s) backwards; }
